@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prípravy Inšpirácie</title>
+<style>
+  :root {
+    --bg: #121212;
+    --bg-soft: #1b1613;
+    --border: #2c2521;
+    --text: #f2ece6;
+    --text-dim: #b0a59a;
+    --accent: #e8a0ab;
+    --accent-soft: #e3c1a1;
+    --card-light: #f7f1ea;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6vw;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+
+  header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  header .brand .logo-badge {
+    background: #fff;
+    border-radius: 8px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  header .brand .logo-badge img {
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+
+  header .brand span {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  header nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 32px;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  header nav a:hover { color: var(--accent); }
+
+  section {
+    padding: 140px 6vw 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 48px;
+    padding-top: 120px;
+  }
+
+  .hero p.kicker {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .hero p.desc {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    max-width: 560px;
+    margin-bottom: 40px;
+  }
+
+  .hero .cta {
+    display: inline-flex;
+    gap: 16px;
+  }
+
+  .hero-visual {
+    background: var(--card-light);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(232, 160, 171, 0.12);
+    border: 1px solid var(--accent-soft);
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #201512;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .btn-secondary:hover { border-color: var(--accent-soft); }
+
+  h2.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  h3.subhead {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 40px 0 16px;
+    color: var(--accent-soft);
+  }
+
+  .section-kicker {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+
+  .lead {
+    color: var(--text-dim);
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+  }
+
+  .gallery figure {
+    background: var(--card-light);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid var(--accent-soft);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .gallery figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(232, 160, 171, 0.15);
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 6vw;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 800px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo-badge">
+      <img src="KH/Titulka.jpg" alt="Logo - Pani učiteľka">
+    </div>
+    <span>Prípravy Inšpirácie</span>
+  </div>
+  <nav>
+    <a href="#about">O mne</a>
+    <a href="#ponuka">Ponuka</a>
+    <a href="#ukazky">Ukážky</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div>
+    <p class="kicker">Materiály pre materské školy</p>
+    <h1>Prípravy Inšpirácie</h1>
+    <p class="desc">
+      Predávam podklady pre učiteľky materských škôl — cez Facebook aj e-mailom.
+      Pravidelne vytváram nové súbory k aktuálnym témam a k danému obdobiu pripájam
+      aj rozprávky, ktoré materiály oživia.
+    </p>
+    <div class="cta">
+      <a href="#ponuka" class="btn btn-primary">Pozrieť ponuku</a>
+      <a href="#kontakt" class="btn btn-secondary">Kontakt</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="KH/Logo.jpg" alt="Prípravy Inšpirácie - titulná ilustrácia">
+  </div>
+</section>
+
+<section id="about">
+  <p class="section-kicker">O mne</p>
+  <h2 class="section-title">Čo robím</h2>
+  <p class="lead">
+    Tvorím tematické podklady pre materské školy — pracovné listy, aktivity a doplnkové
+    materiály viazané na aktuálne obdobie a sviatky. K väčšine tém pridávam aj krátke
+    rozprávky, ktoré si učiteľky môžu priamo použiť v triede. Nové súbory pribúdajú
+    pravidelne, takže ponuka sa priebežne rozširuje.
+  </p>
+</section>
+
+<section id="ponuka">
+  <p class="section-kicker">Ponuka</p>
+  <h2 class="section-title">Čím môžem pomôcť</h2>
+  <p class="lead">Prehľad toho, čo v Prípravách Inšpirácie nájdeš.</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Tematické podklady</h3>
+      <p>Pracovné listy a aktivity k aktuálnym témam pre materské školy.</p>
+    </div>
+    <div class="card">
+      <h3>Rozprávky k obdobiu</h3>
+      <p>Krátke rozprávky doplňujúce danú tému alebo ročné obdobie.</p>
+    </div>
+    <div class="card">
+      <h3>Pravidelné novinky</h3>
+      <p>Nové súbory pribúdajú priebežne — sledujte Facebook alebo e-mail.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ukazky">
+  <p class="section-kicker">Materská škôlka</p>
+  <h2 class="section-title">Ukážky materiálov</h2>
+  <p class="lead">Náhľady tematických podkladov z aktuálnej ponuky.</p>
+
+  <h3 class="subhead">Exotické zvieratká</h3>
+  <div class="gallery">
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká.png" alt="Exotické zvieratká"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká (1).png" alt="Exotické zvieratká 1"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká (2).png" alt="Exotické zvieratká 2"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká - 44.png" alt="Exotické zvieratká 44"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká - 67.png" alt="Exotické zvieratká 67"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká - 68.png" alt="Exotické zvieratká 68"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_1.png" alt="Exotické zvieratká 1b"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_2.png" alt="Exotické zvieratká 2b"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_3.png" alt="Exotické zvieratká 3b"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_4.png" alt="Exotické zvieratká 4b"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_5.png" alt="Exotické zvieratká 5b"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_6.png" alt="Exotické zvieratká 6b"></figure>
+    <figure><img loading="lazy" src="KH/Exotické Z/Exotické zvieratká_7.png" alt="Exotické zvieratká 7b"></figure>
+  </div>
+
+  <h3 class="subhead">Hospodárske zvieratká</h3>
+  <div class="gallery">
+    <figure><img loading="lazy" src="KH/Hospodárske zvieratká/54733052-9CED-47B5-BA8A-E9148134C1ED.png" alt="Hospodárske zvieratká 1"></figure>
+    <figure><img loading="lazy" src="KH/Hospodárske zvieratká/82459DDA-FC01-41B9-8DCF-7D5FF1948EF0.png" alt="Hospodárske zvieratká 2"></figure>
+    <figure><img loading="lazy" src="KH/Hospodárske zvieratká/83A8056A-4C77-4F20-BBEC-11DCED19C513.png" alt="Hospodárske zvieratká 3"></figure>
+    <figure><img loading="lazy" src="KH/Hospodárske zvieratká/IMG_9699.PNG" alt="Hospodárske zvieratká 4"></figure>
+    <figure><img loading="lazy" src="KH/Hospodárske zvieratká/IMG_9710.PNG" alt="Hospodárske zvieratká 5"></figure>
+    <figure><img loading="lazy" src="KH/Hospodárske zvieratká/IMG_9806.PNG" alt="Hospodárske zvieratká 6"></figure>
+  </div>
+
+  <h3 class="subhead">Balíčky a témy</h3>
+  <div class="gallery">
+    <figure><img loading="lazy" src="KH/karta1_30megasuborov.jpg" alt="Balík 30 mega súborov"></figure>
+    <figure><img loading="lazy" src="KH/karta2_leto_zima.jpg" alt="Téma leto - zima"></figure>
+    <figure><img loading="lazy" src="KH/karta3_jar_zeme.jpg" alt="Téma jar - zem"></figure>
+    <figure><img loading="lazy" src="KH/karta4_skolka_vesmír.jpg" alt="Téma škôlka - vesmír"></figure>
+    <figure><img loading="lazy" src="KH/BALÍKY.png" alt="Balíky materiálov"></figure>
+    <figure><img loading="lazy" src="KH/balik.jpg" alt="Balík materiálov"></figure>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <p>Chceš nové podklady alebo máš otázku? Ozvi sa cez Facebook alebo e-mail.</p>
+  <p style="margin-top:8px;">
+    <a href="mailto:filiphacko2@gmail.com">filiphacko2@gmail.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prípravy Inšpirácie — Plány a materiály pre MŠ a ZŠ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF4EF;
+    --surface:#FFFFFF;
+    --ink:#2E2622;
+    --muted:#8A7A72;
+    --rose:#E8628C;
+    --rose-light:#F3AFC7;
+    --blush:#EAD3C3;
+    --sky:#C7E2EA;
+    --border:#EEE1D8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    font-weight:300;
+    line-height:1.7;
+  }
+  .script{font-family:'Dancing Script',cursive;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* SOCIAL ICONS */
+  .social{display:flex;gap:10px;align-items:center;}
+  .social a{
+    width:34px;height:34px;border-radius:50%;background:var(--blush);
+    display:flex;align-items:center;justify-content:center;color:var(--ink);
+    transition:all .2s;flex-shrink:0;
+  }
+  .social a:hover{background:var(--rose);color:#fff;transform:translateY(-2px);}
+  .social svg{width:16px;height:16px;fill:currentColor;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,244,239,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.3rem;font-weight:600;white-space:nowrap;}
+  .brand .heart{color:var(--rose-light);}
+  .brand-avatar{
+    width:38px;height:38px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--rose-light);flex-shrink:0;
+  }
+  .navlinks{display:flex;gap:32px;font-size:0.95rem;letter-spacing:.02em;}
+  .navlinks a{position:relative;padding-bottom:4px;transition:color .2s;}
+  .navlinks a:hover{color:var(--rose);}
+  .nav-right{display:flex;align-items:center;gap:26px;}
+
+  /* HERO */
+  .hero{
+    padding:90px 0 70px;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rose);margin-bottom:18px;font-weight:500;
+  }
+  .hero h1{
+    font-family:'Dancing Script',cursive;
+    font-weight:700;
+    font-size:4.2rem;
+    line-height:1;
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+  .hero p.lead{
+    font-size:1.08rem;color:var(--muted);max-width:480px;margin-bottom:34px;
+  }
+  .btnrow{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 30px;border-radius:40px;font-size:0.92rem;
+    letter-spacing:.03em;transition:all .25s;border:none;font-family:inherit;cursor:pointer;
+  }
+  .btn-primary{background:var(--rose);color:#fff;}
+  .btn-primary:hover{background:#d84e7d;transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);background:none;}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+
+  .hero-visual{
+    position:relative;
+    display:flex;justify-content:center;
+  }
+  .hero-visual .arch{
+    width:100%;max-width:380px;
+    border-radius:220px 220px 24px 24px;
+    overflow:hidden;
+    background:var(--blush);
+    box-shadow:0 30px 60px -20px rgba(46,38,34,.25);
+  }
+  .hero-visual .arch img{width:100%;height:100%;object-fit:cover;}
+  .dot{position:absolute;border-radius:50%;z-index:-1;}
+  .dot-1{width:120px;height:120px;background:var(--sky);top:-30px;right:10px;opacity:.7;}
+  .dot-2{width:70px;height:70px;background:var(--rose-light);bottom:20px;left:0;opacity:.7;}
+
+  /* SECTION HEADS */
+  .section{padding:80px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 50px;}
+  .section-head .eyebrow{display:block;}
+  .section-head h2{
+    font-size:2.2rem;font-weight:500;margin-bottom:14px;
+  }
+  .section-head p{color:var(--muted);font-size:0.98rem;}
+
+  /* ABOUT */
+  .about{background:var(--surface);}
+  .about .wrap{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:center;
+  }
+  .about-card{
+    background:var(--bg);border-radius:24px;padding:10px;
+  }
+  .about-card img{border-radius:18px;}
+  .about-text h2{font-size:2rem;font-weight:500;margin-bottom:18px;}
+  .about-text p{color:var(--muted);margin-bottom:16px;}
+  .about-social{display:flex;align-items:center;gap:14px;margin:20px 0 8px;}
+  .about-social span{font-size:0.85rem;color:var(--muted);}
+  .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:28px;}
+  .pillar{border-left:2px solid var(--rose-light);padding-left:14px;}
+  .pillar strong{display:block;font-weight:500;margin-bottom:4px;}
+  .pillar span{font-size:0.88rem;color:var(--muted);}
+
+  /* FILTER BAR */
+  .filter-bar{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;
+  }
+  .filter-pill{
+    background:#fff;border:1px solid var(--border);color:var(--muted);
+    padding:9px 20px;border-radius:30px;font-size:0.85rem;font-family:inherit;
+    cursor:pointer;transition:all .2s;letter-spacing:.01em;
+  }
+  .filter-pill:hover{border-color:var(--rose-light);color:var(--ink);}
+  .filter-pill.active{background:var(--rose);border-color:var(--rose);color:#fff;}
+  .filter-count{text-align:center;color:var(--muted);font-size:0.82rem;margin-bottom:24px;}
+  .product-card.hidden{display:none;}
+
+  /* SHOP GRID */
+  .shop-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:26px;
+  }
+  .product-card{
+    background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;
+  }
+  .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(46,38,34,.3);}
+  .product-card .thumb{
+    aspect-ratio:3/4;overflow:hidden;cursor:pointer;position:relative;background:var(--blush);
+  }
+  .product-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+  .product-card:hover .thumb img{transform:scale(1.06);}
+  .product-card .badge{
+    position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:var(--rose);
+    font-size:0.68rem;padding:4px 10px;border-radius:20px;font-weight:500;letter-spacing:.02em;
+  }
+  .product-card .count{
+    position:absolute;bottom:8px;right:10px;background:rgba(46,38,34,.55);
+    color:#fff;font-size:0.68rem;padding:2px 8px;border-radius:20px;
+  }
+  .product-card .info{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .product-card h4{font-size:0.95rem;font-weight:500;line-height:1.35;min-height:2.6em;}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;}
+  .price{font-weight:600;color:var(--ink);font-size:1.05rem;}
+  .buy-btn{
+    background:var(--rose);color:#fff;border:none;border-radius:30px;padding:9px 18px;
+    font-size:0.8rem;cursor:pointer;transition:background .2s;font-family:inherit;
+  }
+  .buy-btn:hover{background:#d84e7d;}
+
+  .more-note{
+    text-align:center;color:var(--muted);font-size:0.85rem;margin-top:34px;
+  }
+
+  /* LIGHTBOX */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(20,16,14,.92);
+    display:none;align-items:center;justify-content:center;z-index:200;
+    padding:30px;flex-direction:column;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-height:78vh;max-width:90vw;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lightbox .lb-close{
+    position:absolute;top:22px;right:30px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;
+  }
+  .lightbox .lb-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    color:#fff;font-size:2.4rem;cursor:pointer;padding:10px 18px;user-select:none;opacity:.75;
+    transition:opacity .2s;
+  }
+  .lightbox .lb-nav:hover{opacity:1;}
+  .lb-prev{left:10px;}
+  .lb-next{right:10px;}
+  .lb-caption{color:#eee;font-size:0.9rem;margin-top:14px;letter-spacing:.02em;text-align:center;}
+  .lb-desc{color:#bbb;font-size:0.85rem;margin-top:6px;text-align:center;max-width:520px;line-height:1.5;}
+  .lb-buy{margin-top:16px;}
+
+  /* MEMBERSHIP */
+  .membership-intro{text-align:center;max-width:640px;margin:0 auto 44px;}
+  .membership-badge{
+    display:inline-block;background:#fff;color:var(--rose);font-size:0.75rem;
+    letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;
+    font-weight:600;margin-bottom:18px;border:1px solid var(--rose-light);
+  }
+  .membership-intro h2{font-size:2.2rem;font-weight:500;margin-bottom:14px;}
+  .membership-intro p{color:var(--muted);}
+  .membership-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:800px;margin:0 auto;
+  }
+  .membership-grid-3{grid-template-columns:1fr 1fr 1fr;max-width:980px;}
+  .membership-grid-4{grid-template-columns:repeat(4,1fr);max-width:1140px;gap:20px;}
+
+  /* TIER ROWS (balíky s ilustráciou vedľa popisu) */
+  .tier-rows{display:flex;flex-direction:column;gap:24px;max-width:1000px;margin:0 auto;}
+  .tier-row{
+    display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:center;
+    background:#fff;border:1px solid var(--border);border-radius:24px;padding:24px;position:relative;
+  }
+  .tier-row.featured{border-color:var(--rose);box-shadow:0 20px 44px -28px rgba(232,98,140,.45);}
+  .tier-illustration{width:100%;border-radius:16px;object-fit:cover;aspect-ratio:3/4;}
+  .tier-content{display:flex;flex-direction:column;gap:10px;}
+  .tier-illustration{cursor:pointer;}
+  .tier-more{
+    align-self:flex-start;background:none;border:none;color:var(--rose);font-size:0.82rem;
+    font-family:inherit;cursor:pointer;text-decoration:underline;padding:0;
+  }
+
+  /* BALÍKY MODAL */
+  .balicky-modal{
+    position:fixed;inset:0;background:rgba(20,16,14,.75);z-index:250;
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .balicky-modal.open{display:flex;}
+  .balicky-modal-inner{
+    background:var(--bg);border-radius:20px;max-width:1000px;width:100%;max-height:88vh;
+    overflow-y:auto;display:grid;grid-template-columns:340px 1fr;gap:0;position:relative;
+  }
+  .balicky-modal-close{
+    position:absolute;top:14px;right:18px;font-size:1.8rem;cursor:pointer;color:var(--muted);
+    line-height:1;z-index:2;
+  }
+  .balicky-modal-close:hover{color:var(--ink);}
+  .balicky-modal-image{padding:24px;}
+  .balicky-modal-image img{width:100%;border-radius:14px;}
+  .balicky-modal-text{padding:32px 32px 32px 0;font-size:0.9rem;line-height:1.65;color:var(--ink);}
+  .balicky-modal-text h4{font-size:1.15rem;margin:20px 0 8px;color:var(--rose);}
+  .balicky-modal-text h4:first-child{margin-top:0;}
+  .balicky-modal-text p{margin-bottom:10px;color:#4a4038;}
+  .balicky-modal-text ul{margin:0 0 12px 20px;color:#4a4038;}
+  .balicky-modal-text li{margin-bottom:4px;}
+  .balicky-modal-text hr{border:none;border-top:1px solid var(--border);margin:18px 0;}
+  .balicky-modal-text .price-line{font-weight:600;color:var(--ink);}
+  .tier-modal-cta{display:inline-block;margin-top:8px;}
+  .plain-desc{white-space:pre-wrap;font-size:0.88rem;line-height:1.7;color:#4a4038;}
+  @media (max-width:760px){
+    .balicky-modal-inner{grid-template-columns:1fr;}
+    .balicky-modal-text{padding:0 24px 28px;}
+  }
+  .price-strike{
+    text-decoration:line-through;color:var(--muted);font-weight:400;font-size:1.1rem;
+    margin-right:8px;display:inline-block;
+  }
+  .tier-card{
+    background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px 32px;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .tier-card.featured{border-color:var(--rose);box-shadow:0 20px 44px -24px rgba(232,98,140,.45);}
+  .tier-flag{
+    position:absolute;top:-13px;right:28px;background:var(--rose);color:#fff;
+    font-size:0.68rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;
+    border-radius:20px;font-weight:600;
+  }
+  .tier-name{font-size:1.15rem;font-weight:600;margin-bottom:6px;}
+  .tier-price{font-size:2rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .tier-price span{font-size:0.95rem;font-weight:400;color:var(--muted);}
+  .tier-desc{color:var(--muted);font-size:0.88rem;margin-bottom:20px;}
+  .tier-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1;}
+  .tier-features li{
+    font-size:0.9rem;color:var(--ink);padding-left:24px;position:relative;
+  }
+  .tier-features li::before{
+    content:"✓";position:absolute;left:0;color:var(--rose);font-weight:600;
+  }
+  .tier-card .btn{width:100%;text-align:center;}
+  .membership-note{
+    text-align:center;color:var(--muted);font-size:0.85rem;margin-top:30px;
+  }
+
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  .faq-item{
+    background:#fff;border:1px solid var(--border);border-radius:16px;padding:6px 24px;
+  }
+  .faq-item summary{
+    cursor:pointer;padding:18px 0;font-weight:500;font-size:1rem;list-style:none;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";font-size:1.4rem;color:var(--rose);flex-shrink:0;transition:transform .2s;font-weight:300;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{color:var(--muted);font-size:0.92rem;padding-bottom:20px;margin-top:-6px;}
+
+  /* CONTACT */
+  .contact{background:var(--ink);color:#fff;border-radius:28px;margin:0 24px;padding:60px 40px;text-align:center;}
+  .contact h2{font-family:'Dancing Script',cursive;font-size:2.6rem;margin-bottom:14px;font-weight:700;}
+  .contact p{color:#cfc4bd;margin-bottom:24px;}
+  .contact .btn-primary{background:var(--rose);}
+  .contact .social{justify-content:center;margin-top:26px;}
+  .contact .social a{background:rgba(255,255,255,.12);color:#fff;}
+  .contact .social a:hover{background:var(--rose);}
+
+  footer{
+    text-align:center;padding:40px 20px;color:var(--muted);font-size:0.82rem;
+  }
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{order:-1;}
+    .hero h1{font-size:3.2rem;}
+    .about .wrap{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+    .membership-grid{grid-template-columns:1fr;}
+    .tier-row{grid-template-columns:1fr;}
+    .tier-illustration{aspect-ratio:4/3;max-width:280px;margin:0 auto;}
+  }
+  @media (min-width:861px) and (max-width:1080px){
+    .membership-grid-4{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <img class="brand-avatar" src="assets/Logo.jpg" alt="Prípravy Inšpirácie">
+      <span class="script">Prípravy</span><span class="heart">♥</span><span class="script">Inšpirácie</span>
+    </div>
+    <div class="navlinks">
+      <a href="#o-nas">O nás</a>
+      <a href="#produkty">Produkty</a>
+      <a href="#balicky">Balíky</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Materiály pre materské a základné školy</span>
+      <h1>Prípravy Inšpirácie</h1>
+      <p class="lead">Tvoríme prehľadné mesačné plány a vzdelávacie materiály pre materské a základné školy — pripravené na použitie, plné nápadov a ušetreného času pre učiteľov, ktorí chcú tráviť viac času s deťmi a menej pri príprave.</p>
+      <div class="btnrow">
+        <a href="#produkty" class="btn btn-primary">Pozrieť produkty</a>
+        <a href="#kontakt" class="btn btn-ghost">Napísať nám</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="dot dot-1"></div>
+      <div class="dot dot-2"></div>
+      <div class="arch"><img src="assets/Logo.jpg" alt="Prípravy Inšpirácie s deťmi"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="balicky">
+  <div class="wrap">
+    <div class="membership-intro">
+      <span class="membership-badge">Balíky pre MŠ</span>
+      <h2>Výhodné balíky</h2>
+      <p>Namiesto kupovania materiálov po jednom si vyberte celý balík — vždy s veľkou úsporou oproti bežnej cene.</p>
+    </div>
+    <div class="tier-rows">
+      <div class="tier-row">
+        <img class="tier-illustration" data-package="small" src="assets/balicky/small.jpg" alt="SMALL balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Small</div>
+          <div class="tier-price"><span class="price-strike">111 €</span> 40 € <span>/ balík</span></div>
+          <p class="tier-desc">2 793 strán materiálov · ušetríte 71 €</p>
+          <ul class="tier-features">
+            <li>11 megasúborov</li>
+            <li>2 týždenné projekty</li>
+            <li>5 rozprávkových E-bookov</li>
+            <li>Pracovné listy na rozvoj slovnej zásoby</li>
+            <li>Plagáty a pravidlá do škôlky</li>
+          </ul>
+          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" data-package="small" class="btn btn-ghost tier-cta">Mám záujem</a>
+        </div>
+      </div>
+      <div class="tier-row">
+        <img class="tier-illustration" data-package="medium" src="assets/balicky/medium.jpg" alt="MEDIUM balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Medium</div>
+          <div class="tier-price"><span class="price-strike">211 €</span> 69 € <span>/ balík</span></div>
+          <p class="tier-desc">4 826 strán materiálov · ušetríte 142 €</p>
+          <ul class="tier-features">
+            <li>19 megasúborov</li>
+            <li>4 týždenné projekty</li>
+            <li>8 rozprávkových E-bookov</li>
+            <li>2 balíky ranných kruhov s prílohami</li>
+            <li>Diplomy na koniec školského roka</li>
+            <li>Pravidlá a bezpečnosť v MŠ</li>
+          </ul>
+          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" data-package="medium" class="btn btn-ghost tier-cta">Mám záujem</a>
+        </div>
+      </div>
+      <div class="tier-row featured">
+        <span class="tier-flag">Odporúčané</span>
+        <img class="tier-illustration" data-package="large" src="assets/balicky/large.jpg" alt="LARGE balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Large</div>
+          <div class="tier-price"><span class="price-strike">350 €</span> 119 € <span>/ balík</span></div>
+          <p class="tier-desc">7 688 strán materiálov · ušetríte 231 €</p>
+          <ul class="tier-features">
+            <li>28 megasúborov</li>
+            <li>6 týždenných projektov</li>
+            <li>12 rozprávkových E-bookov</li>
+            <li>4 balíky ranných kruhov</li>
+            <li>150 hotových písomných príprav</li>
+            <li>Vianočné besiedky</li>
+          </ul>
+          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" data-package="large" class="btn btn-primary tier-cta">Mám záujem</a>
+        </div>
+      </div>
+      <div class="tier-row">
+        <img class="tier-illustration" data-package="premium" src="assets/balicky/premium.jpg" alt="PREMIUM balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Premium</div>
+          <div class="tier-price"><span class="price-strike">460 €</span> 149 € <span>/ balík</span></div>
+          <p class="tier-desc">10 159 strán materiálov · ušetríte 311 €</p>
+          <ul class="tier-features">
+            <li>Všetkých 35 megasúborov</li>
+            <li>Všetkých 7 týždenných projektov</li>
+            <li>Všetkých 16 rozprávkových E-bookov</li>
+            <li>Všetky 4 balíky ranných kruhov</li>
+            <li>Kompletný balík písomných príprav</li>
+            <li>Vianočné besiedky + 20 diplomov</li>
+          </ul>
+          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" data-package="premium" class="btn btn-ghost tier-cta">Mám záujem</a>
+        </div>
+      </div>
+    </div>
+    <p class="membership-note">Napíšte nám cez tlačidlo „Mám záujem" a pošleme vám presný zoznam materiálov v balíku.</p>
+  </div>
+</section>
+
+<section class="about" id="o-nas">
+  <div class="wrap">
+    <div class="about-card"><img src="assets/Titulka.jpg" alt="Prípravy Inšpirácie logo"></div>
+    <div class="about-text">
+      <span class="eyebrow">O nás</span>
+      <h2>Vitajte na našej oficiálnej webstránke</h2>
+      <p>Ponúkame kreatívne materiály, vzdelávacie aktivity a kompletné prípravy pre učiteľov materských a základných škôl. Zameriavame sa na aktuálne témy, ktoré pomáhajú zjednodušiť tvorbu vyučovacích hodín.</p>
+      <p>Nájdete nás aj na sociálnych sieťach — sledujte nás na Facebooku, Instagrame a TikToku.</p>
+      <div class="about-social">
+        <span>Sledujte nás:</span>
+        <div class="social">
+          <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><strong>Aktuálne témy</strong><span>Prípravy sú prispôsobené aktuálnemu dianiu a sezónnym témam.</span></div>
+        <div class="pillar"><strong>Kreatívne aktivity</strong><span>Nápady na tvorenie a učenie hrou pre deti MŠ a ZŠ.</span></div>
+        <div class="pillar"><strong>Vzdelávacie materiály</strong><span>Dostupná pomoc pre pedagógov pri plánovaní.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="produkty">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">E-shop</span>
+      <h2>Naše produkty</h2>
+      <p>Každý produkt nižšie je samostatný materiál pripravený na stiahnutie. Kliknutím na náhľad si pozriete ukážkové strany.</p>
+    </div>
+
+    <div class="filter-bar" id="filterBar"></div>
+    <p class="filter-count" id="filterCount"></p>
+    <div class="shop-grid" id="shopGrid"></div>
+    <p class="more-note">Cena každého produktu: 7,00 € · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Otázky</span>
+      <h2>Najčastejšie otázky</h2>
+      <p>Neviete si rady? Odpovede na najčastejšie otázky nájdete tu, alebo nám napíšte.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Ako produkt kúpim?</summary>
+        <p>Kliknite na tlačidlo „Kúpiť" pri produkte — otvorí sa vám e-mail s predvyplnenou objednávkou. Po odoslaní vám obratom odpovieme s pokynmi na platbu.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Ako prebieha platba?</summary>
+        <p>Platba prebieha bankovým prevodom na základe údajov, ktoré vám pošleme e-mailom po objednávke. Materiál vám odošleme hneď po prijatí platby.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Ako a kedy dostanem materiál po kúpe?</summary>
+        <p>Materiál vám pošleme e-mailom (PDF/JPG na tlač) zvyčajne do 24–48 hodín od prijatia platby.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Môžem si materiály vytlačiť viackrát?</summary>
+        <p>Áno, materiály sú určené na opakovanú tlač pre potreby vašej triedy či školy. Ich ďalší predaj alebo zdieľanie mimo vlastnej výučby nie je povolené.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Je možné vrátenie peňazí?</summary>
+        <p>Keďže ide o digitálny produkt dostupný ihneď po kúpe, peniaze po odoslaní materiálu štandardne nevraciame. Ak nastane problém s objednávkou, napíšte nám — radi to vyriešime.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Aký je rozdiel medzi balíkmi Small, Medium, Large a Premium?</summary>
+        <p>Balíky sa líšia rozsahom a cenou: Small (40 €, 2 793 strán), Medium (69 €, 4 826 strán), Large (119 €, 7 688 strán) a Premium (149 €, 10 159 strán, úplne celá naša knižnica). Presný zoznam materiálov v každom balíku nájdete v jeho popise vyššie.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Pridávate nové materiály pravidelne?</summary>
+        <p>Áno, knižnicu priebežne dopĺňame o nové sezónne a tematické materiály.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kontakt">
+  <div class="contact wrap">
+    <h2>Poďme spolupracovať</h2>
+    <p>Máte otázku k produktom alebo záujem o spoluprácu? Napíšte nám.</p>
+    <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com">Napísať e-mail</a>
+    <div class="social">
+      <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="lb-close" id="lbClose">&times;</span>
+  <span class="lb-nav lb-prev" id="lbPrev">&#8249;</span>
+  <img id="lbImg" src="" alt="Ukážka produktu">
+  <span class="lb-nav lb-next" id="lbNext">&#8250;</span>
+  <div class="lb-caption" id="lbCaption"></div>
+  <div class="lb-desc" id="lbDesc"></div>
+</div>
+
+<div class="balicky-modal" id="balickyModal">
+  <div class="balicky-modal-inner">
+    <span class="balicky-modal-close" id="balickyModalClose">&times;</span>
+    <div class="balicky-modal-image">
+      <img id="balickyModalImg" src="" alt="">
+    </div>
+    <div class="balicky-modal-text" id="balickyModalText"></div>
+  </div>
+</div>
+
+<script>
+  const products = [
+    {name:"Jesenný balík – Písomné prípravy", badge:"60 KS", images:[2,1], category:"Písomné prípravy", desc:"Kompletné písomné prípravy na jesenné mesiace pre materské školy."},
+    {name:"Vitaj v škôlke – Moje prvé dni", badge:"210 strán", images:["new/2","new/3","new/4","new/5","new/6"], category:"Megasúbory", desc:"Týždenný plán aktivít na privítanie detí v škôlke a ich prvé dni."},
+    {name:"Pravidlá a bezpečnosť v našej škôlke", badge:"183 strán", images:[5,6], category:"Megasúbory", desc:"Aktivity na osvojenie si pravidiel a bezpečného správania v škôlke."},
+    {name:"Hurá škôlka volá – rozprávky", badge:"166 strán", images:["rp/2","rp/3","rp/4"], category:"Rozprávky", desc:"15 edukačných adaptačných rozprávok pre prvé dni v škôlke.", fbText:`✨ HURÁ ŠKÔLKA VOLÁ ✨
+
+📚 15 edukačných adaptačných rozprávok
+📖 166 strán
+
+Deti zvládajú nové situácie oveľa ľahšie, keď ich spoznajú prostredníctvom láskavých príbehov. Presne preto vznikla táto e-kniha.
+
+Každá rozprávka pomáha dieťaťu zvládnuť jednu konkrétnu situáciu, s ktorou sa počas prvých dní v materskej škole stretne.
+
+💛 Čo všetko v e-knihe nájdete?
+
+☀️ Prvý deň v škôlke – pomáha prekonať strach z nástupu.
+👋 Ranné lúčenie – buduje pocit istoty, že sa rodičia vždy vrátia.
+🧸 Orientácia v triede – skrinka, značka, uterák, pohárik či posteľ.
+👕 Samostatné obliekanie – učí správny postup krok za krokom.
+👩 Rešpekt k pani učiteľke – vysvetľuje jej úlohu a buduje dôveru.
+⭐ Triedne pravidlá – pomáha pochopiť, prečo sú dôležité.
+🏡 Spoznávanie celej škôlky – odstraňuje strach z neznámeho prostredia.
+👩‍🍳 Zamestnanci škôlky – deti sa naučia, kto sa o nich počas dňa stará.
+🍎 Stolovanie – správne správanie a samostatnosť pri jedle.
+😴 Oddych po obede – vytvára pozitívny vzťah k odpočinku.
+🖌️ Poriadok a upratovanie – učí zodpovednosti a spolupráci.
+❤️ Kamarátstvo – rozvíja empatiu, rešpekt a vzájomnú pomoc.
+🌳 Bezpečné hry na školskom dvore.
+🐕 Bezpečné správanie počas vychádzok.
+👨‍👩‍👧‍👦 Spolupráca rodičov a materskej školy.
+
+Rozprávky sú napísané tak, aby deti pravidlá pochopili, nie sa ich len naučili naspamäť. Vďaka príbehom si prirodzene budujú pocit bezpečia, samostatnosť, sebadôveru aj pozitívny vzťah k materskej škole.`},
+    {name:"Hurááá škôlka volá", badge:"100 strán", images:["new/8","new/9","new/10","new/11"], category:"Megasúbory", desc:"Materiály na privítanie a rozlúčku so školským rokom v škôlke."},
+    {name:"Čarovná jeseň – rozprávky", badge:"166 strán", images:["rp/6"], category:"Rozprávky", desc:"Jesenné rozprávky pre materské školy."},
+    {name:"Rodina", badge:"100 strán", images:["new/12","new/13","new/14","new/15","new/16"], category:"Megasúbory", desc:"Aktivity a pracovné listy na tému rodiny a blízkych."},
+    {name:"Profesie", badge:"104 strán", images:["new/17","new/18","new/19","new/20"], category:"Megasúbory", desc:"Pracovné listy a aktivity na spoznávanie rôznych profesií a povolaní."},
+    {name:"Mesto a dedina", badge:"102 strán", images:["new/21","new/22","new/23","new/24","new/25"], category:"Megasúbory", desc:"Materiály na spoznávanie rozdielov medzi mestom a dedinou."},
+    {name:"Deň mlieka", badge:"78 strán", images:["new/26","new/27","new/28","new/29","new/30"], category:"Megasúbory", desc:"Aktivity a pracovné listy pri príležitosti Svetového dňa mlieka."},
+    {name:"Doprava", badge:"132 strán", images:["new/35","new/36","new/37","new/38","new/39","new/40"], category:"Megasúbory", desc:"Kompletný materiál na tému dopravy a dopravnej výchovy."},
+    {name:"Pohybové hry – 70 aktivít", badge:"70 aktivít", images:["new/41","new/42","new/43"], category:"Pohybové hry", desc:"70 pohybových hier a aktivít pre celý školský rok."},
+    {name:"Medvedík Labka", badge:"162 strán", images:["rp/10","rp/11","rp/12","rp/13"], category:"Rozprávky", desc:"14 edukačných rozprávok o vlastnostiach vecí s medvedíkom Labkom a Bubkou.", fbText:`✨ MEDVEDÍK LABKA A ZVEDAVÁ BUBKA – VLASTNOSTI VŠETKÝCH VECÍ ✨
+🖍️ 14 edukačných rozprávok | 162 strán
+
+Edukačná rozprávková e-kniha pre pani učiteľky aj pre rodičov 🌸
+– rozprávky, ktoré hravou formou približujú deťom vlastnosti predmetov okolo nás
+– prepájajú príbeh + poznávanie sveta + emócie, spoluprácu a láskavé učenie
+– podporujú zvedavosť, logické myslenie, triedenie, porovnávanie a pomenovávanie javov
+– vhodné na ranný kruh, tematické celky, riadené činnosti aj rozhovory s deťmi 🧩
+
+✨ Čo deti v rozprávkach objavia?
+• že veci majú rôzne tvary – guľaté, hranaté, veľké aj malé
+• že farby sa dajú spoznávať, miešať aj správne používať
+• rozdiel medzi mäkkým a tvrdým, hladkým a drsným povrchom
+• že predmety môžu byť ťažké alebo ľahké a každé sa správa inak
+• ako sa líšia prírodné a umelé materiály (drevo, plast, sklo…)
+• že teplo a chlad menia vlastnosti vecí
+• čo znamená priehľadné a nepriehľadné
+• že každá vec má svoje miesto, využitie a potrebuje starostlivosť
+
+📖 Rozprávky v knihe:
+1. Gulička, kocka a veľké hľadanie tvarov
+2. Farebný deň, ktorý zrazu zošedel
+3. Malé, menšie a najmenšie tajomstvo skrine
+4. Mäkký vankúšik a tvrdá stolička
+5. Hladké a drsné dobrodružstvo v kúpeľni
+6. Drevený vláčik a plastové prekvapenie
+7. Ťažké kamene a ľahké pierko
+8. Studený snehuliak a teplý čaj
+9. Priehľadné tajomstvo sklenenej vázy
+10. Hlučný bubon a tichý plyšák
+11. Okrúhly koláčik, ktorý sa nechcel deliť
+12. Suché listy a mokrá tráva
+13. Pevný mostík a krehká vetvička
+14. Veci, ktoré bolia a veci, ktoré liečia`},
+    {name:"Rozvoj slovnej zásoby", badge:null, images:["new/44","new/45","new/46","new/47","new/48"], category:"Pracovné listy", desc:"Pracovné listy na rozvoj slovnej zásoby a hlások."},
+    {name:"Október – December – Písomné prípravy", badge:"60 KS", images:[43,40,41,42,44,45,47,48,49,50], category:"Písomné prípravy", desc:"Písomné prípravy na obdobie október až december."},
+    {name:"Vianočné rozprávky", badge:"170 strán", images:["rp/15","rp/16","rp/17"], category:"Rozprávky", desc:"15 originálnych vianočných príbehov pre materské školy.", fbText:`✨🎄 ROZPRÁVKOVÉ VIANOCE – 15 originálnych vianočných príbehov (170 strán) 🎁✨
+
+Magická E-kniha pre pani učiteľky aj pre rodičov 🎄
+Príbehy sú láskavé, hodnotné, poučné a doplnené krásnymi ilustráciami.
+
+✨ Prečo je súbor výnimočný?
+• 15 vianočných a zimných rozprávok
+• príbehy rozvíjajú láskavosť, empatiu, odvahu, priateľstvo a pokoj
+• ideálne na ranný kruh, oddychové čítanie, diskusiu či výtvarné aktivity
+• súbor pokryje celý december – bez hľadania ďalších materiálov
+
+🌟 15 rozprávok
+1. Iskierkine vianočné počítanie
+2. Vianoce, ktoré nechceli prísť
+3. Vianoce vo Vianočkove
+4. Vianočný zajko bojko
+5. Darček, ktorý nikto nečakal
+6. Vločkin domček na obláčiku
+7. Čarovná prikrývka starých rodičov
+8. Narodenie Ježiška
+9. Balerína a tri vianočné želania
+10. Rezbár v kúzelnej dedinke
+11. Ligotavý darček spod podlahy
+12. Posolstvo bieleho holúbka
+13. Ružová mašľa zo škriatkovskej dielne
+14. Vianočné pečenie s mamičkou
+15. Hračkárstvo, ktoré ožíva o polnoci`},
+    {name:"30 zimných pohybových hier", badge:"30 hier", images:["new/90","new/91","new/92"], category:"Pohybové hry", desc:"30 pohybových hier na zimné obdobie do interiéru aj exteriéru."},
+    {name:"Zimný balík – Písomné prípravy", badge:"60 KS", images:[65,54,60,62,63,66,67], category:"Písomné prípravy", desc:"Písomné prípravy na zimné mesiace december až február."},
+    {name:"Pán Snehuliak a zimné objavovanie", badge:"163 strán", images:["rp/19","rp/20","rp/21"], category:"Rozprávky", desc:"15 edukačných zimných rozprávok s Pánom Snehuliakom.", fbText:`✨❄️ PÁN SNEHULIAK A ZIMNÉ OBJAVOVANIE – 15 edukačných zimných rozprávok (163 strán) ❄️✨
+
+Edukačná E-kniha pre pani učiteľky aj pre rodičov 🌟
+– každá rozprávka prepája príbeh + poznanie + hodnoty
+– rozvíja zvedavosť, empatiu, spoluprácu, ohľaduplnosť a vzťah k prírode
+– vhodné na ranný kruh, čítanie pred spaním, diskusiu aj nadväzné aktivity
+
+✨ Čo v rozprávkach deti objavia?
+• prečo je sneh biely, ako vznikajú vločky a prečo sa topia
+• čo je ľad, prečo je šmykľavý a ako sa pri ňom správať bezpečne
+• zimné športy (lyžovanie, sánkovanie, pohyb v zime)
+• správne zimné obliekanie a ochranu zdravia
+• zimné stopy zvierat a život v lese počas zimy
+• ktoré zvieratká spia a ktoré sú v zime aktívne
+• starostlivosť o zvieratá v zime (vtáčiky, srnky)
+• výpravu na Severný pól a zvieratá chladných oblastí
+• silu priateľstva, pomoci, trpezlivosti a dobrých skutkov
+
+⛄ 15 rozprávok
+1. Pán snehuliak a tajomstvo trblietavého snehu
+2. Keď sa sneh mení na vodu
+3. Ľadová cestička plná opatrnosti
+4. Snehuliak na lyžiach
+5. Zimné stopy v snehu
+6. Čiapka, ktorá zachránila uši
+7. Snehuliak a čarovná zimná búrka
+8. Sánkarske preteky pod kopcom
+9. Zimný kabát pre každého
+10. Kto spí a kto bdie v zime
+11. Pomoc pre hladnú srnku
+12. Výprava na severný pól
+13. Staráme sa o vtáčiky
+14. Tučniak, ktorý sa nebál zimy
+15. Medvedí zimný spánok`},
+    {name:"Vianočné besiedky, básne a piesne", badge:null, images:[58], category:"Megasúbory", desc:"Zbierka básní, piesní a scénok na vianočnú besiedku."},
+    {name:"Ustráchaný astronautík", badge:null, images:["rp/23","rp/24","rp/25","rp/26"], category:"Rozprávky", desc:"14 edukačných vesmírnych rozprávok o prekonávaní strachu.", fbText:`✨🚀 USTRÁCHANÝ ASTRONAUTÍK – 14 edukačných vesmírnych rozprávok 🚀✨
+
+Edukačná e-kniha pre pani učiteľky aj pre rodičov 🌟
+– každá rozprávka prepája príbeh + poznanie vesmíru + emócie a hodnoty
+– rozvíja odvahu, sebadôveru, zvedavosť, empatiu, priateľstvo a zvládanie strachu
+– podporuje environmentálne cítenie a vzťah k planéte Zem
+– vhodné na ranný kruh, tematický celok Vesmír, prácu s emóciami, diskusiu aj nadväzné aktivity
+
+✨ Čo v rozprávkach deti objavia?
+• že strach je prirodzený a dá sa prekonať krok za krokom
+• kto je astronaut a ako vyzerá jeho cesta do vesmíru
+• planétu Zem ako náš jedinečný domov, o ktorý sa treba starať
+• Slnko, Mesiac, hviezdy a ich význam pre život na Zemi
+• jednotlivé planéty slnečnej sústavy (Merkúr, Venuša, Mars, Jupiter, Saturn, Urán…)
+• že každá planéta je iná – a práve v tom je jej krása
+• hodnoty priateľstva, pomoci, trpezlivosti a spolupráce
+
+🚀 Rozprávky
+1. Prvý štart
+2. Planéta Zem
+3. Žiarivé Slnko
+4. Tajomný Mesiac
+5. Hviezdy na oblohe
+6. Planéta Merkúr
+7. Horúca Venuša
+8. Červený Mars
+9. Obrovský Jupiter
+10. Prstence Saturnu
+11. Ľadový Urán
+12. Veterný Neptún
+13. Padajúce meteority
+14. Návrat domov`},
+    {name:"Pán Perníček", badge:"105 strán", images:["new/84","new/85","new/86","new/87","new/88","new/89"], category:"Megasúbory", desc:"Vianočné pečenie a tvorivé aktivity s Pánom Perníčkom."},
+    {name:"Marec – Apríl – Písomné prípravy", badge:"60 KS", images:[69,68,73,77,78], category:"Písomné prípravy", desc:"Písomné prípravy na jarné mesiace marec a apríl."},
+    {name:"Jarné pohybové hry – 50 hier", badge:"50 hier", images:["new/136","new/137","new/138","new/139","new/140","new/141"], category:"Pohybové hry", desc:"50 pohybových hier na jarné obdobie."},
+    {name:"Rozprávky", badge:"140 strán", images:["new/101","new/102","new/103","new/104","new/105","new/106"], category:"Megasúbory", desc:"Klasické rozprávky spracované s aktivitami pre deti."},
+    {name:"Veselé fašiangy", badge:"154 strán", images:["rp/28","rp/29","rp/30"], category:"Rozprávky", desc:"15 edukačných fašiangových rozprávok plných smiechu a tanca.", fbText:`✨🥳 VESELÉ FAŠIANGY – 15 edukačných fašiangových rozprávok (154 strán) 🥳✨
+
+Edukačná e-kniha pre pani učiteľky aj pre rodičov 🌟
+– každá rozprávka prepája príbeh + tradície + hodnoty
+– rozvíja radosť z pohybu, empatiu, spoluprácu, rešpekt k zvykom a kultúrnu identitu
+– vhodné na ranný kruh, fašiangové obdobie, tematické dni, diskusiu aj nadväzné aktivity
+
+✨ Čo v rozprávkach deti objavia?
+• čo sú fašiangy a prečo sú plné smiechu, hudby a farieb
+• prečo sa ľudia prezliekajú do masiek a čo masky symbolizujú
+• čo je fašiangový sprievod, tanec a spev
+• tradičné fašiangové jedlá (šišky, fánky)
+• význam spoločného veselého prežívania sviatkov
+• čo je „tichá basa" a prečo sa s ňou lúčime
+• že každý môže byť iný – a práve to robí fašiangy zábavné
+• hodnoty priateľstva, pomoci, radosti a spolupráce
+
+🥳 15 rozprávok
+1. Veselé fašiangy
+2. Ako sa do dediny nasťahovala radosť
+3. Malý šašo, ktorý rozosmial všetkých
+4. Kúzelné masky
+5. Voňavé pečenie s babičkou
+6. Hudba, čo rozospievala celú dedinu
+7. Šiška, ktorá chcela spraviť radosť
+8. Fašiangový sprievod, ktorý putoval dedinou
+9. Ako sa medveď naučil tancovať
+10. Fašiangy v dedine Veselá Lúka
+11. Masky sa báli, že ich deti nebudú mať rady
+12. Kôň, ktorý viedol sprievod
+13. Farebný fašiangový deň
+14. Prečo sa na fašiangy tak veľa tancuje
+15. Rozlúčka s basou`},
+    {name:"Malí knihomoli", badge:"155 strán", images:["rp/32","rp/33","rp/34"], category:"Rozprávky", desc:"14 rozprávok na podporu vzťahu detí ku knihám a čítaniu.", fbText:`✨ MALÍ KNIHOMOLI – KNIHA JE MÔJ KAMARÁT – 14 edukačných rozprávok ✨ 155 strán✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– každá rozprávka prepája príbeh + poznanie knihy + hodnoty
+– učí deti, prečo je čítanie dôležité a krásne
+– rozvíja slovnú zásobu, porozumenie textu a fantáziu
+– podporuje vzťah ku knihám a správne zaobchádzanie s nimi
+– vhodné na ranný kruh, tematický celok „Kniha", rozvoj predčitateľskej gramotnosti aj večerné čítanie
+
+✨ Čo sa deti v rozprávkach naučia?
+• čo je kniha, obálka, názov, autor, ilustrátor, ilustrácia, strana, obsah
+• že každá kniha má začiatok, stred a koniec
+• ako správne listovať a prečo mať čisté ruky
+• že knihy si zaslúžia úctu a starostlivosť
+• že príbeh nás môže preniesť do iného sveta
+• že ponaučenie je poklad, ktorý si z rozprávky odnášame do života
+
+📚 14 rozprávok
+1. Kniha, ktorá otvorila dvere
+2. Ilustrácia, ktorá ožila
+3. Strana po strane
+4. Kúzelná knižnica
+5. Babičkino rozprávanie – Kúzelný prach
+6. Mamičkine rozprávky na dobrú noc
+7. Tri prasiatka
+8. Košík pre Červenú čiapočku
+9. Škaredé káčatko a jazero
+10. Sladký domček (Janko a Marienka)
+11. Janko Hraško
+12. Kocúr v čižmách
+13. Snehulienka
+14. Popoluška`},
+    {name:"Ranné kruhy – Marec", badge:null, images:[74], category:"Ranné kruhy", desc:"Ranné kruhy a komunitné aktivity na marec."},
+    {name:"Jarné rozprávky", badge:"168 strán", images:["rp/36","rp/37","rp/38"], category:"Rozprávky", desc:"16 jarných rozprávok o prebúdzajúcej sa prírode.", fbText:`✨🌷 JARNÉ PREBÚDZANIE – 16 edukačných jarných rozprávok ✨ 168 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– zahŕňa témy: Jar, Od semienka k rastlinke, Starostlivosť o rastliny, Zvieratká na gazdovskom dvore, jarné počasie, Deň vody, Deň Zeme, ochrana životného prostredia
+– deti spoznávajú tajomstvá jari, rastliniek, vody a zvieratiek
+– rozvíja slovnú zásobu, porozumenie textu a fantáziu
+– vhodné na ranný kruh, tematické celky „Jar", „Od semienka k rastlinke", „Voda v prírode", „Deň Zeme" aj na večerné čítanie
+
+✨ Čo sa deti v rozprávkach naučia?
+• ako sa príroda prebúdza po zime
+• ako zo semienka vyrastie rastlinka
+• prečo rastliny potrebujú vodu, slnko a starostlivosť
+• aké zvieratká a mláďatká sa rodia na jar
+• čo sa deje na lúke, v záhradke aj na gazdovskom dvore
+• prečo je dôležité chrániť Zem a životné prostredie
+
+📚 16 rozprávok
+1. Snežienka, ktorá privítala jar
+2. Strom, ktorý sa zobudil zo zimy
+3. Od semienka k rastlinke
+4. Ako sa staráme o rastlinky
+5. Voda v prírode
+6. Jarné prebúdzanie na lúke
+7. Veselý jarný dvor
+8. Stratené kuriatko na dvore
+9. Mláďatká na gazdovskom dvore
+10. Keď dážď zobudí záhradku
+11. Babkina kúzelná záhradka
+12. Včielka, ktorá hľadala kvety
+13. Deň, keď sa Zem usmiala
+14. Žabka a tajomstvo jazierka
+15. Dúha po jarnom daždi
+16. Jar plná malých zázrakov`},
+    {name:"Veľkonočné príbehy Zajka Hrajka a Zajačice Hopky", badge:"166 strán", images:["rp/40","rp/41","rp/42"], category:"Rozprávky", desc:"15 veľkonočných príbehov so Zajkom Hrajkom a Zajačicou Hopkou.", fbText:`✨ VEĽKONOČNÉ PRÍBEHY ZAJKA HRAJKA A ZAJAČICE HOPKY – 15 edukačných veľkonočných rozprávok ✨ 166 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– zahŕňa témy: Veľká noc, symboly Veľkej noci, kraslice a farby, prípravy k Veľkej noci, jar na gazdovskom dvore, prebúdzanie prírody
+– deti spoznávajú tajomstvá Veľkej noci hravou a prirodzenou formou
+– rozvíja slovnú zásobu, porozumenie textu a fantáziu
+
+✨ Čo sa deti v rozprávkach naučia?
+• prečo je vajíčko symbolom nového života
+• čo znamená Veľká noc a aké má tradície
+• prečo sa maľujú kraslice a čo znamenajú farby
+• ako sa rodia mláďatká na gazdovskom dvore
+• ako sa príroda prebúdza po zime
+
+📚 Rozprávky
+1. Tajomstvo veľkonočného vajíčka
+2. Kuriatko, ktoré sa nebálo vyliahnuť
+3. Keď sa zobudila jar
+4. Veľkonočný príbeh o novom začiatku
+5. Hopka a kúzlo pôstu
+6. Veľkonočný zajko nie je len taký obyčajný
+7. Kraslice plné farieb
+8. Stratené jahniatko
+9. Tajomstvo Zeleného štvrtka
+10. Cesta do tichého kostola na Veľký piatok
+11. Svetielko Bielej soboty
+12. Nedeľa radosti - veľké prebudenie
+13. Pondelok plný vody a smiechu
+14. Hrajka a zapletanie korbáča
+15. Dúha po jarnom daždi`},
+    {name:"Hospodárske zvieratká", badge:"176 strán", images:["rp/44","rp/45","rp/46"], category:"Rozprávky", desc:"16 rozprávok o zvieracích rodinkách na gazdovskom dvore.", fbText:`🎀🐄✨ ZVIERATKÁ NA GAZDOVSKOM DVORE ✨🐄🎀
+🐷 Spoznávanie hospodárskych zvierat prostredníctvom 16 rozprávok 🐷
+✨ edukačné rozprávky zo života na gazdovskom dvore ✨ 176 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– zahŕňa témy: hospodárske zvieratká, život na gazdovskom dvore, zvieracie rodinky (mama, ocko, mláďatko), starostlivosť o zvieratá, úžitok zo zvierat (mlieko, vlna, vajíčka, perie), práca na farme, priateľstvo, pomoc a spolupráca
+– rozvíja slovnú zásobu, porozumenie textu a fantáziu
+– podporuje vzťah k zvieratkám, prírode a práci ľudí na farme
+
+✨ Čo sa deti v rozprávkach naučia?
+• aké zvieratká žijú na gazdovskom dvore
+• ako vyzerajú zvieracie rodinky (mama, ocko, mláďatko)
+• aký úžitok máme z jednotlivých zvieratiek (mlieko, syr, vlna, vajíčka, perie)
+• ako sa staráme o zvieratká a prečo je to dôležité
+• že rodina, láska a starostlivosť sú najdôležitejšie
+
+📚 Rozprávky
+1. Zvieratká na gazdovskom dvore
+2. Rodinka na lúke (kravička)
+3. Rodinka na dvorčeku (Sliepočka)
+4. Kvičkova veľká rodina (prasiatka)
+5. Myšacia rodinka pod starým dubom
+6. Konská rodina na slnečnej farme
+7. Kozia rodinka na zelenej lúke
+8. Ovečky na horskej lúke
+9. Kačacia rodinka na farme
+10. Šteniatko a prvé strážene dvora
+11. Kocúr Tulko a kamaráti z dvora
+12. Kravička Malina a čarovné mlieko
+13. Ovečka Vlna a mäkký sveter
+14. Sliepočka Zorka a zlaté vajce
+15. Koza Lili a chutný syr
+16. Kačka Kvak a pierka do vankúša`},
+    {name:"Jarné ranné kruhy", badge:null, images:[83], category:"Ranné kruhy", desc:"Ranné kruhy zamerané na jarné témy."},
+    {name:"Jarný balík – Písomné prípravy", badge:"60 KS", images:[84,82,85], category:"Písomné prípravy", desc:"Písomné prípravy na jarné obdobie."},
+    {name:"Máj – Jún balík – Písomné prípravy", badge:"60 KS", images:[89,86,87,88,91,92,95], category:"Písomné prípravy", desc:"Písomné prípravy na mesiace máj a jún."},
+    {name:"Letné pohybové hry – 52 KS", badge:"52 KS", images:["new/152","new/153","new/154","new/155","new/156","new/157"], category:"Pohybové hry", desc:"52 pohybových hier na letné obdobie."},
+    {name:"Hmyz – rozprávky", badge:"148 strán", images:["rp/52","rp/53","rp/54"], category:"Rozprávky", desc:"13 rozprávok zo sveta hmyzu a malých záhradných obyvateľov.", fbText:`🎀🐞✨ DROBNÉ ŽIVOČÍCHY ✨🐞🎀
+🦋 Spoznávanie drobných živočíchov prostredníctvom rozprávok 🦋
+✨ 13 edukačných rozprávok zo sveta hmyzu a malých záhradných obyvateľov ✨ 148 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– zahŕňa témy: drobné živočíchy, hmyz v prírode, život na lúke, pri vode aj v záhrade, premena motýľa, život včielok, ochrana prírody
+– podporuje vzťah k prírode, empatiu a všímavosť voči živým tvorom
+
+✨ Čo sa deti v rozprávkach naučia?
+• aké drobné živočíchy žijú na lúke, v záhrade, pri vode a v lese
+• ako vyzerajú a čím sú výnimočné včielky, mravce, motýle, lienky či slimáky
+• prečo sú včely dôležité pre kvety, stromy a ovocie
+• ako prebieha premena húsenice na motýľa
+• prečo máme prírodu chrániť a správať sa k nej s rešpektom
+
+📚 Rozprávky
+1. Veľká cesta za striebornou riekou
+2. Rozoznáš hmyz v prírode?
+3. Lienka Bodka hľadá svoje bodky
+4. Včielka Meduška a tajomstvo medového domčeka
+5. Motýlik Dúhovček a premena z húsenice
+6. Slimáčik Domček a jeho pomalý deň
+7. Vážka Modroočka pri jazierku
+8. Svetluška Lampáška a nočné svetielko
+9. Húsenica Papkajka a veľký apetít
+10. Kobylka Skákalka a stratený skok
+11. Dážďovka Zemka a tajomstvo pôdy
+12. Čmeliak Bruno a ťažký peľ
+13. Mucha Bzučka sa učí slušnosti`},
+    {name:"Exotické zvieratká – rozprávky", badge:"163 strán", images:["rp/56","rp/57","rp/58","rp/59"], category:"Rozprávky", desc:"15 rozprávok zo savany, džungle, pralesa aj podmorského sveta.", fbText:`🦁🌿✨ EXOTICKÉ ZVIERATKÁ ✨🌿🦜
+🐘 Spoznávanie exotických zvierat prostredníctvom rozprávok 🐒
+✨ 15 edukačných rozprávok zo savany, džungle, pralesa aj podmorského sveta ✨ 163 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– zahŕňa témy: exotické zvieratá, savana, džungľa, dažďový prales, oceán, podmorský svet, spôsob života zvierat, ochrana prírody, spolupráca a priateľstvo
+– podporuje zvedavosť, spoluprácu, ohľaduplnosť a uvedomenie si, že každé zvieratko má v prírode svoje dôležité miesto
+
+📚 Rozprávky
+1. Exotické zvieratká
+2. Veľká porada v savane
+3. Stratený banán v dažďovom pralese
+4. Podmorská výprava za farebnou perlou
+5. Zvieratká z ďalekých krajín
+6. Cesta okolo sveta so zvedavým papagájom
+7. Lev Leo hľadá svoj rev
+8. Žirafa Žofika a najvyšší strom
+9. Sloník Samko a veľká vodná cesta
+10. Papagáj Pipo a farebný prales
+11. Opica Olívia a banánové dobrodružstvo
+12. Krokodíl Kubo sa učí čakať
+13. Koala Nelka a eukalyptový sen
+14. Morská korytnačka a cesta oceánom
+15. Plameniak Fedor hľadá ružovú farbu`},
+    {name:"Život pri vode – rozprávky", badge:"122 strán", images:["rp/61","rp/62","rp/63","rp/64","rp/65"], category:"Rozprávky", desc:"12 rozprávok z prostredia jazierka, rieky aj mora.", fbText:`🌿💧✨ ŽIVOT PRI VODE A VO VODE ✨💧🌿
+🦆 Spoznávanie života pri vode, vo vode aj v mori prostredníctvom rozprávok 🐟
+✨ 12 edukačných rozprávok z prostredia jazierka, rieky aj mora ✨ 122 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💙
+– zahŕňa témy: život pri vode, vo vode a v mori, jazero, rybník, rieka, potok, morské živočíchy, vodné rastliny, ochrana prírody
+– deti sa učia, že prírodu pri vode, vo vode aj v mori musíme chrániť
+
+📚 Rozprávky
+1. Kačička Lili a tajomstvo tichého jazierka
+2. Veľká porada pri jazierku
+3. Labuťka Bella učí kamarátov slušnosti
+4. Slimák Simo na veľkej brehovej výprave
+5. Vydra Viki a ligotavý kamienok
+6. Veľké stretnutie pri jazierku
+7. Rybka Ria hľadá najkrajší kamienok
+8. Korytnačka Tinka a pokojná hladina
+9. Vodné dobrodružstvo rybky, raka, žubrienky a slimáka
+10. Morský Koník a stratená mušlička
+11. Chobotnička a osem šikovných ramien
+12. Morská hviezdica hľadá slniečko`},
+    {name:"Leto – rozprávky", badge:"157 strán", images:["rp/67","rp/68","rp/69","rp/70"], category:"Rozprávky", desc:"15 letných rozprávok o výletoch, mori a dobrodružstvách.", fbText:`☀️🌴💙 MILUJEME LETO 💙🌴☀️
+✨ 15 edukačných rozprávok pre deti, prostredníctvom ktorých objavujú LETO ✨ 157 strán
+
+Leto je obdobím slnka, vody, výletov a veselých dobrodružstiev. Deti sa prostredníctvom rozprávkových príbehov prenesú na výlety, k moru či jazeru, do zoologickej záhrady, na rozkvitnutú lúku aj na prázdniny k babičke a dedkovi.
+
+Deti sa hravou a zrozumiteľnou formou dozvedia, prečo je dôležité chrániť sa pred slnkom, používať opaľovací krém, nosiť klobúčik, dodržiavať pitný režim a správať sa bezpečne pri vode.
+
+📚 Rozprávky
+1. Leto s kamarátmi
+2. Prvé špliechanie v jazere
+3. Piknik v rozkvitnutej záhrade
+4. Lenka a Alenka na letnej prechádzke
+5. Letné dobrodružstvo u babičky a deduška
+6. Deň plný pohybu
+7. Sladká limonáda
+8. Stratená mušľa v zátoke
+9. Nočné stanovanie pri jazierku
+10. Rodinný výlet do ZOO
+11. Čerešňová limonáda pre smädných cyklistov
+12. Slnečný deň pri vode
+13. Výlet pri vodopáde
+14. Surfistka Ela a veľká vlna`},
+    {name:"Letný balík (Júl) – Písomné prípravy", badge:null, images:[102,104], category:"Písomné prípravy", desc:"Písomné prípravy na letný mesiac júl."},
+    {name:"More a voda – Týždenný projekt", badge:"125 strán", images:[105], category:"Megasúbory", desc:"Týždenný projekt na tému mora a vody."},
+    {name:"Les a hmyz – Týždenný projekt", badge:"140 strán", images:[106], category:"Megasúbory", desc:"Týždenný projekt o lese a hmyze."},
+    {name:"Ovocie a leto – Týždenný projekt", badge:"156 strán", images:[107], category:"Megasúbory", desc:"Týždenný projekt o ovocí a lete."},
+    {name:"Deň vody", badge:"100 strán", images:["new/107","new/108","new/109","new/110","new/111"], category:"Megasúbory", desc:"Aktivity pri príležitosti Svetového dňa vody."},
+    {name:"Veľká noc", badge:"140 strán", images:["new/114","new/115","new/116","new/117","new/118","new/119"], category:"Megasúbory", desc:"Veľkonočné aktivity a pracovné listy pre deti."},
+    {name:"Deň Zeme", badge:"115 strán", images:["new/126","new/127","new/128","new/129","new/130"], category:"Megasúbory", desc:"Materiály pri príležitosti Dňa Zeme a ochrany prírody."},
+    {name:"Liečivé rastliny", badge:"100 strán", images:["new/131","new/132","new/133","new/134","new/135"], category:"Megasúbory", desc:"Spoznávanie liečivých rastlín a ich využitia."},
+    {name:"Slovensko – Ľudové zvyky a tradície", badge:"135 strán", images:["new/142","new/143","new/144","new/145","new/146"], category:"Megasúbory", desc:"Ľudové zvyky a tradície Slovenska pre deti."},
+    {name:"Slovensko – rozprávky", badge:"143 strán", images:["rp/48","rp/49","rp/50"], category:"Rozprávky", desc:"13 rozprávok o Slovensku, tradíciách, prírode a histórii.", fbText:`🌸🇸🇰✨ ROZPRÁVKOVÉ SLOVENSKO ✨🇸🇰🌸
+🏰 Spoznávanie Slovenska prostredníctvom rozprávok 🏰
+✨ 13 edukačných rozprávok o našej krajine, tradíciách, prírode, mestách a histórii ✨ 143 strán ✨
+
+Edukačná e-kniha pre pani učiteľky aj rodičov 💗
+– zahŕňa témy: Slovensko, hlavné mesto Bratislava, slovenská vlajka, štátny znak, Tatry, tradičné jedlá, ľudové zvyky, kroje, hrady a zámky, remeslá, slovenské mestá, Juraj Jánošík, lesy a zvieratá Slovenska
+– podporuje hrdosť na Slovensko, úctu k tradíciám, prírode, histórii a práci našich predkov
+
+✨ Čo sa deti v rozprávkach naučia?
+• prečo je Bratislava hlavným mestom Slovenska
+• ako vyzerá slovenská vlajka a čo symbolizujú jej farby
+• ktoré pohoria patria k Slovensku a prečo si prírodu musíme chrániť
+• aké tradičné jedlá poznáme – bryndzové halušky, kapustnicu, strapačky
+• aké hrady a zámky môžeme na Slovensku obdivovať
+• kto bol Juraj Jánošík a prečo sa stal známou postavou slovenských povestí
+
+📚 Rozprávky
+1. Bijúce srdce Slovenska
+2. Eliška a tajomstvo slovenskej vlajky
+3. Tri krásne pohoria
+4. Dobrodružstvo pod tatranskými štítmi
+5. Tradičné dobroty starej mamy
+6. Čaro slovenských tradícií
+7. Ľudové kroje našich predkov
+8. Slovenské hrady a zámky
+9. Ľudové remeslá našich starých rodičov
+10. Slovenské mestá a ich krásy
+11. Život našich predkov
+12. Juraj Jánošík – hrdina z horských lesov
+13. Lesy a zvieratá Slovenska`},
+    {name:"Mama", badge:"80 strán", images:["new/147","new/148","new/149","new/150","new/151"], category:"Megasúbory", desc:"Aktivity a darčeky k Dňu matiek."},
+    {name:"Deň detí – Deti sveta", badge:"157 strán", images:["new/158","new/159","new/160","new/161","new/162"], category:"Megasúbory", desc:"Oslava Dňa detí a spoznávanie detí z celého sveta."},
+    {name:"Diplom – Koniec školského roka", badge:null, images:[184], category:"Diplomy", desc:"Diplom pre deti na záver školského roka."},
+    {name:"Jeseň – Megasúbor", badge:"102 strán", images:["new/31","new/32","new/33","new/34"], category:"Megasúbory", desc:"Kompletný jesenný megasúbor aktivít a pracovných listov."},
+    {name:"Deň jablka", badge:"95 strán", images:["new/49","new/50","new/51","new/52","new/53","new/54"], category:"Megasúbory", desc:"Aktivity a pracovné listy pri príležitosti Dňa jablka."},
+    {name:"Deň úcty k starším", badge:"60 strán", images:["new/55","new/56","new/57","new/58"], category:"Megasúbory", desc:"Materiály pri príležitosti Dňa úcty k starším."},
+    {name:"Les a jeho tajomstvá", badge:null, images:["new/59","new/60"], category:"Megasúbory", desc:"Objavovanie tajomstiev lesa a jeho obyvateľov."},
+    {name:"Ľudské telo", badge:"138 strán", images:["new/65","new/61","new/62","new/63","new/64","new/66"], category:"Megasúbory", desc:"Spoznávanie ľudského tela hravou formou."},
+    {name:"Časové vzťahy", badge:"125 strán", images:["new/67","new/68","new/69","new/70","new/71","new/72"], category:"Megasúbory", desc:"Aktivity na osvojenie si časových vzťahov a orientácie v čase."},
+    {name:"Zdravá a nezdravá výživa", badge:null, images:["new/73","new/74"], category:"Megasúbory", desc:"Materiály o zdravej a nezdravej výžive pre deti."},
+    {name:"20 vianočných príbehov pre deti", badge:"109 strán", images:["new/75","new/76","new/77"], category:"Megasúbory", desc:"20 vianočných príbehov na čítanie s deťmi."},
+    {name:"Svätý Mikuláš", badge:"100 strán", images:["new/78","new/79","new/80","new/81","new/82","new/83"], category:"Megasúbory", desc:"Aktivity a pracovné listy k sviatku Svätého Mikuláša."},
+    {name:"Zima", badge:"100 strán", images:["new/93","new/94","new/95"], category:"Megasúbory", desc:"Kompletný zimný megasúbor aktivít pre materské školy."},
+    {name:"Vesmír", badge:"140 strán", images:["new/96","new/97","new/98","new/99","new/100"], category:"Megasúbory", desc:"Objavovanie vesmíru, planét a hviezd s deťmi."},
+    {name:"Jar", badge:"115 strán", images:["new/112","new/113"], category:"Megasúbory", desc:"Jarný megasúbor aktivít a pracovných listov."},
+    {name:"Leto a letné športy", badge:"127 strán", images:["new/175","new/176","new/177","new/178","new/179","new/180"], category:"Megasúbory", desc:"Letné športy a aktivity pre deti počas leta."}
+  ];
+  const PRICE = "7,00 €";
+  const CONTACT_EMAIL = "filiphacko2@gmail.com";
+  const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
+
+  const shopGrid = document.getElementById('shopGrid');
+  products.forEach((p, idx) => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.dataset.category = p.category;
+    const badgeHtml = p.badge ? `<span class="badge">${p.badge}</span>` : '';
+    const countHtml = p.images.length > 1 ? `<span class="count">1 / ${p.images.length}</span>` : '';
+    const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${p.name}" za ${PRICE}.\n\nĎakujem.`);
+    const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + p.name)}&body=${mailBody}`;
+    card.innerHTML = `
+      <div class="thumb" data-idx="${idx}">
+        ${badgeHtml}
+        <img loading="lazy" src="assets/products/${p.images[0]}.jpg" alt="${p.name}">
+        ${countHtml}
+      </div>
+      <div class="info">
+        <h4>${p.name}</h4>
+        <div class="price-row">
+          <span class="price">${PRICE}</span>
+          ${p.fbText
+            ? `<button type="button" class="buy-btn" data-buy-idx="${idx}">Kúpiť</button>`
+            : `<a class="buy-btn" href="${mailHref}">Kúpiť</a>`}
+        </div>
+      </div>
+    `;
+    shopGrid.appendChild(card);
+  });
+
+  shopGrid.addEventListener('click', e => {
+    const buyBtn = e.target.closest('button.buy-btn[data-buy-idx]');
+    if (buyBtn) {
+      const p = products[parseInt(buyBtn.dataset.buyIdx, 10)];
+      openBalickyModal(null, p);
+    }
+  });
+
+  const filterBar = document.getElementById('filterBar');
+  const filterCount = document.getElementById('filterCount');
+  const cards = Array.from(shopGrid.children);
+  const presentCategories = CATEGORY_ORDER.filter(c => products.some(p => p.category === c));
+  const categories = ["Všetky", ...presentCategories];
+
+  function applyFilter(cat){
+    let visible = 0;
+    cards.forEach(card => {
+      const show = cat === "Všetky" || card.dataset.category === cat;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    filterCount.textContent = `Zobrazených ${visible} z ${cards.length} produktov`;
+    filterBar.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.classList.toggle('active', pill.dataset.cat === cat);
+    });
+  }
+
+  categories.forEach(cat => {
+    const pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = 'filter-pill' + (cat === 'Všetky' ? ' active' : '');
+    pill.dataset.cat = cat;
+    pill.textContent = cat;
+    pill.addEventListener('click', () => applyFilter(cat));
+    filterBar.appendChild(pill);
+  });
+  applyFilter('Všetky');
+
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbDesc = document.getElementById('lbDesc');
+  let activeProduct = null;
+  let activePos = 0;
+
+  function openLb(productIdx, pos){
+    activeProduct = products[productIdx];
+    activePos = pos;
+    renderLb();
+    lb.classList.add('open');
+  }
+  function renderLb(){
+    const imgNum = activeProduct.images[activePos];
+    lbImg.src = `assets/products/${imgNum}.jpg`;
+    lbCaption.textContent = `${activeProduct.name} — ukážka ${activePos + 1} / ${activeProduct.images.length}`;
+    lbDesc.textContent = activeProduct.desc || '';
+  }
+  function closeLb(){ lb.classList.remove('open'); }
+  function nav(delta){
+    if (!activeProduct) return;
+    const len = activeProduct.images.length;
+    activePos = (activePos + delta + len) % len;
+    renderLb();
+  }
+
+  shopGrid.addEventListener('click', e => {
+    const thumb = e.target.closest('.thumb');
+    if (thumb) openLb(parseInt(thumb.dataset.idx, 10), 0);
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', () => nav(-1));
+  document.getElementById('lbNext').addEventListener('click', () => nav(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') nav(-1);
+    if (e.key === 'ArrowRight') nav(1);
+  });
+
+  // BALÍKY DETAIL MODAL
+  const balickyDetails = {
+    small: {
+      img: "assets/balicky/small.jpg",
+      html: `
+        <h4>🩷 SMALL — Balík pre materské školy</h4>
+        <p class="price-line">2 793 strán materiálov za 40 €</p>
+        <p>SMALL balík je určený pre pani učiteľky, ktoré chcú mať pripravený pestrý základ materiálov na celý školský rok bez potreby kupovať jednotlivé súbory samostatne.</p>
+        <p>SMALL balík obsahuje výber 20 rozsiahlych edukačných materiálov pre materské školy – megasúbory, týždenné projekty, rozprávkové E-booky, pracovné listy aj praktické materiály do triedy.</p>
+        <h4>🩷 V jednom balíku získate</h4>
+        <ul>
+          <li>11 megasúborov</li>
+          <li>2 týždenné projekty</li>
+          <li>5 rozprávkových E-bookov</li>
+          <li>pracovné listy na rozvoj slovnej zásoby</li>
+          <li>plagáty a pravidlá do materskej školy</li>
+        </ul>
+        <p>📚 Celkový rozsah: 2 793 strán<br>Bežná hodnota všetkých materiálov: 111 €<br><strong>SMALL BALÍK: 40 € — ušetríte 71 €</strong></p>
+        <hr>
+        <h4>📚 11 megasúborov – 1 491 strán</h4>
+        <ul>
+          <li>Veselá škôlka – 210 strán</li>
+          <li>Moja rodina – 100 strán</li>
+          <li>Ahoj jeseň – 100 strán</li>
+          <li>Ľudské telo – 138 strán</li>
+          <li>Doprava – 132 strán</li>
+          <li>Ahoj zima – 80 strán</li>
+          <li>Jar – 145 strán</li>
+          <li>Hospodárske zvieratká – 161 strán</li>
+          <li>Slovensko – 140 strán</li>
+          <li>Život pri vode a vo vode – 158 strán</li>
+          <li>Vitaj leto – 127 strán</li>
+        </ul>
+        <p>Megasúbory ponúkajú množstvo aktivít, pracovných listov, námetov a materiálov k témam, ktoré sa v materských školách pravidelne objavujú počas celého školského roka.</p>
+        <hr>
+        <h4>📝 2 týždenné projekty – 362 strán</h4>
+        <p><strong>Vitaj v škôlke</strong> – 179 strán<br>Materiály zamerané na prvé dni v materskej škole, adaptáciu detí a vytváranie príjemného prostredia v triede.</p>
+        <p><strong>Pravidlá a bezpečnosť v našej škôlke</strong> – 183 strán<br>Aktivity a materiály zamerané na pravidlá, bezpečnosť, správanie a každodenné situácie v prostredí materskej školy.</p>
+        <hr>
+        <h4>📖 5 rozprávkových E-bookov – 798 strán</h4>
+        <ul>
+          <li>Hurá škôlka volá – 166 strán</li>
+          <li>Čarovná jeseň – 143 strán</li>
+          <li>Pán Snehuliak a zimné objavovanie – 163 strán</li>
+          <li>Jarné prebudenie – 169 strán</li>
+          <li>Milujeme leto – 157 strán</li>
+        </ul>
+        <p>Rozprávkové E-booky prinášajú tematické príbehy vytvorené ako výchovno-vzdelávací materiál, ktorý prepája pútavé príbehy s učením prirodzenou a zábavnou formou.</p>
+        <hr>
+        <h4>🎁 Ďalších 142 strán materiálov</h4>
+        <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán<br>Pracovné listy zamerané na rozširovanie slovnej zásoby, pomenovávanie, vyjadrovanie a rozvoj komunikačných schopností detí.</p>
+        <p><strong>Plagáty a pravidlá do vašej škôlky</strong> – 100 strán<br>Praktické a vizuálne materiály vhodné do triedy aj ďalších priestorov materskej školy.</p>
+        <hr>
+        <p>Spolu až 20 materiálov a 2 793 strán. Témy zahŕňajú škôlku, rodinu, jeseň, ľudské telo, dopravu, zimu, jar, hospodárske zvieratá, Slovensko, život pri vode, leto, pravidlá, bezpečnosť, rozvoj slovnej zásoby a mnoho ďalšieho.</p>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+      `
+    },
+    medium: {
+      img: "assets/balicky/medium.jpg",
+      html: `
+        <h4>💛 MEDIUM — Balík pre materské školy</h4>
+        <p class="price-line">4 826 strán materiálov za 69 €</p>
+        <p>MEDIUM balík je určený pre pani učiteľky, ktoré chcú mať pripravenú rozsiahlu zásobu edukačných materiálov na veľkú časť školského roka – prehľadne, tematicky a bez potreby kupovať jednotlivé súbory samostatne.</p>
+        <p>Balík obsahuje až 36 rozsiahlych materiálov a súborov pre materské školy – megasúbory, kompletné týždenné projekty, výchovno-vzdelávacie rozprávkové E-booky, ranné kruhy s prílohami, pracovné listy, diplomy aj praktické materiály do triedy.</p>
+        <h4>💛 V jednom balíku získate</h4>
+        <ul>
+          <li>19 megasúborov</li>
+          <li>4 týždenné projekty</li>
+          <li>8 rozprávkových E-bookov</li>
+          <li>2 rozsiahle balíky ranných kruhov s prílohami</li>
+          <li>pracovné listy na rozvoj slovnej zásoby</li>
+          <li>diplomy na koniec školského roka</li>
+          <li>pravidlá a bezpečnosť do materskej školy</li>
+        </ul>
+        <p>📚 Celkový rozsah: 4 826 strán<br>Bežná hodnota všetkých materiálov: 211 €<br><strong>MEDIUM BALÍK: 69 € — ušetríte 142 €</strong></p>
+        <hr>
+        <h4>📚 19 megasúborov – 2 234 strán</h4>
+        <ul>
+          <li>Veselá škôlka – 210 strán</li>
+          <li>Moja rodina – 100 strán</li>
+          <li>Pracovné profesie – 100 strán</li>
+          <li>Moje mesto / moja dedina – 102 strán</li>
+          <li>Deň mlieka – 78 strán</li>
+          <li>Úcta k starším – 80 strán</li>
+          <li>Ahoj jeseň – 100 strán</li>
+          <li>Ľudské telo – 138 strán</li>
+          <li>Vesmír – 140 strán</li>
+          <li>Ahoj zima – 80 strán</li>
+          <li>Doprava – 132 strán</li>
+          <li>Jar – 145 strán</li>
+          <li>Hospodárske zvieratká – 161 strán</li>
+          <li>Stravovanie – 61 strán</li>
+          <li>Deň vody – 100 strán</li>
+          <li>Deň Zeme – 115 strán</li>
+          <li>Slovensko – 140 strán</li>
+          <li>Časové vzťahy – 125 strán</li>
+          <li>Vitaj leto – 127 strán</li>
+        </ul>
+        <hr>
+        <h4>📝 4 týždenné projekty – 641 strán</h4>
+        <p><strong>Vitaj v škôlke</strong> – 179 strán · <strong>Pravidlá a bezpečnosť v našej škôlke</strong> – 183 strán · <strong>Les a hmyz</strong> – 139 strán · <strong>Cestovanie</strong> – 140 strán</p>
+        <p>Týždenné projekty poskytujú ucelené tematické spracovanie, vďaka ktorému máte pripravené aktivity a materiály na viacero dní bez zdĺhavého plánovania jednotlivých činností.</p>
+        <hr>
+        <h4>📖 8 rozprávkových E-bookov – 1 298 strán</h4>
+        <ul>
+          <li>Hurá škôlka volá – 166 strán</li>
+          <li>Čarovná jeseň – 143 strán</li>
+          <li>Vianočné rozprávky – 169 strán</li>
+          <li>Veselé fašiangy – 154 strán</li>
+          <li>Jarné prebudenie – 167 strán</li>
+          <li>Veľkonočné rozprávky – 166 strán</li>
+          <li>Zvieratká na gazdovskom dvore – 176 strán</li>
+          <li>Milujeme leto – 157 strán</li>
+        </ul>
+        <hr>
+        <h4>💬 2 balíky ranných kruhov s prílohami – 491 strán</h4>
+        <p>Jarné ranné kruhy – 281 strán · Zimné a fašiangové ranné kruhy – 210 strán</p>
+        <hr>
+        <h4>🎁 Ďalších 162 strán materiálov</h4>
+        <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán, <strong>Diplomy na koniec školského roka</strong> – 20 strán, <strong>Pravidlá a bezpečnosť v našej MŠ</strong> – 100 strán</p>
+        <hr>
+        <p>Spolu až 36 materiálov a 4 826 strán. Témy zahŕňajú škôlku, rodinu, profesie, mesto a dedinu, jeseň, úctu k starším, ľudské telo, vesmír, dopravu, zimu, jar, hospodárske zvieratá, stravovanie, vodu, ochranu prírody, Slovensko, časové vzťahy, leto, Vianoce, fašiangy, Veľkú noc, cestovanie, les, hmyz a mnoho ďalších oblastí.</p>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+      `
+    },
+    large: {
+      img: "assets/balicky/large.jpg",
+      html: `
+        <h4>💜 LARGE — Balík pre materské školy</h4>
+        <p class="price-line">7 688 strán materiálov za 119 €</p>
+        <p>LARGE balík je určený pre pani učiteľky, ktoré chcú mať pripravenú skutočne rozsiahlu zásobu edukačných materiálov na celý školský rok – od prvých septembrových dní cez jednotlivé ročné obdobia, sviatky a tematické celky až po záver školského roka.</p>
+        <p>Ide o mimoriadne bohatú digitálnu knižnicu, ktorá spája megasúbory, všetky týždenné projekty, výchovno-vzdelávacie rozprávkové E-booky, ranné kruhy, hotové písomné prípravy, pracovné listy, diplomy, program na vianočnú besiedku aj praktické materiály do triedy.</p>
+        <h4>💜 V jednom balíku získate</h4>
+        <ul>
+          <li>28 megasúborov</li>
+          <li>všetkých 6 týždenných projektov</li>
+          <li>12 rozprávkových E-bookov</li>
+          <li>všetky 4 balíky ranných kruhov</li>
+          <li>150 hotových písomných príprav na celý školský rok</li>
+          <li>Vianočné besiedky</li>
+          <li>pracovné listy na rozvoj slovnej zásoby</li>
+          <li>diplomy na koniec školského roka</li>
+          <li>plagáty a pravidlá do vašej MŠ</li>
+        </ul>
+        <p>📚 Celkový rozsah: 7 688 strán<br>Bežná hodnota všetkých materiálov: 350 €<br><strong>LARGE BALÍK: 119 € — ušetríte 231 €</strong></p>
+        <hr>
+        <h4>📚 28 megasúborov – 3 317 strán</h4>
+        <ul>
+          <li>Veselá škôlka – 210 strán</li>
+          <li>Moja rodina – 100 strán</li>
+          <li>Pracovné profesie – 100 strán</li>
+          <li>Les a jeho tajomstvá – 70 strán</li>
+          <li>Úcta k starším – 80 strán</li>
+          <li>Ahoj jeseň – 100 strán</li>
+          <li>Deň jablka – 100 strán</li>
+          <li>Deň mlieka – 95 strán</li>
+          <li>Moje mesto – moja dedina – 102 strán</li>
+          <li>Rozprávky – 140 strán</li>
+          <li>Ľudské telo – 138 strán</li>
+          <li>Vesmír – 140 strán</li>
+          <li>Doprava – 132 strán</li>
+          <li>Jar – 145 strán</li>
+          <li>Hospodárske zvieratká – 161 strán</li>
+          <li>Stravovanie – 61 strán</li>
+          <li>Deň vody – 100 strán</li>
+          <li>Deň Zeme – 115 strán</li>
+          <li>Veľká noc – 140 strán</li>
+          <li>Slovensko – 140 strán</li>
+          <li>Liečivé rastliny – 100 strán</li>
+          <li>Časové vzťahy – 125 strán</li>
+          <li>Mama – 80 strán</li>
+          <li>Deň detí – 156 strán</li>
+          <li>Život pri vode a vo vode – 157 strán</li>
+          <li>Exotické zvieratá – 123 strán</li>
+          <li>Vitaj leto – 127 strán</li>
+          <li>Ahoj zima – 80 strán</li>
+        </ul>
+        <hr>
+        <h4>📝 Všetkých 6 týždenných projektov – 923 strán</h4>
+        <p>Vitaj v škôlke – 179 strán · Pravidlá a bezpečnosť v našej škôlke – 183 strán · More a voda – 125 strán · Les a hmyz – 140 strán · Ovocie a leto – 156 strán · Cestovanie – 140 strán</p>
+        <hr>
+        <h4>📖 12 rozprávkových E-bookov – 1 914 strán</h4>
+        <ul>
+          <li>Hurá škôlka volá – 166 strán</li>
+          <li>Čarovná jeseň – 143 strán</li>
+          <li>Vianočné rozprávky – 169 strán</li>
+          <li>Veselé fašiangy – 154 strán</li>
+          <li>Zimné objavovanie – 163 strán</li>
+          <li>Ustráchaný astronautík – 155 strán</li>
+          <li>Malí knihomoli – 155 strán</li>
+          <li>Jarné prebudenie – 167 strán</li>
+          <li>Veľkonočné rozprávky – 166 strán</li>
+          <li>Zvieratká na gazdovskom dvore – 176 strán</li>
+          <li>Rozprávkové Slovensko – 143 strán</li>
+          <li>Milujeme leto – 157 strán</li>
+        </ul>
+        <hr>
+        <h4>💬 Všetky 4 balíky ranných kruhov – 892 strán</h4>
+        <p>Marcové ranné kruhy – 271 strán · Jarné ranné kruhy – 281 strán · Vianočné ranné kruhy – 130 strán · Zimné a fašiangové ranné kruhy – 210 strán</p>
+        <hr>
+        <h4>✏️ 150 písomných príprav na celý školský rok – 400 strán</h4>
+        <p>Pripravené prípravy výrazne uľahčujú plánovanie výchovno-vzdelávacej činnosti a šetria čas, ktorý by ste inak venovali každodennému vytváraniu podkladov od začiatku.</p>
+        <hr>
+        <h4>🎄 Vianočné besiedky – 80 strán</h4>
+        <p>Pripravený program na vianočnú besiedku ponúka námety a materiály na prípravu spoločného vianočného vystúpenia detí.</p>
+        <hr>
+        <h4>🎁 Ďalších 162 strán materiálov</h4>
+        <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán, <strong>Diplomy na koniec školského roka</strong> – 20 strán, <strong>Plagáty a pravidlá do vašej MŠ</strong> – 100 strán</p>
+        <hr>
+        <p>Spolu 7 688 strán rozsiahlych materiálov. LARGE balík pokrýva desiatky tém – škôlku, rodinu, profesie, mesto a dedinu, les, jeseň, úctu k starším, ľudské telo, vesmír, dopravu, zimu, jar, hospodárske aj exotické zvieratá, stravovanie, vodu, ochranu prírody, Veľkú noc, Slovensko, liečivé rastliny, časové vzťahy, Deň matiek, Deň detí, leto, fašiangy, cestovanie a mnoho ďalších oblastí.</p>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+      `
+    },
+    premium: {
+      img: "assets/balicky/premium.jpg",
+      html: `
+        <h4>❤️ PREMIUM — Balík pre materské školy</h4>
+        <p class="price-line">10 159 strán materiálov za 149 €</p>
+        <p>PREMIUM balík je najrozsiahlejší balík z celej ponuky. Je určený pre pani učiteľky, ktoré chcú mať na jednom mieste kompletnú knižnicu materiálov využiteľnú počas celého školského roka – od prvých septembrových dní až po leto.</p>
+        <p>V balíku nájdete všetky megasúbory, všetky týždenné projekty, všetky rozprávkové E-booky, ranné kruhy, program na vianočnú besiedku, pracovné listy, diplomy, materiály do triedy a kompletnú zásobu písomných príprav — viac ako 10 000 strán hotových materiálov.</p>
+        <h4>❤️ V jednom balíku získate</h4>
+        <ul>
+          <li>všetkých 35 megasúborov</li>
+          <li>všetkých 7 týždenných projektov</li>
+          <li>všetkých 16 rozprávkových E-bookov</li>
+          <li>všetky 4 balíky ranných kruhov</li>
+          <li>Vianočné besiedky</li>
+          <li>rozvoj slovnej zásoby</li>
+          <li>20 diplomov na koniec školského roka</li>
+          <li>plagáty a pravidlá do vašej MŠ</li>
+          <li>kompletný balík písomných príprav na celý školský rok</li>
+        </ul>
+        <p>📚 Celkový rozsah: 10 159 strán<br>Bežná hodnota všetkých materiálov: 460 €<br><strong>PREMIUM BALÍK: 149 € — ušetríte 311 €</strong></p>
+        <hr>
+        <h4>📚 Všetkých 35 megasúborov – 3 897 strán</h4>
+        <ul>
+          <li>Veselá škôlka, Moja rodina, Pracovné profesie, Les a jeho tajomstvá, Úcta k starším</li>
+          <li>Ahoj jeseň, Deň jablka, Deň mlieka, Moje mesto – moja dedina, Rozprávky</li>
+          <li>Ľudské telo, Vesmír, Doprava, Jar, Hospodárske zvieratká</li>
+          <li>Stravovanie, Deň vody, Deň Zeme, Veľká noc, Slovensko</li>
+          <li>Liečivé rastliny, Časové vzťahy, Mama, Deň detí, Život pri vode a vo vode</li>
+          <li>Exotické zvieratá, Vitaj leto, Ahoj zima</li>
+          <li>50 jarných pohybových hier, 50 letných pohybových hier, 30 zimných pohybových hier, 70 pohybových hier</li>
+          <li>Pán perníček a vianočné pečenie, Svätý Mikuláš, 20 vianočných príbehov</li>
+        </ul>
+        <hr>
+        <h4>📝 7 týždenných projektov – 1 140 strán</h4>
+        <p>Vitaj v škôlke · Pravidlá a bezpečnosť v našej škôlke · More a voda · Les a hmyz · Ovocie a leto · Cestovanie · Letné táborové aktivity (217 strán)</p>
+        <hr>
+        <h4>📖 16 rozprávkových E-bookov – 2 509 strán</h4>
+        <p>Hurá škôlka volá, Čarovná jeseň, Vianočné rozprávky, Veselé fašiangy, Zimné objavovanie, Ustráchaný astronautík, Medvedík Labka a vlastnosti všetkých vecí, Malí knihomoli, Jarné prebudenie, Veľkonočné rozprávky, Zvieratká na gazdovskom dvore, Rozprávkové Slovensko, Milujeme leto, Drobné živočíchy, Exotické zvieratká, Život pri vode a vo vode</p>
+        <hr>
+        <h4>💬 Všetky 4 balíky ranných kruhov – 892 strán</h4>
+        <p>Marcové ranné kruhy · Jarné ranné kruhy · Vianočné ranné kruhy · Zimné a fašiangové ranné kruhy</p>
+        <hr>
+        <h4>✏️ Kompletný balík písomných príprav – 1 480 strán</h4>
+        <p>150 príprav na celý školský rok + 60 jesenných + 60 (október–november) + 60 zimných + 60 (marec–apríl) + 60 jarných + 60 (máj–jún) príprav.</p>
+        <hr>
+        <h4>🎄 Vianočné besiedky – 80 strán</h4>
+        <p>Pripravený program na vianočnú besiedku pre spoločné vianočné vystúpenie detí.</p>
+        <hr>
+        <h4>🎁 Ďalších 161 strán materiálov</h4>
+        <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán, <strong>20 diplomov na koniec školského roka</strong> – 20 strán, <strong>Plagáty a pravidlá do vašej MŠ</strong> – 99 strán</p>
+        <hr>
+        <p>Spolu až 10 159 strán materiálov. PREMIUM balík pokrýva prakticky celý školský rok a desiatky tém – škôlku, rodinu, profesie, mesto a dedinu, jeseň, les, ľudské telo, vesmír, dopravu, zimu, jar, hospodárske aj exotické zvieratá, stravovanie, vodu, ochranu prírody, Slovensko, liečivé rastliny, časové vzťahy, pohybové hry, Deň matiek, Deň detí, leto, Vianoce, Mikuláša, Veľkú noc, fašiangy, cestovanie a mnoho ďalších oblastí.</p>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+      `
+    }
+  };
+
+  const balickyModal = document.getElementById('balickyModal');
+  const balickyModalImg = document.getElementById('balickyModalImg');
+  const balickyModalText = document.getElementById('balickyModalText');
+
+  function openBalickyModal(key, product){
+    if (product) {
+      balickyModalImg.src = `assets/products/${product.images[0]}.jpg`;
+      const esc = product.fbText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${product.name}" za ${PRICE}.\n\nĎakujem.`);
+      const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + product.name)}&body=${mailBody}`;
+      balickyModalText.innerHTML = `<div class="plain-desc">${esc}</div><a href="${mailHref}" class="btn btn-primary tier-modal-cta">Kúpiť za ${PRICE}</a>`;
+      balickyModal.classList.add('open');
+      return;
+    }
+    const data = balickyDetails[key];
+    if (!data) return;
+    balickyModalImg.src = data.img;
+    balickyModalText.innerHTML = data.html;
+    balickyModal.classList.add('open');
+  }
+  function closeBalickyModal(){ balickyModal.classList.remove('open'); }
+
+  document.querySelectorAll('.tier-illustration').forEach(img => {
+    img.addEventListener('click', () => openBalickyModal(img.dataset.package));
+  });
+  document.querySelectorAll('.tier-cta').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      openBalickyModal(btn.dataset.package);
+    });
+  });
+  document.getElementById('balickyModalClose').addEventListener('click', closeBalickyModal);
+  balickyModal.addEventListener('click', e => { if (e.target === balickyModal) closeBalickyModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && balickyModal.classList.contains('open')) closeBalickyModal();
+  });
+</script>
+
+</body>
+</html>
