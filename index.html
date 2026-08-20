@@ -1750,7 +1750,7 @@ Súbor ZDRAVÁ A NEZDRAVÁ VÝŽIVA pomáha deťom hravou formou rozlišovať zd
 
 ✨ Súbor je vhodný na tematické týždne o zdraví, výžive a ľudskom tele, ranné kruhy aj riadené aktivity.
 🥕 Hravý spôsob, ako deti viesť k zdravším stravovacím návykom a zároveň rozvíjať množstvo ďalších zručností.`},
-    {name:"20 vianočných príbehov pre deti", badge:"109 strán", images:["new/75","new/76"], category:"Megasúbory", desc:"20 vianočných príbehov na čítanie s deťmi.", fbText:`🎄🎅 20 VIANOČNÝCH PRÍBEHOV PRE DETI 🎅🎄
+    {name:"20 vianočných príbehov pre deti", badge:"109 strán", images:["new/75","new/76"], category:"Megasúbory", price:"6,00 €", desc:"20 vianočných príbehov na čítanie s deťmi.", fbText:`🎄🎅 20 VIANOČNÝCH PRÍBEHOV PRE DETI 🎅🎄
 ✨ 109 strán ilustrovaných adventných a vianočných príbehov ✨
 
 Spríjemnite deťom adventné obdobie každý deň novým príbehom. ❤️
@@ -1899,6 +1899,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   const PRICE = "7,00 €";
   const CONTACT_EMAIL = "filiphacko2@gmail.com";
   function getPrice(p){
+    if (p.price) return p.price;
     if (p.category === "Písomné prípravy") return "14,00 €";
     if (p.category === "Megasúbory") return "5,00 €";
     if (p.category === "Pohybové hry") return "6,00 €";
