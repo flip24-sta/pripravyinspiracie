@@ -794,8 +794,69 @@
 <script>
   const products = [
     {name:"Jesenný balík – Písomné prípravy", badge:"60 KS", images:[2], category:"Písomné prípravy", desc:"Kompletné písomné prípravy na jesenné mesiace pre materské školy."},
-    {name:"Vitaj v škôlke – Moje prvé dni", badge:"210 strán", images:["new/2","new/3","new/4","new/5","new/6"], category:"Megasúbory", desc:"Týždenný plán aktivít na privítanie detí v škôlke a ich prvé dni."},
-    {name:"Pravidlá a bezpečnosť v našej škôlke", badge:"183 strán", images:[5,6], category:"Megasúbory", desc:"Aktivity na osvojenie si pravidiel a bezpečného správania v škôlke."},
+    {name:"Vitaj v škôlke – Moje prvé dni", badge:"210 strán", images:["new/2","new/3","new/4","new/5"], category:"Megasúbory", desc:"Týždenný plán aktivít na privítanie detí v škôlke a ich prvé dni.", fbText:`🎈 VESELÁ ŠKÔLKA – 210 strán 🎈
+
+Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
+
+💗 Plagáty: pravidlá, diplomy, rozvoj poznania – 14 strán
+🎵 Piesne a básne: upratovanie, utišovanie, začiatok školského roka, ranný pozdrav – 6 strán
+🧠 Rozvoj poznania: hlavné pojmy, kto sa o nás stará, priestory MŠ, režim dňa – 10 strán
+🧩 Priraďovačka: Čo kam patrí – 24 kartičiek
+🤝 Zoznamovacie hry – 4 strany
+🏃 Pohybové hry – 4 strany
+💬 Komunikačné hry – 4 strany
+📖 Rozprávky + otázky + dejová postupnosť – 28 strán
+📝 Rozvoj poznania: pracovné listy – 5 strán
+🃏 Kartičky so správaním – 16×
+✏️ Predpisateľská a predčitateľská gramotnosť – 21 strán
+🔤 Abeceda – 36 strán
+✍️ Grafomotorika – 15 strán
+🔢 Matematika – 11 strán
+👀 Pozornosť – 4 strany
+🧩 Puzzle – 4 strany
+🃏 Pexeso – 24 párov
+💬 Hra Ja mám / Kto má? – 40 kartičiek
+
+💕 Hravé aktivity pre šťastné dni v škôlke!`},
+    {name:"Pravidlá a bezpečnosť v našej škôlke", badge:"183 strán", images:[5], category:"Megasúbory", desc:"Aktivity na osvojenie si pravidiel a bezpečného správania v škôlke.", fbText:`🛡️ PRAVIDLÁ A BEZPEČNOSŤ V NAŠEJ ŠKÔLKE – 183 strán 🛡️
+
+Týždenný plán aktivít na osvojenie si pravidiel a bezpečného správania v škôlke.
+
+PONDELOK 💗
+Zdravotné cvičenie – Dobré ráno, škôlka
+Zoznamovacia hra – Čarovná škatuľka
+Zoznamovacia hra – Lov na kamarátov
+Rozprávka s dramatizáciou – Maminka sa vždy vráti
+Hudobno-pohybová aktivita – Vitaj medzi nami, kamarát
+Zmyslová a komunikačná hra – Moja obľúbená hračka
+
+UTOROK 🧡
+Tvorivá dielňa – Moja škôlkarska značka
+Pohybová hra – Kam to patrí?
+Rozprávka – Stratená značka malého zajačika
+Pracovné listy – Stratená značka malého zajačika
+Didaktická hra – Kto sa o nás stará?
+
+STREDA 💚 Učíme sa pravidlá a sme dobrí kamaráti
+Zdravotné cvičenie – Cvičíme podľa pravidiel
+Tvorivá skupinová aktivita – Strom našich triednych pravidiel
+Pohybová hra – Správne alebo nesprávne?
+Didaktická hra – Kúzelné dvere škôlky
+Kooperatívna aktivita – Spoločne upraceme našu triedu
+
+ŠTVRTOK 💜 Som šikovný a samostatný škôlkar
+Didaktická hra – Ako plynie deň v našej škôlke?
+Tvorivá dielňa – Môj škôlkarsky deň
+Rozprávka s úlohami – Hodinky pani Sovičky
+Pracovné listy – Kúzelné hodiny a režim dňa
+Relaxačná aktivita – Tichý obláčik
+
+PIATOK 💙 Som bezpečný škôlkar
+Zdravotné cvičenie vo dvojiciach – Bezpeční kamaráti
+Tvorivá dielňa – Medaila bezpečného škôlkara
+Pátracia hra – Zachráňme škôlku
+Veľká škôlkarska olympiáda
+Slávnostné pasovanie za šikovného škôlkara`},
     {name:"Hurá škôlka volá – rozprávky", badge:"166 strán", images:["rp/2","rp/3","rp/4"], category:"Rozprávky", desc:"15 edukačných adaptačných rozprávok pre prvé dni v škôlke.", fbText:`✨ HURÁ ŠKÔLKA VOLÁ ✨
 
 📚 15 edukačných adaptačných rozprávok
@@ -955,7 +1016,27 @@ Megasúbor DOPRAVA ponúka množstvo pripravených materiálov, vďaka ktorým d
 
 ✨ Súbor je vhodný na tematické týždne o doprave a bezpečnosti na cestách, ranné kruhy, riadené aktivity, centrá aktivít aj samostatnú prácu detí.
 🚦 132 strán pripravených materiálov + písomné prípravy – všetko na jednom mieste pre jednoduchú a pestrú prácu s témou DOPRAVA.`},
-    {name:"Pohybové hry – 70 aktivít", badge:"70 aktivít", images:["new/41","new/42","new/43"], category:"Pohybové hry", desc:"70 pohybových hier a aktivít pre celý školský rok."},
+    {name:"Pohybové hry – 70 aktivít", badge:"70 aktivít", images:["new/41","new/42"], category:"Pohybové hry", desc:"70 pohybových hier a aktivít pre celý školský rok.", fbText:`🎁🏃 CELOROČNÉ POHYBOVÉ HRY PRE MŠ – 70 AKTIVÍT 🎀🌈
+
+Hľadáte pohybové hry, ktoré využijete počas celého školského roka? 💛
+
+Súbor CELOROČNÉ POHYBOVÉ HRY obsahuje až 70 pripravených aktivít na rôzne témy, vďaka ktorým deti rozhýbete hravou, veselou a tematickou formou.
+
+✨ Témy v súbore:
+jar, jeseň, zima, Vianoce, vesmír, ľudské telo, exotické zvieratká, zvieratá na farme, morský svet, Hurá do školy, profesie, počasie, doprava a mnoho ďalších. 🌸🍂❄️🚦🚀🐟
+
+📌 Každá aktivita obsahuje:
+🏃 cieľ a zameranie hry
+📝 podrobný popis a priebeh aktivity
+🎵 riekanky a sprievodné texty
+🧸 potrebné pomôcky
+💡 tipy a doplňujúce informácie k realizácii
+
+Aktivity sú vhodné na ranné cvičenie, pobyt vonku, telovýchovné chvíľky, tematické dni aj ako pohybová prestávka počas dňa.
+
+💛 Súbor vám ušetrí množstvo času pri príprave a poskytne zásobu hier, po ktorých môžete siahnuť počas celého roka.
+
+🎀 70 pohybových hier na jednom mieste – stačí vybrať tému a môžete sa hrať!`},
     {name:"Medvedík Labka", badge:"162 strán", images:["rp/10","rp/11","rp/12","rp/13"], category:"Rozprávky", desc:"14 edukačných rozprávok o vlastnostiach vecí s medvedíkom Labkom a Bubkou.", fbText:`✨ MEDVEDÍK LABKA A ZVEDAVÁ BUBKA – VLASTNOSTI VŠETKÝCH VECÍ ✨
 🖍️ 14 edukačných rozprávok | 162 strán
 
@@ -1036,7 +1117,26 @@ Príbehy sú láskavé, hodnotné, poučné a doplnené krásnymi ilustráciami.
 13. Ružová mašľa zo škriatkovskej dielne
 14. Vianočné pečenie s mamičkou
 15. Hračkárstvo, ktoré ožíva o polnoci`},
-    {name:"30 zimných pohybových hier", badge:"30 hier", images:["new/90","new/91","new/92"], category:"Pohybové hry", desc:"30 pohybových hier na zimné obdobie do interiéru aj exteriéru."},
+    {name:"30 zimných pohybových hier", badge:"30 hier", images:["new/90","new/91"], category:"Pohybové hry", desc:"30 pohybových hier na zimné obdobie do interiéru aj exteriéru.", fbText:`💙❄️ ZIMNÉ POHYBOVÉ HRY PRE MŠ A ŠKD ⛄🔥
+
+✨ 30 aktivít • 51 strán ✨
+
+Sneh, vločky, zimné športy, zvieratká aj veselé zimné dobrodružstvá. ❄️
+
+Súbor ZIMNÉ POHYBOVÉ HRY obsahuje 30 pripravených aktivít, ktoré môžete využívať počas celého zimného obdobia v materskej škole aj ŠKD.
+
+📌 Pri aktivitách nájdete:
+🎯 cieľ a zameranie hry
+🏃 podrobný popis a priebeh
+🧸 potrebné pomôcky
+🎵 riekanky a sprievodné texty
+❄️ rôzne zimné motívy a námety
+
+Aktivity podporujú pohybové schopnosti, koordináciu, rýchlosť, orientáciu v priestore, spoluprácu, pozornosť, fantáziu aj pozitívny vzťah detí k pohybu.
+
+✨ Využijete ich počas ranného cvičenia, telovýchovných chvíľok, pobytu vonku, tematických dní aj ako veselé pohybové spestrenie programu.
+
+❄️ 30 zimných hier – hotová zásoba aktivít na celé zimné obdobie.`},
     {name:"Zimný balík – Písomné prípravy", badge:"60 KS", images:[65], category:"Písomné prípravy", desc:"Písomné prípravy na zimné mesiace december až február."},
     {name:"Pán Snehuliak a zimné objavovanie", badge:"163 strán", images:["rp/19","rp/20","rp/21"], category:"Rozprávky", desc:"15 edukačných zimných rozprávok s Pánom Snehuliakom.", fbText:`✨❄️ PÁN SNEHULIAK A ZIMNÉ OBJAVOVANIE – 15 edukačných zimných rozprávok (163 strán) ❄️✨
 
@@ -1133,7 +1233,26 @@ Súbor PÁN PERNÍČEK A VIANOČNÉ PEČENIE spája praktické recepty, rozpráv
 ✨ Súbor je vhodný na adventné a vianočné tematické týždne, spoločné pečenie, ranné kruhy, riadené aktivity aj tvorivé činnosti.
 🎄 Vianočný súbor, ktorý spája učenie, vôňu Vianoc a zážitkové aktivity do jedného celku.`},
     {name:"Marec – Apríl – Písomné prípravy", badge:"60 KS", images:[69], category:"Písomné prípravy", desc:"Písomné prípravy na jarné mesiace marec a apríl."},
-    {name:"Jarné pohybové hry – 50 hier", badge:"50 hier", images:["new/136","new/137","new/138","new/139","new/140","new/141"], category:"Pohybové hry", desc:"50 pohybových hier na jarné obdobie."},
+    {name:"Jarné pohybové hry – 50 hier", badge:"50 hier", images:["new/136","new/137","new/138","new/139","new/140"], category:"Pohybové hry", desc:"50 pohybových hier na jarné obdobie.", fbText:`🌈☀️ JARNÉ POHYBOVÉ HRY – 50 AKTIVÍT 🌳🌷
+
+✨ 50 pripravených pohybových hier s pestrou jarnou tematikou pre deti v MŠ vo veku 3 – 6 rokov aj pre deti v ŠKD (1. – 2. ročník). Hry môžete využiť v interiéri aj exteriéri. 🌸💛
+
+Súbor ponúka zásobu pohybových aktivít na celé jarné obdobie. Deti sa pri nich nielen rozhýbu, ale zároveň spoznávajú prírodu, zvieratá, rastliny, počasie či ochranu životného prostredia.
+
+📌 Každá hra obsahuje:
+🌿 názov aktivity
+🧸 potrebné pomôcky
+📋 pravidlá a podrobný popis hry
+💡 variácie a možnosti obmeny
+🎯 zameranie aktivity
+
+🌷 Jarné témy:
+hmyz, lúčne a jarné kvety, liečivé rastliny, živočíchy, lesné a domáce zvieratká, farma, babičkina záhrada, ovocie a zelenina, jarné počasie, les, ochrana životného prostredia, život pri vode, vodné živočíchy, vtáčiky, 1. máj a ďalšie.
+
+🏃 Hry podporujú najmä:
+rozvoj rýchlosti, obratnosti, koordinácie a orientácie v priestore, jemnú a hrubú motoriku, reakciu na signál, rytmus, spoluprácu, pamäť, logické a matematické myslenie, fantáziu, dramatizáciu, reč, sociálne zručnosti, empatiu, samostatnosť, environmentálne povedomie aj pozitívny vzťah k pohybu.
+
+🌸 50 jarných hier na jednom mieste – stačí vybrať tému a môžete sa s deťmi rozhýbať!`},
     {name:"Rozprávky", badge:"140 strán", images:["new/101","new/102","new/103","new/104","new/105"], category:"Megasúbory", desc:"Klasické rozprávky spracované s aktivitami pre deti.", fbText:`👑📚 ROZPRÁVKY – MAREC, MESIAC KNIHY 🏰🌹
 ✨ MEGASÚBOR PRE MŠ – 140 strán PDF ✨
 📝 Možnosť dokúpiť aj 10 – 15 písomných príprav
@@ -1589,7 +1708,19 @@ Megasúbor DEŇ MATIEK ponúka množstvo aktivít venovaných láske, vďačnost
 
 ✨ Súbor je vhodný na prípravu aktivít k Dňu matiek, ranné kruhy, tvorivé činnosti, riadené aktivity aj samostatnú prácu detí.
 💗 80 strán pripravených materiálov, vďaka ktorým môžete s deťmi vytvoriť krásny a nezabudnuteľný Deň matiek.`},
-    {name:"Deň detí – Deti sveta", badge:"157 strán", images:["new/158","new/159","new/160","new/161","new/162"], category:"Megasúbory", desc:"Oslava Dňa detí a spoznávanie detí z celého sveta."},
+    {name:"Deň detí – Deti sveta", badge:"157 strán", images:["new/158","new/159","new/160","new/161","new/162"], category:"Megasúbory", desc:"Oslava Dňa detí a spoznávanie detí z celého sveta.", fbText:`🎈🌍 DEŇ DETÍ – DETI SVETA – 156 strán 🎈🌍
+
+🧸 Rozvoj poznania – komunikácia – obrázky, plagáty – rozvoj komunikačných schopností (17 strán)
+🧸 14 zábavných aktivít (pohybové aktivity, básne, hry a riekanky)
+🧸 Krajina rozprávok – 10 rozprávok s aktivitami + rozprávky + dramatizácie + pracovné listy (Červená čiapočka, Janko a Marienka, Janko a čarovné fazuľky, Tri prasiatka, Papušík, O veľkej repke, Škaredé káčatko, Kocúr v čižmách, Chlapček Palček, Bambi)
+🧸 Multikultúrna výchova – vysvetlenie + obrázok národností, rodina v jej prirodzenom prostredí + pracovné listy zamerané na toleranciu a správanie (36 strán)
+🧸 Predpisateľská a predčitateľská gramotnosť (15 strán)
+🧸 Grafomotorika (8 strán)
+🧸 Matematika + geometria (9 strán)
+🧸 Pexeso (36 párov)
+🧸 Puzzle (7 strán)
+🧸 Hra Ja mám / Kto má? (40 kariet)
+🧸 Omaľovánky (8×)`},
     {name:"Diplom – Koniec školského roka", badge:null, images:[184], category:"Diplomy", desc:"Diplom pre deti na záver školského roka."},
     {name:"Jeseň – Megasúbor", badge:"102 strán", images:["new/31","new/32","new/33"], category:"Megasúbory", desc:"Kompletný jesenný megasúbor aktivít a pracovných listov.", fbText:`🍂🎃 JESEŇ – MEGASÚBOR PRE MŠ 🧸🍎
 ✨ 102 strán PDF plných jesenných aktivít, hier a pracovných materiálov ✨
