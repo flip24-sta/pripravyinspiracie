@@ -374,12 +374,8 @@
   .product-modal-note{
     display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.82rem;margin-bottom:22px;
   }
-  .product-modal-more summary{
-    cursor:pointer;color:var(--rose);font-weight:600;font-size:0.88rem;margin-bottom:10px;list-style:none;
-  }
-  .product-modal-more summary::-webkit-details-marker{display:none;}
-  .product-modal-more summary::before{content:"+ ";}
-  .product-modal-more[open] summary::before{content:"– ";}
+  .product-modal-desc{margin-bottom:20px;max-height:none;}
+  .product-modal-desc.plain-desc{font-size:0.9rem;}
   @media (max-width:760px){
     .product-modal-inner{grid-template-columns:1fr;}
     .product-modal-info{padding:0 24px 28px;}
@@ -771,7 +767,7 @@
     <div class="product-modal-info">
       <span class="product-modal-eyebrow">Digitálny PDF súbor</span>
       <h2 class="product-modal-title" id="pmTitle"></h2>
-      <p class="product-modal-lead" id="pmLead"></p>
+      <div class="plain-desc product-modal-desc" id="pmMore"></div>
       <div class="product-modal-tags" id="pmTags"></div>
       <div class="product-modal-price-row">
         <div>
@@ -781,10 +777,6 @@
         <a class="btn btn-primary" id="pmBuy" href="#">Kúpiť</a>
       </div>
       <p class="product-modal-note">💌 PDF materiál vám po objednávke príde na e-mail. Nejde o tlačený produkt.</p>
-      <details class="product-modal-more" id="pmMoreWrap">
-        <summary>Viac o produkte</summary>
-        <div class="plain-desc" id="pmMore"></div>
-      </details>
     </div>
   </div>
 </div>
@@ -1999,12 +1991,10 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   const productModal = document.getElementById('productModal');
   const pmImg = document.getElementById('pmImg');
   const pmTitle = document.getElementById('pmTitle');
-  const pmLead = document.getElementById('pmLead');
   const pmTags = document.getElementById('pmTags');
   const pmPrice = document.getElementById('pmPrice');
   const pmBuy = document.getElementById('pmBuy');
   const pmThumbs = document.getElementById('pmThumbs');
-  const pmMoreWrap = document.getElementById('pmMoreWrap');
   const pmMore = document.getElementById('pmMore');
   let pmProduct = null;
   let pmPos = 0;
@@ -2019,7 +2009,6 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     const imgNum = pmProduct.images[pmPos];
     pmImg.src = `assets/products/${imgNum}.jpg`;
     pmTitle.textContent = pmProduct.name;
-    pmLead.textContent = pmProduct.desc || '';
     pmPrice.textContent = PRICE;
     const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${pmProduct.name}" za ${PRICE}.\n\nĎakujem.`);
     pmBuy.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + pmProduct.name)}&body=${mailBody}`;
@@ -2028,12 +2017,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     pmThumbs.innerHTML = pmProduct.images.map((imgN,i) =>
       `<img src="assets/products/${imgN}.jpg" data-i="${i}" class="${i===pmPos?'active':''}" alt="Ukážka ${i+1}">`
     ).join('');
-    if (pmProduct.fbText) {
-      pmMoreWrap.style.display = '';
-      pmMore.textContent = pmProduct.fbText;
-    } else {
-      pmMoreWrap.style.display = 'none';
-    }
+    pmMore.textContent = pmProduct.fbText || pmProduct.desc || '';
   }
   function closeProductModal(){ productModal.classList.remove('open'); }
   function pmNav(delta){
