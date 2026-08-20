@@ -316,6 +316,74 @@
     text-decoration:line-through;color:var(--muted);font-weight:400;font-size:1.1rem;
     margin-right:8px;display:inline-block;
   }
+
+  /* PRODUCT DETAIL MODAL */
+  .product-modal{
+    position:fixed;inset:0;background:rgba(36,31,29,.72);z-index:260;
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .product-modal.open{display:flex;}
+  .product-modal-inner{
+    background:var(--bg);border-radius:24px;max-width:1080px;width:100%;max-height:90vh;
+    overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative;
+  }
+  .product-modal-close{
+    position:absolute;top:16px;right:20px;font-size:1.9rem;cursor:pointer;color:var(--muted);
+    line-height:1;z-index:2;background:#fff;width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .product-modal-close:hover{color:var(--ink);}
+  .product-modal-gallery{padding:28px;}
+  .product-modal-main{
+    border-radius:18px;overflow:hidden;aspect-ratio:3/4;background:var(--blush);
+    box-shadow:0 20px 40px -20px rgba(137,78,68,.35);position:relative;
+  }
+  .product-modal-main img{width:100%;height:100%;object-fit:cover;}
+  .product-modal-navbtn{
+    position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,.9);color:var(--terracotta);display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:1.3rem;user-select:none;
+  }
+  .product-modal-prev{left:12px;}
+  .product-modal-next{right:12px;}
+  .product-modal-thumbs{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+  .product-modal-thumbs img{
+    width:56px;height:56px;object-fit:cover;border-radius:10px;cursor:pointer;
+    border:2px solid transparent;opacity:.7;transition:all .15s;
+  }
+  .product-modal-thumbs img:hover{opacity:1;}
+  .product-modal-thumbs img.active{border-color:var(--rose);opacity:1;}
+  .product-modal-info{padding:32px 32px 32px 0;display:flex;flex-direction:column;}
+  .product-modal-eyebrow{
+    font-size:0.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);
+    font-weight:700;margin-bottom:10px;
+  }
+  .product-modal-title{font-size:1.7rem;font-weight:800;color:var(--terracotta);margin-bottom:14px;text-wrap:balance;}
+  .product-modal-lead{color:var(--muted);font-size:0.96rem;margin-bottom:18px;}
+  .product-modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+  .product-modal-tag{
+    background:var(--rose-pale);color:var(--terracotta);border:1px solid var(--rose-light);
+    font-size:0.78rem;font-weight:600;padding:6px 14px;border-radius:20px;
+  }
+  .product-modal-price-row{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 20px;margin-bottom:14px;
+  }
+  .product-modal-price-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;}
+  .product-modal-price{font-size:1.6rem;font-weight:800;color:var(--ink);}
+  .product-modal-note{
+    display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.82rem;margin-bottom:22px;
+  }
+  .product-modal-more summary{
+    cursor:pointer;color:var(--rose);font-weight:600;font-size:0.88rem;margin-bottom:10px;list-style:none;
+  }
+  .product-modal-more summary::-webkit-details-marker{display:none;}
+  .product-modal-more summary::before{content:"+ ";}
+  .product-modal-more[open] summary::before{content:"– ";}
+  @media (max-width:760px){
+    .product-modal-inner{grid-template-columns:1fr;}
+    .product-modal-info{padding:0 24px 28px;}
+  }
   .tier-card{
     background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px 32px;
     display:flex;flex-direction:column;position:relative;
@@ -397,9 +465,10 @@
       <span>Prípravy</span><span class="heart">♥</span><span>Inšpirácie</span>
     </div>
     <div class="navlinks">
-      <a href="#o-nas">O nás</a>
       <a href="#produkty">Produkty</a>
+      <a href="#zadarmo">Materiály zadarmo</a>
       <a href="#balicky">Balíky</a>
+      <a href="#o-nas">O nás</a>
       <a href="#recenzie">Recenzie</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
@@ -467,6 +536,20 @@
         <h3>Materiál príde na e-mail</h3>
         <p>Po platbe vám PDF pošleme rovno do schránky — stačí stiahnuť a vytlačiť.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="zadarmo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Bez platby</span>
+      <h2>Materiály zadarmo</h2>
+      <p>Pripravujeme pre vás bezplatné ukážkové materiály na vyskúšanie. Táto sekcia sa čoskoro naplní.</p>
+    </div>
+    <div class="reviews-empty">
+      <p>Zatiaľ tu nemáme žiadne materiály zadarmo — pripravujeme ich pre vás. 🎁</p>
+      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Materi%C3%A1ly%20zadarmo">Dajte mi vedieť, keď budú dostupné</a>
     </div>
   </div>
 </section>
@@ -606,6 +689,7 @@
     </div>
 
     <div class="filter-bar" id="filterBar"></div>
+    <div class="filter-bar" id="seasonBar"></div>
     <p class="filter-count" id="filterCount"></p>
     <div class="shop-grid" id="shopGrid"></div>
     <p class="more-note">Cena každého produktu: 7,00 € · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
@@ -673,13 +757,36 @@
 
 <footer>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</footer>
 
-<div class="lightbox" id="lightbox">
-  <span class="lb-close" id="lbClose">&times;</span>
-  <span class="lb-nav lb-prev" id="lbPrev">&#8249;</span>
-  <img id="lbImg" src="" alt="Ukážka produktu">
-  <span class="lb-nav lb-next" id="lbNext">&#8250;</span>
-  <div class="lb-caption" id="lbCaption"></div>
-  <div class="lb-desc" id="lbDesc"></div>
+<div class="product-modal" id="productModal">
+  <div class="product-modal-inner">
+    <span class="product-modal-close" id="productModalClose">&times;</span>
+    <div class="product-modal-gallery">
+      <div class="product-modal-main">
+        <img id="pmImg" src="" alt="">
+        <span class="product-modal-navbtn product-modal-prev" id="pmPrev">&#8249;</span>
+        <span class="product-modal-navbtn product-modal-next" id="pmNext">&#8250;</span>
+      </div>
+      <div class="product-modal-thumbs" id="pmThumbs"></div>
+    </div>
+    <div class="product-modal-info">
+      <span class="product-modal-eyebrow">Digitálny PDF súbor</span>
+      <h2 class="product-modal-title" id="pmTitle"></h2>
+      <p class="product-modal-lead" id="pmLead"></p>
+      <div class="product-modal-tags" id="pmTags"></div>
+      <div class="product-modal-price-row">
+        <div>
+          <div class="product-modal-price-label">Cena</div>
+          <div class="product-modal-price" id="pmPrice"></div>
+        </div>
+        <a class="btn btn-primary" id="pmBuy" href="#">Kúpiť</a>
+      </div>
+      <p class="product-modal-note">💌 PDF materiál vám po objednávke príde na e-mail. Nejde o tlačený produkt.</p>
+      <details class="product-modal-more" id="pmMoreWrap">
+        <summary>Viac o produkte</summary>
+        <div class="plain-desc" id="pmMore"></div>
+      </details>
+    </div>
+  </div>
 </div>
 
 <div class="balicky-modal" id="balickyModal">
@@ -725,13 +832,137 @@ Každá rozprávka pomáha dieťaťu zvládnuť jednu konkrétnu situáciu, s kt
 👨‍👩‍👧‍👦 Spolupráca rodičov a materskej školy.
 
 Rozprávky sú napísané tak, aby deti pravidlá pochopili, nie sa ich len naučili naspamäť. Vďaka príbehom si prirodzene budujú pocit bezpečia, samostatnosť, sebadôveru aj pozitívny vzťah k materskej škole.`},
-    {name:"Hurááá škôlka volá", badge:"100 strán", images:["new/8","new/9","new/10","new/11"], category:"Megasúbory", desc:"Materiály na privítanie a rozlúčku so školským rokom v škôlke."},
+    {name:"Hurááá škôlka volá", badge:"100 strán", images:["new/8","new/9","new/10"], category:"Megasúbory", desc:"Materiály na privítanie a rozlúčku so školským rokom v škôlke.", fbText:`💗✏️ HURÁ ŠKÔLKA – MEGASÚBOR PRE MŠ 🧸📚
+✨ 100 strán plných aktivít, hier a pracovných materiálov ✨
+
+Začiatok školského roka môže byť hravý, pokojný a plný pekných zážitkov. 💛
+Megasúbor HURÁ ŠKÔLKA je pripravený tak, aby vám uľahčil prvé dni s deťmi v materskej škole a ponúkol množstvo aktivít na zoznamovanie, upevňovanie pravidiel aj rozvoj základných zručností.
+
+📌 V súbore nájdete:
+💗 triedne pravidlá, piesne a riekanky na každý deň
+💛 zábavné zoznamovacie a netradičné detské hry
+💚 diplomy a pamätný list
+📚 pravidlá správneho zaobchádzania s knihou
+✏️ farebné aj čiernobiele pracovné listy
+🔢 matematické úlohy, určovanie poradia a geometriu
+🖍️ grafomotoriku a predpisateľskú gramotnosť
+🔤 aktivity s abecedou
+🧩 puzzle, pexeso, bludiská a vyfarbovanie
+📮 obľúbenú hru JA MÁM / KTO MÁ?
+🔍 hľadanie rozdielov, tieňov a dokresľovanie tvarov
+
+✨ Súbor je vhodný najmä na začiatok školského roka, adaptačné obdobie, ranné kruhy, centrá aktivít aj samostatnú prácu detí.
+🟦 K megasúboru je možné dokúpiť aj 6 podrobných písomných príprav.
+💗 100 strán pripravených materiálov – stačí vytlačiť a môžete tvoriť, hrať sa a učiť.`},
     {name:"Čarovná jeseň – rozprávky", badge:"166 strán", images:["rp/6"], category:"Rozprávky", desc:"Jesenné rozprávky pre materské školy."},
-    {name:"Rodina", badge:"100 strán", images:["new/12","new/13","new/14","new/15","new/16"], category:"Megasúbory", desc:"Aktivity a pracovné listy na tému rodiny a blízkych."},
-    {name:"Profesie", badge:"104 strán", images:["new/17","new/18","new/19","new/20"], category:"Megasúbory", desc:"Pracovné listy a aktivity na spoznávanie rôznych profesií a povolaní."},
-    {name:"Mesto a dedina", badge:"102 strán", images:["new/21","new/22","new/23","new/24","new/25"], category:"Megasúbory", desc:"Materiály na spoznávanie rozdielov medzi mestom a dedinou."},
-    {name:"Deň mlieka", badge:"78 strán", images:["new/26","new/27","new/28","new/29","new/30"], category:"Megasúbory", desc:"Aktivity a pracovné listy pri príležitosti Svetového dňa mlieka."},
-    {name:"Doprava", badge:"132 strán", images:["new/35","new/36","new/37","new/38","new/39","new/40"], category:"Megasúbory", desc:"Kompletný materiál na tému dopravy a dopravnej výchovy."},
+    {name:"Rodina", badge:"100 strán", images:["new/12","new/13","new/14","new/15"], category:"Megasúbory", desc:"Aktivity a pracovné listy na tému rodiny a blízkych.", fbText:`💛🏠 RODINA – MEGASÚBOR PRE MŠ 👨‍👩‍👧‍👦💕
+✨ 100 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Téma RODINA patrí medzi deťom najbližšie témy. 💛 Prostredníctvom pripravených aktivít sa deti rozprávajú o svojich najbližších, rozvíjajú slovnú zásobu, komunikáciu, matematické predstavy, grafomotoriku aj predčitateľskú gramotnosť.
+
+📌 V súbore nájdete:
+💬 komunikačné karty – 13 strán
+🌷 básničky – 4 strany
+📮 pexeso – 36 párov
+📖 rozprávku s otázkami na porozumenie – 4 strany
+✏️ grafomotorické pracovné listy – 10 strán
+🔢 matematické aktivity – 21 strán
+🧩 puzzle – 4 strany
+🔤 predčitateľskú a predpisateľskú gramotnosť – 7 strán
+📮 hru JA MÁM / KTO MÁ? – 40 kariet
+🔍 hru DOBBLE – 28 kariet
+🖍️ štipcovačky, omaľovánky a bludiská
+
+✨ Súbor je vhodný na ranné kruhy, riadené aktivity, centrá aktivít aj samostatnú prácu detí.
+🟦 K megasúboru je možné dokúpiť aj 8 podrobných písomných príprav.
+💛 100 strán pripravených materiálov k jednej z najkrajších tém – RODINA.`},
+    {name:"Profesie", badge:"104 strán", images:["new/17","new/18","new/19"], category:"Megasúbory", desc:"Pracovné listy a aktivity na spoznávanie rôznych profesií a povolaní.", fbText:`👩‍⚕️👩‍🌾 PRACOVNÉ PROFESIE – MEGASÚBOR PRE MŠ 👷‍♀️👩‍🍳
+✨ 104 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Kto nás lieči? Kto hasí požiare? Kto pečie chlieb alebo stavia domy? 👩‍⚕️👩‍🌾✏️
+Megasúbor PRACOVNÉ PROFESIE pomáha deťom hravou formou spoznávať rôzne povolania, ich pracovnú náplň, pomôcky aj význam pre spoločnosť.
+
+📌 V súbore nájdete:
+💬 komunikačné plagáty a kartičky
+🧩 puzzle a pexeso
+🔢 matematické pracovné listy – farebné aj čiernobiele
+✏️ grafomotorické pracovné listy
+🧠 aktivity na rozvoj poznania a triedenie
+🔤 predčitateľskú a predpisateľskú gramotnosť
+📖 rozprávku O chorej Agátke
+📮 hry DOBBLE a JA MÁM / KTO MÁ?
+🔍 tieňohry a sudoku
+👩‍🚒 13 pracovných listov zameraných na poznávanie profesií a ich pracovnej náplne
+🖍️ dokresľovanie tvarov a omaľovánky
+🗣️ rýmy, homonymá a precvičovanie hlásky R
+🌀 bludiská
+🚒 aktivity zamerané na spoznávanie záchranných zložiek
+
+✨ Materiály rozvíjajú poznanie, komunikáciu, logické myslenie, matematické predstavy, jemnú motoriku aj jazykové schopnosti detí.
+🟦 K megasúboru je možné dokúpiť aj 10 podrobných písomných príprav.
+💛 104 strán pripravených aktivít – stačí vytlačiť a môžete objavovať svet povolaní spolu s deťmi.`},
+    {name:"Mesto a dedina", badge:"102 strán", images:["new/21","new/22","new/23","new/24"], category:"Megasúbory", desc:"Materiály na spoznávanie rozdielov medzi mestom a dedinou.", fbText:`🏘️✨ MESTO A DEDINA 🏙️🌳
+🏫 EDUKAČNÝ MEGASÚBOR PRE MŠ – 102 strán PDF 🏛️🏡
+
+Ako vyzerá život v meste a ako na dedine? Čo všetko môžeme nájsť v uliciach, na námestí, pri domoch či v okolitej prírode? 💛
+Megasúbor MESTO A DEDINA pomáha deťom hravou a zrozumiteľnou formou spoznávať rozdiely aj spoločné znaky mesta a dediny, rozvíjať slovnú zásobu, poznanie, logické myslenie, grafomotoriku aj matematické predstavy.
+
+📌 V súbore nájdete:
+🏘️ Rozvoj poznania – 15 strán (plagáty, edukačné obrázky, kartičky a vysvetlenie základných pojmov)
+📖 Rozprávku s otázkami na porozumenie deja – 5 strán
+🚶 Pohybové hry – 5 strán
+🔤 Predčitateľskú a predpisateľskú gramotnosť – 16 strán
+✏️ Grafomotoriku – 11 strán
+🔢 Matematiku – 9 strán
+📮 Pexeso – 36 kartičiek
+🧩 Puzzle – 6 kusov
+💬 Hru JA MÁM / KTO MÁ? – 40 kariet
+🎨 Omaľovánky – 10 kusov
+
+✨ Súbor je vhodný na tematické týždne, ranné kruhy, riadené aktivity, centrá aktivít aj samostatnú prácu detí.
+Deti si prostredníctvom pripravených materiálov rozšíria poznatky o svojom okolí, naučia sa pomenovať typické miesta a budovy a prirodzene si precvičia viacero oblastí rozvoja naraz. 🌳🏙️
+💛 102 strán pripravených materiálov – stačí vytlačiť a môžete spolu objavovať svet mesta a dediny.`},
+    {name:"Deň mlieka", badge:"78 strán", images:["new/26","new/27","new/28","new/29"], category:"Megasúbory", desc:"Aktivity a pracovné listy pri príležitosti Svetového dňa mlieka.", fbText:`🥛🐄 DEŇ MLIEKA – EDUKAČNÝ MEGASÚBOR PRE MŠ 🧀🍼
+✨ 78 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Odkiaľ pochádza mlieko? Čo všetko sa z neho vyrába a prečo je súčasťou nášho jedálnička? 🐄🥛
+Megasúbor DEŇ MLIEKA približuje deťom tému mlieka hravou a zrozumiteľnou formou a zároveň rozvíja ich poznanie, slovnú zásobu, grafomotoriku, matematické predstavy aj predčitateľské schopnosti.
+
+📌 V súbore nájdete:
+🐄 Rozvoj poznania – 14 materiálov (plagáty, edukačné obrázky, kartičky a pracovné listy)
+🚶 Pohybové hry – 3 aktivity
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 13 aktivít
+✏️ Grafomotoriku – 5 pracovných listov
+🔢 Matematiku – 4 pracovné listy
+📮 Pexeso – 24 kartičiek
+🧩 Puzzle – 6 kusov
+💬 Hru JA MÁM / KTO MÁ? – 40 kariet
+🎨 Omaľovánky – 10 kusov
+
+✨ Súbor je vhodný na tematické aktivity k Dňu mlieka, ranné kruhy, riadené činnosti, centrá aktivít aj samostatnú prácu detí.
+🥛 78 strán pripravených materiálov – stačí vytlačiť a môžete začať objavovať svet mlieka.`},
+    {name:"Doprava", badge:"132 strán", images:["new/35","new/36","new/37","new/38","new/39"], category:"Megasúbory", desc:"Kompletný materiál na tému dopravy a dopravnej výchovy.", fbText:`🚦🚗 DOPRAVA – EDUKAČNÝ MEGASÚBOR PRE MŠ ✈️🚧
+✨ 132 strán PDF plných aktivít, hier a pracovných materiálov + písomné prípravy 📝
+
+Ako sa bezpečne pohybovať na ceste? Aké dopravné prostriedky poznáme a čo znamenajú základné dopravné značky a situácie? 🚦🚗
+Megasúbor DOPRAVA ponúka množstvo pripravených materiálov, vďaka ktorým deti hravou formou spoznávajú svet dopravy, učia sa základom bezpečnosti a zároveň si rozvíjajú komunikáciu, poznanie, matematické predstavy, grafomotoriku aj jazykové schopnosti.
+
+📌 V súbore nájdete:
+💬 Komunikácia – 24 strán (kartičky, plagáty, výklad, základné pojmy, dopravné situácie a dopravné prostriedky)
+📖 Rozprávku s otázkami na porozumenie – 4 strany
+🎭 Dramatizáciu – 3 strany
+🚶 Pohybové hry – 7 strán
+🧠 Rozvoj poznania – 6 strán
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 14 strán
+✏️ Grafomotoriku – 10 strán
+🔢 Matematiku a geometriu – 12 strán
+🎨 Doplnkové aktivity – 4 strany (farby, spájačky a bludiská)
+📮 Pexeso – 8 strán
+🧩 Puzzle – 36 párov
+🚦 Hru JA MÁM / KTO MÁ? – 40 kariet
+
+✨ Súbor je vhodný na tematické týždne o doprave a bezpečnosti na cestách, ranné kruhy, riadené aktivity, centrá aktivít aj samostatnú prácu detí.
+🚦 132 strán pripravených materiálov + písomné prípravy – všetko na jednom mieste pre jednoduchú a pestrú prácu s témou DOPRAVA.`},
     {name:"Pohybové hry – 70 aktivít", badge:"70 aktivít", images:["new/41","new/42","new/43"], category:"Pohybové hry", desc:"70 pohybových hier a aktivít pre celý školský rok."},
     {name:"Medvedík Labka", badge:"162 strán", images:["rp/10","rp/11","rp/12","rp/13"], category:"Rozprávky", desc:"14 edukačných rozprávok o vlastnostiach vecí s medvedíkom Labkom a Bubkou.", fbText:`✨ MEDVEDÍK LABKA A ZVEDAVÁ BUBKA – VLASTNOSTI VŠETKÝCH VECÍ ✨
 🖍️ 14 edukačných rozprávok | 162 strán
@@ -767,7 +998,24 @@ Edukačná rozprávková e-kniha pre pani učiteľky aj pre rodičov 🌸
 12. Suché listy a mokrá tráva
 13. Pevný mostík a krehká vetvička
 14. Veci, ktoré bolia a veci, ktoré liečia`},
-    {name:"Rozvoj slovnej zásoby", badge:null, images:["new/44","new/45","new/46","new/47","new/48"], category:"Pracovné listy", desc:"Pracovné listy na rozvoj slovnej zásoby a hlások."},
+    {name:"Rozvoj slovnej zásoby", badge:null, images:["new/44","new/45","new/46","new/47"], category:"Pracovné listy", desc:"Pracovné listy na rozvoj slovnej zásoby a hlások.", fbText:`💡🧠 Ako deťom hravou formou pomôcť precvičovať identifikáciu hlások, rozvíjať slovnú zásobu a zároveň sa oboznámiť s celou abecedou? 🔤😎
+
+Predstavujeme vám farebný súbor 42 pracovných listov – ROZVOJ SLOVNEJ ZÁSOBY, ktorý zahŕňa celú abecedu a ponúka množstvo pútavých obrázkov, slovných úloh a krátkych riekaniek. 🌈📚 (niektoré pracovné listy na konkrétnu hlásku sú vytvorené viackrát 😊)
+
+Ideálna pomôcka pre deti v materskej škole a predškolákov, ktorí si potrebujú upevniť sluchové vnímanie, správnu výslovnosť, slabikovanie a rozšíriť svoju slovnú zásobu. 💛
+
+Každý pracovný list je venovaný jednému písmenu. Deti pomenúvajú obrázky, vyhľadávajú a vyslovujú slová s danou hláskou a určujú, kde ju v slove počujú – na začiatku, uprostred alebo na konci slova.
+
+Súčasťou pracovných listov je aj:
+✨ rozvoj a obohacovanie slovnej zásoby
+✨ precvičovanie správnej výslovnosti hlások
+✨ sluchové rozlišovanie hlások v slovách
+✨ vyhľadávanie slov začínajúcich sa na danú hlásku
+✨ pomenovávanie rôznych predmetov, zvierat a javov
+✨ vytlieskavanie a slabikovanie slov
+✨ určovanie počtu slabík
+✨ zaznamenávanie počtu slabík bodkami do pripravených rámikov
+✨ rozvoj pozornosti, pamäti a komunikačných schopností`},
     {name:"Október – December – Písomné prípravy", badge:"60 KS", images:[43,40,41,42,44,45,47,48,49,50], category:"Písomné prípravy", desc:"Písomné prípravy na obdobie október až december."},
     {name:"Vianočné rozprávky", badge:"170 strán", images:["rp/15","rp/16","rp/17"], category:"Rozprávky", desc:"15 originálnych vianočných príbehov pre materské školy.", fbText:`✨🎄 ROZPRÁVKOVÉ VIANOCE – 15 originálnych vianočných príbehov (170 strán) 🎁✨
 
@@ -865,10 +1113,56 @@ Edukačná e-kniha pre pani učiteľky aj pre rodičov 🌟
 12. Veterný Neptún
 13. Padajúce meteority
 14. Návrat domov`},
-    {name:"Pán Perníček", badge:"105 strán", images:["new/84","new/85","new/86","new/87","new/88","new/89"], category:"Megasúbory", desc:"Vianočné pečenie a tvorivé aktivity s Pánom Perníčkom."},
+    {name:"Pán Perníček", badge:"105 strán", images:["new/84","new/85","new/86","new/87","new/88"], category:"Megasúbory", desc:"Vianočné pečenie a tvorivé aktivity s Pánom Perníčkom.", fbText:`❤️🎅 PÁN PERNÍČEK A VIANOČNÉ PEČENIE 🎄🍪
+
+Vôňa medovníkov, horúcej čokolády a vianočných dobrôt patrí k najkrajším častiam adventu. ✨
+Súbor PÁN PERNÍČEK A VIANOČNÉ PEČENIE spája praktické recepty, rozprávky, matematiku, grafomotoriku aj hravé aktivity do jedného sladkého vianočného celku. 🎄❤️
+
+📌 V súbore nájdete:
+🍪 fotorecept na medovníčky
+🍎 fotorecept na detský vianočný punč
+☕ fotorecept na horúcu čokoládu
+🍌 fotorecept na banánovo-piškótové jednohubky
+📝 cvičenia k receptu na medovníky
+📖 rozprávku Vianočné medovníčky + otázky
+📖 rozprávku 1000 druhov vianočných koláčov + otázky
+🔤 perníkovú abecedu
+🔢 perníkové číslice
+🍪 obrázky tradičného slovenského vianočného pečiva
+💬 hru JA MÁM / KTO MÁ?
+🔢 matematické aktivity – číselný rad a určovanie počtu
+✏️ grafomotorické cvičenia
+🧩 6 puzzle
+🌀 2 bludiská
+📮 pexeso
+🎨 omaľovánky – perníková chalúpka, perníková abeceda a ďalšie
+🍪 tvorivé dekorovanie Pána Perníčka
+
+✨ Súbor je vhodný na adventné a vianočné tematické týždne, spoločné pečenie, ranné kruhy, riadené aktivity aj tvorivé činnosti.
+🎄 Vianočný súbor, ktorý spája učenie, vôňu Vianoc a zážitkové aktivity do jedného celku.`},
     {name:"Marec – Apríl – Písomné prípravy", badge:"60 KS", images:[69,68,73,77,78], category:"Písomné prípravy", desc:"Písomné prípravy na jarné mesiace marec a apríl."},
     {name:"Jarné pohybové hry – 50 hier", badge:"50 hier", images:["new/136","new/137","new/138","new/139","new/140","new/141"], category:"Pohybové hry", desc:"50 pohybových hier na jarné obdobie."},
-    {name:"Rozprávky", badge:"140 strán", images:["new/101","new/102","new/103","new/104","new/105","new/106"], category:"Megasúbory", desc:"Klasické rozprávky spracované s aktivitami pre deti."},
+    {name:"Rozprávky", badge:"140 strán", images:["new/101","new/102","new/103","new/104","new/105"], category:"Megasúbory", desc:"Klasické rozprávky spracované s aktivitami pre deti.", fbText:`👑📚 ROZPRÁVKY – MAREC, MESIAC KNIHY 🏰🌹
+✨ MEGASÚBOR PRE MŠ – 140 strán PDF ✨
+📝 Možnosť dokúpiť aj 10 – 15 písomných príprav
+
+Rozprávkový svet plný známych príbehov, dobrodružstiev a obľúbených postáv. 🐺👑
+Megasúbor ROZPRÁVKY je ideálny nielen na Marec – mesiac knihy, ale počas celého roka. Prostredníctvom príbehov a nadväzujúcich aktivít deti rozvíjajú porozumenie textu, slovnú zásobu, fantáziu, predčitateľské schopnosti, matematické predstavy aj grafomotoriku.
+
+📌 V súbore nájdete:
+💬 Komunikácia – 18 strán (plagáty a komunikačné karty)
+📖 5 známych rozprávok + otázky + dramatizácia – 24 strán: 🐺 Červená čiapočka, 🐷 Tri prasiatka, 🦆 Škaredé káčatko, 🐐 Vlk a sedem kozliatok, 🟠 Pampúšik
+📚 Maľované čítanie – 4 strany (Červená čiapočka a Tri prasiatka)
+🔤 Predčitateľská a predpisateľská gramotnosť – 14 strán
+🚶 Pohybové hry – 6 aktivít
+✏️ Grafomotorika – 13 pracovných listov
+🔢 Matematika – 11 pracovných listov
+📮 pexeso a puzzle – 14 aktivít
+💬 hra JA MÁM / KTO MÁ? – 40 kartičiek
+🎨 omaľovánky
+
+✨ Súbor je vhodný na Marec – mesiac knihy, rozprávkové tematické týždne, ranné kruhy, dramatizáciu aj samostatnú prácu detí.
+📚 140 strán, vďaka ktorým sa obľúbené rozprávky premenia na množstvo hravých a vzdelávacích aktivít.`},
     {name:"Veselé fašiangy", badge:"154 strán", images:["rp/28","rp/29","rp/30"], category:"Rozprávky", desc:"15 edukačných fašiangových rozprávok plných smiechu a tanca.", fbText:`✨🥳 VESELÉ FAŠIANGY – 15 edukačných fašiangových rozprávok (154 strán) 🥳✨
 
 Edukačná e-kniha pre pani učiteľky aj pre rodičov 🌟
@@ -1034,7 +1328,23 @@ Edukačná e-kniha pre pani učiteľky aj rodičov 💗
     {name:"Jarné ranné kruhy", badge:null, images:[83], category:"Ranné kruhy", desc:"Ranné kruhy zamerané na jarné témy."},
     {name:"Jarný balík – Písomné prípravy", badge:"60 KS", images:[84,82,85], category:"Písomné prípravy", desc:"Písomné prípravy na jarné obdobie."},
     {name:"Máj – Jún balík – Písomné prípravy", badge:"60 KS", images:[89,86,87,88,91,92,95], category:"Písomné prípravy", desc:"Písomné prípravy na mesiace máj a jún."},
-    {name:"Letné pohybové hry – 52 KS", badge:"52 KS", images:["new/152","new/153","new/154","new/155","new/156","new/157"], category:"Pohybové hry", desc:"52 pohybových hier na letné obdobie."},
+    {name:"Letné pohybové hry – 52 KS", badge:"52 KS", images:["new/152","new/153","new/154","new/155","new/156"], category:"Pohybové hry", desc:"52 pohybových hier na letné obdobie.", fbText:`🌴🍉 LETNÉ POHYBOVÉ HRY – 52 AKTIVÍT ⛱️⛵
+
+✨ 52 pohybových hier s veselou letnou tematikou určených pre deti v MŠ vo veku 3 – 6 rokov aj pre deti v ŠKD (1. – 3. ročník). Aktivity sú vhodné do interiéru aj exteriéru. 😎☀️
+Súbor LETNÉ POHYBOVÉ HRY ponúka pestrú zásobu pripravených aktivít na záver školského roka, letné mesiace, tábory aj prázdninové aktivity.
+
+📌 Každá hra obsahuje:
+🍋 názov a odporúčanú vekovú skupinu
+🧸 potrebné pomôcky
+📋 pravidlá a podrobný priebeh
+💡 variácie hry
+🎯 cieľ a zameranie aktivity
+
+🍉 Letné témy: ochrana pred slnkom, letné počasie, letné športy, prázdniny, letné aktivity a zážitky, život pri vode, lúka, les, rastliny a živočíchy, drobné živočíchy, lesné a exotické zvieratá, babičkina záhrada, úcta k starším, tradície, ovocie a zelenina, ochrana životného prostredia, morské a vodné živočíchy či dopravná výchova.
+
+🐙 Hry rozvíjajú rýchlosť, obratnosť, koordináciu, orientáciu v priestore, jemnú a hrubú motoriku, spoluprácu, pamäť, logické myslenie, rytmus, fantáziu, komunikáciu, sociálne schopnosti, samostatnosť, vytrvalosť aj schopnosť rešpektovať pravidlá.
+
+☀️ 52 letných pohybových hier, vďaka ktorým bude leto plné pohybu, smiechu a zážitkov.`},
     {name:"Hmyz – rozprávky", badge:"148 strán", images:["rp/52","rp/53","rp/54"], category:"Rozprávky", desc:"13 rozprávok zo sveta hmyzu a malých záhradných obyvateľov.", fbText:`🎀🐞✨ DROBNÉ ŽIVOČÍCHY ✨🐞🎀
 🦋 Spoznávanie drobných živočíchov prostredníctvom rozprávok 🦋
 ✨ 13 edukačných rozprávok zo sveta hmyzu a malých záhradných obyvateľov ✨ 148 strán ✨
@@ -1135,11 +1445,110 @@ Deti sa hravou a zrozumiteľnou formou dozvedia, prečo je dôležité chrániť
     {name:"More a voda – Týždenný projekt", badge:"125 strán", images:[105], category:"Megasúbory", desc:"Týždenný projekt na tému mora a vody."},
     {name:"Les a hmyz – Týždenný projekt", badge:"140 strán", images:[106], category:"Megasúbory", desc:"Týždenný projekt o lese a hmyze."},
     {name:"Ovocie a leto – Týždenný projekt", badge:"156 strán", images:[107], category:"Megasúbory", desc:"Týždenný projekt o ovocí a lete."},
-    {name:"Deň vody", badge:"100 strán", images:["new/107","new/108","new/109","new/110","new/111"], category:"Megasúbory", desc:"Aktivity pri príležitosti Svetového dňa vody."},
-    {name:"Veľká noc", badge:"140 strán", images:["new/114","new/115","new/116","new/117","new/118","new/119"], category:"Megasúbory", desc:"Veľkonočné aktivity a pracovné listy pre deti."},
-    {name:"Deň Zeme", badge:"115 strán", images:["new/126","new/127","new/128","new/129","new/130"], category:"Megasúbory", desc:"Materiály pri príležitosti Dňa Zeme a ochrany prírody."},
-    {name:"Liečivé rastliny", badge:"100 strán", images:["new/131","new/132","new/133","new/134","new/135"], category:"Megasúbory", desc:"Spoznávanie liečivých rastlín a ich využitia."},
-    {name:"Slovensko – Ľudové zvyky a tradície", badge:"135 strán", images:["new/142","new/143","new/144","new/145","new/146"], category:"Megasúbory", desc:"Ľudové zvyky a tradície Slovenska pre deti."},
+    {name:"Deň vody", badge:"100 strán", images:["new/107","new/108","new/109","new/110"], category:"Megasúbory", desc:"Aktivity pri príležitosti Svetového dňa vody.", fbText:`💧🌍 SVETOVÝ DEŇ VODY – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌊🐟
+✨ 100 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Odkiaľ sa berie voda? Kde všade ju nájdeme a prečo je pre ľudí, zvieratá aj prírodu nenahraditeľná? 💧
+Megasúbor DEŇ VODY ponúka pestré aktivity, prostredníctvom ktorých deti objavujú význam vody, rozvíjajú svoje poznanie a zároveň si precvičujú matematiku, grafomotoriku, komunikáciu aj jazykové schopnosti.
+
+📌 V súbore nájdete:
+💧 Komunikácia a rozvoj poznania – 23 strán (plagáty, kartičky, opis obrázkov a pracovné listy)
+📖 rozprávku Lesné dobrodružstvá + otázky na porozumenie + dramatizáciu – 5 strán
+🚶 pohybové a hudobno-pohybové hry – 7 strán
+🔤 predčitateľskú a predpisateľskú gramotnosť – 7 strán
+🔢 matematické cvičenia – 11 strán
+✏️ grafomotorické cvičenia – 14 strán
+🧩 puzzle – 7 strán
+📮 pexeso – 36 kartičiek
+🌀 bludiská s básničkami – 4 aktivity
+🎨 omaľovánky – 6 kusov
+
+✨ Súbor je ideálny na Svetový deň vody, environmentálne tematické týždne, ranné kruhy, riadené činnosti aj samostatnú prácu.
+💦 100 strán pripravených materiálov, vďaka ktorým deti objavia, aká vzácna a dôležitá je voda.`},
+    {name:"Veľká noc", badge:"140 strán", images:["new/114","new/115","new/116","new/117","new/118"], category:"Megasúbory", desc:"Veľkonočné aktivity a pracovné listy pre deti.", fbText:`🐥🐰 VEĽKÁ NOC – EDUKAČNÝ MEGASÚBOR PRE MŠ 🥕🌷
+✨ 140 strán PDF plných veľkonočných aktivít, hier a pracovných materiálov ✨
+
+Veľká noc plná tradícií, veselých hier, rozprávok a tvorivého učenia. 🐤🌸
+Megasúbor VEĽKÁ NOC ponúka množstvo pripravených aktivít, ktoré deťom približujú veľkonočné obdobie a zároveň rozvíjajú komunikáciu, jazykové schopnosti, matematické predstavy, grafomotoriku aj pozornosť.
+
+📌 V súbore nájdete:
+🥕 Komunikácia – 15 strán (komunikačné karty, obrázky, charakteristiky a plagáty)
+📖 rozprávku, otázky na porozumenie, dramatizáciu a dejovú postupnosť – 10 strán
+🎵 hádanky, riekanky a básničky – 6 strán
+🚶 pohybové hry – 8 strán
+🎶 pieseň s notami Hopká zajko
+🔤 predčitateľskú a predpisateľskú gramotnosť – 19 strán
+✏️ grafomotorické cvičenia – 17 strán
+🔢 matematické cvičenia – 13 strán
+📮 hru JA MÁM / KTO MÁ? – 40 kariet
+🧩 puzzle – 6 kusov
+📮 pexeso – 36 párov
+🔍 10 doplnkových aktivít – bludiská, hľadanie rozdielov, dokresľovanie, párovanie a tieňohry
+
+✨ Súbor je vhodný na veľkonočné tematické týždne, ranné kruhy, riadené aktivity aj samostatnú prácu detí.
+🐰 140 strán veľkonočnej inšpirácie – všetko pripravené na učenie, hranie a objavovanie veľkonočných tradícií.`},
+    {name:"Deň Zeme", badge:"115 strán", images:["new/126","new/127","new/128","new/129"], category:"Megasúbory", desc:"Materiály pri príležitosti Dňa Zeme a ochrany prírody.", fbText:`🌱🌍 DEŇ ZEME – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌳🦋
+✨ 116 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Ako môžeme chrániť našu planétu? Prečo je dôležité starať sa o prírodu, triediť odpad a správať sa k Zemi zodpovedne? 🌍💚
+Megasúbor DEŇ ZEME približuje deťom ochranu prírody hravou a zrozumiteľnou formou a zároveň rozvíja ich poznanie, komunikáciu, matematické predstavy, grafomotoriku aj predčitateľské schopnosti.
+
+📌 V súbore nájdete:
+🍀 Komunikácia a rozvoj poznania – 24 strán (edukačné kartičky, plagáty a materiály na rozhovor)
+📖 rozprávku s otázkami na porozumenie deja + dramatizáciu – spolu 7 strán
+🚶 pohybové hry – 5 aktivít
+🔤 predčitateľskú a predpisateľskú gramotnosť – 12 strán
+📚 maľované čítanie – 3 strany
+✏️ grafomotoriku – 10 strán
+🔢 matematiku – 10 strán
+📮 hru JA MÁM / KTO MÁ? – 40 kartičiek
+🧩 pexeso – 36 párov
+🌍 puzzle – 6 kusov
+🎨 omaľovánky – 11 strán
+
+✨ Ideálne na tematické aktivity k Dňu Zeme, environmentálnu výchovu, ranné kruhy aj riadené činnosti.
+🌱 116 strán pripravených materiálov, vďaka ktorým deti spoznávajú našu planétu a učia sa, ako ju chrániť.`},
+    {name:"Liečivé rastliny", badge:"100 strán", images:["new/131","new/132","new/133","new/134"], category:"Megasúbory", desc:"Spoznávanie liečivých rastlín a ich využitia.", fbText:`🌱🌷 LIEČIVÉ RASTLINY – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌼☀️
+✨ 100 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Ktoré rastlinky nám môžu pomáhať? Ako ich spoznáme, zbierame, sušíme a na čo sa tradične využívajú? 🌼🌸
+Megasúbor LIEČIVÉ RASTLINY približuje deťom svet byliniek a prírody zaujímavou a hravou formou a zároveň podporuje rozvoj poznania, slovnej zásoby, matematických predstáv aj jemnej motoriky.
+
+📌 V súbore nájdete:
+🌼 Komunikáciu – obrázkové kartičky, plagáty a edukačné obrázky
+🌿 Rozvoj poznania – 17 strán (liečivé účinky rastlín, ich spracovanie a možnosti využitia)
+📖 rozprávku s otázkami na porozumenie – 5 strán
+🚶 pohybové hry – 5 aktivít
+🔤 predpisateľskú a predčitateľskú gramotnosť – 19 strán (homonymá, antonymá, rýmy, zdrobneniny, slabikovanie, odzeranie a identifikácia hlások)
+✏️ grafomotoriku – 9 strán (farebné aj čiernobiele pracovné listy)
+🔢 matematiku – 9 strán
+📮 pexeso – 36 párov
+💬 hru JA MÁM / KTO MÁ? – 40 kartičiek
+🧩 puzzle – 6 kusov
+
+✨ Súbor je vhodný na jarné a letné tematické týždne, spoznávanie prírody, ranné kruhy, riadené aktivity aj samostatnú prácu detí.
+🌿 100 strán pripravených materiálov, vďaka ktorým môžu deti objavovať fascinujúci svet liečivých rastlín.`},
+    {name:"Slovensko – Ľudové zvyky a tradície", badge:"135 strán", images:["new/142","new/143","new/144","new/145"], category:"Megasúbory", desc:"Ľudové zvyky a tradície Slovenska pre deti.", fbText:`🇸🇰⛰️ SLOVENSKO – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌷🏰
+✨ 135 strán PDF plných aktivít, hier a pracovných materiálov + písomné prípravy 📝
+
+Čím je Slovensko výnimočné? Aké poznáme mestá, pamiatky, tradície, remeslá či typické slovenské jedlá? 🇸🇰❤️
+Megasúbor SLOVENSKO približuje deťom našu krajinu hravou a zrozumiteľnou formou. Deti spoznávajú štátne symboly, prírodu, kultúru, tradície aj život našich predkov a zároveň rozvíjajú komunikáciu, matematické predstavy, grafomotoriku a jazykové schopnosti.
+
+📌 V súbore nájdete:
+🇸🇰 Komunikácia a rozvoj poznania – 47 strán (Slovensko, štátna vlajka, štátny znak, hlavné mesto, slovenské mestá, príroda, pamiatky, tradičné jedlá, ľudové zvyky a tradície, tradičný odev, spôsob života našich predkov a ľudové remeslá)
+📖 Rozprávku + otázky na porozumenie + dejovú postupnosť – 5 strán
+🎵 Ľudové piesne s notami – 4 piesne
+🚶 Pohybové hry – 3 aktivity
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 14 strán
+✏️ Grafomotoriku – 12 strán
+🔢 Matematiku – 6 strán
+🧩 Puzzle – 7 kusov
+📮 Pexeso – 36 párov
+💬 hru JA MÁM / KTO MÁ? – 40 kariet
+🎨 omaľovánky
+
+✨ Súbor je vhodný na tematické týždne o Slovensku, našej kultúre a tradíciách, ranné kruhy, riadené aktivity aj samostatnú prácu detí.
+🇸🇰 135 strán pripravených materiálov, vďaka ktorým môžu deti objavovať krásy Slovenska, jeho tradície aj kultúrne bohatstvo.`},
     {name:"Slovensko – rozprávky", badge:"143 strán", images:["rp/48","rp/49","rp/50"], category:"Rozprávky", desc:"13 rozprávok o Slovensku, tradíciách, prírode a histórii.", fbText:`🌸🇸🇰✨ ROZPRÁVKOVÉ SLOVENSKO ✨🇸🇰🌸
 🏰 Spoznávanie Slovenska prostredníctvom rozprávok 🏰
 ✨ 13 edukačných rozprávok o našej krajine, tradíciách, prírode, mestách a histórii ✨ 143 strán ✨
@@ -1170,36 +1579,355 @@ Edukačná e-kniha pre pani učiteľky aj rodičov 💗
 11. Život našich predkov
 12. Juraj Jánošík – hrdina z horských lesov
 13. Lesy a zvieratá Slovenska`},
-    {name:"Mama", badge:"80 strán", images:["new/147","new/148","new/149","new/150","new/151"], category:"Megasúbory", desc:"Aktivity a darčeky k Dňu matiek."},
+    {name:"Mama", badge:"80 strán", images:["new/147","new/148","new/149","new/150"], category:"Megasúbory", desc:"Aktivity a darčeky k Dňu matiek.", fbText:`🌸🌷 DEŇ MATIEK – EDUKAČNÝ MEGASÚBOR PRE MŠ 💜💐
+✨ 80 strán PDF plných láskavých aktivít a pracovných materiálov ✨
+
+Mamička je pre deti jedným z najdôležitejších ľudí. 💞
+Megasúbor DEŇ MATIEK ponúka množstvo aktivít venovaných láske, vďačnosti a vzťahu k mamičke. Deti sa prostredníctvom rozhovorov, rozprávky, tvorenia a pracovných listov učia vyjadrovať svoje pocity a zároveň rozvíjajú množstvo dôležitých schopností.
+
+📌 V súbore nájdete:
+💐 Komunikáciu a rozvoj poznania – 14 strán (obrázky, plagáty a námety na spoločné rozhovory)
+📖 Rozprávku + otázky na porozumenie + dramatizáciu – 5 strán
+🎁 Vyrobím pre mamičku – 6 strán
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 12 strán
+✏️ Grafomotoriku – 7 strán
+🔢 Matematiku – 6 strán
+💬 hru JA MÁM / KTO MÁ? – 40 kariet
+📮 Pexeso – 36 párov
+🧩 Puzzle – 7 kusov
+
+✨ Súbor je vhodný na prípravu aktivít k Dňu matiek, ranné kruhy, tvorivé činnosti, riadené aktivity aj samostatnú prácu detí.
+💗 80 strán pripravených materiálov, vďaka ktorým môžete s deťmi vytvoriť krásny a nezabudnuteľný Deň matiek.`},
     {name:"Deň detí – Deti sveta", badge:"157 strán", images:["new/158","new/159","new/160","new/161","new/162"], category:"Megasúbory", desc:"Oslava Dňa detí a spoznávanie detí z celého sveta."},
     {name:"Diplom – Koniec školského roka", badge:null, images:[184], category:"Diplomy", desc:"Diplom pre deti na záver školského roka."},
-    {name:"Jeseň – Megasúbor", badge:"102 strán", images:["new/31","new/32","new/33","new/34"], category:"Megasúbory", desc:"Kompletný jesenný megasúbor aktivít a pracovných listov."},
-    {name:"Deň jablka", badge:"95 strán", images:["new/49","new/50","new/51","new/52","new/53","new/54"], category:"Megasúbory", desc:"Aktivity a pracovné listy pri príležitosti Dňa jablka."},
-    {name:"Deň úcty k starším", badge:"60 strán", images:["new/55","new/56","new/57","new/58"], category:"Megasúbory", desc:"Materiály pri príležitosti Dňa úcty k starším."},
-    {name:"Les a jeho tajomstvá", badge:null, images:["new/59","new/60"], category:"Megasúbory", desc:"Objavovanie tajomstiev lesa a jeho obyvateľov."},
-    {name:"Ľudské telo", badge:"138 strán", images:["new/65","new/61","new/62","new/63","new/64","new/66"], category:"Megasúbory", desc:"Spoznávanie ľudského tela hravou formou."},
-    {name:"Časové vzťahy", badge:"125 strán", images:["new/67","new/68","new/69","new/70","new/71","new/72"], category:"Megasúbory", desc:"Aktivity na osvojenie si časových vzťahov a orientácie v čase."},
-    {name:"Zdravá a nezdravá výživa", badge:null, images:["new/73","new/74"], category:"Megasúbory", desc:"Materiály o zdravej a nezdravej výžive pre deti."},
-    {name:"20 vianočných príbehov pre deti", badge:"109 strán", images:["new/75","new/76","new/77"], category:"Megasúbory", desc:"20 vianočných príbehov na čítanie s deťmi."},
-    {name:"Svätý Mikuláš", badge:"100 strán", images:["new/78","new/79","new/80","new/81","new/82","new/83"], category:"Megasúbory", desc:"Aktivity a pracovné listy k sviatku Svätého Mikuláša."},
-    {name:"Zima", badge:"100 strán", images:["new/93","new/94","new/95"], category:"Megasúbory", desc:"Kompletný zimný megasúbor aktivít pre materské školy."},
-    {name:"Vesmír", badge:"140 strán", images:["new/96","new/97","new/98","new/99","new/100"], category:"Megasúbory", desc:"Objavovanie vesmíru, planét a hviezd s deťmi."},
-    {name:"Jar", badge:"115 strán", images:["new/112","new/113"], category:"Megasúbory", desc:"Jarný megasúbor aktivít a pracovných listov."},
-    {name:"Leto a letné športy", badge:"127 strán", images:["new/175","new/176","new/177","new/178","new/179","new/180"], category:"Megasúbory", desc:"Letné športy a aktivity pre deti počas leta."}
+    {name:"Jeseň – Megasúbor", badge:"102 strán", images:["new/31","new/32","new/33"], category:"Megasúbory", desc:"Kompletný jesenný megasúbor aktivít a pracovných listov.", fbText:`🍂🎃 JESEŇ – MEGASÚBOR PRE MŠ 🧸🍎
+✨ 102 strán PDF plných jesenných aktivít, hier a pracovných materiálov ✨
+
+Farebné lístie, lesné plody, tekvice, zelenina aj jesenné tradície. 🍎🍄
+Megasúbor JESEŇ ponúka množstvo pripravených aktivít, prostredníctvom ktorých deti spoznávajú typické znaky jesene a zároveň si rozvíjajú matematické predstavy, komunikáciu, grafomotoriku, pozornosť aj predčitateľskú gramotnosť.
+
+📌 V súbore nájdete:
+🍄 plagáty – Kto býva v lese? Čo rastie v lese? Plody jesene, jesenné oblečenie
+🍁 básne, riekanky a hádanky – 5 strán A4
+🔤 pracovné listy na odzeranie a odpisovanie písmen a slov
+💬 32 komunikačných kartičiek s jesennou tematikou
+📮 hru JA MÁM / KTO MÁ? – 32 kartičiek
+🧩 7 puzzle
+🔢 23 matematických pracovných listov – počítanie, určovanie počtu a poradia, číselný rad, geometria a ďalšie úlohy
+✏️ 9 grafomotorických pracovných listov – jemná motorika, lateralita a koordinácia oko–ruka
+🎃 dokresľovanie tekvíc
+🔍 tieňohry a hľadanie rozdielov
+🧠 sudoku a bludisko
+📮 pexeso vo variantoch 12, 24 a 36 kartičiek
+🥕 aktivitu Zeleninová jesenná polievka
+🥬 aktivitu Tlačenie kapusty v súdku zameranú na jesenné zvyky a tradície + písomnú prípravu
+
+✨ Súbor je vhodný na jesenné tematické týždne, ranné kruhy, riadené činnosti, centrá aktivít aj samostatnú prácu detí.
+🟦 K megasúboru je možné dokúpiť aj 8 podrobných písomných príprav.
+❤️ 102 strán jesennej inšpirácie – všetko pripravené na tlač a okamžité použitie v materskej škole.`},
+    {name:"Deň jablka", badge:"95 strán", images:["new/49","new/50","new/51","new/52","new/53"], category:"Megasúbory", desc:"Aktivity a pracovné listy pri príležitosti Dňa jablka.", fbText:`🍎🍏 DEŇ JABLKA – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌱🥧
+✨ 95 strán PDF plných aktivít, hier a pracovných materiálov ✨
+
+Ako vznikne z malého semienka jabloň? Čo potrebuje na svoj rast a prečo je jablko také zdravé? 🍎🌱
+Megasúbor DEŇ JABLKA približuje deťom svet jabĺk hravou a zrozumiteľnou formou a zároveň rozvíja ich poznanie, slovnú zásobu, matematické predstavy, grafomotoriku aj predčitateľské schopnosti.
+
+📌 V súbore nájdete:
+🌱 Rozvoj poznania – plagáty a edukačné materiály na témy: od semienka k jablĺčku, ako rastie jabloň, čo potrebuje jabloň pre svoj rast, jabloň počas celého roka, využitie jabĺk, prečo je jablko zdravé
+🚶 Pohybové hry – 4 aktivity
+📖 Maľované čítanie
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 16 pracovných listov
+✏️ Grafomotoriku – 10 pracovných listov
+🔢 Matematiku – 16 pracovných listov
+📮 Pexeso – 12 párov
+🧩 Puzzle – 6 kusov
+💬 Hru JA MÁM / KTO MÁ? – 40 kartičiek
+🎨 Omaľovánky – 10 kusov
+
+✨ Súbor je vhodný na tematické aktivity k Dňu jablka, jesenné tematické týždne, ranné kruhy, riadené činnosti, centrá aktivít aj samostatnú prácu detí.
+🍎 95 strán pripravených materiálov – stačí vytlačiť a môžete spolu objavovať svet jabĺk.`},
+    {name:"Deň úcty k starším", badge:"60 strán", images:["new/55","new/56","new/57"], category:"Megasúbory", desc:"Materiály pri príležitosti Dňa úcty k starším.", fbText:`❤️👵 DEŇ ÚCTY K STARŠÍM – EDUKAČNÝ SÚBOR PRE MŠ 👴🎁
+
+Láskavá téma venovaná starým rodičom, úcte, vďačnosti a medzigeneračným vzťahom. 🤎
+Súbor DEŇ ÚCTY K STARŠÍM ponúka množstvo pripravených aktivít, prostredníctvom ktorých sa deti rozprávajú o svojich starých rodičoch, rozvíjajú slovnú zásobu, matematické predstavy, grafomotoriku aj predčitateľské schopnosti.
+
+📌 V súbore nájdete:
+💬 komunikačné obrázky a kartičky
+🎵 básne, piesne a riekanky
+📖 maľované čítanie Ťahal dedko repku
+🎁 Darček pre babičku, darček pre deduška
+🔢 pracovné listy k rozprávke – matematika a grafomotorika
+🧩 puzzle
+📮 pexeso
+🔍 tieňohru
+🔤 pracovné listy na rozvoj predpisateľskej a predčitateľskej gramotnosti
+✏️ matematické a grafomotorické pracovné listy
+🧠 triedenie a určovanie poradia
+💬 obľúbenú hru JA MÁM / KTO MÁ?
+
+✨ Súbor je vhodný na tematické aktivity k Mesiacu úcty k starším, ranné kruhy, riadené činnosti, centrá aktivít aj samostatnú prácu detí.
+Deti sa prostredníctvom pripravených materiálov učia vnímať význam rodiny, prejavovať úctu a vďačnosť starším a zároveň si hravou formou precvičia množstvo dôležitých zručností. 💛
+👵👴 Krásna téma, ktorá spája učenie, emócie a hodnoty, na ktorých záleží.`},
+    {name:"Les a jeho tajomstvá", badge:null, images:["new/59"], category:"Megasúbory", desc:"Objavovanie tajomstiev lesa a jeho obyvateľov.", fbText:`🐿️🌳 LES A JEHO TAJOMSTVÁ – EDUKAČNÝ SÚBOR PRE MŠ 🦌🍃
+
+Čo všetko ukrýva les? Kto v ňom býva, čo v ňom rastie a aké tajomstvá môžeme spolu objavovať? 🌲🍄
+Súbor LES A JEHO TAJOMSTVÁ ponúka pestrú zásobu aktivít, prostredníctvom ktorých deti spoznávajú lesné prostredie, zvieratá, rastliny a zároveň si rozvíjajú komunikáciu, matematické predstavy, grafomotoriku, pozornosť aj predpisateľské schopnosti.
+
+📌 V súbore nájdete:
+🌲 plagát Les a lesné zvieratká na rozvoj poznania a rozhovor o obrázkoch
+🦊 obrázkové kartičky Kto býva v lese?
+🍄 obrázkové kartičky Čo rastie v lese?
+📮 pexeso na precvičovanie pamäte a pozornosti
+🌀 bludisko na rozvoj grafomotoriky, logického myslenia a predstavivosti
+🔢 matematické aktivity – určovanie počtu, číselný rad a poradové čísla
+🍄 priraďovanie správneho počtu hríbikov podľa čísla na košíku
+🔵 triedenie lesného ovocia podľa farieb a rozlišovanie farieb
+📖 rozprávku o lesných zvieratkách + otázky na porozumenie deja a postáv
+📚 maľované čítanie – báseň V lese
+🎵 básne o lesných zvieratkách
+❓ hádanky na tému les a lesné zvieratá
+✏️ grafomotorické cvičenia
+🚶 pohybové hry
+🤸 zdravotné cvičenia
+🔍 priraďovanie správnych tieňov
+🔤 aktivity na rozvoj predpisateľskej gramotnosti
+
+✨ Súbor je vhodný na tematické týždne o lese a prírode, ranné kruhy, riadené aktivity, centrá aktivít aj samostatnú prácu detí.
+Deti si hravou formou rozšíria poznatky o živote v lese, precvičia si počítanie, triedenie, pozornosť, jemnú motoriku aj jazykové schopnosti. 💛
+🌳 Pestrý súbor aktivít, vďaka ktorému môžete spolu s deťmi objavovať všetky tajomstvá lesa.`},
+    {name:"Ľudské telo", badge:"138 strán", images:["new/65","new/61","new/62","new/63","new/64"], category:"Megasúbory", desc:"Spoznávanie ľudského tela hravou formou.", fbText:`🧠🫁 ĽUDSKÉ TELO – EDUKAČNÝ SÚBOR PRE MŠ 👄👁️
+
+Ako funguje naše telo? Aké časti tela poznáme a pomocou čoho vidíme, počujeme, cítime či ochutnávame? 👀👃
+Súbor ĽUDSKÉ TELO pomáha deťom hravou a názornou formou spoznávať vlastné telo, jeho jednotlivé časti a zmysly. Zároveň podporuje rozvoj poznania, logického myslenia, jemnej motoriky aj matematických predstáv.
+
+📌 V súbore nájdete:
+🧍 plagát Ľudské telo na rozvoj poznania
+✂️ aktivitu Vystrihni a prilep správne časti tela
+🧠 obrázkové kartičky na rozvoj poznania
+📮 pexeso Ľudské telo
+👁️ plagáty A4 zamerané na ľudské zmysly
+👃 priraďovacie cvičenia k jednotlivým zmyslom
+🧩 puzzle Zmysly
+😊 aktivity na spoznávanie a skladanie častí tváre
+✏️ grafomotorické cvičenia
+🔢 matematické cvičenia
+
+✨ Súbor je vhodný na tematické týždne o ľudskom tele, zdraví a zmysloch, ranné kruhy, riadené aktivity aj samostatnú prácu detí.
+💛 Hravé učenie, vďaka ktorému deti lepšie spoznajú svoje telo aj jeho úžasné schopnosti.`},
+    {name:"Časové vzťahy", badge:"125 strán", images:["new/67","new/68","new/69","new/70","new/71"], category:"Megasúbory", desc:"Aktivity na osvojenie si časových vzťahov a orientácie v čase.", fbText:`🌸✨ ČASOVÉ VZŤAHY ☀️🌙
+🦉 EDUKAČNÝ MEGASÚBOR PRE MŠ – 125 strán PDF ✨
+📝 + 10 písomných príprav k téme Časové vzťahy
+
+Ako deťom jednoducho vysvetliť striedanie dňa a noci, dni v týždni, mesiace či ročné obdobia? 🌤️🍂❄️🌷
+Megasúbor ČASOVÉ VZŤAHY ponúka množstvo názorných a hravých aktivít, ktoré pomáhajú deťom orientovať sa v čase, chápať opakujúce sa udalosti a prepájať ich s každodenným životom doma aj v materskej škole.
+
+📌 V súbore nájdete:
+☀️ Rozvoj poznania – 63 strán (ročné obdobia, typické činnosti, strom počas roka, mesiace v roku, dni v týždni, básničky, režim dňa doma aj v MŠ, štipcovačky, plagáty, obrázky, kartičky a pracovné listy)
+📖 Maľované čítanie – Deň a noc
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 16 strán
+🔢 Matematiku – 6 pracovných listov
+✏️ Grafomotoriku – 12 pracovných listov
+📮 Pexeso – 12 kartičiek
+🧩 Puzzle – 6 kusov
+🎨 Omaľovánky – 12 kusov
+📝 Súčasťou ponuky je aj 10 podrobných písomných príprav k téme Časové vzťahy.
+
+✨ Súbor je vhodný na tematické týždne zamerané na čas, režim dňa, ročné obdobia, dni a mesiace, ranné kruhy, riadené aktivity aj samostatnú prácu detí.
+🌙 125 strán pripravených materiálov, vďaka ktorým deti pochopia časové vzťahy názorne, hravo a v súvislostiach.`},
+    {name:"Zdravá a nezdravá výživa", badge:null, images:["new/73"], category:"Megasúbory", desc:"Materiály o zdravej a nezdravej výžive pre deti.", fbText:`🥑🍅 ZDRAVÁ A NEZDRAVÁ VÝŽIVA – EDUKAČNÝ SÚBOR PRE MŠ 🥗🍫
+
+Čo nášmu telu prospieva a ktoré potraviny by sme mali jesť iba občas? 🍅🥕
+Súbor ZDRAVÁ A NEZDRAVÁ VÝŽIVA pomáha deťom hravou formou rozlišovať zdravé a menej zdravé potraviny, spoznávať vitamíny a vytvárať si základné správne stravovacie návyky.
+
+📌 V súbore nájdete:
+🥗 obrázkové kartičky Zdravá a nezdravá strava na rozvoj poznania
+📮 pexeso
+🍅 plagát Výživová pyramída
+✂️ cvičenia k výživovej pyramíde
+🥕 aktivitu Zdravá zeleninová polievka
+🦷 aktivitu Šťastný a smutný zúbok
+📎 štipcovačku na triedenie zdravej a nezdravej výživy
+🧩 puzzle
+🔍 priraďovanie tieňov
+📖 rozprávku O vitamínoch
+🍓 matematickú aktivitu Košík plný jahôd
+🧺 triedenie potravín podľa farieb
+🍎 číselný rad s jabloňou
+🍕 matematické aktivity s pizzou – určovanie počtu a recept
+🌈 aktivity zamerané na vitamíny A, B, C a D
+🔢 matematické cvičenia
+✏️ grafomotorické cvičenia
+
+✨ Súbor je vhodný na tematické týždne o zdraví, výžive a ľudskom tele, ranné kruhy aj riadené aktivity.
+🥕 Hravý spôsob, ako deti viesť k zdravším stravovacím návykom a zároveň rozvíjať množstvo ďalších zručností.`},
+    {name:"20 vianočných príbehov pre deti", badge:"109 strán", images:["new/75","new/76"], category:"Megasúbory", desc:"20 vianočných príbehov na čítanie s deťmi.", fbText:`🎄🎅 20 VIANOČNÝCH PRÍBEHOV PRE DETI 🎅🎄
+✨ 109 strán ilustrovaných adventných a vianočných príbehov ✨
+
+Spríjemnite deťom adventné obdobie každý deň novým príbehom. ❤️
+Súbor obsahuje 20 vianočných a adventných rozprávok, ktoré deti nielen zabavia, ale prinášajú aj ponaučenie, priestor na rozhovor a možnosť príbeh spoločne zdramatizovať.
+
+📖 Každý príbeh obsahuje:
+🎁 poučný záver a myšlienku príbehu
+💬 15 fixačných otázok zameraných na dej, postavy a porozumenie textu
+🎭 dramatizáciu pripravenú pre deti v MŠ
+
+🎄 Príbehy sú vhodné na čítanie počas adventu, ranný kruh, vzdelávaciu aktivitu, odpočinok pred spaním v MŠ aj spoločné rodinné čítanie doma.
+✨ Niektoré príbehy vychádzajú z tradičných legiend, ktoré sú spracované do podoby zrozumiteľnej pre malého poslucháča.
+🎭 Pripravené dramatizácie môžete využiť aj pri vianočných besiedkach a vystúpeniach.
+❤️ Medzi témami nájdete napríklad Vianočný les, Narodenie Ježiška, Svätého Mikuláša a mnoho ďalších adventných a vianočných príbehov.
+👧🧒 Vhodné najmä pre deti vo veku 2 – 6 rokov, ale príbehy si užijú aj staršie deti.
+
+🎄 20 príbehov • 20 ponaučení • množstvo spoločných rozhovorov a zážitkov počas najkrajšieho obdobia roka.`},
+    {name:"Svätý Mikuláš", badge:"100 strán", images:["new/78","new/79","new/80","new/81","new/82"], category:"Megasúbory", desc:"Aktivity a pracovné listy k sviatku Svätého Mikuláša.", fbText:`🎅🍬 SVÄTÝ MIKULÁŠ – EDUKAČNÝ MEGASÚBOR PRE MŠ 🎁🍪
+✨ 76 strán PDF + písomná príprava ✨
+
+Čakanie na Mikuláša môže byť plné hier, počítania, tvorenia aj veselého učenia. ❤️
+Megasúbor SVÄTÝ MIKULÁŠ ponúka množstvo pripravených aktivít s mikulášskou tematikou, ktoré využijete počas celého tematického týždňa.
+
+📌 V súbore nájdete:
+🎵 básničky a riekanky
+🔤 mikulášsku abecedu
+🧩 puzzle
+🔍 tieňové aktivity
+📎 štipcovačky
+🔢 6 matematických pracovných listov
+✏️ 4 grafomotorické pracovné listy
+🎄 zdobenie vianočných ozdôb
+🎨 maľovanie podľa čísel
+📮 pexeso
+🖼️ obrázkové kartičky
+💬 hru JA MÁM / KTO MÁ? – 24 kartičiek
+🎅 aktivitu Mikulášovo vrecko – vystrihni a nalep
+🔢 aktivitu Mikulášovo vrecko – počítanie
+🔷 geometrické tvary
+📝 písomnú prípravu
+
+✨ Materiály sú vhodné na mikulášske tematické dni, ranné kruhy, riadené aktivity, matematické a grafomotorické činnosti aj samostatnú prácu detí.
+🎅 76 strán mikulášskej zábavy – stačí vytlačiť a čakanie na Mikuláša sa môže začať.`},
+    {name:"Zima", badge:"100 strán", images:["new/93","new/94"], category:"Megasúbory", desc:"Kompletný zimný megasúbor aktivít pre materské školy.", fbText:`❄️☃️ ZIMA – EDUKAČNÝ MEGASÚBOR PRE MŠ 💙
+✨ 100 strán PDF plných zimných aktivít, hier a pracovných materiálov ✨
+
+Zima, sneh, zvieratká, teplé oblečenie aj zimné športy – všetko v jednom veľkom tematickom súbore. ❄️🧤⛷️
+Megasúbor ZIMA spája viacero obľúbených zimných tém a ponúka množstvo aktivít na rozvoj poznania, komunikácie, matematických predstáv, grafomotoriky, logiky aj pozornosti.
+
+📌 Hlavné témy súboru: ❄️ Zima · 🦌 Zvieratká v zime · 🧤 Zimné oblečenie · ⛷️ Zimné športy
+
+📖 rozprávka O snehovej vločke + otázky na porozumenie
+🐾 rozprávka O zvieratkách na snehu + otázky
+🦊 materiály na rozvoj poznania – Zvieratká v zime
+📮 hra JA MÁM / KTO MÁ? – 32 kariet
+🐾 aktivita Stopy v snehu
+🔍 priraďovanie tieňov
+🌀 bludiská
+🧩 puzzle
+🧤 rozvoj poznania – Zimné oblečenie
+📮 hra JA MÁM / KTO MÁ? – 20 kariet
+💬 aktivita Môj zimný príbeh – opis obrázkových kartičiek
+🔷 geometria so zimným oblečením
+🔢 určovanie počtu a matematické aktivity
+✏️ grafomotorické pracovné listy
+🧠 úlohy Čo nepatrí do radu? / Čo nasleduje?
+🎨 tvorivé pracovné listy Návrhári – navrhni zimné oblečenie
+⛷️ materiály na rozvoj poznania – Zimné športy
+🔢 matematické pracovné listy
+⛄ geometrický snehuliak
+🎨 maľovanie podľa čísel, omaľovánky, hľadanie rozdielov a ďalšie aktivity
+
+✨ Súbor je vhodný na zimné tematické týždne, ranné kruhy, riadené aktivity, centrá aktivít aj samostatnú prácu detí.
+⛄ 100 strán zimnej inšpirácie – všetko pripravené na učenie, hranie a objavovanie zimy.`},
+    {name:"Vesmír", badge:"140 strán", images:["new/96","new/97","new/98","new/99"], category:"Megasúbory", desc:"Objavovanie vesmíru, planét a hviezd s deťmi.", fbText:`🚀🪐 VESMÍR – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌍🌑
+✨ 140 strán PDF plných aktivít, hier a pracovných materiálov ✨
+📝 Možnosť dokúpiť aj 6 písomných príprav
+
+Čo sa ukrýva vo vesmíre? Ako vyzerajú planéty, kto je astronaut a čím cestujeme do kozmu? 🚀⭐
+Megasúbor VESMÍR prenesie deti do sveta planét, hviezd a vesmírnych dobrodružstiev. Prostredníctvom pestrých aktivít si rozšíria poznatky a zároveň precvičia komunikáciu, matematiku, grafomotoriku, jazykové schopnosti aj fantáziu.
+
+📌 V súbore nájdete:
+💬 Komunikácia – 27 strán (edukačné kartičky, plagáty a materiály na rozvoj poznania)
+🚶 Pohybové hry – 6 aktivít
+📖 Rozprávku + otázky na porozumenie + dramatizáciu – 9 strán
+🔢 Matematiku – 14 strán (plagáty, farebné aj čiernobiele pracovné listy, číselný rad, určovanie počtu a poradia)
+✏️ Grafomotoriku – 9 pracovných listov
+🔤 Predčitateľskú a predpisateľskú gramotnosť – 15 strán
+📮 hru JA MÁM / KTO MÁ? – 32 kartičiek
+🌟 hru DOBBLE – 34 kartičiek
+🪐 Pexeso – 36 párov
+🧩 puzzle, bludiská a ďalšie aktivity – 9 strán
+🎨 Omaľovánky – 14 strán
+
+✨ Súbor je vhodný na tematické týždne o vesmíre, planétach a astronómii, ranné kruhy, riadené aktivity aj centrá aktivít.
+🚀 140 strán vesmírneho dobrodružstva – stačí vytlačiť a môžete spolu s deťmi vyraziť ku hviezdam!`},
+    {name:"Jar", badge:"115 strán", images:["new/112"], category:"Megasúbory", desc:"Jarný megasúbor aktivít a pracovných listov.", fbText:`🌷🌼 JAR – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌹🐥
+✨ 115 strán materiálov + 15 písomných príprav ✨
+
+Jar prináša prebúdzajúcu sa prírodu, prvé kvety, zvieratká a množstvo tém, ktoré môžu deti objavovať. 🌱🦋
+Megasúbor JAR spája tri veľké oblasti do jedného pestrého súboru plného hier, pracovných listov a edukačných aktivít.
+🌱 RASTLINY · 🦋 ŽIVOČÍCHY · 🐔 ZVIERATKÁ NA GAZDOVSKOM DVORE
+
+📌 V súbore nájdete:
+🌿 aktivity na rozvoj poznania
+💬 komunikačné aktivity a obrázkové kartičky
+🔤 predpisateľskú a predčitateľskú gramotnosť
+🔢 matematické pracovné listy
+✏️ grafomotoriku
+📖 rozprávku
+📚 maľované čítanie
+🎵 básničky
+📮 hru JA MÁM / KTO MÁ?
+🔍 hru DOBBLE
+🧩 puzzle
+📮 pexeso
+🌀 bludiská
+📝 množstvo ďalších pracovných listov a aktivít
+
+✨ Súčasťou súboru je aj 15 písomných príprav, ktoré vám ešte viac uľahčia plánovanie a realizáciu jarných aktivít.
+👧🧒 Vhodné pre deti vo veku 3 – 6 rokov.
+🌷 115 strán jarnej inšpirácie – všetko pripravené na objavovanie prírody, učenie aj hranie počas celého jarného obdobia.`},
+    {name:"Leto a letné športy", badge:"127 strán", images:["new/175","new/176","new/177","new/178","new/179"], category:"Megasúbory", desc:"Letné športy a aktivity pre deti počas leta.", fbText:`🍉☀️ LETO / LETNÉ ŠPORTY – EDUKAČNÝ MEGASÚBOR PRE MŠ 😎⛵
+✨ 127 strán PDF plných letných aktivít, hier a pracovných materiálov + písomné prípravy 📝
+
+Leto znamená slnko, vodu, ovocie, výlety, pohyb aj množstvo veselých zážitkov. ☀️🍉
+Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické znaky leta, letné športy, bezpečný pobyt na slnku, pitný režim aj zdravé letné ovocie.
+
+📌 V súbore nájdete:
+🍉 Komunikáciu a rozvoj poznania – 14 strán (plagáty, demonštračné obrázky a pracovné listy na témy leto, letné športy, pitný režim, ochrana pred slnkom, letné a exotické ovocie, letné oblečenie a letné činnosti)
+🏄 Letné športy – 14 strán
+☀️ Činnosti v lete – 12 strán
+🚴 Letné športy – 16 edukačných kartičiek
+🚶 Pohybové hry – 6 strán
+🔤 Predpisateľskú a predčitateľskú gramotnosť – 12 strán
+✏️ Grafomotoriku – 12 strán
+🔢 Matematiku – 8 strán
+📮 Pexeso – 36 párov
+🧩 Puzzle – 7 strán
+💬 hru JA MÁM / KTO MÁ? – 40 kariet
+🎨 Omaľovánky – 10 kusov
+
+✨ Súbor je vhodný na letné tematické týždne, záver školského roka, letné tábory, ranné kruhy, riadené aktivity aj samostatnú prácu detí.
+🍉 127 strán letnej inšpirácie – hry, učenie a pohyb na jednom mieste pre veselé posledné týždne v škôlke.`}
   ];
   const PRICE = "7,00 €";
   const CONTACT_EMAIL = "filiphacko2@gmail.com";
   const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
+
+  function inferSeason(name){
+    const n = name.toLowerCase();
+    if (/vianoc|mikuláš|perníček|advent|betlehem/.test(n)) return "Vianoce";
+    if (/zim|snehuliak|fašiang/.test(n)) return "Zima";
+    if (/jarn|jar(?![a-zúčšý])|veľkonočn|veľká noc|zajk|jablk/.test(n)) return "Jar";
+    if (/let(o|n)|prázdnin|šport/.test(n)) return "Leto";
+    if (/jese[ňn]/.test(n)) return "Jeseň";
+    return "Celoročné";
+  }
 
   const shopGrid = document.getElementById('shopGrid');
   products.forEach((p, idx) => {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.dataset.category = p.category;
+    card.dataset.season = inferSeason(p.name);
+    card.dataset.idx = idx;
     const badgeHtml = p.badge ? `<span class="badge">${p.badge}</span>` : '';
     const countHtml = p.images.length > 1 ? `<span class="count">1 / ${p.images.length}</span>` : '';
-    const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${p.name}" za ${PRICE}.\n\nĎakujem.`);
-    const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + p.name)}&body=${mailBody}`;
     card.innerHTML = `
       <div class="thumb" data-idx="${idx}">
         ${badgeHtml}
@@ -1210,39 +1938,40 @@ Edukačná e-kniha pre pani učiteľky aj rodičov 💗
         <h4>${p.name}</h4>
         <div class="price-row">
           <span class="price">${PRICE}</span>
-          ${p.fbText
-            ? `<button type="button" class="buy-btn" data-buy-idx="${idx}">Kúpiť</button>`
-            : `<a class="buy-btn" href="${mailHref}">Kúpiť</a>`}
+          <button type="button" class="buy-btn" data-buy-idx="${idx}">Kúpiť</button>
         </div>
       </div>
     `;
     shopGrid.appendChild(card);
   });
 
-  shopGrid.addEventListener('click', e => {
-    const buyBtn = e.target.closest('button.buy-btn[data-buy-idx]');
-    if (buyBtn) {
-      const p = products[parseInt(buyBtn.dataset.buyIdx, 10)];
-      openBalickyModal(null, p);
-    }
-  });
-
   const filterBar = document.getElementById('filterBar');
+  const seasonBar = document.getElementById('seasonBar');
   const filterCount = document.getElementById('filterCount');
   const cards = Array.from(shopGrid.children);
   const presentCategories = CATEGORY_ORDER.filter(c => products.some(p => p.category === c));
   const categories = ["Všetky", ...presentCategories];
+  const SEASON_ORDER = ["Jeseň","Zima","Jar","Leto","Vianoce","Celoročné"];
+  const presentSeasons = SEASON_ORDER.filter(s => cards.some(c => c.dataset.season === s));
+  const seasons = ["Všetky obdobia", ...presentSeasons];
+  let activeCat = "Všetky";
+  let activeSeason = "Všetky obdobia";
 
-  function applyFilter(cat){
+  function applyFilter(){
     let visible = 0;
     cards.forEach(card => {
-      const show = cat === "Všetky" || card.dataset.category === cat;
+      const showCat = activeCat === "Všetky" || card.dataset.category === activeCat;
+      const showSeason = activeSeason === "Všetky obdobia" || card.dataset.season === activeSeason;
+      const show = showCat && showSeason;
       card.classList.toggle('hidden', !show);
       if (show) visible++;
     });
     filterCount.textContent = `Zobrazených ${visible} z ${cards.length} produktov`;
     filterBar.querySelectorAll('.filter-pill').forEach(pill => {
-      pill.classList.toggle('active', pill.dataset.cat === cat);
+      pill.classList.toggle('active', pill.dataset.cat === activeCat);
+    });
+    seasonBar.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.classList.toggle('active', pill.dataset.season === activeSeason);
     });
   }
 
@@ -1252,51 +1981,87 @@ Edukačná e-kniha pre pani učiteľky aj rodičov 💗
     pill.className = 'filter-pill' + (cat === 'Všetky' ? ' active' : '');
     pill.dataset.cat = cat;
     pill.textContent = cat;
-    pill.addEventListener('click', () => applyFilter(cat));
+    pill.addEventListener('click', () => { activeCat = cat; applyFilter(); });
     filterBar.appendChild(pill);
   });
-  applyFilter('Všetky');
+  seasons.forEach(season => {
+    const pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = 'filter-pill' + (season === 'Všetky obdobia' ? ' active' : '');
+    pill.dataset.season = season;
+    pill.textContent = season;
+    pill.addEventListener('click', () => { activeSeason = season; applyFilter(); });
+    seasonBar.appendChild(pill);
+  });
+  applyFilter();
 
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbCaption = document.getElementById('lbCaption');
-  const lbDesc = document.getElementById('lbDesc');
-  let activeProduct = null;
-  let activePos = 0;
+  // PRODUCT DETAIL MODAL
+  const productModal = document.getElementById('productModal');
+  const pmImg = document.getElementById('pmImg');
+  const pmTitle = document.getElementById('pmTitle');
+  const pmLead = document.getElementById('pmLead');
+  const pmTags = document.getElementById('pmTags');
+  const pmPrice = document.getElementById('pmPrice');
+  const pmBuy = document.getElementById('pmBuy');
+  const pmThumbs = document.getElementById('pmThumbs');
+  const pmMoreWrap = document.getElementById('pmMoreWrap');
+  const pmMore = document.getElementById('pmMore');
+  let pmProduct = null;
+  let pmPos = 0;
 
-  function openLb(productIdx, pos){
-    activeProduct = products[productIdx];
-    activePos = pos;
-    renderLb();
-    lb.classList.add('open');
+  function openProductModal(idx){
+    pmProduct = products[idx];
+    pmPos = 0;
+    renderProductModal();
+    productModal.classList.add('open');
   }
-  function renderLb(){
-    const imgNum = activeProduct.images[activePos];
-    lbImg.src = `assets/products/${imgNum}.jpg`;
-    lbCaption.textContent = `${activeProduct.name} — ukážka ${activePos + 1} / ${activeProduct.images.length}`;
-    lbDesc.textContent = activeProduct.desc || '';
+  function renderProductModal(){
+    const imgNum = pmProduct.images[pmPos];
+    pmImg.src = `assets/products/${imgNum}.jpg`;
+    pmTitle.textContent = pmProduct.name;
+    pmLead.textContent = pmProduct.desc || '';
+    pmPrice.textContent = PRICE;
+    const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${pmProduct.name}" za ${PRICE}.\n\nĎakujem.`);
+    pmBuy.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + pmProduct.name)}&body=${mailBody}`;
+    const tags = [pmProduct.category, inferSeason(pmProduct.name)].filter((v,i,a)=>v && a.indexOf(v)===i);
+    pmTags.innerHTML = tags.map(t => `<span class="product-modal-tag">${t}</span>`).join('');
+    pmThumbs.innerHTML = pmProduct.images.map((imgN,i) =>
+      `<img src="assets/products/${imgN}.jpg" data-i="${i}" class="${i===pmPos?'active':''}" alt="Ukážka ${i+1}">`
+    ).join('');
+    if (pmProduct.fbText) {
+      pmMoreWrap.style.display = '';
+      pmMore.textContent = pmProduct.fbText;
+    } else {
+      pmMoreWrap.style.display = 'none';
+    }
   }
-  function closeLb(){ lb.classList.remove('open'); }
-  function nav(delta){
-    if (!activeProduct) return;
-    const len = activeProduct.images.length;
-    activePos = (activePos + delta + len) % len;
-    renderLb();
+  function closeProductModal(){ productModal.classList.remove('open'); }
+  function pmNav(delta){
+    if (!pmProduct) return;
+    const len = pmProduct.images.length;
+    pmPos = (pmPos + delta + len) % len;
+    renderProductModal();
   }
 
   shopGrid.addEventListener('click', e => {
-    const thumb = e.target.closest('.thumb');
-    if (thumb) openLb(parseInt(thumb.dataset.idx, 10), 0);
+    const buyBtn = e.target.closest('button.buy-btn[data-buy-idx]');
+    if (buyBtn) { openProductModal(parseInt(buyBtn.dataset.buyIdx, 10)); return; }
+    const card = e.target.closest('.product-card');
+    if (card) openProductModal(parseInt(card.dataset.idx, 10));
   });
-  document.getElementById('lbClose').addEventListener('click', closeLb);
-  document.getElementById('lbPrev').addEventListener('click', () => nav(-1));
-  document.getElementById('lbNext').addEventListener('click', () => nav(1));
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  pmThumbs.addEventListener('click', e => {
+    const t = e.target.closest('img[data-i]');
+    if (t) { pmPos = parseInt(t.dataset.i, 10); renderProductModal(); }
+  });
+  document.getElementById('pmPrev').addEventListener('click', () => pmNav(-1));
+  document.getElementById('pmNext').addEventListener('click', () => pmNav(1));
+  document.getElementById('productModalClose').addEventListener('click', closeProductModal);
+  productModal.addEventListener('click', e => { if (e.target === productModal) closeProductModal(); });
   document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') nav(-1);
-    if (e.key === 'ArrowRight') nav(1);
+    if (!productModal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeProductModal();
+    if (e.key === 'ArrowLeft') pmNav(-1);
+    if (e.key === 'ArrowRight') pmNav(1);
   });
 
   // BALÍKY DETAIL MODAL
