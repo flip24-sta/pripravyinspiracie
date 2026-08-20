@@ -57,7 +57,7 @@
     display:flex;align-items:center;justify-content:space-between;
     padding-top:16px;padding-bottom:16px;gap:20px;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:700;white-space:nowrap;}
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:700;white-space:nowrap;color:inherit;text-decoration:none;}
   .brand .heart{color:var(--rose);}
   .brand-avatar{
     width:38px;height:38px;border-radius:50%;object-fit:cover;
@@ -423,7 +423,7 @@
   .faq-item p{color:var(--muted);font-size:0.92rem;padding-bottom:20px;margin-top:-6px;}
 
   /* CONTACT */
-  .contact{background:var(--ink);color:#fff;border-radius:28px;margin:0 24px;padding:60px 40px;text-align:center;}
+  .contact{background:var(--ink);color:#fff;border-radius:28px;margin:0 auto;padding:60px 40px;text-align:center;}
   .contact h2{font-size:2.2rem;margin-bottom:14px;font-weight:800;color:#fff;}
   .contact p{color:#cfc4bd;margin-bottom:24px;}
   .contact .btn-primary{background:var(--rose);}
@@ -454,12 +454,12 @@
 </head>
 <body>
 
-<header>
+<header id="top">
   <nav class="wrap">
-    <div class="brand">
+    <a class="brand" href="#top">
       <img class="brand-avatar" src="assets/Logo.jpg" alt="Prípravy Inšpirácie">
       <span>Prípravy</span><span class="heart">♥</span><span>Inšpirácie</span>
-    </div>
+    </a>
     <div class="navlinks">
       <a href="#produkty">Produkty</a>
       <a href="#zadarmo">Materiály zadarmo</a>
