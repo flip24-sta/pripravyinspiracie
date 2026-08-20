@@ -688,7 +688,7 @@
     <div class="filter-bar" id="seasonBar"></div>
     <p class="filter-count" id="filterCount"></p>
     <div class="shop-grid" id="shopGrid"></div>
-    <p class="more-note">Cena každého produktu: 7,00 € · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
+    <p class="more-note">Cena produktov: 7,00 € (Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
   </div>
 </section>
 
@@ -1898,6 +1898,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   ];
   const PRICE = "7,00 €";
   const CONTACT_EMAIL = "filiphacko2@gmail.com";
+  function getPrice(p){ return p.category === "Písomné prípravy" ? "14,00 €" : PRICE; }
   const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
 
   function inferSeason(name){
@@ -1928,7 +1929,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
       <div class="info">
         <h4>${p.name}</h4>
         <div class="price-row">
-          <span class="price">${PRICE}</span>
+          <span class="price">${getPrice(p)}</span>
           <button type="button" class="buy-btn" data-buy-idx="${idx}">Kúpiť</button>
         </div>
       </div>
@@ -2008,8 +2009,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     const imgNum = pmProduct.images[pmPos];
     pmImg.src = `assets/products/${imgNum}.jpg`;
     pmTitle.textContent = pmProduct.name;
-    pmPrice.textContent = PRICE;
-    const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${pmProduct.name}" za ${PRICE}.\n\nĎakujem.`);
+    pmPrice.textContent = getPrice(pmProduct);
+    const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${pmProduct.name}" za ${getPrice(pmProduct)}.\n\nĎakujem.`);
     pmBuy.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + pmProduct.name)}&body=${mailBody}`;
     const tags = [pmProduct.category, inferSeason(pmProduct.name)].filter((v,i,a)=>v && a.indexOf(v)===i);
     pmTags.innerHTML = tags.map(t => `<span class="product-modal-tag">${t}</span>`).join('');
@@ -2325,9 +2326,9 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     if (product) {
       balickyModalImg.src = `assets/products/${product.images[0]}.jpg`;
       const esc = product.fbText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${product.name}" za ${PRICE}.\n\nĎakujem.`);
+      const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${product.name}" za ${getPrice(product)}.\n\nĎakujem.`);
       const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + product.name)}&body=${mailBody}`;
-      balickyModalText.innerHTML = `<div class="plain-desc">${esc}</div><a href="${mailHref}" class="btn btn-primary tier-modal-cta">Kúpiť za ${PRICE}</a>`;
+      balickyModalText.innerHTML = `<div class="plain-desc">${esc}</div><a href="${mailHref}" class="btn btn-primary tier-modal-cta">Kúpiť za ${getPrice(product)}</a>`;
       balickyModal.classList.add('open');
       return;
     }
