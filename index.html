@@ -688,7 +688,7 @@
     <div class="filter-bar" id="seasonBar"></div>
     <p class="filter-count" id="filterCount"></p>
     <div class="shop-grid" id="shopGrid"></div>
-    <p class="more-note">Cena produktov: 7,00 € (Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
+    <p class="more-note">Cena produktov: 7,00 € (Megasúbory: 5,00 €, Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
   </div>
 </section>
 
@@ -1898,7 +1898,11 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   ];
   const PRICE = "7,00 €";
   const CONTACT_EMAIL = "filiphacko2@gmail.com";
-  function getPrice(p){ return p.category === "Písomné prípravy" ? "14,00 €" : PRICE; }
+  function getPrice(p){
+    if (p.category === "Písomné prípravy") return "14,00 €";
+    if (p.category === "Megasúbory") return "5,00 €";
+    return PRICE;
+  }
   const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
 
   function inferSeason(name){
