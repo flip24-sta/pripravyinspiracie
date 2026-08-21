@@ -2712,7 +2712,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
           <div class="cart-summary-row"><span>Počet položiek</span><span>${cartCount()}</span></div>
           <div class="cart-summary-row"><span>Doručenie</span><span>e-mailom</span></div>
           <div class="cart-summary-row total"><span>Spolu</span><span>${formatPrice(cartTotal())}</span></div>
-          <button type="button" class="btn btn-primary" id="goCheckoutBtn">Pokračovať do pokladne</button>
+          <button type="button" class="btn btn-primary" id="goCheckoutBtn">Do pokladne</button>
+          <button type="button" class="btn btn-ghost cart-back" id="continueShoppingBtn">Pokračovať v nákupe</button>
           <p class="cart-summary-note">💌 PDF materiály posielame e-mailom, nejde o tlačenú zásielku.</p>
         </div>
       </div>
@@ -2864,6 +2865,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     const plusBtn = e.target.closest('[data-qty-plus]');
     if (plusBtn) { changeQty(plusBtn.dataset.qtyPlus, 1); renderCartModal(); return; }
     if (e.target.id === 'goCheckoutBtn') { checkoutView = 'checkout'; renderCartModal(); return; }
+    if (e.target.id === 'continueShoppingBtn') { closeCart(); return; }
     if (e.target.id === 'backToCartBtn') { checkoutView = 'cart'; renderCartModal(); return; }
     if (e.target.id === 'closeDoneBtn') { checkoutView = 'cart'; cart = []; saveCart(cart); updateCartCount(); closeCart(); return; }
     if (e.target.id === 'submitOrderBtn') { submitOrder(); return; }
