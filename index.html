@@ -376,6 +376,100 @@
   }
   .product-modal-desc{margin-bottom:20px;max-height:none;}
   .product-modal-desc.plain-desc{font-size:0.9rem;}
+
+  /* CART BUTTON */
+  .cart-btn{
+    position:relative;display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:50%;background:var(--rose-pale);color:var(--terracotta);
+    border:1px solid var(--rose-light);cursor:pointer;flex-shrink:0;
+  }
+  .cart-btn:hover{background:var(--rose-light);}
+  .cart-btn svg{width:19px;height:19px;}
+  .cart-count{
+    position:absolute;top:-6px;right:-6px;background:var(--rose);color:#fff;font-size:0.68rem;
+    font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    padding:0 4px;
+  }
+  .cart-count.zero{display:none;}
+
+  /* CART & CHECKOUT MODAL */
+  .cart-modal{
+    display:none;position:fixed;inset:0;background:rgba(20,16,14,.55);z-index:200;
+    align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;
+  }
+  .cart-modal.open{display:flex;}
+  .cart-modal-inner{
+    background:var(--bg);border-radius:24px;max-width:1180px;width:100%;position:relative;
+    box-shadow:0 30px 80px -30px rgba(20,16,14,.5);
+  }
+  .cart-modal-close{
+    position:absolute;top:18px;right:22px;font-size:1.9rem;cursor:pointer;color:var(--muted);
+    line-height:1;z-index:2;background:#fff;width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cart-modal-close:hover{color:var(--ink);}
+  .checkout-hero{background:var(--blush);border-radius:24px 24px 0 0;padding:48px 40px 36px;text-align:center;}
+  .checkout-eyebrow{font-size:0.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:10px;}
+  .checkout-hero h2{font-size:2.2rem;font-weight:800;color:var(--terracotta);margin-bottom:14px;}
+  .checkout-hero p{color:var(--muted);max-width:520px;margin:0 auto;}
+  .cart-body{padding:36px 40px;display:grid;grid-template-columns:1.6fr 1fr;gap:32px;align-items:start;}
+  .cart-items{display:flex;flex-direction:column;gap:14px;}
+  .cart-item{
+    display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);
+    border-radius:16px;padding:14px;
+  }
+  .cart-item img{width:56px;height:56px;object-fit:cover;border-radius:10px;flex-shrink:0;}
+  .cart-item-tags{display:flex;gap:6px;margin-bottom:4px;}
+  .cart-item-tag{background:var(--rose-pale);color:var(--terracotta);font-size:0.68rem;font-weight:600;padding:3px 9px;border-radius:20px;}
+  .cart-item-name{font-weight:700;color:var(--ink);font-size:0.98rem;margin-bottom:2px;}
+  .cart-item-meta{color:var(--muted);font-size:0.82rem;}
+  .cart-item-remove{color:var(--rose);font-size:0.82rem;font-weight:600;cursor:pointer;background:none;border:none;padding:0;display:flex;align-items:center;gap:5px;margin-top:4px;}
+  .cart-item-remove:hover{text-decoration:underline;}
+  .cart-item-right{margin-left:auto;text-align:right;flex-shrink:0;}
+  .cart-item-price{font-weight:800;color:var(--ink);font-size:1.05rem;}
+  .cart-qty{display:flex;align-items:center;gap:8px;margin-top:6px;justify-content:flex-end;}
+  .cart-qty button{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);background:#fff;color:var(--terracotta);cursor:pointer;font-size:0.95rem;line-height:1;}
+  .cart-qty span{font-weight:600;min-width:16px;text-align:center;}
+  .cart-empty{text-align:center;color:var(--muted);padding:50px 20px;}
+  .cart-summary{
+    background:var(--rose-pale);border-radius:20px;padding:26px;position:sticky;top:0;
+  }
+  .cart-summary h3{font-size:1.25rem;font-weight:800;color:var(--terracotta);margin-bottom:18px;}
+  .cart-summary-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:0.92rem;color:var(--ink);border-bottom:1px solid rgba(137,78,68,.12);}
+  .cart-summary-row.total{border-bottom:none;font-size:1.2rem;font-weight:800;padding-top:14px;}
+  .cart-summary .btn{width:100%;text-align:center;margin-top:16px;}
+  .cart-summary-note{color:var(--muted);font-size:0.78rem;text-align:center;margin-top:14px;line-height:1.5;}
+  .cart-back{width:100%;text-align:center;margin-top:10px;}
+
+  /* CHECKOUT FORM */
+  .checkout-form-section{
+    background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px 28px;margin-bottom:20px;
+  }
+  .checkout-form-head{display:flex;align-items:center;gap:14px;margin-bottom:6px;}
+  .checkout-form-icon{
+    width:38px;height:38px;border-radius:50%;background:var(--rose-pale);color:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;
+  }
+  .checkout-form-head h3{font-size:1.1rem;font-weight:700;color:var(--ink);}
+  .checkout-form-section > p{color:var(--muted);font-size:0.85rem;margin:0 0 18px 52px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;}
+  .form-group label{display:block;font-size:0.84rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .form-group label .req{color:var(--rose);}
+  .form-group input, .form-group select, .form-group textarea{
+    width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);
+    background:var(--rose-pale);font-family:inherit;font-size:0.92rem;color:var(--ink);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder{color:var(--muted);}
+  .form-group textarea{resize:vertical;min-height:80px;}
+  .form-checkbox{display:flex;align-items:flex-start;gap:10px;font-size:0.86rem;color:var(--ink);margin-bottom:12px;}
+  .form-checkbox input{margin-top:3px;flex-shrink:0;}
+  .form-checkbox a{color:var(--terracotta);font-weight:700;}
+  @media (max-width:860px){
+    .cart-body{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .checkout-hero{padding:36px 24px 28px;}
+    .cart-body{padding:28px 20px;}
+  }
   @media (max-width:760px){
     .product-modal-inner{grid-template-columns:1fr;}
     .product-modal-info{padding:0 24px 28px;}
@@ -402,6 +496,9 @@
     content:"✓";position:absolute;left:0;color:var(--rose);font-weight:600;
   }
   .tier-card .btn{width:100%;text-align:center;}
+  .tier-btn-row{display:flex;gap:10px;}
+  .tier-btn-row .btn{flex:1;text-align:center;}
+  @media (max-width:520px){.tier-btn-row{flex-direction:column;}}
   .membership-note{
     text-align:center;color:var(--muted);font-size:0.85rem;margin-top:30px;
   }
@@ -481,6 +578,10 @@
           <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
         </a>
       </div>
+      <button type="button" class="cart-btn" id="cartBtn" aria-label="Košík">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
     </div>
   </nav>
 </header>
@@ -571,7 +672,10 @@
             <li>Pracovné listy na rozvoj slovnej zásoby</li>
             <li>Plagáty a pravidlá do škôlky</li>
           </ul>
-          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" data-package="small" class="btn btn-ghost tier-cta">Mám záujem</a>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="small" data-cart-name="Small balík" data-cart-price="40,00 €" data-cart-img="assets/balicky/small.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" data-package="small" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
         </div>
       </div>
       <div class="tier-row">
@@ -588,7 +692,10 @@
             <li>Diplomy na koniec školského roka</li>
             <li>Pravidlá a bezpečnosť v MŠ</li>
           </ul>
-          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" data-package="medium" class="btn btn-ghost tier-cta">Mám záujem</a>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="medium" data-cart-name="Medium balík" data-cart-price="69,00 €" data-cart-img="assets/balicky/medium.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" data-package="medium" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
         </div>
       </div>
       <div class="tier-row featured">
@@ -606,7 +713,10 @@
             <li>150 hotových písomných príprav</li>
             <li>Vianočné besiedky</li>
           </ul>
-          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" data-package="large" class="btn btn-primary tier-cta">Mám záujem</a>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="large" data-cart-name="Large balík" data-cart-price="119,00 €" data-cart-img="assets/balicky/large.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" data-package="large" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
         </div>
       </div>
       <div class="tier-row">
@@ -623,11 +733,14 @@
             <li>Kompletný balík písomných príprav</li>
             <li>Vianočné besiedky + 20 diplomov</li>
           </ul>
-          <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" data-package="premium" class="btn btn-ghost tier-cta">Mám záujem</a>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="premium" data-cart-name="Premium balík" data-cart-price="149,00 €" data-cart-img="assets/balicky/premium.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" data-package="premium" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
         </div>
       </div>
     </div>
-    <p class="membership-note">Napíšte nám cez tlačidlo „Mám záujem" a pošleme vám presný zoznam materiálov v balíku.</p>
+    <p class="membership-note">Napíšte nám cez tlačidlo „Mám záujem" a pošleme vám presný zoznam materiálov v balíku, alebo si ho rovno pridajte do košíka tlačidlom „Kúpiť".</p>
   </div>
 </section>
 
@@ -774,7 +887,7 @@
           <div class="product-modal-price-label">Cena</div>
           <div class="product-modal-price" id="pmPrice"></div>
         </div>
-        <a class="btn btn-primary" id="pmBuy" href="#">Kúpiť</a>
+        <button type="button" class="btn btn-primary" id="pmBuy">Kúpiť</button>
       </div>
       <p class="product-modal-note">💌 PDF materiál vám po objednávke príde na e-mail. Nejde o tlačený produkt.</p>
     </div>
@@ -788,6 +901,13 @@
       <img id="balickyModalImg" src="" alt="">
     </div>
     <div class="balicky-modal-text" id="balickyModalText"></div>
+  </div>
+</div>
+
+<div class="cart-modal" id="cartModal">
+  <div class="cart-modal-inner">
+    <span class="cart-modal-close" id="cartModalClose">&times;</span>
+    <div id="cartModalContent"></div>
   </div>
 </div>
 
@@ -2149,8 +2269,6 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     pmImg.src = `assets/products/${imgNum}.jpg`;
     pmTitle.textContent = pmProduct.name;
     pmPrice.textContent = getPrice(pmProduct);
-    const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${pmProduct.name}" za ${getPrice(pmProduct)}.\n\nĎakujem.`);
-    pmBuy.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + pmProduct.name)}&body=${mailBody}`;
     const tags = [pmProduct.category, inferSeason(pmProduct.name)].filter((v,i,a)=>v && a.indexOf(v)===i);
     pmTags.innerHTML = tags.map(t => `<span class="product-modal-tag">${t}</span>`).join('');
     pmThumbs.innerHTML = pmProduct.images.map((imgN,i) =>
@@ -2241,7 +2359,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
         <p><strong>Plagáty a pravidlá do vašej škôlky</strong> – 100 strán<br>Praktické a vizuálne materiály vhodné do triedy aj ďalších priestorov materskej školy.</p>
         <hr>
         <p>Spolu až 20 materiálov a 2 793 strán. Témy zahŕňajú škôlku, rodinu, jeseň, ľudské telo, dopravu, zimu, jar, hospodárske zvieratá, Slovensko, život pri vode, leto, pravidlá, bezpečnosť, rozvoj slovnej zásoby a mnoho ďalšieho.</p>
-        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+        <button type="button" class="btn btn-primary tier-buy tier-modal-cta" data-package="small" data-cart-name="Small balík" data-cart-price="40,00 €" data-cart-img="assets/balicky/small.jpg">Kúpiť za 40,00 €</button>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" class="btn btn-ghost tier-modal-cta">Mám záujem</a>
       `
     },
     medium: {
@@ -2309,7 +2428,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
         <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán, <strong>Diplomy na koniec školského roka</strong> – 20 strán, <strong>Pravidlá a bezpečnosť v našej MŠ</strong> – 100 strán</p>
         <hr>
         <p>Spolu až 36 materiálov a 4 826 strán. Témy zahŕňajú škôlku, rodinu, profesie, mesto a dedinu, jeseň, úctu k starším, ľudské telo, vesmír, dopravu, zimu, jar, hospodárske zvieratá, stravovanie, vodu, ochranu prírody, Slovensko, časové vzťahy, leto, Vianoce, fašiangy, Veľkú noc, cestovanie, les, hmyz a mnoho ďalších oblastí.</p>
-        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+        <button type="button" class="btn btn-primary tier-buy tier-modal-cta" data-package="medium" data-cart-name="Medium balík" data-cart-price="69,00 €" data-cart-img="assets/balicky/medium.jpg">Kúpiť za 69,00 €</button>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" class="btn btn-ghost tier-modal-cta">Mám záujem</a>
       `
     },
     large: {
@@ -2397,7 +2517,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
         <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán, <strong>Diplomy na koniec školského roka</strong> – 20 strán, <strong>Plagáty a pravidlá do vašej MŠ</strong> – 100 strán</p>
         <hr>
         <p>Spolu 7 688 strán rozsiahlych materiálov. LARGE balík pokrýva desiatky tém – škôlku, rodinu, profesie, mesto a dedinu, les, jeseň, úctu k starším, ľudské telo, vesmír, dopravu, zimu, jar, hospodárske aj exotické zvieratá, stravovanie, vodu, ochranu prírody, Veľkú noc, Slovensko, liečivé rastliny, časové vzťahy, Deň matiek, Deň detí, leto, fašiangy, cestovanie a mnoho ďalších oblastí.</p>
-        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+        <button type="button" class="btn btn-primary tier-buy tier-modal-cta" data-package="large" data-cart-name="Large balík" data-cart-price="119,00 €" data-cart-img="assets/balicky/large.jpg">Kúpiť za 119,00 €</button>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" class="btn btn-ghost tier-modal-cta">Mám záujem</a>
       `
     },
     premium: {
@@ -2452,7 +2573,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
         <p><strong>Rozvoj slovnej zásoby</strong> – 42 strán, <strong>20 diplomov na koniec školského roka</strong> – 20 strán, <strong>Plagáty a pravidlá do vašej MŠ</strong> – 99 strán</p>
         <hr>
         <p>Spolu až 10 159 strán materiálov. PREMIUM balík pokrýva prakticky celý školský rok a desiatky tém – škôlku, rodinu, profesie, mesto a dedinu, jeseň, les, ľudské telo, vesmír, dopravu, zimu, jar, hospodárske aj exotické zvieratá, stravovanie, vodu, ochranu prírody, Slovensko, liečivé rastliny, časové vzťahy, pohybové hry, Deň matiek, Deň detí, leto, Vianoce, Mikuláša, Veľkú noc, fašiangy, cestovanie a mnoho ďalších oblastí.</p>
-        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" class="btn btn-primary tier-modal-cta">Mám záujem</a>
+        <button type="button" class="btn btn-primary tier-buy tier-modal-cta" data-package="premium" data-cart-name="Premium balík" data-cart-price="149,00 €" data-cart-img="assets/balicky/premium.jpg">Kúpiť za 149,00 €</button>
+        <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" class="btn btn-ghost tier-modal-cta">Mám záujem</a>
       `
     }
   };
@@ -2493,6 +2615,295 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && balickyModal.classList.contains('open')) closeBalickyModal();
   });
+
+  // CART & CHECKOUT
+  const CART_KEY = 'pi_cart_v1';
+  function loadCart(){ try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch(e){ return []; } }
+  function saveCart(items){ localStorage.setItem(CART_KEY, JSON.stringify(items)); }
+  let cart = loadCart();
+  let checkoutView = 'cart';
+
+  function parsePrice(str){ return parseFloat(String(str).replace(/[^\d,.-]/g,'').replace(',', '.')) || 0; }
+  function formatPrice(n){ return n.toLocaleString('sk-SK', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €'; }
+  function cartTotal(){ return cart.reduce((sum, it) => sum + parsePrice(it.price) * it.qty, 0); }
+  function cartCount(){ return cart.reduce((s,it)=>s+it.qty,0); }
+
+  function updateCartCount(){
+    const el = document.getElementById('cartCount');
+    const count = cartCount();
+    el.textContent = count;
+    el.classList.toggle('zero', count === 0);
+  }
+  function addToCart(item){
+    const existing = cart.find(it => it.key === item.key);
+    if (existing) existing.qty += 1;
+    else cart.push(Object.assign({qty:1}, item));
+    saveCart(cart);
+    updateCartCount();
+  }
+  function removeFromCart(key){
+    cart = cart.filter(it => it.key !== key);
+    saveCart(cart);
+    updateCartCount();
+  }
+  function changeQty(key, delta){
+    const it = cart.find(x => x.key === key);
+    if (!it) return;
+    it.qty += delta;
+    if (it.qty <= 0) { removeFromCart(key); return; }
+    saveCart(cart);
+    updateCartCount();
+  }
+
+  const cartModal = document.getElementById('cartModal');
+  const cartModalContent = document.getElementById('cartModalContent');
+
+  function openCart(){ renderCartModal(); cartModal.classList.add('open'); }
+  function closeCart(){ cartModal.classList.remove('open'); }
+
+  function renderCartModal(){
+    if (checkoutView === 'checkout') return renderCheckoutView();
+    if (checkoutView === 'done') return renderDoneView();
+    renderCartView();
+  }
+
+  function renderCartView(){
+    if (cart.length === 0) {
+      cartModalContent.innerHTML = `
+        <div class="checkout-hero">
+          <span class="checkout-eyebrow">Košík</span>
+          <h2>Váš košík je prázdny</h2>
+          <p>Pridajte si materiály z ponuky produktov alebo balíkov.</p>
+        </div>
+        <div class="cart-body" style="grid-template-columns:1fr;">
+          <div class="cart-empty">🛒 Zatiaľ tu nič nie je.</div>
+        </div>
+      `;
+      return;
+    }
+    const itemsHtml = cart.map(it => `
+      <div class="cart-item">
+        <img src="${it.img}" alt="${it.name}">
+        <div>
+          <div class="cart-item-name">${it.name}</div>
+          <div class="cart-item-meta">${it.price} / ks</div>
+          <button type="button" class="cart-item-remove" data-remove="${it.key}">🗑 Odstrániť</button>
+        </div>
+        <div class="cart-item-right">
+          <div class="cart-item-price">${formatPrice(parsePrice(it.price) * it.qty)}</div>
+          <div class="cart-qty">
+            <button type="button" data-qty-minus="${it.key}">−</button>
+            <span>${it.qty}</span>
+            <button type="button" data-qty-plus="${it.key}">+</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    cartModalContent.innerHTML = `
+      <div class="checkout-hero">
+        <span class="checkout-eyebrow">Košík</span>
+        <h2>Váš košík</h2>
+        <p>Skontrolujte si vybrané materiály pred prechodom do pokladne.</p>
+      </div>
+      <div class="cart-body">
+        <div class="cart-items">${itemsHtml}</div>
+        <div class="cart-summary">
+          <h3>Súhrn objednávky</h3>
+          <div class="cart-summary-row"><span>Počet položiek</span><span>${cartCount()}</span></div>
+          <div class="cart-summary-row"><span>Doručenie</span><span>e-mailom</span></div>
+          <div class="cart-summary-row total"><span>Spolu</span><span>${formatPrice(cartTotal())}</span></div>
+          <button type="button" class="btn btn-primary" id="goCheckoutBtn">Pokračovať do pokladne</button>
+          <p class="cart-summary-note">💌 PDF materiály posielame e-mailom, nejde o tlačenú zásielku.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderCheckoutView(){
+    const itemsHtml = cart.map(it => `
+      <div class="cart-item" style="padding:10px 14px;">
+        <img src="${it.img}" alt="${it.name}">
+        <div>
+          <div class="cart-item-name">${it.name}</div>
+          <div class="cart-item-meta">${it.qty} × ${it.price}</div>
+        </div>
+        <div class="cart-item-right"><div class="cart-item-price">${formatPrice(parsePrice(it.price) * it.qty)}</div></div>
+      </div>
+    `).join('');
+    cartModalContent.innerHTML = `
+      <div class="checkout-hero">
+        <span class="checkout-eyebrow">Pokladňa</span>
+        <h2>Dokončenie objednávky</h2>
+        <p>PDF materiály vám po objednávke prídu na e-mail. Skontrolujte preto adresu, kam ich máme poslať.</p>
+      </div>
+      <div class="cart-body">
+        <div>
+          <div class="checkout-form-section">
+            <div class="checkout-form-head"><span class="checkout-form-icon">👤</span><h3>Kontaktné údaje</h3></div>
+            <p>Tieto údaje použijeme na spracovanie objednávky.</p>
+            <div class="form-row">
+              <div class="form-group"><label>Meno <span class="req">*</span></label><input type="text" id="coFirstName" placeholder="Vaše meno"></div>
+              <div class="form-group"><label>Priezvisko <span class="req">*</span></label><input type="text" id="coLastName" placeholder="Vaše priezvisko"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>E-mail <span class="req">*</span></label><input type="email" id="coEmail" placeholder="vas@email.sk"></div>
+              <div class="form-group"><label>Telefón</label><input type="tel" id="coPhone" placeholder="+421..."></div>
+            </div>
+          </div>
+          <div class="checkout-form-section">
+            <div class="checkout-form-head"><span class="checkout-form-icon">🧾</span><h3>Fakturačné údaje</h3></div>
+            <p>Tieto údaje použijeme na vystavenie dokladu k objednávke.</p>
+            <div class="form-row">
+              <div class="form-group"><label>Fakturačné meno <span class="req">*</span></label><input type="text" id="coBillFirst" placeholder="Meno"></div>
+              <div class="form-group"><label>Fakturačné priezvisko <span class="req">*</span></label><input type="text" id="coBillLast" placeholder="Priezvisko"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Ulica a číslo <span class="req">*</span></label><input type="text" id="coStreet" placeholder="Ulica 123"></div>
+              <div class="form-group"><label>Mesto <span class="req">*</span></label><input type="text" id="coCity" placeholder="Mesto"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>PSČ <span class="req">*</span></label><input type="text" id="coZip" placeholder="000 00"></div>
+              <div class="form-group"><label>Krajina <span class="req">*</span></label><input type="text" id="coCountry" value="Slovensko"></div>
+            </div>
+            <div class="form-checkbox"><input type="checkbox" id="coCompany"><label for="coCompany">Nakupujem na firmu alebo škôlku</label></div>
+          </div>
+          <div class="checkout-form-section">
+            <div class="checkout-form-head"><span class="checkout-form-icon">✉️</span><h3>Doručenie PDF materiálov</h3></div>
+            <p>Digitálne súbory posielame e-mailom, bez fyzického doručenia.</p>
+            <div class="form-row">
+              <div class="form-group"><label>E-mail na doručenie <span class="req">*</span></label><input type="email" id="coDeliveryEmail" placeholder="kam poslať PDF"></div>
+              <div class="form-group"><label>Spôsob platby</label>
+                <select id="coPayment">
+                  <option>Bankový prevod</option>
+                  <option>Online kartou (čoskoro)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label>Poznámka k objednávke</label><textarea id="coNote" placeholder="Ak potrebujete niečo doplniť, napíšte to sem…"></textarea></div>
+          </div>
+          <div class="checkout-form-section">
+            <div class="checkout-form-head"><span class="checkout-form-icon">✅</span><h3>Súhlasy</h3></div>
+            <div class="form-checkbox"><input type="checkbox" id="coTerms"><label for="coTerms">Súhlasím s <a href="#faq">obchodnými podmienkami</a> a beriem na vedomie, že kupujem digitálny PDF produkt.</label></div>
+            <div class="form-checkbox"><input type="checkbox" id="coNewsletter"><label for="coNewsletter">Chcem občas dostať nové materiály a tipy na aktivity pre deti.</label></div>
+          </div>
+        </div>
+        <div class="cart-summary">
+          <h3>Vaša objednávka</h3>
+          <div class="cart-items" style="margin-bottom:14px;">${itemsHtml}</div>
+          <div class="cart-summary-row"><span>Počet položiek</span><span>${cartCount()}</span></div>
+          <div class="cart-summary-row"><span>Doručenie</span><span>0,00 €</span></div>
+          <div class="cart-summary-row total"><span>Spolu</span><span>${formatPrice(cartTotal())}</span></div>
+          <button type="button" class="btn btn-primary" id="submitOrderBtn">Odoslať objednávku</button>
+          <button type="button" class="btn btn-ghost cart-back" id="backToCartBtn">Späť do košíka</button>
+          <p class="cart-summary-note">Objednávku odošlete cez e-mail — otvoríme vám predvyplnenú správu s celým súhrnom.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderDoneView(){
+    cartModalContent.innerHTML = `
+      <div class="checkout-hero">
+        <span class="checkout-eyebrow">Ďakujeme</span>
+        <h2>Objednávka je pripravená na odoslanie</h2>
+        <p>Otvorili sme vám e-mailového klienta s predvyplnenou objednávkou. Stačí ju už len odoslať a materiály vám čoskoro pošleme na e-mail.</p>
+      </div>
+      <div class="cart-body" style="grid-template-columns:1fr;">
+        <div style="text-align:center;">
+          <button type="button" class="btn btn-primary" id="closeDoneBtn">Späť na stránku</button>
+        </div>
+      </div>
+    `;
+  }
+
+  const balikPriceMap = {
+    small: {name:"Small balík", price:"40,00 €", img:"assets/balicky/small.jpg"},
+    medium: {name:"Medium balík", price:"69,00 €", img:"assets/balicky/medium.jpg"},
+    large: {name:"Large balík", price:"119,00 €", img:"assets/balicky/large.jpg"},
+    premium: {name:"Premium balík", price:"149,00 €", img:"assets/balicky/premium.jpg"}
+  };
+  function addBalikToCart(key){
+    const b = balikPriceMap[key];
+    if (!b) return;
+    addToCart({key:'balik-'+key, name:b.name, price:b.price, img:b.img});
+  }
+
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('cartModalClose').addEventListener('click', closeCart);
+  cartModal.addEventListener('click', e => { if (e.target === cartModal) closeCart(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && cartModal.classList.contains('open')) closeCart(); });
+
+  pmBuy.addEventListener('click', () => {
+    if (!pmProduct) return;
+    addToCart({
+      key: 'product-' + pmProduct.name,
+      name: pmProduct.name,
+      price: getPrice(pmProduct),
+      img: `assets/products/${pmProduct.images[0]}.jpg`
+    });
+    checkoutView = 'cart';
+    closeProductModal();
+    openCart();
+  });
+
+  document.querySelectorAll('.tier-buy').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      addBalikToCart(btn.dataset.package);
+      checkoutView = 'cart';
+      closeBalickyModal();
+      openCart();
+    });
+  });
+
+  cartModalContent.addEventListener('click', e => {
+    const removeBtn = e.target.closest('[data-remove]');
+    if (removeBtn) { removeFromCart(removeBtn.dataset.remove); renderCartModal(); return; }
+    const minusBtn = e.target.closest('[data-qty-minus]');
+    if (minusBtn) { changeQty(minusBtn.dataset.qtyMinus, -1); renderCartModal(); return; }
+    const plusBtn = e.target.closest('[data-qty-plus]');
+    if (plusBtn) { changeQty(plusBtn.dataset.qtyPlus, 1); renderCartModal(); return; }
+    if (e.target.id === 'goCheckoutBtn') { checkoutView = 'checkout'; renderCartModal(); return; }
+    if (e.target.id === 'backToCartBtn') { checkoutView = 'cart'; renderCartModal(); return; }
+    if (e.target.id === 'closeDoneBtn') { checkoutView = 'cart'; cart = []; saveCart(cart); updateCartCount(); closeCart(); return; }
+    if (e.target.id === 'submitOrderBtn') { submitOrder(); return; }
+  });
+
+  function submitOrder(){
+    const required = ['coFirstName','coLastName','coEmail','coBillFirst','coBillLast','coStreet','coCity','coZip','coCountry','coDeliveryEmail'];
+    for (const id of required) {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { el.focus(); el.style.borderColor = '#e86261'; return; }
+    }
+    const terms = document.getElementById('coTerms');
+    if (!terms.checked) { terms.focus(); return; }
+
+    const firstName = document.getElementById('coFirstName').value.trim();
+    const lastName = document.getElementById('coLastName').value.trim();
+    const email = document.getElementById('coEmail').value.trim();
+    const phone = document.getElementById('coPhone').value.trim();
+    const billFirst = document.getElementById('coBillFirst').value.trim();
+    const billLast = document.getElementById('coBillLast').value.trim();
+    const street = document.getElementById('coStreet').value.trim();
+    const city = document.getElementById('coCity').value.trim();
+    const zip = document.getElementById('coZip').value.trim();
+    const country = document.getElementById('coCountry').value.trim();
+    const deliveryEmail = document.getElementById('coDeliveryEmail').value.trim();
+    const payment = document.getElementById('coPayment').value;
+    const note = document.getElementById('coNote').value.trim();
+
+    const itemsList = cart.map(it => `- ${it.name} x ${it.qty} (${it.price}/ks)`).join('\n');
+    const total = formatPrice(cartTotal());
+
+    const body = `Dobrý deň,\n\nmám záujem o objednávku nasledujúcich materiálov:\n\n${itemsList}\n\nSpolu: ${total}\n\nKontaktné údaje:\n${firstName} ${lastName}\nE-mail: ${email}\nTelefón: ${phone || '-'}\n\nFakturačné údaje:\n${billFirst} ${billLast}\n${street}, ${zip} ${city}\n${country}\n\nE-mail na doručenie PDF: ${deliveryEmail}\nSpôsob platby: ${payment}\nPoznámka: ${note || '-'}\n\nĎakujem.`;
+
+    const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka z e-shopu')}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailHref;
+    checkoutView = 'done';
+    renderCartModal();
+  }
+
+  updateCartCount();
 </script>
 
 </body>
