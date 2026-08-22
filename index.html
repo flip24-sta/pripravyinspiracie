@@ -439,6 +439,7 @@
   .cart-summary-row.total{border-bottom:none;font-size:1.2rem;font-weight:800;padding-top:14px;}
   .cart-summary .btn{width:100%;text-align:center;margin-top:16px;}
   .cart-summary-note{color:var(--muted);font-size:0.78rem;text-align:center;margin-top:14px;line-height:1.5;}
+  .cart-error{color:#c0392b;background:#fdecea;border:1px solid #f5b7ae;border-radius:10px;padding:10px 14px;font-size:0.85rem;text-align:center;margin-bottom:12px;}
   .cart-back{width:100%;text-align:center;margin-top:10px;}
 
   /* CHECKOUT FORM */
@@ -2803,9 +2804,10 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
           <div class="cart-summary-row"><span>Počet položiek</span><span>${cartCount()}</span></div>
           <div class="cart-summary-row"><span>Doručenie</span><span>0,00 €</span></div>
           <div class="cart-summary-row total"><span>Spolu</span><span>${formatPrice(cartTotal())}</span></div>
+          ${lastOrderError ? `<p class="cart-error">${lastOrderError}</p>` : ''}
           <button type="button" class="btn btn-primary" id="submitOrderBtn">Odoslať objednávku</button>
           <button type="button" class="btn btn-ghost cart-back" id="backToCartBtn">Späť do košíka</button>
-          <p class="cart-summary-note">Objednávku odošlete cez e-mail — otvoríme vám predvyplnenú správu s celým súhrnom.</p>
+          <p class="cart-summary-note">Po odoslaní vám automaticky príde potvrdenie objednávky na e-mail.</p>
         </div>
       </div>
     `;
@@ -2815,8 +2817,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     cartModalContent.innerHTML = `
       <div class="checkout-hero">
         <span class="checkout-eyebrow">Ďakujeme</span>
-        <h2>Objednávka je pripravená na odoslanie</h2>
-        <p>Otvorili sme vám e-mailového klienta s predvyplnenou objednávkou. Stačí ju už len odoslať a materiály vám čoskoro pošleme na e-mail.</p>
+        <h2>Objednávka bola úspešne odoslaná</h2>
+        <p>Číslo objednávky: <strong>${lastOrderNumber}</strong><br>Potvrdenie so súhrnom objednávky sme vám poslali na e-mail. Materiály vám pošleme po prijatí platby.</p>
       </div>
       <div class="cart-body" style="grid-template-columns:1fr;">
         <div style="text-align:center;">
@@ -2880,7 +2882,10 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     if (e.target.id === 'submitOrderBtn') { submitOrder(); return; }
   });
 
-  function submitOrder(){
+  let lastOrderNumber = '';
+  let lastOrderError = '';
+
+  async function submitOrder(){
     const required = ['coFirstName','coLastName','coEmail','coBillFirst','coBillLast','coStreet','coCity','coZip','coCountry','coDeliveryEmail'];
     for (const id of required) {
       const el = document.getElementById(id);
@@ -2902,16 +2907,42 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     const deliveryEmail = document.getElementById('coDeliveryEmail').value.trim();
     const payment = document.getElementById('coPayment').value;
     const note = document.getElementById('coNote').value.trim();
+    const newsletter = document.getElementById('coNewsletter').checked;
 
-    const itemsList = cart.map(it => `- ${it.name} x ${it.qty} (${it.price}/ks)`).join('\n');
     const total = formatPrice(cartTotal());
+    const items = cart.map(it => ({ name: it.name, qty: it.qty, price: it.price }));
 
-    const body = `Dobrý deň,\n\nmám záujem o objednávku nasledujúcich materiálov:\n\n${itemsList}\n\nSpolu: ${total}\n\nKontaktné údaje:\n${firstName} ${lastName}\nE-mail: ${email}\nTelefón: ${phone || '-'}\n\nFakturačné údaje:\n${billFirst} ${billLast}\n${street}, ${zip} ${city}\n${country}\n\nE-mail na doručenie PDF: ${deliveryEmail}\nSpôsob platby: ${payment}\nPoznámka: ${note || '-'}\n\nĎakujem.`;
+    const submitBtn = document.getElementById('submitOrderBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Odosielam…';
 
-    const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka z e-shopu')}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailHref;
-    checkoutView = 'done';
-    renderCartModal();
+    try {
+      const res = await fetch('/.netlify/functions/submit-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName, lastName, email, phone,
+          billFirst, billLast, street, city, zip, country,
+          deliveryEmail, payment, note, items, total, newsletter,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Nepodarilo sa odoslať objednávku.');
+
+      lastOrderNumber = data.orderNumber || '';
+      lastOrderError = '';
+      cart = [];
+      saveCart(cart);
+      updateCartCount();
+      checkoutView = 'done';
+      renderCartModal();
+    } catch (err) {
+      lastOrderError = err.message || 'Nepodarilo sa odoslať objednávku. Skúste to prosím neskôr, alebo nás kontaktujte e-mailom.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Odoslať objednávku';
+      checkoutView = 'checkout';
+      renderCartModal();
+    }
   }
 
   updateCartCount();
