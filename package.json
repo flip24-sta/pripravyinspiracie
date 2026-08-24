@@ -1,8 +1,5 @@
 {
   "name": "pripravyinspiracie",
   "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "nodemailer": "^6.9.13"
-  }
+  "private": true
 }

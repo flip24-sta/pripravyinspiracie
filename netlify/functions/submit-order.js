@@ -1,5 +1,3 @@
-const nodemailer = require('nodemailer');
-
 function escapeHtml(str) {
   return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -28,10 +26,12 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Chýbajú povinné údaje.' }) };
   }
 
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    console.error('Missing GMAIL_USER / GMAIL_APP_PASSWORD env vars');
+  if (!process.env.RESEND_API_KEY) {
+    console.error('Missing RESEND_API_KEY env var');
     return { statusCode: 500, body: JSON.stringify({ error: 'E-mailová služba nie je nastavená.' }) };
   }
+  const OWNER_EMAIL = process.env.OWNER_EMAIL || 'filiphacko2@gmail.com';
+  const FROM_EMAIL = process.env.RESEND_FROM || 'Prípravy Inšpirácie <onboarding@resend.dev>';
 
   const orderNumber = 'OBJ-' + Date.now();
   const orderDate = new Date().toLocaleString('sk-SK', { timeZone: 'Europe/Bratislava' });
@@ -81,27 +81,33 @@ exports.handler = async (event) => {
     </div>
   `;
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
+  async function sendEmail({ to, replyTo, subject, html, text }) {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ from: FROM_EMAIL, to: [to], reply_to: replyTo, subject, html, text }),
+    });
+    if (!res.ok) {
+      const errBody = await res.text().catch(() => '');
+      throw new Error(`Resend API error (${res.status}): ${errBody}`);
+    }
+    return res.json();
+  }
 
   try {
-    await transporter.sendMail({
-      from: `"Prípravy Inšpirácie" <${process.env.GMAIL_USER}>`,
+    await sendEmail({
       to: deliveryEmail,
-      replyTo: process.env.GMAIL_USER,
+      replyTo: OWNER_EMAIL,
       subject: `Potvrdenie objednávky ${orderNumber} — Prípravy Inšpirácie`,
       html: customerHtml,
       text: `Ďakujeme za objednávku ${orderNumber}.\n\n${itemsRowsText}\n\nSpolu: ${total}`,
     });
 
-    await transporter.sendMail({
-      from: `"E-shop Prípravy Inšpirácie" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+    await sendEmail({
+      to: OWNER_EMAIL,
       replyTo: email,
       subject: `Nová objednávka ${orderNumber}`,
       html: ownerHtml,
