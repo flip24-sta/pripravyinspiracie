@@ -2,9 +2,7 @@ const Stripe = require('stripe');
 const { Resend } = require('resend');
 const { fulfillmentLinks } = require('./fulfillment-links');
 
-// TODO: switch to 'Prípravy Inšpirácie <objednavky@pripravyinspiracie.info>' once the
-// domain is verified in Resend (Domains -> Add domain -> add the DNS records in Netlify DNS).
-const FROM_EMAIL = 'Prípravy Inšpirácie <onboarding@resend.dev>';
+const FROM_EMAIL = 'Prípravy Inšpirácie <objednavky@pripravyinspiracie.info>';
 const OWNER_EMAIL = 'filiphacko2@gmail.com';
 
 exports.handler = async (event) => {
