@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obchodné podmienky — Prípravy Inšpirácie</title>
+<meta name="description" content="Obchodné podmienky e-shopu Prípravy Inšpirácie, prevádzkovateľ FH Services s. r. o.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF8F0;
+    --surface:#FFFFFF;
+    --ink:#241F1D;
+    --muted:#9C8983;
+    --rose:#E39A8D;
+    --rose-hover:#DB8574;
+    --rose-light:#F6C9BE;
+    --rose-pale:#FEF1EE;
+    --terracotta:#894E44;
+    --blush:#F6E4D6;
+    --gold:#F3DDAE;
+    --border:#F1E2D5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    font-weight:400;
+    line-height:1.7;
+  }
+  h1,h2,h3,h4{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* SOCIAL ICONS */
+  .social{display:flex;gap:10px;align-items:center;}
+  .social a{
+    width:34px;height:34px;border-radius:50%;background:var(--blush);
+    display:flex;align-items:center;justify-content:center;color:var(--ink);
+    transition:all .2s;flex-shrink:0;
+  }
+  .social a:hover{background:var(--rose);color:#fff;transform:translateY(-2px);}
+  .social svg{width:16px;height:16px;fill:currentColor;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,248,240,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:700;white-space:nowrap;color:inherit;text-decoration:none;}
+  .brand .heart{color:var(--rose);}
+  .brand-avatar{
+    width:38px;height:38px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--rose-light);flex-shrink:0;
+  }
+  .navlinks{display:flex;gap:30px;font-size:0.95rem;letter-spacing:.01em;font-weight:600;}
+  .navlinks a{position:relative;padding-bottom:4px;transition:color .2s;}
+  .navlinks a:hover{color:var(--rose);}
+  .nav-right{display:flex;align-items:center;gap:26px;}
+  .menu-btn{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:4px;}
+  .mobile-nav{display:none;flex-direction:column;background:var(--bg);border-top:1px solid var(--border);}
+  .mobile-nav a{padding:14px 24px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);}
+  .mobile-nav a:hover{color:var(--rose);}
+  .mobile-nav.open{display:flex;}
+  .cart-btn{
+    position:relative;display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:50%;background:var(--rose-pale);color:var(--terracotta);
+    border:1px solid var(--rose-light);cursor:pointer;flex-shrink:0;
+  }
+  .cart-btn svg{width:18px;height:18px;}
+  .cart-count{
+    position:absolute;top:-6px;right:-6px;background:var(--rose);color:#fff;font-size:0.68rem;
+    font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    padding:0 4px;
+  }
+  @media (max-width:860px){
+    .navlinks{display:none;}
+    .menu-btn{display:flex;align-items:center;justify-content:center;}
+  }
+
+  /* BUTTONS */
+  .btn{
+    display:inline-block;padding:12px 30px;border-radius:999px;font-size:1rem;
+    font-weight:600;letter-spacing:.01em;transition:all .25s;border:none;font-family:inherit;cursor:pointer;
+  }
+  .btn-primary{background:var(--rose);color:#fff;box-shadow:0 12px 24px -8px rgba(227,154,141,.5);}
+  .btn-primary:hover{background:var(--rose-hover);transform:translateY(-2px);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:28px 0;}
+  .footer-wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;color:var(--muted);font-size:0.85rem;}
+  .footer-links{display:flex;flex-wrap:wrap;gap:18px;font-weight:600;}
+  .footer-links a:hover{color:var(--rose);}
+
+  /* LEGAL PAGES */
+  .legal-page{padding:60px 0 100px;}
+  .legal-page .eyebrow{color:var(--rose);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:.08em;}
+  .legal-page h1{font-size:2.4rem;margin:10px 0 6px;color:var(--terracotta);}
+  .legal-subtitle{color:var(--muted);font-weight:600;margin-bottom:34px;font-size:0.95rem;}
+  .legal-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:44px 40px;max-width:820px;}
+  .legal-card h2{color:var(--terracotta);font-size:1.2rem;border-left:4px solid var(--rose);padding-left:14px;margin:34px 0 12px;}
+  .legal-card h2:first-of-type{margin-top:0;}
+  .legal-card p{margin:0 0 14px;font-size:0.95rem;line-height:1.7;}
+  .legal-card ul{margin:0 0 14px;padding-left:22px;}
+  .legal-card li{margin-bottom:6px;font-size:0.95rem;}
+  .legal-card a{color:var(--terracotta);font-weight:700;text-decoration:underline;}
+  .legal-note{background:var(--rose-pale);border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px;font-size:0.85rem;font-style:italic;color:var(--terracotta);margin:16px 0;}
+  .legal-strong{font-weight:700;}
+  .legal-meta{margin-top:44px;font-size:0.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;}
+  @media (max-width:640px){.legal-card{padding:32px 22px;}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap">
+    <a class="brand" href="/#top">
+      <img class="brand-avatar" src="/assets/Logo.jpg" alt="Prípravy Inšpirácie">
+      <span>Prípravy</span><span class="heart">♥</span><span>Inšpirácie</span>
+    </a>
+    <div class="navlinks">
+      <a href="/#balicky">Balíky</a>
+      <a href="/#o-nas">O nás</a>
+      <a href="/#produkty">Produkty</a>
+      <a href="/#zadarmo">Materiály zadarmo</a>
+      <a href="/#recenzie">Recenzie</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#kontakt">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
+        </a>
+      </div>
+      <button type="button" class="cart-btn" id="cartBtn" aria-label="Košík">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/#balicky">Balíky</a>
+    <a href="/#o-nas">O nás</a>
+    <a href="/#produkty">Produkty</a>
+    <a href="/#zadarmo">Materiály zadarmo</a>
+    <a href="/#recenzie">Recenzie</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#kontakt">Kontakt</a>
+  </div>
+</header>
+
+<section class="legal-page">
+  <div class="wrap">
+    <span class="eyebrow">Právne informácie</span>
+    <h1>Obchodné podmienky</h1>
+    <p class="legal-subtitle">e-shopu Prípravy Inšpirácie (prevádzkovateľ: FH Services s. r. o.)</p>
+
+    <div class="legal-card">
+      <h2>I. Úvodné ustanovenia</h2>
+      <p>Tieto obchodné podmienky upravujú vzájomné práva a povinnosti medzi predávajúcim a kupujúcim (spotrebiteľom) vzniknuté v súvislosti alebo na základe kúpnej zmluvy uzatvorenej prostredníctvom webovej stránky pripravyinspiracie.info (ďalej len „e-shop"), ktorej predmetom je predaj digitálneho obsahu – vzdelávacích materiálov vo formáte PDF/JPG (ďalej len „materiály").</p>
+      <p>Kúpna zmluva sa uzatvára v slovenskom jazyku.</p>
+
+      <h2>II. Predávajúci</h2>
+      <ul>
+        <li>Obchodné meno: FH Services s. r. o. (materiály predáva pod značkami „Prípravy Inšpirácie" a „KH Educational Products")</li>
+        <li>Sídlo: Mojzesovo 89, 941 04 Mojzesovo</li>
+        <li>IČO: 55 687 008</li>
+        <li>DIČ: 2122061975</li>
+        <li>Zapísaná v Obchodnom registri Okresného súdu Nitra, oddiel: Sro, vložka č. 61229/N</li>
+        <li>E-mail: predaj@pripravyinspiracie.info</li>
+        <li>Prevádzkovateľ nie je platcom DPH.</li>
+      </ul>
+      <div class="legal-note">POZNÁMKA PRE DOPLNENIE: Ak sa FH Services s. r. o. v priebehu podnikania stane platcom DPH, tento údaj je potrebné aktualizovať a ceny na webe označiť ako „vrátane DPH".</div>
+
+      <h2>III. Objednávka a uzatvorenie zmluvy</h2>
+      <p>Kupujúci si materiál alebo balík vyberie v e-shope a odošle objednávku spôsobom uvedeným na stránke (tlačidlo „Kúpiť" / objednávkový formulár prepojený na platobnú bránu, prípadne e-mailová objednávka).</p>
+      <p>Odoslaním objednávky a jej potvrdením zo strany predávajúceho (automatické potvrdzujúce e-mailové oznámenie) dochádza k uzatvoreniu kúpnej zmluvy.</p>
+      <p>Predávajúci si vyhradzuje právo objednávku odmietnuť alebo stornovať, najmä v prípade zjavnej chyby v cene alebo pri podozrení na zneužitie.</p>
+
+      <h2>IV. Cena a platobné podmienky</h2>
+      <p>Ceny materiálov sú uvedené v e-shope vrátane všetkých poplatkov (predávajúci nie je platcom DPH). Platbu je možné vykonať:</p>
+      <ul>
+        <li>online platobnou kartou / iným spôsobom prostredníctvom platobnej brány tretej strany [DOPLNIŤ NÁZOV POSKYTOVATEĽA PLATOBNEJ BRÁNY],</li>
+        <li>prípadne bankovým prevodom na základe vopred zaslaných platobných údajov.</li>
+      </ul>
+      <p>Materiál sa považuje za uhradený momentom pripísania platby na účet predávajúceho, resp. potvrdením úspešnej platby platobnou bránou.</p>
+
+      <h2>V. Dodacie podmienky</h2>
+      <p>Keďže ide výlučne o digitálny obsah nedodávaný na hmotnom nosiči, materiál je kupujúcemu doručený elektronicky – zaslaním na e-mailovú adresu uvedenú v objednávke, spravidla do 24–48 hodín od pripísania platby, najneskôr však do 5 pracovných dní.</p>
+      <p>Momentom sprístupnenia/odoslania materiálu na e-mail kupujúceho je materiál kupujúcemu dodaný v zmysle § 8 zákona č. 102/2014 Z. z.</p>
+
+      <h2>VI. Odstúpenie od zmluvy pri digitálnom obsahu</h2>
+      <p class="legal-strong">Toto ustanovenie je kľúčové a musí byť kupujúcemu aktívne predložené pred dokončením objednávky (zaškrtávacie políčko), inak nie je právne účinné.</p>
+      <p>V súlade s § 7 ods. 6 písm. l) zákona č. 102/2014 Z. z. o ochrane spotrebiteľa pri predaji tovaru alebo poskytovaní služieb na základe zmluvy uzavretej na diaľku, kupujúci berie na vedomie, že pri kúpe digitálneho obsahu nedodávaného na hmotnom nosiči nemôže odstúpiť od zmluvy po tom, čo bolo s jeho výslovným súhlasom začaté s poskytovaním obsahu (t. j. po zaslaní/sprístupnení materiálu) pred uplynutím 14-dňovej lehoty na odstúpenie od zmluvy.</p>
+      <p>Pred zaplatením musí byť kupujúci vyzvaný, aby zaškrtnutím políčka vyjadril:</p>
+      <ul>
+        <li>výslovný súhlas so začatím poskytovania digitálneho obsahu pred uplynutím lehoty na odstúpenie od zmluvy, a</li>
+        <li>vyhlásenie, že bol riadne poučený o tom, že týmto súhlasom stráca právo na odstúpenie od zmluvy.</li>
+      </ul>
+      <p>Bez tohto súhlasu má kupujúci právo odstúpiť od zmluvy do 14 dní odo dňa uzavretia zmluvy postupom podľa zákona č. 102/2014 Z. z., pričom ak už materiál obdržal a stiahol, predávajúci môže požadovať náhradu za už poskytnuté plnenie.</p>
+
+      <h2>VII. Licencia na použitie materiálov</h2>
+      <p>Zakúpením materiálu získava kupujúci nevýhradnú licenciu na jeho opakované vytlačenie a použitie výlučne pre potreby vlastnej triedy, školy alebo domácnosti.</p>
+      <p>Ďalší predaj, verejné šírenie, zdieľanie súborov (vrátane zdieľania v uzavretých skupinách a na úložiskách) alebo úprava materiálov na komerčné účely bez písomného súhlasu predávajúceho nie sú dovolené. Autorské práva k materiálom zostávajú predávajúcemu / autorkám obsahu.</p>
+
+      <h2>VIII. Reklamácie</h2>
+      <p>Postup pri reklamácii vadného alebo nedoručeného materiálu upravuje samostatný <a href="/reklamacny-poriadok">Reklamačný poriadok</a>, ktorý je neoddeliteľnou súčasťou týchto obchodných podmienok.</p>
+
+      <h2>IX. Ochrana osobných údajov</h2>
+      <p>Spracúvanie osobných údajov kupujúceho upravuje samostatný dokument <a href="/ochrana-osobnych-udajov">Ochrana osobných údajov (GDPR)</a>.</p>
+
+      <h2>X. Alternatívne riešenie sporov</h2>
+      <p>Kupujúci – spotrebiteľ má právo obrátiť sa na predávajúceho so žiadosťou o nápravu, ak nie je spokojný so spôsobom vybavenia reklamácie alebo sa domnieva, že predávajúci porušil jeho práva. Ak predávajúci na žiadosť odpovie zamietavo alebo neodpovie do 30 dní, kupujúci má právo podať návrh na začatie alternatívneho riešenia sporu subjektu ARS podľa zákona č. 391/2015 Z. z., ktorým je najmä:</p>
+      <ul>
+        <li>Slovenská obchodná inšpekcia, Inšpektorát SOI pre Nitriansky kraj, Staničná 9, P. O. BOX 49A, 950 50 Nitra 1 [OVERIŤ AKTUÁLNU ADRESU NA soi.sk], alebo</li>
+        <li>iná príslušná oprávnená právnická osoba zapísaná v zozname subjektov ARS vedenom Ministerstvom hospodárstva SR.</li>
+      </ul>
+      <p>Spory možno riešiť aj prostredníctvom platformy RSO na stránke ec.europa.eu/consumers/odr.</p>
+
+      <h2>XI. Záverečné ustanovenia</h2>
+      <p>Tieto obchodné podmienky nadobúdajú účinnosť dňom ich zverejnenia na webovej stránke e-shopu. Predávajúci si vyhradzuje právo tieto obchodné podmienky meniť; zmena sa nevzťahuje na už uzatvorené zmluvy.</p>
+      <p>Právne vzťahy neupravené týmito podmienkami sa riadia príslušnými ustanoveniami Občianskeho zákonníka, zákona č. 102/2014 Z. z., zákona č. 250/2007 Z. z. o ochrane spotrebiteľa a zákona č. 22/2004 Z. z. o elektronickom obchode.</p>
+
+      <div class="legal-meta">Dátum poslednej aktualizácie: 21. augusta 2026</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-wrap">
+    <p>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</p>
+    <div class="footer-links">
+      <a href="/obchodne-podmienky">Obchodné podmienky</a>
+      <a href="/reklamacny-poriadok">Reklamačný poriadok</a>
+      <a href="/ochrana-osobnych-udajov">Ochrana osobných údajov</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mobileNav.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.getElementById('cartBtn').addEventListener('click', () => { window.location.href = '/#produkty'; });
+  (function(){
+    try {
+      const cart = JSON.parse(localStorage.getItem('pi_cart_v1')) || [];
+      const count = cart.reduce((s,it)=>s+(it.qty||0),0);
+      document.getElementById('cartCount').textContent = count;
+    } catch(e){}
+  })();
+</script>
+</body>
+</html>
