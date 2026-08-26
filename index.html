@@ -181,20 +181,53 @@
   .pillar strong{display:block;font-weight:500;margin-bottom:4px;}
   .pillar span{font-size:0.88rem;color:var(--muted);}
 
+  /* SEARCH BAR */
+  .search-bar{
+    display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);
+    border-radius:16px;padding:12px 18px;max-width:520px;margin:0 auto 24px;
+  }
+  .search-bar svg{width:18px;height:18px;color:var(--muted);flex-shrink:0;}
+  .search-bar input{
+    border:none;outline:none;background:transparent;font-family:inherit;font-size:0.95rem;
+    color:var(--ink);width:100%;
+  }
+  .search-bar input::placeholder{color:var(--muted);}
+
   /* FILTER BAR */
   .filter-bar{
-    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:16px;
   }
+  .filter-bar:last-of-type{margin-bottom:40px;}
   .filter-pill{
     background:#fff;border:1px solid var(--border);color:var(--muted);
     padding:9px 20px;border-radius:30px;font-size:0.85rem;font-family:inherit;
-    cursor:pointer;transition:all .2s;letter-spacing:.01em;
+    cursor:pointer;transition:all .2s;letter-spacing:.01em;white-space:nowrap;flex-shrink:0;
   }
   .filter-pill:hover{border-color:var(--rose-light);color:var(--ink);}
   .filter-pill{font-weight:600;}
   .filter-pill.active{background:var(--rose);border-color:var(--rose);color:#fff;}
+  .filter-pill-baliky{background:var(--rose-pale);border-color:var(--rose);color:var(--terracotta);display:inline-block;}
   .filter-count{text-align:center;color:var(--muted);font-size:0.82rem;margin-bottom:24px;}
   .product-card.hidden{display:none;}
+  .filter-toggle{
+    display:none;width:100%;max-width:520px;margin:0 auto 16px;padding:12px 18px;
+    background:#fff;border:1px solid var(--border);border-radius:16px;font-family:inherit;
+    font-weight:600;font-size:0.9rem;color:var(--ink);cursor:pointer;
+    align-items:center;justify-content:center;gap:8px;
+  }
+  .filter-toggle span{transition:transform .2s;}
+  .filter-toggle.open span{transform:rotate(180deg);}
+
+  @media (max-width:640px){
+    .filter-bar{
+      flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+      padding-bottom:6px;-webkit-overflow-scrolling:touch;
+    }
+    .filter-bar::-webkit-scrollbar{display:none;}
+    .filter-toggle{display:flex;}
+    .filter-bar-extra{display:none;}
+    .filter-bar-extra.open{display:flex;}
+  }
 
   /* SHOP GRID */
   .shop-grid{
@@ -567,6 +600,7 @@
   /* FOOTER */
   footer{border-top:1px solid var(--border);padding:28px 0;}
   .footer-wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;color:var(--muted);font-size:0.85rem;}
+  .footer-legal{font-size:0.78rem;margin-top:4px;opacity:.8;}
   .footer-links{display:flex;flex-wrap:wrap;gap:18px;font-weight:600;}
   .footer-links a:hover{color:var(--rose);}
 
@@ -820,8 +854,13 @@
       <p>Každý produkt nižšie je samostatný materiál pripravený na stiahnutie. Kliknutím na náhľad si pozriete ukážkové strany.</p>
     </div>
 
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="productSearch" placeholder="Vyhľadať materiál...">
+    </div>
     <div class="filter-bar" id="filterBar"></div>
-    <div class="filter-bar" id="seasonBar"></div>
+    <button type="button" class="filter-toggle" id="filterToggle">Zobraziť filtre <span>⌄</span></button>
+    <div class="filter-bar filter-bar-extra" id="seasonBar"></div>
     <p class="filter-count" id="filterCount"></p>
     <div class="shop-grid" id="shopGrid"></div>
     <p class="more-note">Cena produktov: 7,00 € (Megasúbory: 5,00 €, Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
@@ -917,7 +956,10 @@
 
 <footer>
   <div class="wrap footer-wrap">
-    <p>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</p>
+    <div>
+      <p>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</p>
+      <p class="footer-legal">KH Educational Products, IČO: 55 687 008</p>
+    </div>
     <div class="footer-links">
       <a href="/obchodne-podmienky">Obchodné podmienky</a>
       <a href="/reklamacny-poriadok">Reklamačný poriadok</a>
@@ -2267,13 +2309,19 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   const seasons = ["Všetky obdobia", ...presentSeasons];
   let activeCat = "Všetky";
   let activeSeason = "Všetky obdobia";
+  let searchTerm = "";
+
+  const catCounts = { "Všetky": cards.length };
+  presentCategories.forEach(c => { catCounts[c] = cards.filter(card => card.dataset.category === c).length; });
 
   function applyFilter(){
     let visible = 0;
     cards.forEach(card => {
       const showCat = activeCat === "Všetky" || card.dataset.category === activeCat;
       const showSeason = activeSeason === "Všetky obdobia" || card.dataset.season === activeSeason;
-      const show = showCat && showSeason;
+      const name = (card.querySelector('h4')?.textContent || '').toLowerCase();
+      const showSearch = !searchTerm || name.includes(searchTerm);
+      const show = showCat && showSeason && showSearch;
       card.classList.toggle('hidden', !show);
       if (show) visible++;
     });
@@ -2286,15 +2334,33 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     });
   }
 
+  const productSearch = document.getElementById('productSearch');
+  productSearch.addEventListener('input', () => {
+    searchTerm = productSearch.value.trim().toLowerCase();
+    applyFilter();
+  });
+
+  const filterToggle = document.getElementById('filterToggle');
+  filterToggle.addEventListener('click', () => {
+    const isOpen = seasonBar.classList.toggle('open');
+    filterToggle.classList.toggle('open', isOpen);
+    filterToggle.firstChild.textContent = isOpen ? 'Skryť filtre ' : 'Zobraziť filtre ';
+  });
+
   categories.forEach(cat => {
     const pill = document.createElement('button');
     pill.type = 'button';
     pill.className = 'filter-pill' + (cat === 'Všetky' ? ' active' : '');
     pill.dataset.cat = cat;
-    pill.textContent = cat;
+    pill.textContent = `${cat} (${catCounts[cat]})`;
     pill.addEventListener('click', () => { activeCat = cat; applyFilter(); });
     filterBar.appendChild(pill);
   });
+  const balikyPill = document.createElement('a');
+  balikyPill.href = '#balicky';
+  balikyPill.className = 'filter-pill filter-pill-baliky';
+  balikyPill.textContent = 'Výhodné balíčky';
+  filterBar.appendChild(balikyPill);
   seasons.forEach(season => {
     const pill = document.createElement('button');
     pill.type = 'button';
