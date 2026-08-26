@@ -50,7 +50,10 @@ exports.handler = async (event) => {
       price_data: {
         currency: 'eur',
         unit_amount: unitAmount,
-        product_data: { name: String(it.name || 'Produkt').slice(0, 250) },
+        product_data: {
+          name: String(it.name || 'Produkt').slice(0, 250),
+          metadata: { key: String(it.key || '').slice(0, 500) },
+        },
       },
       quantity: qty,
     };
