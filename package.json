@@ -1,5 +1,8 @@
 {
   "name": "pripravyinspiracie",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "stripe": "^17.4.0"
+  }
 }

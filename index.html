@@ -2835,8 +2835,8 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
               <div class="form-group"><label>E-mail na doručenie <span class="req">*</span></label><input type="email" id="coDeliveryEmail" placeholder="kam poslať PDF"></div>
               <div class="form-group"><label>Spôsob platby</label>
                 <select id="coPayment">
-                  <option>Bankový prevod</option>
-                  <option>Online kartou (čoskoro)</option>
+                  <option value="card">Online kartou</option>
+                  <option value="bank">Bankový prevod</option>
                 </select>
               </div>
             </div>
@@ -2901,6 +2901,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
       key: 'product-' + pmProduct.name,
       name: pmProduct.name,
       price: getPrice(pmProduct),
+      category: pmProduct.category,
       img: `assets/products/${pmProduct.images[0]}.jpg`
     });
     checkoutView = 'cart';
@@ -2960,12 +2961,33 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     const newsletter = document.getElementById('coNewsletter').checked;
 
     const total = formatPrice(cartTotal());
-    const items = cart.map(it => ({ name: it.name, qty: it.qty, price: it.price }));
+    const items = cart.map(it => ({ key: it.key, name: it.name, qty: it.qty, price: it.price, category: it.category }));
 
     const submitBtn = document.getElementById('submitOrderBtn');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Odosielam…';
+    submitBtn.textContent = 'Presmerúvam na platbu…';
 
+    if (payment === 'card') {
+      try {
+        const res = await fetch('/.netlify/functions/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items, deliveryEmail }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.url) throw new Error(data.error || 'Platbu sa nepodarilo spustiť.');
+        window.location.href = data.url;
+      } catch (err) {
+        lastOrderError = err.message || 'Platbu sa nepodarilo spustiť. Skúste to prosím neskôr, alebo nás kontaktujte e-mailom.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Odoslať objednávku';
+        checkoutView = 'checkout';
+        renderCartModal();
+      }
+      return;
+    }
+
+    submitBtn.textContent = 'Odosielam…';
     try {
       const res = await fetch('/.netlify/functions/submit-order', {
         method: 'POST',
@@ -2996,6 +3018,34 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   }
 
   updateCartCount();
+
+  (function handlePaymentReturn(){
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get('payment');
+    if (!status) return;
+    if (status === 'success') {
+      cart = [];
+      saveCart(cart);
+      updateCartCount();
+      cartModalContent.innerHTML = `
+        <div class="checkout-hero">
+          <span class="checkout-eyebrow">Ďakujeme</span>
+          <h2>Platba bola úspešná</h2>
+          <p>Ďakujeme za objednávku! Materiály vám pošleme na e-mail po spracovaní platby.</p>
+        </div>
+        <div class="cart-body" style="grid-template-columns:1fr;">
+          <div style="text-align:center;">
+            <button type="button" class="btn btn-primary" id="closeDoneBtn">Späť na stránku</button>
+          </div>
+        </div>
+      `;
+      checkoutView = 'cart';
+      cartModal.classList.add('open');
+    } else if (status === 'cancelled') {
+      openCart();
+    }
+    window.history.replaceState({}, '', window.location.pathname);
+  })();
 
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
