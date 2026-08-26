@@ -2,7 +2,7 @@ const Stripe = require('stripe');
 const { Resend } = require('resend');
 const { fulfillmentLinks } = require('./fulfillment-links');
 
-const FROM_EMAIL = 'Prípravy Inšpirácie <objednavky@pripravyinspiracie.info>';
+const FROM_EMAIL = 'Prípravy Inšpirácie <predaj@pripravyinspiracie.info>';
 const OWNER_EMAIL = 'filiphacko2@gmail.com';
 
 exports.handler = async (event) => {
