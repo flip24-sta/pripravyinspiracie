@@ -22,7 +22,10 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
-  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+  // TEST_KEY (Stripe test-mode secret key) takes priority while present, so you can
+  // safely test checkout without charging real cards. Remove TEST_KEY in Netlify to
+  // go back to live payments via STRIPE_SECRET_KEY.
+  const stripeSecretKey = process.env.TEST_KEY || process.env.STRIPE_SECRET_KEY;
   if (!stripeSecretKey) {
     return { statusCode: 500, body: JSON.stringify({ error: 'Platobná brána nie je nakonfigurovaná (chýba STRIPE_SECRET_KEY).' }) };
   }
