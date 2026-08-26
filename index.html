@@ -642,6 +642,7 @@
       <a href="#o-nas">O nás</a>
       <a href="#produkty">Produkty</a>
       <a href="#zadarmo">Materiály zadarmo</a>
+    <a href="#akcia">Akciové balíčky</a>
       <a href="#recenzie">Recenzie</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
@@ -673,6 +674,7 @@
     <a href="#o-nas">O nás</a>
     <a href="#produkty">Produkty</a>
     <a href="#zadarmo">Materiály zadarmo</a>
+    <a href="#akcia">Akciové balíčky</a>
     <a href="#recenzie">Recenzie</a>
     <a href="#faq">FAQ</a>
     <a href="#kontakt">Kontakt</a>
@@ -886,6 +888,20 @@
     <div class="reviews-empty">
       <p>Zatiaľ tu nemáme žiadne materiály zadarmo — pripravujeme ich pre vás. 🎁</p>
       <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Materi%C3%A1ly%20zadarmo">Dajte mi vedieť, keď budú dostupné</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="akcia">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Zľavy</span>
+      <h2>Akciové balíčky</h2>
+      <p>Pripravujeme pre vás zvýhodnené akciové ponuky materiálov. Táto sekcia sa čoskoro naplní.</p>
+    </div>
+    <div class="reviews-empty">
+      <p>Zatiaľ tu nemáme žiadne akciové balíčky — pripravujeme ich pre vás. 🏷️</p>
+      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Akciov%C3%A9%20bal%C3%AD%C4%8Dky">Dajte mi vedieť, keď budú dostupné</a>
     </div>
   </div>
 </section>
@@ -2370,6 +2386,11 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   balikyPill.className = 'filter-pill filter-pill-baliky';
   balikyPill.textContent = 'Výhodné balíčky';
   filterBar.appendChild(balikyPill);
+  const akciaPill = document.createElement('a');
+  akciaPill.href = '#akcia';
+  akciaPill.className = 'filter-pill filter-pill-baliky';
+  akciaPill.textContent = 'Akciové balíčky';
+  filterBar.appendChild(akciaPill);
   seasons.forEach(season => {
     const pill = document.createElement('button');
     pill.type = 'button';
