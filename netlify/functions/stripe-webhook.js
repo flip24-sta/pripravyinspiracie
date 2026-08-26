@@ -2,7 +2,9 @@ const Stripe = require('stripe');
 const { Resend } = require('resend');
 const { fulfillmentLinks } = require('./fulfillment-links');
 
-const FROM_EMAIL = 'Prípravy Inšpirácie <predaj@pripravyinspiracie.info>';
+// TODO: switch back to 'Prípravy Inšpirácie <predaj@pripravyinspiracie.info>' once the
+// domain status in Resend (Domains) shows "Verified" instead of "Pending".
+const FROM_EMAIL = 'Prípravy Inšpirácie <onboarding@resend.dev>';
 const OWNER_EMAIL = 'filiphacko2@gmail.com';
 
 exports.handler = async (event) => {
@@ -79,6 +81,7 @@ exports.handler = async (event) => {
       });
     } catch (err) {
       // Email failure shouldn't fail the webhook — Stripe would otherwise retry the whole event.
+      console.error('Resend send to customer failed:', err.message || err);
     }
 
     try {
@@ -92,8 +95,10 @@ exports.handler = async (event) => {
         `,
       });
     } catch (err) {
-      // ignore
+      console.error('Resend send to owner failed:', err.message || err);
     }
+  } else {
+    console.error('Skipped sending emails: missing RESEND_API_KEY or customerEmail', { hasResendKey: !!resendApiKey, customerEmail });
   }
 
   return { statusCode: 200, body: JSON.stringify({ received: true }) };
