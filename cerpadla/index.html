@@ -139,6 +139,10 @@
   .process-step p{color:var(--gray-600);font-size:.92rem;}
 
   /* Testimonials */
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .gallery-item{border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 24px rgba(11,37,69,0.1);aspect-ratio:4/3;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+  .gallery-item:hover img{transform:scale(1.06);}
   .testimonials{background:var(--gray-100);}
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .testi-card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 6px 18px rgba(11,37,69,0.06);}
@@ -199,7 +203,7 @@
     nav, .header-right{display:none;}
     .menu-toggle{display:block;}
     .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
-    .services-grid,.process-grid,.testi-grid{grid-template-columns:1fr;}
+    .services-grid,.process-grid,.testi-grid,.gallery-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;}
     .hero h1{font-size:2rem;}
     .form-row{grid-template-columns:1fr;}
@@ -219,6 +223,7 @@
         <li><a href="#sluzby">Služby</a></li>
         <li><a href="#o-nas">O nás</a></li>
         <li><a href="#postup">Postup</a></li>
+        <li><a href="#realizacie">Realizácie</a></li>
         <li><a href="#referencie">Referencie</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -354,6 +359,27 @@
         <div class="process-num">4</div>
         <h4>Záruka</h4>
         <p>Na vykonanú prácu poskytujeme záruku a servisnú podporu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="realizacie">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Naše práce</p>
+      <h2>Fotky z realizácie</h2>
+      <p>Ukážka z reálnych zákaziek — montáž, servis a diagnostika čerpadiel priamo u klientov.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/realizacia-1.jpg" alt="Namontovaná čerpacia zostava s tlakovou nádobou">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/realizacia-2.jpg" alt="Zapojenie frekvenčného meniča čerpadla">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/realizacia-3.webp" alt="Montáž čerpadla do vrtu">
       </div>
     </div>
   </div>
