@@ -5,6 +5,7 @@ const Stripe = require('stripe');
 function priceForCategory(category) {
   if (category === 'Písomné prípravy') return 1400;
   if (category === 'Megasúbory') return 500;
+  if (category === 'Týždenné projekty') return 500;
   if (category === 'Pohybové hry') return 600;
   if (category === 'Pracovné listy') return 500;
   return 700;

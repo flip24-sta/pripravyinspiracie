@@ -874,7 +874,7 @@
     <div class="filter-bar filter-bar-extra" id="seasonBar"></div>
     <p class="filter-count" id="filterCount"></p>
     <div class="shop-grid" id="shopGrid"></div>
-    <p class="more-note">Cena produktov: 7,00 € (Megasúbory: 5,00 €, Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
+    <p class="more-note">Cena produktov: 7,00 € (Megasúbory a Týždenné projekty: 5,00 €, Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
   </div>
 </section>
 
@@ -883,26 +883,9 @@
     <div class="section-head">
       <span class="eyebrow">Projekty na celý týždeň</span>
       <h2>Týždenné projekty</h2>
-      <p>Ucelené tematické projekty s aktivitami a materiálmi na celý týždeň. Táto sekcia sa čoskoro naplní.</p>
+      <p>Ucelené tematické projekty s aktivitami a materiálmi na celý týždeň — máte pripravené aktivity na viacero dní bez zdĺhavého plánovania.</p>
     </div>
-    <div class="reviews-empty">
-      <p>Zatiaľ tu nemáme žiadne týždenné projekty — pripravujeme ich pre vás. 📅</p>
-      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=T%C3%BD%C5%BEdenn%C3%A9%20projekty">Dajte mi vedieť, keď budú dostupné</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="zadarmo">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Bez platby</span>
-      <h2>Materiály zadarmo</h2>
-      <p>Pripravujeme pre vás bezplatné ukážkové materiály na vyskúšanie. Táto sekcia sa čoskoro naplní.</p>
-    </div>
-    <div class="reviews-empty">
-      <p>Zatiaľ tu nemáme žiadne materiály zadarmo — pripravujeme ich pre vás. 🎁</p>
-      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Materi%C3%A1ly%20zadarmo">Dajte mi vedieť, keď budú dostupné</a>
-    </div>
+    <div class="shop-grid" id="weeklyGrid"></div>
   </div>
 </section>
 
@@ -1911,9 +1894,9 @@ Deti sa hravou a zrozumiteľnou formou dozvedia, prečo je dôležité chrániť
 12. Slnečný deň pri vode
 13. Výlet pri vodopáde
 14. Surfistka Ela a veľká vlna`},
-    {name:"More a voda – Týždenný projekt", badge:"125 strán", images:[105], category:"Megasúbory", desc:"Týždenný projekt na tému mora a vody."},
-    {name:"Les a hmyz – Týždenný projekt", badge:"140 strán", images:[106], category:"Megasúbory", desc:"Týždenný projekt o lese a hmyze."},
-    {name:"Ovocie a leto – Týždenný projekt", badge:"156 strán", images:[107], category:"Megasúbory", desc:"Týždenný projekt o ovocí a lete."},
+    {name:"More a voda – Týždenný projekt", badge:"125 strán", images:[105], category:"Týždenné projekty", desc:"Týždenný projekt na tému mora a vody."},
+    {name:"Les a hmyz – Týždenný projekt", badge:"140 strán", images:[106], category:"Týždenné projekty", desc:"Týždenný projekt o lese a hmyze."},
+    {name:"Ovocie a leto – Týždenný projekt", badge:"156 strán", images:[107], category:"Týždenné projekty", desc:"Týždenný projekt o ovocí a lete."},
     {name:"Deň vody", badge:"100 strán", images:["new/107","new/108","new/109","new/110"], category:"Megasúbory", desc:"Aktivity pri príležitosti Svetového dňa vody.", fbText:`💧🌍 SVETOVÝ DEŇ VODY – EDUKAČNÝ MEGASÚBOR PRE MŠ 🌊🐟
 ✨ 100 strán PDF plných aktivít, hier a pracovných materiálov ✨
 
@@ -2392,12 +2375,13 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     if (p.price) return p.price;
     if (p.category === "Písomné prípravy") return "14,00 €";
     if (p.category === "Megasúbory") return "5,00 €";
+    if (p.category === "Týždenné projekty") return "5,00 €";
     if (p.category === "Pohybové hry") return "6,00 €";
     if (p.category === "Pracovné listy") return "5,00 €";
     if (p.category === "Ranné kruhy") return "9,00 €";
     return PRICE;
   }
-  const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
+  const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Týždenné projekty","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
 
   function inferSeason(name){
     const n = name.toLowerCase();
@@ -2410,6 +2394,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
   }
 
   const shopGrid = document.getElementById('shopGrid');
+  const weeklyGrid = document.getElementById('weeklyGrid');
   products.forEach((p, idx) => {
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -2433,6 +2418,7 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
       </div>
     `;
     shopGrid.appendChild(card);
+    if (p.category === "Týždenné projekty") weeklyGrid.appendChild(card.cloneNode(true));
   });
 
   const filterBar = document.getElementById('filterBar');
@@ -2552,12 +2538,12 @@ Megasúbor LETO / LETNÉ ŠPORTY ponúka pestré aktivity zamerané na typické 
     renderProductModal();
   }
 
-  shopGrid.addEventListener('click', e => {
+  [shopGrid, weeklyGrid].forEach(grid => grid.addEventListener('click', e => {
     const buyBtn = e.target.closest('button.buy-btn[data-buy-idx]');
     if (buyBtn) { openProductModal(parseInt(buyBtn.dataset.buyIdx, 10)); return; }
     const card = e.target.closest('.product-card');
     if (card) openProductModal(parseInt(card.dataset.idx, 10));
-  });
+  }));
   pmThumbs.addEventListener('click', e => {
     const t = e.target.closest('img[data-i]');
     if (t) { pmPos = parseInt(t.dataset.i, 10); renderProductModal(); }
