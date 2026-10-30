@@ -55,7 +55,7 @@
   }
   nav.wrap{
     display:flex;align-items:center;justify-content:space-between;
-    padding-top:16px;padding-bottom:16px;gap:20px;
+    padding-top:16px;padding-bottom:16px;gap:16px;
   }
   .brand{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:700;white-space:nowrap;color:inherit;text-decoration:none;}
   .brand .heart{color:var(--rose);}
@@ -63,10 +63,18 @@
     width:38px;height:38px;border-radius:50%;object-fit:cover;
     border:2px solid var(--rose-light);flex-shrink:0;
   }
-  .navlinks{display:flex;gap:30px;font-size:0.95rem;letter-spacing:.01em;font-weight:600;}
-  .navlinks a{position:relative;padding-bottom:4px;transition:color .2s;}
+  .navlinks{display:flex;gap:16px;font-size:0.9rem;letter-spacing:.01em;font-weight:600;}
+  .navlinks a{position:relative;padding-bottom:4px;transition:color .2s;white-space:nowrap;}
   .navlinks a:hover{color:var(--rose);}
-  .nav-right{display:flex;align-items:center;gap:26px;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  /* keep every menu item on one line: drop the header social icons first, then fall back to the hamburger menu */
+  @media (max-width:1180px){
+    .nav-right .social{display:none;}
+  }
+  @media (max-width:1100px){
+    nav.wrap .navlinks{display:none;}
+    nav.wrap .menu-btn{display:flex;align-items:center;justify-content:center;}
+  }
   .menu-btn{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:4px;}
   .menu-btn svg{width:26px;height:26px;}
   .mobile-nav{display:none;flex-direction:column;background:var(--bg);border-top:1px solid var(--border);}
