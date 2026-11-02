@@ -32,6 +32,14 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: `Webhook signature verification failed: ${err.message}` };
   }
 
+  // Iskrička Premium (predplatné) — spracuje sa samostatne, bez e-mailov z e-shopu
+  const obj = stripeEvent.data.object || {};
+  const iskMeta = obj.metadata || (obj.subscription_details && obj.subscription_details.metadata) || (obj.parent && obj.parent.subscription_details && obj.parent.subscription_details.metadata) || {};
+  if (iskMeta.app === 'iskricka' || (stripeEvent.type === 'checkout.session.completed' && obj.mode === 'subscription')) {
+    await handleIskricka(event, stripe, stripeEvent, obj, iskMeta);
+    return { statusCode: 200, body: JSON.stringify({ received: true, app: 'iskricka' }) };
+  }
+
   if (stripeEvent.type !== 'checkout.session.completed') {
     return { statusCode: 200, body: 'ignored' };
   }
@@ -103,3 +111,30 @@ exports.handler = async (event) => {
 
   return { statusCode: 200, body: JSON.stringify({ received: true }) };
 };
+
+async function handleIskricka(event, stripe, stripeEvent, obj, meta) {
+  try {
+    const L = require('./_iskricka-lib');
+    const { activate } = require('./verify-subscription');
+    const userId = L.cleanId(meta.userId || obj.client_reference_id);
+    if (!userId) return;
+    const plan = meta.plan || 'month';
+    const until = (ts) => new Date((ts + 3 * 86400) * 1000).toISOString();
+    if (stripeEvent.type === 'checkout.session.completed') {
+      const sub = obj.subscription ? await stripe.subscriptions.retrieve(obj.subscription) : null;
+      const end = sub && (sub.current_period_end || (sub.items && sub.items.data[0] && sub.items.data[0].current_period_end));
+      await activate(event, userId, { plan, premiumUntil: end ? until(end) : new Date(Date.now() + 33 * 864e5).toISOString(), customer: obj.customer, subscription: obj.subscription });
+    } else if (stripeEvent.type === 'customer.subscription.updated' || stripeEvent.type === 'customer.subscription.created') {
+      const end = obj.current_period_end || (obj.items && obj.items.data[0] && obj.items.data[0].current_period_end);
+      if (['active', 'trialing', 'past_due'].includes(obj.status) && end) {
+        await activate(event, userId, { plan, premiumUntil: until(end), customer: obj.customer, subscription: obj.id });
+      }
+    } else if (stripeEvent.type === 'customer.subscription.deleted') {
+      const s = L.store(event);
+      const u = await L.getUser(s, userId);
+      if (u) { Object.assign(u, { tier: 'free', premiumUntil: null, billing: null }); await L.saveUser(s, u); await L.bumpDay(s, userId, { churn: 1 }); }
+    }
+  } catch (err) {
+    console.error('Iskrička webhook error:', err.message || err);
+  }
+}

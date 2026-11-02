@@ -1,0 +1,14 @@
+{
+  "name": "Iskrička — prípravy a hry pre MŠ",
+  "short_name": "Iskrička",
+  "description": "AI prípravy podľa ŠVP a interaktívne hry pre deti v materskej škole.",
+  "start_url": "/app/",
+  "scope": "/app/",
+  "display": "standalone",
+  "background_color": "#FFF9EE",
+  "theme_color": "#FFC93C",
+  "lang": "sk",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
