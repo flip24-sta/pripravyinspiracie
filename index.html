@@ -2765,6 +2765,27 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     return "Celoročné";
   }
 
+  // Produkty zobrazené ako prvé, v tomto poradí. Ostatné nasledujú v poradí z poľa products.
+  const FEATURED_ORDER = [
+    "Telo, zmysly a zdravie – Týždenný projekt",
+    "Novembrové ranné kruhy",
+    "Vianočné besiedky",
+    "Svätý Martin",
+    "Ľudské telo",
+    "Zdravá a nezdravá výživa – Týždenný projekt",
+    "Október – December – Písomné prípravy",
+    "Jeseň na dvorčeku – Týždenný projekt",
+    "Les a jeho tajomstvá – Týždenný projekt",
+    "Čarovná jeseň – rozprávky",
+    "Doprava a bezpečnosť – Týždenný projekt",
+    "Naši starkí – rozprávky"
+  ];
+  const featuredRank = p => {
+    const i = FEATURED_ORDER.indexOf(p.name);
+    return i === -1 ? FEATURED_ORDER.length : i;
+  };
+  products.sort((a, b) => featuredRank(a) - featuredRank(b));
+
   const shopGrid = document.getElementById('shopGrid');
   products.forEach((p, idx) => {
     const card = document.createElement('div');
