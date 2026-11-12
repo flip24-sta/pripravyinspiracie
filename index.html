@@ -1074,7 +1074,7 @@
     <span class="product-modal-close" id="productModalClose">&times;</span>
     <div class="product-modal-gallery">
       <div class="product-modal-main">
-        <img id="pmImg" src="" alt="">
+        <img id="pmImg" src="" alt="" onerror="if(!this.src.endsWith('assets/Titulka.jpg'))this.src='assets/Titulka.jpg'">
         <span class="product-modal-navbtn product-modal-prev" id="pmPrev">&#8249;</span>
         <span class="product-modal-navbtn product-modal-next" id="pmNext">&#8250;</span>
       </div>
@@ -1116,6 +1116,27 @@
 
 <script>
   const products = [
+    {name:"Čarovné zimné okná – 10 zimných a vianočných motívov na okná", badge:"10 motívov", images:["zimne-okna/01.webp","zimne-okna/02.webp","zimne-okna/03.webp","zimne-okna/04.webp","zimne-okna/05.webp","zimne-okna/06.webp","zimne-okna/07.webp","zimne-okna/08.webp","zimne-okna/09.webp","zimne-okna/10.webp"], alts:["Titulka produktu Čarovné zimné okná – zimné a vianočné vystrihovačky na okná","Zimný expres – parný vláčik vezúci darčeky zasneženou krajinou, výzdoba na okno","Medovníková krajinka – medovníkové domčeky a stromčeky, výzdoba na okno","Dedinka pod snehom s kostolíkom, zimná výzdoba na okno","Zvieratká zdobia vianočný stromček, líška prináša hviezdu – výzdoba na okno","Dievčatko so zajačikom na sánkach, snehuliak, srnka a líška – výzdoba na okno","Deti sa korčuľujú na zamrznutom jazierku, zimná výzdoba na okno","Vtáčiky pri kŕmidle v zime, výzdoba na okno","Snehuliacka rodinka, zimná výzdoba na okno","Ukážky čiernobielych šablón na vystrihovanie – dievčatko so zajačikom, snehuliak, kostolík a stromček"], category:"Vystrihovačky", price:"4,50 €", tags:["Vianoce","Zima","Výzdoba okien","Vystrihovačky","MŠ","Tvorivé aktivity"], desc:"Vytvorte si s deťmi na oknách malú zimnú rozprávku. Farebné ukážky a čiernobiele šablóny na vystrihovanie pre škôlku, školu aj domov.", fbText:`❄️ ČAROVNÉ ZIMNÉ OKNÁ – 10 ZIMNÝCH A VIANOČNÝCH MOTÍVOV NA OKNÁ ❄️
+Zimné a vianočné vystrihovačky na okná, šablóny na tlač vo formátoch A4 a A3 · PDF na stiahnutie
+
+Vytvorte si s deťmi na oknách malú zimnú rozprávku. Farebné ukážky a čiernobiele šablóny na vystrihovanie pre škôlku, školu aj domov.
+
+Po jednej tabuli sa vezie parný vláčik, na druhej sa deti korčuľujú a na tretej líška prináša hviezdu na stromček. Každú scénu si poskladáte z jednotlivých papierových výrezov podľa priloženej ukážky.
+
+🖼️ MOTÍVY V SÚBORE:
+🛷 Dievčatko so zajačikom na sánkach
+🏘️ Dedinka pod snehom
+⛄ Snehuliacka rodinka
+🚂 Zimný expres
+⛸️ Korčuľovanie na zamrznutom jazierku
+🦊 Zvieratká zdobia stromček
+🍪 Medovníková krajinka
+🐦 Vtáčiky pri kŕmidle
+🐧 Tučniaky na ľadovej kryhe
+🔔 Tichá vianočná noc
+
+🎁 ČO DOSTANETE:
+Farebné ukážky hotovej výzdoby aj čiernobiele šablóny na vystrihovanie. Stačí vytlačiť, vystrihnúť a rozložiť na okná v škôlke, škole alebo doma. ❄️`},
     {name:"Novembrové ranné kruhy", badge:"400 strán", images:[274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289], category:"Ranné kruhy", desc:"3 týždne ranných kruhov: Spoznávame ľudské telo, Ako plynie čas, Jeme pestro, žijeme zdravo – 70 aktivít s metodickou príručkou.", fbText:`✨ 𝑁𝑂𝑉𝐸𝑀𝐵𝑅𝑂𝑉É 𝑅𝐴𝑁𝑁É 𝐾𝑅𝑈𝐻𝑌 – 𝐸𝐹𝐸𝐾𝑇Í𝑉𝑁𝐸 𝐴 𝑉Ž𝐷𝑌 𝑃𝑂 𝑅𝑈𝐾𝐸! ✨
 Ľudské telo | Zdravá a nezdravá výživa | Časové vzťahy 
 𝐒 𝐏𝐑Í𝐋𝐎𝐇𝐀𝐌𝐈 🍂 ukážky v správe
@@ -2771,6 +2792,15 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     {name:"Jesenný balík – Písomné prípravy", badge:"60 KS", images:[2], category:"Písomné prípravy", desc:"Kompletné písomné prípravy na jesenné mesiace pre materské školy."}
   ];
   const PRICE = "7,00 €";
+  // Cesta k obrázku produktu: čísla (napr. 274) → assets/products/274.jpg,
+  // reťazce s príponou (napr. "zimne-okna/01.webp") sa použijú tak, ako sú.
+  function productImg(n){
+    const s = String(n);
+    return /\.(webp|jpe?g|png|avif)$/i.test(s) ? `assets/products/${s}` : `assets/products/${s}.jpg`;
+  }
+  function productAlt(p, i){
+    return (p.alts && p.alts[i]) || (i === 0 ? p.name : `${p.name} – ukážka ${i+1}`);
+  }
   const CONTACT_EMAIL = "filiphacko2@gmail.com";
   function getPrice(p){
     if (p.price) return p.price;
@@ -2779,9 +2809,10 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     if (p.category === "Pohybové hry") return "6,00 €";
     if (p.category === "Pracovné listy") return "5,00 €";
     if (p.category === "Ranné kruhy") return "9,00 €";
+    if (p.category === "Vystrihovačky") return "4,50 €";
     return PRICE;
   }
-  const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Týždenné projekty","Besiedky","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Diplomy"];
+  const CATEGORY_ORDER = ["Rozprávky","Megasúbory","Týždenné projekty","Besiedky","Písomné prípravy","Pohybové hry","Ranné kruhy","Pracovné listy","Vystrihovačky","Diplomy"];
 
   function inferSeason(name){
     const n = name.toLowerCase();
@@ -2795,6 +2826,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
 
   // Produkty zobrazené ako prvé, v tomto poradí. Ostatné nasledujú v poradí z poľa products.
   const FEATURED_ORDER = [
+    "Čarovné zimné okná – 10 zimných a vianočných motívov na okná",
     "Telo, zmysly a zdravie – Týždenný projekt",
     "Novembrové ranné kruhy",
     "Vianočné besiedky",
@@ -2825,7 +2857,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     card.innerHTML = `
       <div class="thumb" data-idx="${idx}">
         ${badgeHtml}
-        <img loading="lazy" src="assets/products/${p.images[0]}.jpg" alt="${p.name}">
+        <img loading="lazy" src="${productImg(p.images[0])}" onerror="this.onerror=null;this.src='assets/Titulka.jpg'" alt="${productAlt(p, 0).replace(/"/g,'&quot;')}">
         ${countHtml}
       </div>
       <div class="info">
@@ -2939,13 +2971,14 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
   }
   function renderProductModal(){
     const imgNum = pmProduct.images[pmPos];
-    pmImg.src = `assets/products/${imgNum}.jpg`;
+    pmImg.src = productImg(imgNum);
+    pmImg.alt = productAlt(pmProduct, pmPos);
     pmTitle.textContent = pmProduct.name;
     pmPrice.textContent = getPrice(pmProduct);
-    const tags = [pmProduct.category, inferSeason(pmProduct.name)].filter((v,i,a)=>v && a.indexOf(v)===i);
+    const tags = [pmProduct.category, inferSeason(pmProduct.name), ...(pmProduct.tags || [])].filter((v,i,a)=>v && a.indexOf(v)===i);
     pmTags.innerHTML = tags.map(t => `<span class="product-modal-tag">${t}</span>`).join('');
     pmThumbs.innerHTML = pmProduct.images.map((imgN,i) =>
-      `<img src="assets/products/${imgN}.jpg" data-i="${i}" class="${i===pmPos?'active':''}" alt="Ukážka ${i+1}">`
+      `<img src="${productImg(imgN)}" data-i="${i}" class="${i===pmPos?'active':''}" alt="${productAlt(pmProduct, i).replace(/"/g,'&quot;')}">`
     ).join('');
     pmMore.textContent = pmProduct.fbText || pmProduct.desc || '';
   }
@@ -3258,7 +3291,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
 
   function openBalickyModal(key, product){
     if (product) {
-      balickyModalImg.src = `assets/products/${product.images[0]}.jpg`;
+      balickyModalImg.src = productImg(product.images[0]);
       const esc = product.fbText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
       const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${product.name}" za ${getPrice(product)}.\n\nĎakujem.`);
       const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + product.name)}&body=${mailBody}`;
@@ -3514,7 +3547,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
       name: pmProduct.name,
       price: getPrice(pmProduct),
       category: pmProduct.category,
-      img: `assets/products/${pmProduct.images[0]}.jpg`
+      img: productImg(pmProduct.images[0])
     });
     checkoutView = 'cart';
     closeProductModal();

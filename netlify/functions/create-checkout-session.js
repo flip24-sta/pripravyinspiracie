@@ -8,6 +8,7 @@ function priceForCategory(category) {
   if (category === 'Pohybové hry') return 600;
   if (category === 'Pracovné listy') return 500;
   if (category === 'Ranné kruhy') return 900;
+  if (category === 'Vystrihovačky') return 450;
   return 700;
 }
 
