@@ -6,6 +6,9 @@ const { fulfillmentLinks } = require('./fulfillment-links');
 // domain status in Resend (Domains) shows "Verified" instead of "Pending".
 const FROM_EMAIL = 'Prípravy Inšpirácie <onboarding@resend.dev>';
 const OWNER_EMAIL = 'filiphacko2@gmail.com';
+// All addresses that get notified about a new order. Each one is sent separately so that
+// a rejection for one address (e.g. while the Resend domain is unverified) doesn't block the others.
+const NOTIFY_EMAILS = ['filiphacko2@gmail.com', 'predaj@pripravyinspiracie.info'];
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -84,18 +87,24 @@ exports.handler = async (event) => {
       console.error('Resend send to customer failed:', err.message || err);
     }
 
-    try {
-      await resend.emails.send({
-        from: FROM_EMAIL,
-        to: OWNER_EMAIL,
-        subject: `Nová platba: ${customerEmail}${allLinked ? '' : ' (vyžaduje ručné doplnenie)'}`,
-        html: `
+    const ownerSubject = `Nová platba: ${customerEmail}${allLinked ? '' : ' (vyžaduje ručné doplnenie)'}`;
+    const ownerHtml = `
           <p>Zákazník: ${customerEmail}</p>
           <ul>${withLinks.map((p) => `<li>${p.name} (${p.qty}×)${p.link ? '' : ' — chýba odkaz na materiál, doplňte ho ručne!'}</li>`).join('')}</ul>
-        `,
-      });
-    } catch (err) {
-      console.error('Resend send to owner failed:', err.message || err);
+        `;
+    for (const to of NOTIFY_EMAILS) {
+      try {
+        const { error } = await resend.emails.send({
+          from: FROM_EMAIL,
+          to,
+          replyTo: customerEmail,
+          subject: ownerSubject,
+          html: ownerHtml,
+        });
+        if (error) console.error(`Resend send to ${to} failed:`, error.message || error);
+      } catch (err) {
+        console.error(`Resend send to ${to} failed:`, err.message || err);
+      }
     }
   } else {
     console.error('Skipped sending emails: missing RESEND_API_KEY or customerEmail', { hasResendKey: !!resendApiKey, customerEmail });
