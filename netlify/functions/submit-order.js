@@ -31,6 +31,9 @@ exports.handler = async (event) => {
     return { statusCode: 500, body: JSON.stringify({ error: 'E-mailová služba nie je nastavená.' }) };
   }
   const OWNER_EMAIL = process.env.OWNER_EMAIL || 'filiphacko2@gmail.com';
+  // Every address that should be notified about a new order (deduplicated).
+  const NOTIFY_EMAILS = [...new Set([OWNER_EMAIL, 'filiphacko2@gmail.com', 'predaj@pripravyinspiracie.info']
+    .map(e => e.trim().toLowerCase()))];
   const FROM_EMAIL = process.env.RESEND_FROM || 'Prípravy Inšpirácie <onboarding@resend.dev>';
 
   const orderNumber = 'OBJ-' + Date.now();
@@ -106,13 +109,20 @@ exports.handler = async (event) => {
       text: `Ďakujeme za objednávku ${orderNumber}.\n\n${itemsRowsText}\n\nSpolu: ${total}`,
     });
 
-    await sendEmail({
-      to: OWNER_EMAIL,
+    // Notify each address separately so one rejected recipient doesn't block the others.
+    const results = await Promise.allSettled(NOTIFY_EMAILS.map(to => sendEmail({
+      to,
       replyTo: email,
       subject: `Nová objednávka ${orderNumber}`,
       html: ownerHtml,
       text: `Nová objednávka ${orderNumber}\n${firstName} ${lastName}, ${email}\n\n${itemsRowsText}\n\nSpolu: ${total}`,
+    })));
+    results.forEach((r, i) => {
+      if (r.status === 'rejected') console.error(`Order notification to ${NOTIFY_EMAILS[i]} failed:`, r.reason);
     });
+    if (results.every(r => r.status === 'rejected')) {
+      throw new Error('All order notification emails failed');
+    }
 
     return {
       statusCode: 200,
