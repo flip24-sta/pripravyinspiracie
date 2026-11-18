@@ -1,0 +1,40 @@
+<div class="page-hero" style="padding-bottom:30px"><div class="wrap">
+  <span class="kick">Pre účtovníkov a partnerov</span>
+  <h1>Vaši klienti fakturujú správne. <span class="hl">Vy zarábate.</span></h1>
+  <p>Odporučte eFakturko klientom, dostávajte od nich čisté podklady a doživotnú províziu z každej ich platby.</p>
+  <div class="hero-cta" style="margin-top:26px"><a href="#prihlaska" class="btn btn-primary btn-lg">Prihlásiť sa do programu →</a></div>
+</div></div>
+
+{{BLOCK:partner}}
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-h"><span class="kick">Ako to funguje</span><h2 class="big">Štyri kroky k <span class="hl">opakovanému príjmu</span></h2></div>
+  <div class="steps">
+    <div><h3>Prihláška</h3><p>Vyplníte krátky formulár nižšie. Ozveme sa vám a pripravíme partnerský účet.</p></div>
+    <div><h3>Partnerský kód</h3><p>Dostanete vlastný odkaz a kód, s ktorým majú klienti 2 mesiace Pro za 1 €.</p></div>
+    <div><h3>Klienti fakturujú</h3><p>Klienti vystavujú faktúry v aplikácii eFakturko a vy dostávate podklady v jednotnom formáte.</p></div>
+    <div><h3>Provízia</h3><p>Z každej platby klienta dostanete 30 %, od 25 klientov 40 %. Doživotne.</p></div>
+  </div>
+</div></section>
+
+<section id="prihlaska" style="padding-top:0"><div class="wrap">
+  <div class="contact">
+    <div class="info">
+      <div><b>Pre koho je program</b><p>Účtovné kancelárie, samostatní účtovníci, daňoví poradcovia a firmy, ktoré poskytujú služby živnostníkom.</p></div>
+      <div><b>Partner Gold</b><p>Od 25 aktívnych klientov: provízia 40 %, faktúry s vaším logom (white‑label) a spoločný prehľad všetkých klientov.</p></div>
+      <div><b>Bez záväzkov</b><p>Program je zadarmo. Provízia sa vypláca z platieb klientov, ktorí ostanú na platenom pláne.</p></div>
+    </div>
+    <form class="form" name="partner" method="POST" data-netlify="true" netlify-honeypot="company_url">
+      <input type="hidden" name="form-name" value="partner">
+      <p class="hp"><label>Nevypĺňajte <input name="company_url"></label></p>
+      <h2 style="font-size:24px;color:var(--ink)">Prihláška do partnerského programu</h2>
+      <div class="grid-2"><div class="field"><label for="p-name">Meno a priezvisko</label><input class="input" id="p-name" name="meno" required autocomplete="name"></div><div class="field"><label for="p-firm">Kancelária / firma</label><input class="input" id="p-firm" name="firma" required autocomplete="organization"></div></div>
+      <div class="grid-2"><div class="field"><label for="p-mail">E‑mail</label><input class="input" type="email" id="p-mail" name="email" required autocomplete="email"></div><div class="field"><label for="p-tel">Telefón</label><input class="input" type="tel" id="p-tel" name="telefon" autocomplete="tel"></div></div>
+      <div class="field"><label for="p-cnt">Približný počet klientov</label><select class="select" id="p-cnt" name="pocet_klientov"><option>1 – 10</option><option>11 – 25</option><option>26 – 100</option><option>viac ako 100</option></select></div>
+      <div class="field"><label for="p-note">Poznámka</label><textarea class="textarea" id="p-note" name="poznamka" placeholder="Napríklad aký softvér dnes používate vy a vaši klienti."></textarea></div>
+      <label style="display:flex;gap:10px;font-size:13.5px;color:var(--text)"><input type="checkbox" name="suhlas" required style="accent-color:var(--violet);margin-top:3px"> <span>Súhlasím so spracovaním osobných údajov podľa <a href="ochrana-osobnych-udajov.html" style="color:var(--violet);font-weight:600">zásad ochrany osobných údajov</a>.</span></label>
+      <button type="submit" class="btn btn-primary btn-lg">Odoslať prihlášku</button>
+      <div class="form-msg" role="status"></div>
+    </form>
+  </div>
+</div></section>

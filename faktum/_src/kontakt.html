@@ -1,0 +1,26 @@
+<div class="page-hero" style="padding-bottom:40px"><div class="wrap">
+  <span class="kick">Kontakt</span>
+  <h1>Ako vám môžeme <span class="hl">pomôcť</span>?</h1>
+  <p>Napíšte nám otázku k aplikácii, cenám alebo e‑faktúre. Odpoveď dostanete e‑mailom.</p>
+</div></div>
+
+<section style="padding-top:20px"><div class="wrap">
+  <div class="contact">
+    <div class="info">
+      <div><b>Chcete si eFakturko najprv pozrieť?</b><p>Otvorte <a href="app.html#/demo" style="color:var(--violet);font-weight:600">živé demo</a> s ukážkovými klientmi a faktúrami. Nič sa neukladá na server.</p></div>
+      <div><b>Ste účtovník?</b><p>Pozrite si <a href="partneri.html" style="color:var(--violet);font-weight:600">partnerský program</a> s províziou 30 až 40 %.</p></div>
+      <div><b>Časté otázky</b><p>Odpovede o predplatnom nájdete v <a href="cennik.html" style="color:var(--violet);font-weight:600">cenníku</a> a o povinnej e‑faktúre na stránke <a href="e-faktura-2027.html" style="color:var(--violet);font-weight:600">e‑Faktúra 2027</a>.</p></div>
+    </div>
+    <form class="form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="company_url">
+      <input type="hidden" name="form-name" value="kontakt">
+      <p class="hp"><label>Nevypĺňajte <input name="company_url"></label></p>
+      <h2 style="font-size:24px;color:var(--ink)">Napíšte nám</h2>
+      <div class="grid-2"><div class="field"><label for="k-name">Meno</label><input class="input" id="k-name" name="meno" required autocomplete="name"></div><div class="field"><label for="k-mail">E‑mail</label><input class="input" type="email" id="k-mail" name="email" required autocomplete="email"></div></div>
+      <div class="field"><label for="k-topic">Téma</label><select class="select" id="k-topic" name="tema"><option>Otázka k aplikácii</option><option>Predplatné a platby</option><option>e‑Faktúra 2027</option><option>Ukážka pre firmu</option><option>Nahlásenie chyby</option><option>Iné</option></select></div>
+      <div class="field"><label for="k-msg">Správa</label><textarea class="textarea" id="k-msg" name="sprava" required style="min-height:150px"></textarea></div>
+      <label style="display:flex;gap:10px;font-size:13.5px;color:var(--text)"><input type="checkbox" name="suhlas" required style="accent-color:var(--violet);margin-top:3px"> <span>Súhlasím so spracovaním osobných údajov podľa <a href="ochrana-osobnych-udajov.html" style="color:var(--violet);font-weight:600">zásad ochrany osobných údajov</a>.</span></label>
+      <button type="submit" class="btn btn-primary btn-lg">Odoslať správu</button>
+      <div class="form-msg" role="status"></div>
+    </form>
+  </div>
+</div></section>

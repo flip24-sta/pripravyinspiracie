@@ -44,7 +44,7 @@ const P = {
   cal: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
 };
 const ic = (n, s = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ${s}>${P[n] || ''}</svg>`;
-const LOGO = `<span class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3h12v4H10.5v3H16v4h-5.5v7H6z"/></svg></span><span>Faktum<span class="dot">.</span></span>`;
+const LOGO = `<span class="logo-mark"><svg viewBox="0 0 24 24"><text x="12" y="17.6" text-anchor="middle" font-size="18" font-weight="800" font-family="Plus Jakarta Sans,Arial,sans-serif" fill="currentColor">e</text></svg></span><span>eFakturko<span class="dot">.</span></span>`;
 
 /* ---------------- toast & modal ---------------- */
 function toast(msg, kind = 'ok') {
@@ -81,7 +81,7 @@ function gate(feature) {
   return false;
 }
 function paywall(feature, preselect) {
-  const f = FEATURES[feature] || { name: 'Faktum Pro', plan: 'pro', pitch: '' };
+  const f = FEATURES[feature] || { name: 'eFakturko Pro', plan: 'pro', pitch: '' };
   const pick = preselect || f.plan;
   F.track('paywall_' + feature);
   const plans = ['pro', 'business'];
@@ -98,7 +98,7 @@ function paywall(feature, preselect) {
       ${!S.billing.trialUsed ? `<button class="btn btn-quiet btn-block" style="margin-top:8px" id="pwTrial">alebo vyskúšať 14 dní zadarmo, bez karty</button>` : ''}
     </div>`);
   let sel = pick;
-  const list = { pro: ['Neobmedzené faktúry', '100 AI akcií mesačne', 'Automatické upomienky', 'Opakované faktúry', 'Daňový radar', 'e‑Faktúra Peppol UBL', 'Bez loga Faktum'], business: ['Všetko z Pro', 'Neobmedzené AI', 'Cashflow predikcia 90 dní', 'Tím do 5 ľudí + účtovník', 'API a webhooky', 'Prioritná podpora'] };
+  const list = { pro: ['Neobmedzené faktúry', '100 AI akcií mesačne', 'Automatické upomienky', 'Opakované faktúry', 'Daňový radar', 'e‑Faktúra Peppol UBL', 'Bez loga eFakturko'], business: ['Všetko z Pro', 'Neobmedzené AI', 'Cashflow predikcia 90 dní', 'Tím do 5 ľudí + účtovník', 'API a webhooky', 'Prioritná podpora'] };
   const draw = () => { $$('.pw-plan', m).forEach((x) => x.classList.toggle('on', x.dataset.pick === sel)); $('#pwList', m).innerHTML = list[sel].map((x) => `<div>${x}</div>`).join(''); };
   draw();
   m.addEventListener('click', (e) => { const p = e.target.closest('[data-pick]'); if (p) { sel = p.dataset.pick; draw(); } });
@@ -159,7 +159,7 @@ function checkout(p, cycle = S.billing.cycle || 'm') {
     const prev = S.user.plan;
     S.user.plan = p; S.billing.cycle = cycle; S.billing.trialEnds = null; S.billing.coupon = coupon || null;
     S.billing.paidUntil = Date.now() + (cycle === 'm' ? 30 : 365) * 864e5;
-    S.billing.history.unshift({ id: 'FK' + Date.now().toString().slice(-8), at: Date.now(), desc: `Faktum ${PLANS[p].name} — ${cycle === 'm' ? 'mesačne' : 'ročne'}`, net: k.net, total: k.total, card: '•••• ' + cn.replace(/\D/g, '').slice(-4) });
+    S.billing.history.unshift({ id: 'FK' + Date.now().toString().slice(-8), at: Date.now(), desc: `eFakturko ${PLANS[p].name} — ${cycle === 'm' ? 'mesačne' : 'ročne'}`, net: k.net, total: k.total, card: '•••• ' + cn.replace(/\D/g, '').slice(-4) });
     F.track('upgrade_' + p); F.notify('paid-' + Date.now(), { type: 'billing', title: `Vitajte v ${PLANS[p].name}`, body: `Platba ${eur(k.total)} prijatá. Faktúru nájdete v Predplatnom.`, href: '#/billing' });
     F.save();
     render();
@@ -318,7 +318,7 @@ async function loadInsights(force) {
   else if (insightsCache) ({ data, src } = insightsCache);
   else data = F.LOCAL.insights({ stats: statsLite });
   const b = $('#insights'); if (!b) return;
-  b.innerHTML = (data.insights || []).map((x) => `<div class="insight"><div class="k" style="background:${INS_COLORS[x.kind] || 'var(--ink)'}"></div><div><b>${esc(x.title)}</b><p>${esc(x.body)}</p></div></div>`).join('') + `<div style="padding:8px 22px 12px;font-size:11.5px" class="muted">${src === 'ai' ? '✦ Vygenerované AI z vašich dát' : 'Pravidlá Faktum · kliknite Obnoviť pre AI analýzu'}</div>`;
+  b.innerHTML = (data.insights || []).map((x) => `<div class="insight"><div class="k" style="background:${INS_COLORS[x.kind] || 'var(--ink)'}"></div><div><b>${esc(x.title)}</b><p>${esc(x.body)}</p></div></div>`).join('') + `<div style="padding:8px 22px 12px;font-size:11.5px" class="muted">${src === 'ai' ? '✦ Vygenerované AI z vašich dát' : 'Pravidlá eFakturko · kliknite Obnoviť pre AI analýzu'}</div>`;
 }
 
 /* ================= INVOICES ================= */
@@ -415,7 +415,7 @@ function updateTotals() {
     <div class="sum-row total"><span>K úhrade</span><span class="mono">${eur(t.total)}</span></div>
     <div class="divider"></div>
     <div style="display:flex;gap:10px;align-items:center;font-size:13px" class="muted">${ic('money', 'width="16"')} <span>QR PAY by square sa pridá automaticky${F.ibanValid(S.company?.iban) ? '' : ' — <a href="#/settings" style="color:var(--coral)">doplňte IBAN</a>'}</span></div>
-    ${!F.has('nobrand') ? `<div style="display:flex;gap:10px;align-items:center;font-size:13px;margin-top:8px" class="muted">${ic('lock', 'width="16"')} <span>Pätička „Vystavené vo Faktum“ · <a href="#" data-act="upgrade" style="color:var(--ink);font-weight:600">odstrániť</a></span></div>` : ''}`;
+    ${!F.has('nobrand') ? `<div style="display:flex;gap:10px;align-items:center;font-size:13px;margin-top:8px" class="muted">${ic('lock', 'width="16"')} <span>Pätička „Vystavené cez eFakturko“ · <a href="#" data-act="upgrade" style="color:var(--ink);font-weight:600">odstrániť</a></span></div>` : ''}`;
 }
 function applyDraft(d, source) {
   if (!d) return;
@@ -452,7 +452,7 @@ function saveInvoice(mode) {
   go('#/invoices/' + inv.id);
 }
 function celebrate() {
-  modal(`<div class="modal-b" style="text-align:center;padding:40px 28px"><div style="font-size:54px">🎉</div><h2 class="serif" style="font-size:40px;line-height:1;margin-top:8px">Prvá faktúra <em>vonku!</em></h2><p class="muted" style="margin:10px 0 22px">Keď klient zaplatí, označte ju jedným klikom. Ak bude meškať, Faktum mu slušne pripomenie.</p><button class="btn btn-primary btn-lg" data-act="close">Super</button></div>`);
+  modal(`<div class="modal-b" style="text-align:center;padding:40px 28px"><div style="font-size:54px">🎉</div><h2 class="serif" style="font-size:40px;line-height:1;margin-top:8px">Prvá faktúra <em>vonku!</em></h2><p class="muted" style="margin:10px 0 22px">Keď klient zaplatí, označte ju jedným klikom. Ak bude meškať, eFakturko mu slušne pripomenie.</p><button class="btn btn-primary btn-lg" data-act="close">Super</button></div>`);
 }
 
 /* ---------- detail ---------- */
@@ -510,7 +510,7 @@ function paper(inv) {
       </div>
     </div>
     <div class="note">${vp ? '' : 'Dodávateľ nie je platiteľ DPH. '}${esc(inv.note || '')}<br>Vyhotovil(a): ${esc(c.person || S.user?.name || '')}</div>
-    ${F.has('nobrand') ? '' : '<div class="wm">Vystavené vo <b>Faktum</b> — fakturácia s AI · faktum.sk</div>'}
+    ${F.has('nobrand') ? '' : '<div class="wm">Vystavené cez <b>eFakturko</b> — fakturácia s AI · efakturko.netlify.app</div>'}
   </div>`;
 }
 
@@ -703,10 +703,10 @@ function vTaxes() {
 let CHAT = [];
 function vAI() {
   const qa = F.quota('ai');
-  if (!CHAT.length) CHAT.push({ who: 'ai', text: `Ahoj ${(S.user.name || '').split(' ')[0]}! Som Faktum AI. Viem:\n• vystaviť faktúru z jednej vety („Vyfakturuj Mlyn 6 hodín po 45 €“)\n• odpovedať na otázky o DPH, paušáloch, odvodoch a e‑faktúre\n• analyzovať vaše podnikanie\n\nČo pre vás môžem urobiť?` });
+  if (!CHAT.length) CHAT.push({ who: 'ai', text: `Ahoj ${(S.user.name || '').split(' ')[0]}! Som eFakturko AI. Viem:\n• vystaviť faktúru z jednej vety („Vyfakturuj Mlyn 6 hodín po 45 €“)\n• odpovedať na otázky o DPH, paušáloch, odvodoch a e‑faktúre\n• analyzovať vaše podnikanie\n\nČo pre vás môžem urobiť?` });
   onMount(() => { const c = $('#chat'); if (c) c.scrollTop = c.scrollHeight; $('#chatIn')?.focus(); });
   return `<div class="page-h"><div><h1>AI <em>asistent</em></h1><div class="sub">${qa.lim === Infinity ? 'Neobmedzené AI akcie' : `Zostáva ${qa.left} z ${qa.lim} AI akcií tento mesiac`}</div></div></div>
-  <div class="dash"><div class="card"><div class="chat" id="chat">${CHAT.map((m) => `<div class="msg ${m.who}">${esc(m.text)}${m.src ? `<span class="src">${m.src === 'ai' ? '✦ Faktum AI' : 'offline znalostná báza'}</span>` : ''}${m.action ? `<div style="margin-top:10px"><a href="${m.action.href}" class="btn btn-primary btn-sm">${m.action.label}</a></div>` : ''}</div>`).join('')}</div>
+  <div class="dash"><div class="card"><div class="chat" id="chat">${CHAT.map((m) => `<div class="msg ${m.who}">${esc(m.text)}${m.src ? `<span class="src">${m.src === 'ai' ? '✦ eFakturko AI' : 'offline znalostná báza'}</span>` : ''}${m.action ? `<div style="margin-top:10px"><a href="${m.action.href}" class="btn btn-primary btn-sm">${m.action.label}</a></div>` : ''}</div>`).join('')}</div>
     <form class="chat-in" data-form="chat"><input class="input" id="chatIn" name="q" placeholder="Napíšte otázku alebo zadanie faktúry…" autocomplete="off"><button class="btn btn-ai">${ic('send')}</button></form></div>
   <div><div class="card"><div class="card-h"><h3>Skúste</h3></div><div style="padding:12px 18px;display:flex;flex-direction:column;gap:8px">${['Vyfakturuj Mlyn 6 hodín konzultácie po 45 €', 'Oplatia sa mi paušálne výdavky?', 'Kedy musím byť platiteľ DPH?', 'Čo prináša e‑faktúra od 2027?', 'Ako napísať upomienku?', 'Analyzuj moje podnikanie'].map((s) => `<button class="btn btn-ghost" style="justify-content:flex-start;height:auto;padding:10px 12px;white-space:normal;text-align:left" data-act="chatSugg" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div></div></div></div>`;
 }
@@ -741,10 +741,10 @@ const NI = { overdue: ['bell', 'var(--coral-bg)', '#B3260E'], due: ['cal', 'var(
 const notifRow = (n) => { const [i, bg, fg] = NI[n.type] || NI.tip; return `<div class="notif ${n.read ? '' : 'unread'}" data-act="openNotif" data-id="${n.id}"><span class="ic" style="background:${bg};color:${fg}">${ic(i)}</span><div style="flex:1;min-width:0"><b>${esc(n.title)}</b><p>${esc(n.body)}</p><span>${ago(n.at)}</span></div></div>`; };
 function vNotifications() {
   const perm = 'Notification' in window ? Notification.permission : 'unsupported';
-  return `<div class="page-h"><div><h1>Upozornenia</h1><div class="sub">Faktum stráži splatnosti, termíny a platby za vás.</div></div><div class="acts"><button class="btn btn-ghost" data-act="readAll">Označiť všetko ako prečítané</button></div></div>
+  return `<div class="page-h"><div><h1>Upozornenia</h1><div class="sub">eFakturko stráži splatnosti, termíny a platby za vás.</div></div><div class="acts"><button class="btn btn-ghost" data-act="readAll">Označiť všetko ako prečítané</button></div></div>
   <div class="dash"><div class="card">${S.notifications.map(notifRow).join('') || `<div class="empty"><div class="serif">Ticho.</div>Keď sa niečo stane, dáme vedieť.</div>`}</div>
   <div><div class="card card-pad" style="display:flex;flex-direction:column;gap:16px"><h3>Nastavenia upozornení</h3>
-    ${toggleRow('push', 'Push upozornenia v prehliadači', perm === 'denied' ? 'Zablokované v prehliadači' : perm === 'unsupported' ? 'Prehliadač nepodporuje' : 'Splatnosti, platby a termíny aj keď je Faktum zatvorený')}
+    ${toggleRow('push', 'Push upozornenia v prehliadači', perm === 'denied' ? 'Zablokované v prehliadači' : perm === 'unsupported' ? 'Prehliadač nepodporuje' : 'Splatnosti, platby a termíny aj keď je eFakturko zatvorený')}
     ${toggleRow('digest', 'Týždenný prehľad v pondelok', 'Súhrn neuhradených faktúr a cashflow')}
     ${toggleRow('autoDunning', 'Automatické upomienky klientom', F.has('dunning') ? 'Deň 1, 7 a 14 po splatnosti' : 'Dostupné v pláne Pro')}
     <button class="btn btn-ghost btn-sm" data-act="testPush" style="align-self:flex-start">Poslať testovacie upozornenie</button>
@@ -764,7 +764,7 @@ function vBilling() {
     <div class="card" style="margin-top:18px"><div class="card-h"><h3>Faktúry za predplatné</h3></div><div class="table-wrap"><table class="table"><thead><tr><th>Číslo</th><th>Dátum</th><th>Popis</th><th>Karta</th><th class="r">Suma</th></tr></thead><tbody>${S.billing.history.map((h) => `<tr><td class="mono">${esc(h.id)}</td><td class="mono">${new Date(h.at).toLocaleDateString('sk-SK')}</td><td>${esc(h.desc)}</td><td class="mono muted">${esc(h.card)}</td><td class="r mono"><b>${eur(h.total)}</b></td></tr>`).join('') || '<tr><td colspan="5" class="muted" style="text-align:center;padding:24px">Zatiaľ žiadne platby</td></tr>'}</tbody></table></div></div>
   </div><div>
     <div class="card card-pad" style="display:flex;flex-direction:column;gap:14px"><h3>Využitie · ${F.MONTHS_FULL[new Date().getMonth()]}</h3>${meter('Faktúry', qi)}${meter('AI akcie', qa)}</div>
-    <div class="card card-pad" style="background:var(--ink);color:#fff;border-color:var(--ink)"><span class="chip plain" style="background:#fff;color:var(--violet)">Partneri</span><h3 style="margin:10px 0 6px">Odporučte Faktum, zarobte 30 %</h3><p style="color:#C4B5FD;font-size:13.5px">Váš kód pre kolegov: <b class="mono" style="color:#C4B5FD">PARTNER1</b> — 2 mesiace Pro za 1 €.</p></div>
+    <div class="card card-pad" style="background:var(--ink);color:#fff;border-color:var(--ink)"><span class="chip plain" style="background:#fff;color:var(--violet)">Partneri</span><h3 style="margin:10px 0 6px">Odporučte eFakturko, zarobte 30 %</h3><p style="color:#C4B5FD;font-size:13.5px">Váš kód pre kolegov: <b class="mono" style="color:#C4B5FD">PARTNER1</b> — 2 mesiace Pro za 1 €.</p></div>
   </div></div>`;
 }
 async function cancelFlow() {
@@ -841,7 +841,7 @@ function vOnboarding() {
     4: `<h2>Vyberte plán</h2>
       <div class="plan-pick">${[['free', 'Štart', '5 faktúr a 3 AI akcie mesačne', '0 €'], ['pro', 'Pro — 14 dní zadarmo', 'Neobmedzené faktúry, upomienky, daňový radar', `${nf(PLANS.pro.price)} €`], ['business', 'Business — 14 dní zadarmo', 'Tím, API, neobmedzené AI, predikcia', `${nf(PLANS.business.price)} €`]].map(([k, n, ds, pr]) => `<label><input type="radio" name="plan" value="${k}" ${(d.plan || 'pro') === k ? 'checked' : ''}><div><b>${n}</b><div class="muted" style="font-size:12.5px">${ds}</div></div><span class="pr">${pr}</span></label>`).join('')}</div>
       <label style="display:flex;gap:10px;align-items:center;font-size:14px"><span class="switch"><input type="checkbox" name="demo" ${d.demo ? 'checked' : ''}><span></span></span> Naplniť ukážkovými klientmi a faktúrami</label>
-      <div style="display:flex;gap:8px"><button type="button" class="btn btn-ghost btn-lg" data-act="obBack">Späť</button><button class="btn btn-lime btn-lg" style="flex:1">Vstúpiť do Faktum ${ic('arrow')}</button></div>`,
+      <div style="display:flex;gap:8px"><button type="button" class="btn btn-ghost btn-lg" data-act="obBack">Späť</button><button class="btn btn-lime btn-lg" style="flex:1">Vstúpiť do aplikácie eFakturko ${ic('arrow')}</button></div>`,
   };
   app.innerHTML = `<div class="ob"><div class="ob-l"><a href="./" class="logo">${LOGO}</a><h1>${left[0]}</h1><p>${left[1]}</p><div class="ob-steps">${[1, 2, 3, 4].map((k) => `<i class="${k <= s ? 'on' : ''}"></i>`).join('')}</div></div>
     <div class="ob-r"><form class="ob-form" data-form="ob" novalidate>${forms[s]}</form></div></div>`;
@@ -866,7 +866,7 @@ function obFinish() {
   if (d.partner) S.billing.coupon = 'PARTNER1';
   S.analytics.sessions = 1; F.track('signup'); F.track('signup_plan_' + (d.plan || 'free'));
   if (d.demo) { const keep = { ...S.company }; F.seedDemo({ trial: false }); S.company = keep; S.user.demo = false; }
-  F.notify('welcome-' + Date.now(), { type: 'tip', title: `Vitajte vo Faktum, ${d.name.split(' ')[0]}!`, body: 'Vytvorte prvú faktúru — stačí napísať jednu vetu do AI riadku na prehľade.', href: '#/invoices/new' });
+  F.notify('welcome-' + Date.now(), { type: 'tip', title: `Vitajte v aplikácii eFakturko, ${d.name.split(' ')[0]}!`, body: 'Vytvorte prvú faktúru — stačí napísať jednu vetu do AI riadku na prehľade.', href: '#/invoices/new' });
   if (S.billing.trialEnds) F.notify('trial-start', { type: 'billing', title: `${PLANS[S.user.plan].name} na 14 dní zadarmo`, body: 'Všetky funkcie sú odomknuté. Pripomenieme sa 3 dni pred koncom.', href: '#/billing' });
   F.save(); OB = { step: 1, d: {} };
   const A = F.adminData(); A.log.unshift({ at: Date.now(), who: 'system', text: `Nová registrácia: ${S.user.email} (${PLANS[S.user.plan].name})` }); F.saveAdmin(A);
@@ -960,7 +960,7 @@ async function admUser(id, action) {
   const [a, arg] = action.split(':');
   if (a === 'delete' && !(await confirmBox('Zmazať používateľa?', `${esc(u.email)} bude nenávratne odstránený.`, 'Zmazať', true))) return vAdmin();
   let text = '';
-  if (a === 'plan') { text = `Plán ${u.email}: ${PLANS[u.plan].name} → ${PLANS[arg].name}`; if (isLive) { S.user.plan = arg; S.billing.trialEnds = null; if (arg !== 'free') S.billing.paidUntil = Date.now() + 30 * 864e5; F.notify('admin-plan-' + Date.now(), { type: 'billing', title: `Váš plán bol zmenený na ${PLANS[arg].name}`, body: 'Zmenu vykonal tím Faktum.', href: '#/billing' }); F.save(); } else u.plan = arg; }
+  if (a === 'plan') { text = `Plán ${u.email}: ${PLANS[u.plan].name} → ${PLANS[arg].name}`; if (isLive) { S.user.plan = arg; S.billing.trialEnds = null; if (arg !== 'free') S.billing.paidUntil = Date.now() + 30 * 864e5; F.notify('admin-plan-' + Date.now(), { type: 'billing', title: `Váš plán bol zmenený na ${PLANS[arg].name}`, body: 'Zmenu vykonal tím eFakturko.', href: '#/billing' }); F.save(); } else u.plan = arg; }
   if (a === 'credits') { text = `+50 AI kreditov pre ${u.email}`; if (isLive) { S.usage.ai = Math.max(0, S.usage.ai - 50); S.user.aiCredits = (S.user.aiCredits || 0) + 50; F.save(); } else u.credits = (u.credits || 0) + 50; }
   if (a === 'suspend' || a === 'activate') { text = `${a === 'suspend' ? 'Pozastavený' : 'Aktivovaný'} účet ${u.email}`; if (isLive) { S.user.status = a === 'suspend' ? 'suspended' : 'active'; F.save(); } else u.status = a === 'suspend' ? 'suspended' : 'active'; }
   if (a === 'delete') { text = `Zmazaný účet ${u.email}`; A.users = A.users.filter((x) => x.id !== id); }
@@ -1032,8 +1032,8 @@ const ACT = {
   bell: () => { const host = $('#dropHost'); if (host.innerHTML) { host.innerHTML = ''; return; } host.innerHTML = `<div class="drop"><div class="card-h"><h3>Upozornenia</h3><a href="#/notifications" class="btn btn-quiet btn-sm">Všetky</a></div><div style="max-height:420px;overflow:auto">${S.notifications.slice(0, 6).map(notifRow).join('') || '<div class="empty">Nič nové</div>'}</div></div>`; },
   openNotif: (el) => { const n = S.notifications.find((x) => x.id === el.dataset.id); if (!n) return; n.read = true; F.save(); $('#dropHost') && ($('#dropHost').innerHTML = ''); go(n.href || '#/notifications'); },
   readAll: () => { S.notifications.forEach((n) => (n.read = true)); F.save(); render(); },
-  testPush: async () => { if ('Notification' in window && Notification.permission === 'default') await Notification.requestPermission(); if ('Notification' in window && Notification.permission === 'granted') { new Notification('Faktum · Test', { body: 'Upozornenia fungujú. Dáme vedieť, keď klient zaplatí alebo mešká.' }); } else toast('Upozornenia sú v prehliadači zablokované', 'err'); F.notify(null, { type: 'tip', title: 'Testovacie upozornenie', body: 'Takto vás budeme informovať o splatnostiach a platbách.', href: '#/notifications' }); F.save(); render(); },
-  usermenu: () => { const m = modal(`${mh(esc(S.user.name), esc(S.user.email))}<div class="modal-b" style="display:flex;flex-direction:column;gap:8px"><a class="btn btn-ghost" href="#/settings">${ic('gear')} Nastavenia</a><a class="btn btn-ghost" href="#/billing">${ic('card')} Predplatné · ${F.plan().name}</a><a class="btn btn-ghost" href="#/admin">${ic('shield')} Admin konzola</a><a class="btn btn-ghost" href="./">Webstránka Faktum</a><button class="btn btn-quiet" data-act="logout">${ic('out')} Odhlásiť</button></div>`); void m; },
+  testPush: async () => { if ('Notification' in window && Notification.permission === 'default') await Notification.requestPermission(); if ('Notification' in window && Notification.permission === 'granted') { new Notification('eFakturko · Test', { body: 'Upozornenia fungujú. Dáme vedieť, keď klient zaplatí alebo mešká.' }); } else toast('Upozornenia sú v prehliadači zablokované', 'err'); F.notify(null, { type: 'tip', title: 'Testovacie upozornenie', body: 'Takto vás budeme informovať o splatnostiach a platbách.', href: '#/notifications' }); F.save(); render(); },
+  usermenu: () => { const m = modal(`${mh(esc(S.user.name), esc(S.user.email))}<div class="modal-b" style="display:flex;flex-direction:column;gap:8px"><a class="btn btn-ghost" href="#/settings">${ic('gear')} Nastavenia</a><a class="btn btn-ghost" href="#/billing">${ic('card')} Predplatné · ${F.plan().name}</a><a class="btn btn-ghost" href="#/admin">${ic('shield')} Admin konzola</a><a class="btn btn-ghost" href="./">Webstránka eFakturko</a><button class="btn btn-quiet" data-act="logout">${ic('out')} Odhlásiť</button></div>`); void m; },
   logout: () => { try { sessionStorage.removeItem('faktum:admin'); } catch {} location.href = './'; },
   wipe: async () => { if (await confirmBox('Zmazať účet?', 'Všetky faktúry, klienti a výdavky budú nenávratne zmazané z tohto zariadenia. Odporúčame najprv stiahnuť zálohu.', 'Zmazať všetko', true)) { F.reset(); location.href = './'; } },
   backup: () => { F.download(`faktum-zaloha-${today()}.json`, JSON.stringify(S, null, 2), 'application/json'); toast('Záloha stiahnutá'); },

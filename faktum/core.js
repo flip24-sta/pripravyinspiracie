@@ -43,7 +43,7 @@ const FEATURES = {
   dunning: { name: 'Automatické upomienky', plan: 'pro', pitch: 'Upomienky odídu samé v deň 1, 7 a 14 po splatnosti.' },
   ubl: { name: 'e‑Faktúra (Peppol UBL)', plan: 'pro', pitch: 'Od 1. 1. 2027 povinná pre platiteľov DPH.' },
   tax: { name: 'Daňový radar', plan: 'pro', pitch: 'Viete, koľko si odkladať na daň a odvody — každý mesiac.' },
-  nobrand: { name: 'Faktúry bez loga Faktum', plan: 'pro', pitch: 'Vaša značka, nie naša.' },
+  nobrand: { name: 'Faktúry bez loga eFakturko', plan: 'pro', pitch: 'Vaša značka, nie naša.' },
   forecast: { name: 'Cashflow predikcia 90 dní', plan: 'business', pitch: 'Vidíte, kedy príde peňažná diera — skôr, než príde.' },
   team: { name: 'Tím a prístup účtovníka', plan: 'business', pitch: 'Až 5 používateľov a účtovník s vlastným prístupom.' },
   api: { name: 'API a webhooky', plan: 'business', pitch: 'Napojte e‑shop alebo CRM.' },
@@ -228,12 +228,12 @@ const LOCAL = {
   ask({ question }) {
     const q = norm(question);
     const A = [
-      [/pausal|vydav/, 'Paušálne výdavky si SZČO môže uplatniť vo výške 60 % z príjmov, najviac 20 970 € ročne. Výhodné sú, ak sú vaše skutočné výdavky nižšie. Faktum ich porovnáva v Daňovom radare.'],
-      [/dph|registr/, 'Povinnosť registrovať sa za platiteľa DPH vzniká po prekročení obratu 50 000 € za kalendárny rok; pri prekročení 62 500 € vzniká okamžite. Faktum stráži obrat priebežne.'],
-      [/e.?faktur|peppol|2027/, 'Od 1. 1. 2027 budú platitelia DPH vystavovať štruktúrované e‑faktúry cez sieť Peppol. Faktum exportuje UBL XML podľa Peppol BIS Billing 3.0 (plán Pro a Business).'],
+      [/pausal|vydav/, 'Paušálne výdavky si SZČO môže uplatniť vo výške 60 % z príjmov, najviac 20 970 € ročne. Výhodné sú, ak sú vaše skutočné výdavky nižšie. eFakturko ich porovnáva v Daňovom radare.'],
+      [/dph|registr/, 'Povinnosť registrovať sa za platiteľa DPH vzniká po prekročení obratu 50 000 € za kalendárny rok; pri prekročení 62 500 € vzniká okamžite. eFakturko stráži obrat priebežne.'],
+      [/e.?faktur|peppol|2027/, 'Od 1. 1. 2027 budú platitelia DPH vystavovať štruktúrované e‑faktúry cez sieť Peppol. eFakturko exportuje UBL XML podľa Peppol BIS Billing 3.0 (plán Pro a Business).'],
       [/odvod|socialn|zdravot/, 'SZČO platí sociálne odvody, ak príjmy za predchádzajúci rok prekročili zákonnú hranicu. Zdravotné odvody platí vždy (minimálne preddavky). Presné sumy nájdete v Daňovom radare — sú orientačné.'],
       [/nalezitost|co musi|obsahovat/, 'Faktúra musí obsahovať: údaje dodávateľa a odberateľa (názov, adresa, IČO, DIČ, prípadne IČ DPH), poradové číslo, dátum vyhotovenia a dodania, popis plnenia, základ dane, sadzbu a výšku DPH (u platiteľov) a celkovú sumu.'],
-      [/upomien|nezaplat|mesk/, 'Pri omeškaní môžete účtovať úrok z omeškania a paušálnu náhradu 40 € (B2B). Odporúčame 3 kroky: priateľská pripomienka, vecná upomienka po 7 dňoch, posledná výzva po 14 dňoch — Faktum to robí automaticky.'],
+      [/upomien|nezaplat|mesk/, 'Pri omeškaní môžete účtovať úrok z omeškania a paušálnu náhradu 40 € (B2B). Odporúčame 3 kroky: priateľská pripomienka, vecná upomienka po 7 dňoch, posledná výzva po 14 dňoch — eFakturko to robí automaticky.'],
       [/priznan|termin|kedy/, 'Daňové priznanie typu B treba podať do 31. marca (s možnosťou odkladu o 3 alebo 6 mesiacov). Platitelia DPH podávajú priznanie do 25. dňa po skončení obdobia.'],
     ];
     const hit = A.find(([re]) => re.test(q));
@@ -325,7 +325,7 @@ function notify(key, n) {
   S.notifications.unshift(item);
   S.notifications = S.notifications.slice(0, 120);
   if (S.settings.push && 'Notification' in window && Notification.permission === 'granted' && document.visibilityState !== 'visible') {
-    try { new Notification('Faktum · ' + n.title, { body: n.body, tag: key || item.id }); } catch {}
+    try { new Notification('eFakturko · ' + n.title, { body: n.body, tag: key || item.id }); } catch {}
   }
   return true;
 }
@@ -525,7 +525,7 @@ function seedDemo(opts = {}) {
   ];
   S.checklist = { company: true, iban: true, client: true, invoice: true };
   S.notifications = [];
-  notify('welcome', { type: 'tip', title: 'Vitajte v demo účte Faktum', body: 'Všetko je klikateľné. Skúste AI príkaz hore: „Vyfakturuj Mlyn 6 hodín konzultácie po 45 €“.', href: '#/dashboard' });
+  notify('welcome', { type: 'tip', title: 'Vitajte v demo účte eFakturko', body: 'Všetko je klikateľné. Skúste AI príkaz hore: „Vyfakturuj Mlyn 6 hodín konzultácie po 45 €“.', href: '#/dashboard' });
   if (opts.trial !== false && S.user.plan === 'pro' && !S.billing.paidUntil) S.billing.trialEnds = Date.now() + 14 * 864e5;
   track('demo_seed');
   save();

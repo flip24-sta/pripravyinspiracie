@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt · eFakturko</title>
+<meta name="description" content="Napíšte nám otázku, požiadajte o ukážku alebo nahláste problém.">
+<link rel="canonical" href="https://efakturko.netlify.app/kontakt.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kontakt · eFakturko">
+<meta property="og:description" content="Napíšte nám otázku, požiadajte o ukážku alebo nahláste problém.">
+<meta property="og:url" content="https://efakturko.netlify.app/kontakt.html">
+<meta property="og:locale" content="sk_SK">
+<meta name="theme-color" content="#7C3AED">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%237C3AED'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='22' font-weight='800' font-family='Arial' fill='%23fff'%3Ee%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="faktum.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="nav-card">
+  <a href="./" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><text x="12" y="17.6" text-anchor="middle" font-size="18" font-weight="800" font-family="Plus Jakarta Sans,Arial,sans-serif" fill="currentColor">e</text></svg></span><span>eFakturko</span></a>
+  <nav class="nav-links" aria-label="Hlavná navigácia"><a href="funkcie.html">Funkcie</a><a href="e-faktura-2027.html">e‑Faktúra 2027</a><a href="cennik.html">Cenník</a><a href="partneri.html">Pre účtovníkov</a><a href="kontakt.html" class="on" aria-current="page">Kontakt</a></nav>
+  <div class="nav-cta"><a href="app.html#/login" class="link-login top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Prihlásenie</a><a href="app.html#/onboarding" class="btn btn-primary">Registrácia</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+</div>
+<nav class="mnav" id="mnav" hidden><a href="funkcie.html">Funkcie</a><a href="e-faktura-2027.html">e‑Faktúra 2027</a><a href="cennik.html">Cenník</a><a href="partneri.html">Pre účtovníkov</a><a href="kontakt.html">Kontakt</a><a href="app.html#/login">Prihlásenie</a></nav>
+</div></header>
+
+<main>
+<div class="page-hero" style="padding-bottom:40px"><div class="wrap">
+  <span class="kick">Kontakt</span>
+  <h1>Ako vám môžeme <span class="hl">pomôcť</span>?</h1>
+  <p>Napíšte nám otázku k aplikácii, cenám alebo e‑faktúre. Odpoveď dostanete e‑mailom.</p>
+</div></div>
+
+<section style="padding-top:20px"><div class="wrap">
+  <div class="contact">
+    <div class="info">
+      <div><b>Chcete si eFakturko najprv pozrieť?</b><p>Otvorte <a href="app.html#/demo" style="color:var(--violet);font-weight:600">živé demo</a> s ukážkovými klientmi a faktúrami. Nič sa neukladá na server.</p></div>
+      <div><b>Ste účtovník?</b><p>Pozrite si <a href="partneri.html" style="color:var(--violet);font-weight:600">partnerský program</a> s províziou 30 až 40 %.</p></div>
+      <div><b>Časté otázky</b><p>Odpovede o predplatnom nájdete v <a href="cennik.html" style="color:var(--violet);font-weight:600">cenníku</a> a o povinnej e‑faktúre na stránke <a href="e-faktura-2027.html" style="color:var(--violet);font-weight:600">e‑Faktúra 2027</a>.</p></div>
+    </div>
+    <form class="form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="company_url">
+      <input type="hidden" name="form-name" value="kontakt">
+      <p class="hp"><label>Nevypĺňajte <input name="company_url"></label></p>
+      <h2 style="font-size:24px;color:var(--ink)">Napíšte nám</h2>
+      <div class="grid-2"><div class="field"><label for="k-name">Meno</label><input class="input" id="k-name" name="meno" required autocomplete="name"></div><div class="field"><label for="k-mail">E‑mail</label><input class="input" type="email" id="k-mail" name="email" required autocomplete="email"></div></div>
+      <div class="field"><label for="k-topic">Téma</label><select class="select" id="k-topic" name="tema"><option>Otázka k aplikácii</option><option>Predplatné a platby</option><option>e‑Faktúra 2027</option><option>Ukážka pre firmu</option><option>Nahlásenie chyby</option><option>Iné</option></select></div>
+      <div class="field"><label for="k-msg">Správa</label><textarea class="textarea" id="k-msg" name="sprava" required style="min-height:150px"></textarea></div>
+      <label style="display:flex;gap:10px;font-size:13.5px;color:var(--text)"><input type="checkbox" name="suhlas" required style="accent-color:var(--violet);margin-top:3px"> <span>Súhlasím so spracovaním osobných údajov podľa <a href="ochrana-osobnych-udajov.html" style="color:var(--violet);font-weight:600">zásad ochrany osobných údajov</a>.</span></label>
+      <button type="submit" class="btn btn-primary btn-lg">Odoslať správu</button>
+      <div class="form-msg" role="status"></div>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><a href="./" class="logo" style="color:#fff"><span class="logo-mark" style="background:#fff;color:var(--violet)"><svg viewBox="0 0 24 24"><text x="12" y="17.6" text-anchor="middle" font-size="18" font-weight="800" font-family="Plus Jakarta Sans,Arial,sans-serif" fill="currentColor">e</text></svg></span><span>eFakturko</span></a><p style="margin-top:12px;max-width:300px">Fakturácia s AI pre živnostníkov a firmy na Slovensku.</p></div>
+    <div><h4>Produkt</h4><nav><a href="funkcie.html">Funkcie</a><a href="cennik.html">Cenník</a><a href="e-faktura-2027.html">e‑Faktúra 2027</a><a href="app.html#/demo">Živé demo</a></nav></div>
+    <div><h4>Spoločnosť</h4><nav><a href="partneri.html">Pre účtovníkov</a><a href="kontakt.html">Kontakt</a><a href="app.html#/onboarding">Registrácia</a></nav></div>
+    <div><h4>Právne informácie</h4><nav><a href="obchodne-podmienky.html">Obchodné podmienky</a><a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a></nav></div>
+  </div>
+  <div class="foot-b"><span>© <span id="yr"></span> eFakturko</span><span>Všetky ceny sú uvedené bez DPH</span></div>
+</div></footer>
+<script src="site.js" defer></script>
+</body>
+</html>

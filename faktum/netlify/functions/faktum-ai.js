@@ -1,4 +1,4 @@
-// Faktum AI — one endpoint, five pipelines that power the app's core value.
+// eFakturko AI — one endpoint, five pipelines that power the app's core value.
 //   invoice_draft : one Slovak sentence  -> structured invoice draft
 //   receipt_scan  : photo of a receipt   -> structured expense
 //   dunning       : overdue invoice      -> payment reminder email (tone by level)
@@ -13,7 +13,7 @@ const Anthropic = AnthropicMod.default || AnthropicMod;
 
 const MODEL = 'claude-opus-5-5';
 
-const SYSTEM = `Si Faktum AI — asistent fakturačnej aplikácie pre slovenských živnostníkov (SZČO) a malé firmy.
+const SYSTEM = `Si eFakturko AI — asistent fakturačnej aplikácie pre slovenských živnostníkov (SZČO) a malé firmy.
 Píšeš po slovensky, vecne a zrozumiteľne. Poznáš slovenskú legislatívu: zákon o DPH (sadzby 23 %, 19 %, 5 %, 0 %),
 náležitosti faktúry podľa § 74, PAY by square, paušálne výdavky SZČO (60 %, max. 20 970 € ročne), odvody do Sociálnej
 a zdravotnej poisťovne a povinnú e-faktúru (Peppol) od 1. 1. 2027 pre platiteľov DPH.

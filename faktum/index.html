@@ -3,232 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faktum</title>
-<meta name="description" content="Faktum je fakturácia s umelou inteligenciou pre živnostníkov a malé firmy na Slovensku. Faktúra za pár sekúnd, PAY by square QR, automatické upomienky, daňový prehľad a pripravenosť na e-faktúru 2027.">
-<meta property="og:title" content="Faktum — fakturácia s AI pre SZČO a firmy">
+<title>eFakturko</title>
+<meta name="description" content="eFakturko je fakturácia s umelou inteligenciou pre živnostníkov a malé firmy na Slovensku. Faktúra za pár sekúnd, PAY by square QR, automatické upomienky a pripravenosť na e‑faktúru 2027.">
+<link rel="canonical" href="https://efakturko.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="eFakturko">
+<meta property="og:description" content="eFakturko je fakturácia s umelou inteligenciou pre živnostníkov a malé firmy na Slovensku. Faktúra za pár sekúnd, PAY by square QR, automatické upomienky a pripravenosť na e‑faktúru 2027.">
+<meta property="og:url" content="https://efakturko.netlify.app/">
+<meta property="og:locale" content="sk_SK">
 <meta name="theme-color" content="#7C3AED">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%237C3AED'/%3E%3Cpath d='M11 8h11v4h-7v3h6v4h-6v5h-4z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%237C3AED'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='22' font-weight='800' font-family='Arial' fill='%23fff'%3Ee%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="faktum.css">
-<style>
-  body{background:#fff;color:var(--text)}
-  .wrap{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-  /* floating nav card */
-  .nav{position:sticky;top:12px;z-index:50;padding-top:16px}
-  .nav-card{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-radius:22px;box-shadow:0 10px 40px -12px rgba(76,29,149,.18);display:flex;align-items:center;gap:20px;height:76px;padding:0 20px 0 24px}
-  .nav-links{display:flex;gap:22px;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.01em;color:var(--ink);margin:0 auto}
-  .nav-links a:hover{color:var(--violet)}
-  .nav-cta{display:flex;gap:10px;align-items:center}
-  .link-login{color:var(--violet);font-weight:600;font-size:15px;display:flex;gap:6px;align-items:center}
-  /* hero */
-  .hero{background:linear-gradient(180deg,#fff 0%,#F3EEFF 40%,#E5D9FF 100%);margin-top:-92px;padding:150px 0 0;position:relative;overflow:hidden}
-  .hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:56px;background:#fff;border-radius:56px 56px 0 0}
-  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding-bottom:110px}
-  .social{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink);font-weight:500}
-  .social .avs{display:flex}
-  .social .avs i{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:800;color:#fff}
-  .social .avs i:first-child{margin-left:0}
-  h1.hero-t{font-size:clamp(42px,5.6vw,68px);line-height:1.04;font-weight:700;letter-spacing:-.035em;color:var(--ink);margin:22px 0 22px}
-  .hl{display:inline-block;background:var(--violet-bg);color:var(--violet);padding:0 .16em;border-radius:.14em;line-height:1.1}
-  .hero-sub{font-size:18px;color:var(--text-2);max-width:520px;line-height:1.6}
-  .hero-cta{display:flex;gap:18px;margin-top:30px;flex-wrap:wrap;align-items:center}
-  .badge-card{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-  .bcard{background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 10px 30px -14px rgba(76,29,149,.25);display:flex;gap:12px;align-items:center;font-size:14px;max-width:260px}
-  .bcard .ck{width:32px;height:32px;border-radius:50%;background:var(--violet);display:grid;place-items:center;color:#fff;flex:none;font-size:11px;font-weight:800}
-  .bcard b{color:var(--ink);display:block}
-  .bcard span{color:var(--muted);font-size:12.5px}
-  /* device mock */
-  .stage{position:relative;perspective:1600px}
-  .device{background:#1E1B2E;border-radius:22px;padding:12px;box-shadow:0 50px 90px -30px rgba(46,16,101,.55);transform:rotateY(-14deg) rotateX(6deg) rotateZ(1deg);transform-origin:left center}
-  .screen{background:#F7F5FF;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:120px 1fr;min-height:340px}
-  .scr-side{background:#fff;border-right:1px solid #EEE9FB;padding:12px 10px;display:flex;flex-direction:column;gap:6px;font-size:10px;color:var(--muted)}
-  .scr-side .lg{display:flex;align-items:center;gap:6px;font-weight:800;color:var(--ink);font-size:12px;margin-bottom:8px}
-  .scr-side .lg i{width:16px;height:16px;border-radius:5px;background:var(--violet)}
-  .scr-side span{padding:5px 7px;border-radius:7px}
-  .scr-side span.on{background:var(--violet-bg);color:var(--violet);font-weight:700}
-  .scr-main{padding:14px;display:flex;flex-direction:column;gap:10px;font-size:10px;min-width:0}
-  .scr-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .scr-kpis div{background:#fff;border-radius:9px;padding:8px}
-  .scr-kpis b{display:block;font-size:14px;color:var(--ink)}
-  .scr-row{display:grid;grid-template-columns:1.4fr 1fr .8fr .8fr;gap:6px;background:#fff;border-radius:8px;padding:7px 9px;align-items:center;color:var(--text-2)}
-  .scr-row b{color:var(--ink)}
-  .pill{display:inline-block;padding:2px 7px;border-radius:99px;font-weight:700;font-size:9px}
-  .p-paid{background:#DCFCE7;color:#15803D}.p-sent{background:#EDE9FE;color:#6D28D9}.p-late{background:#FFE4E6;color:#BE123C}
-  .float{position:absolute;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 18px 40px -16px rgba(76,29,149,.35);font-size:13.5px;display:flex;gap:10px;align-items:center;color:var(--ink);font-weight:600;z-index:2}
-  .float.v{background:var(--violet);color:#fff}
-  .float small{display:block;font-weight:500;font-size:11.5px;opacity:.75}
-  .f1{left:-24px;top:58%}
-  .f2{right:-10px;top:-18px}
-  .f3{left:20%;bottom:-26px}
-  .ring{width:38px;height:38px;border-radius:50%;background:conic-gradient(var(--violet) 0 72%,#EDE9FE 0);display:grid;place-items:center}
-  .ring:after{content:"";width:26px;height:26px;border-radius:50%;background:#fff}
-  /* trust */
-  .trust{text-align:center;padding:40px 0 30px;color:var(--text-2);font-weight:600}
-  .trust-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
-  .trust-row span{border:1px solid var(--line);border-radius:99px;padding:10px 18px;font-size:14px;color:var(--ink);display:flex;gap:8px;align-items:center;background:#fff}
-  .trust-row span:before{content:"✓";color:var(--violet);font-weight:800}
-  /* sections */
-  section{padding:90px 0}
-  .sec-h{text-align:center;max-width:760px;margin:0 auto 48px}
-  .kick{display:inline-block;border:1.5px solid #C4B5FD;color:var(--violet);border-radius:99px;padding:3px 14px;font-size:14px;font-weight:600;margin-bottom:16px}
-  h2.big{font-size:clamp(32px,4.2vw,50px);line-height:1.1;font-weight:700;letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
-  .sec-h p{font-size:17px;color:var(--text-2);margin-top:16px;line-height:1.6}
-  /* feature accordion */
-  .feat{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-  .acc{display:flex;flex-direction:column;gap:14px}
-  .acc details{background:#F7F5FF;border-radius:20px;padding:22px 24px}
-  .acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:21px;font-weight:600;color:var(--ink)}
-  .acc summary::-webkit-details-marker{display:none}
-  .acc summary:after{content:"+";width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--ink);font-size:20px;flex:none}
-  .acc details[open] summary:after{content:"−";background:#E9E2FF;color:var(--violet)}
-  .acc p{color:var(--text);margin:14px 0 10px;line-height:1.6}
-  .acc ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--text)}
-  .acc li{display:flex;gap:10px;align-items:center}
-  .acc li:before{content:"✓";width:20px;height:20px;border-radius:50%;background:#E9E2FF;color:var(--violet);font-size:11px;font-weight:800;display:grid;place-items:center;flex:none}
-  .browser{background:linear-gradient(160deg,#C4B5FD,#A78BFA);border-radius:26px;padding:16px;position:sticky;top:110px}
-  .browser-in{background:#fff;border-radius:14px;overflow:hidden}
-  .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #EEE9FB}
-  .bar i{width:10px;height:10px;border-radius:50%}
-  .bar .url{margin:0 auto;background:#F4F1FD;border-radius:99px;padding:3px 40px;font-size:11px;color:var(--muted)}
-  .inv-prev{padding:24px;font-size:13px;color:var(--text)}
-  .inv-prev .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed #E5E0F5;gap:10px}
-  .inv-prev .tot{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border-radius:14px;padding:14px 16px}
-  .inv-prev .tot b{font-size:22px}
-  .qr{width:68px;height:68px;border-radius:8px;background:repeating-conic-gradient(var(--ink) 0 25%,#fff 0 50%) 0 0/11px 11px;border:4px solid #fff;outline:1px solid #E5E0F5;flex:none}
-  .tabs-dock{display:flex;gap:4px;justify-content:center;background:#2E1065;border-radius:99px;padding:6px;margin-top:14px;flex-wrap:wrap}
-  .tabs-dock span{color:#E9E2FF;font-size:12.5px;padding:7px 12px;border-radius:99px;font-weight:600}
-  .tabs-dock span.on{background:#fff;color:var(--violet)}
-  /* modules */
-  .mods{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:46px}
-  .mods button{border:1px solid var(--line-2);background:#fff;border-radius:12px;padding:10px 18px;font-weight:600;font-size:14.5px;color:var(--text-2);cursor:pointer;display:flex;gap:8px;align-items:center;font-family:inherit}
-  .mods button.on{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 10px 24px -10px rgba(124,58,237,.7)}
-  .mods button small{background:#EDE9FE;color:var(--violet);border-radius:99px;padding:1px 8px;font-size:11.5px}
-  .mods button.on small{background:rgba(255,255,255,.2);color:#fff}
-  .mod{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-  .mod>div{min-width:0}
-  .mod .eyebrow{color:var(--violet);font-weight:700;font-size:14px}
-  .mod h3{font-size:clamp(28px,3vw,38px);line-height:1.15;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin:10px 0 16px}
-  .mod p{color:var(--text);line-height:1.65}
-  .mod ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:10px;font-size:14.5px}
-  .mod li{display:flex;gap:10px;align-items:center}
-  .mod li:before{content:"✓";width:20px;height:20px;border-radius:50%;background:var(--violet);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;flex:none}
-  .mod-art{background:#F3EEFF;border-radius:36px;min-height:360px;position:relative;display:grid;place-items:center;padding:40px;overflow:hidden}
-  .mod-art .blob{position:absolute;right:40px;top:30px;width:62%;height:70%;border-radius:40px;background:linear-gradient(140deg,#8B5CF6,#6D28D9);transform:rotate(8deg)}
-  .mod-art .card{position:relative;background:#fff;border-radius:22px;padding:22px;width:min(340px,100%);box-shadow:0 30px 60px -25px rgba(46,16,101,.5)}
-  /* audience */
-  .aud{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .aud>div{background:#F7F5FF;border-radius:24px;padding:28px}
-  .aud .ic{width:52px;height:52px;border-radius:16px;background:var(--violet);color:#fff;display:grid;place-items:center;margin-bottom:18px}
-  .aud .ic svg{width:24px;height:24px}
-  .aud h3{font-size:21px;color:var(--ink);margin-bottom:8px}
-  .aud p{color:var(--text);font-size:15px;line-height:1.6}
-  /* e-invoice band */
-  .band{background:linear-gradient(135deg,#6D28D9,#8B5CF6);color:#fff;border-radius:36px;padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-  .band h2{font-size:clamp(28px,3.6vw,44px);line-height:1.12;font-weight:700;letter-spacing:-.02em}
-  .band p{color:#EDE9FE;font-size:17px;margin-top:14px;line-height:1.6}
-  .count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .count div{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:18px 6px;text-align:center}
-  .count b{font-size:32px;display:block;line-height:1;font-variant-numeric:tabular-nums}
-  .count span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#EDE9FE}
-  /* pricing */
-  .price-bg{background:#F5F1FF;padding:80px 0}
-  .ptoggle{display:flex;justify-content:center;margin-bottom:36px}
-  .ptoggle div{background:#fff;border-radius:99px;padding:5px;display:flex;box-shadow:0 6px 20px -10px rgba(76,29,149,.3)}
-  .ptoggle button{border:0;background:none;padding:9px 20px;border-radius:99px;font-weight:600;cursor:pointer;color:var(--ink);font-size:15px;font-family:inherit}
-  .ptoggle button.on{background:var(--violet);color:#fff}
-  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;max-width:1080px;margin:0 auto}
-  .plan{background:#fff;border-radius:28px;padding:30px;display:flex;flex-direction:column}
-  .plan.hot{background:linear-gradient(170deg,#8B5CF6,#6D28D9);color:#fff;transform:translateY(-12px) rotate(-1deg);box-shadow:0 40px 70px -30px rgba(76,29,149,.8)}
-  .plan h3{font-size:34px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .plan.hot h3{color:#fff}
-  .plan .pop{font-size:12px;background:#fff;color:var(--ink);border-radius:99px;padding:4px 10px;font-weight:700}
-  .price{margin:26px 0 4px;color:var(--violet);font-size:52px;font-weight:600;letter-spacing:-.03em;line-height:1}
-  .price small{font-size:22px}
-  .plan.hot .price{color:#fff}
-  .billed{font-size:13px;color:var(--muted);min-height:18px;margin-top:6px}
-  .plan.hot .billed{color:#E9E2FF}
-  .for{font-size:16px;color:var(--ink);margin-top:12px}
-  .plan.hot .for{color:#fff}
-  .plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin:22px 0 28px;font-size:15px}
-  .plan li{display:flex;gap:10px;align-items:flex-start}
-  .plan li:before{content:"✓";width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;flex:none}
-  .plan.hot li:before{background:#fff;color:var(--violet)}
-  .plan li.no{color:var(--muted-2)}
-  .plan li.no:before{content:"–";background:#EEE9FB;color:var(--muted)}
-  .plan .btn{margin-top:auto}
-  .plan.hot .btn{background:var(--ink);color:#fff}
-  .note{text-align:center;color:var(--text-2);font-size:14px;margin-top:28px}
-  /* partner */
-  .partner{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .calc{background:#F7F5FF;border-radius:28px;padding:30px}
-  .calc .out{background:var(--ink);color:#fff;border-radius:20px;padding:22px;margin-top:18px}
-  .calc .out b{font-size:48px;font-weight:700;display:block;line-height:1.1;color:#C4B5FD}
-  input[type=range]{width:100%;accent-color:var(--violet)}
-  .tiers{display:flex;flex-direction:column;gap:12px}
-  .tier{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--text)}
-  .tier b{color:var(--ink)}
-  .tier .pct{font-size:38px;font-weight:700;color:var(--violet)}
-  .tier.gold{background:var(--violet);border-color:var(--violet);color:#EDE9FE}
-  .tier.gold b,.tier.gold .pct{color:#fff}
-  /* faq */
-  .faq{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-  .faq details{background:#F7F5FF;border-radius:18px;padding:20px 24px}
-  .faq summary{cursor:pointer;font-size:17px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:20px;color:var(--ink)}
-  .faq summary::-webkit-details-marker{display:none}
-  .faq summary:after{content:"+";font-size:22px;line-height:1;color:var(--violet)}
-  .faq details[open] summary:after{content:"−"}
-  .faq p{color:var(--text);margin-top:10px;line-height:1.6}
-  .final{text-align:center;background:linear-gradient(135deg,#2E1065,#5B21B6);color:#fff;border-radius:36px;padding:80px 24px}
-  .final h2{font-size:clamp(32px,4.6vw,56px);font-weight:700;line-height:1.1;letter-spacing:-.03em}
-  .final .hl{background:rgba(255,255,255,.14);color:#DDD6FE}
-  footer{background:#1E0A45;color:#C4B5FD;padding:60px 0 36px;margin-top:90px;font-size:14px}
-  .foot{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px}
-  .foot h4{color:#fff;font-size:14px;margin-bottom:12px}
-  .foot nav{display:flex;flex-direction:column;gap:8px}
-  .foot a:hover{color:#fff}
-  .foot-b{border-top:1px solid #3B1B7A;margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  @media (max-width:1060px){
-    .nav-links{display:none}
-    .nav-cta{margin-left:auto}
-    .hero-grid,.feat,.mod,.band,.partner{grid-template-columns:1fr}
-    .plans,.aud{grid-template-columns:1fr}
-    .plan.hot{transform:none}
-    .browser{position:static}
-    .device{transform:none}
-    .f1{left:-6px}.f2{right:-6px}
-    .foot{grid-template-columns:1fr 1fr}
-    section{padding:64px 0}
-    .band{padding:32px 24px}
-  }
-  @media (max-width:560px){
-    .nav-card{height:64px;padding:0 12px 0 16px}
-    .link-login.top{display:none}
-    .screen{grid-template-columns:1fr}
-    .scr-side{display:none}
-    .float{display:none}
-    .count b{font-size:24px}
-    .foot{grid-template-columns:1fr}
-    .acc summary{font-size:18px}
-  }
-  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-
 <header class="nav"><div class="wrap"><div class="nav-card">
-  <a href="./" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h11v4h-7v3h6v4h-6v5H7z"/></svg></span><span>Faktum</span></a>
-  <nav class="nav-links"><a href="#funkcie">Funkcie</a><a href="#moduly">Moduly</a><a href="#efaktura">e‑Faktúra 2027</a><a href="#partneri">Pre účtovníkov</a><a href="#cennik">Cenník</a><a href="#faq">Otázky</a></nav>
-  <div class="nav-cta"><a href="app.html#/login" class="link-login top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Prihlásenie</a><a href="app.html#/onboarding" class="btn btn-primary">Registrácia</a></div>
-</div></div></header>
+  <a href="./" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><text x="12" y="17.6" text-anchor="middle" font-size="18" font-weight="800" font-family="Plus Jakarta Sans,Arial,sans-serif" fill="currentColor">e</text></svg></span><span>eFakturko</span></a>
+  <nav class="nav-links" aria-label="Hlavná navigácia"><a href="funkcie.html">Funkcie</a><a href="e-faktura-2027.html">e‑Faktúra 2027</a><a href="cennik.html">Cenník</a><a href="partneri.html">Pre účtovníkov</a><a href="kontakt.html">Kontakt</a></nav>
+  <div class="nav-cta"><a href="app.html#/login" class="link-login top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Prihlásenie</a><a href="app.html#/onboarding" class="btn btn-primary">Registrácia</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+</div>
+<nav class="mnav" id="mnav" hidden><a href="funkcie.html">Funkcie</a><a href="e-faktura-2027.html">e‑Faktúra 2027</a><a href="cennik.html">Cenník</a><a href="partneri.html">Pre účtovníkov</a><a href="kontakt.html">Kontakt</a><a href="app.html#/login">Prihlásenie</a></nav>
+</div></header>
 
 <main>
 <div class="hero"><div class="wrap hero-grid">
   <div>
     <div class="social"><span class="avs"><i style="background:#8B5CF6">Ž</i><i style="background:#F97316">F</i><i style="background:#0EA5E9">Ú</i></span>Pre živnostníkov, s.r.o. aj účtovníkov</div>
     <h1 class="hero-t"><span class="hl">Faktúry</span> s AI, ktoré sa zaplatia samé</h1>
-    <p class="hero-sub">Napíšte jednu vetu a Faktum vystaví faktúru s QR platbou, pošle ju klientovi, sleduje úhradu a slušne pripomenie, keď klient mešká. Pripravené na e‑faktúru 2027.</p>
+    <p class="hero-sub">Napíšte jednu vetu a eFakturko vystaví faktúru s QR platbou, pošle ju klientovi, sleduje úhradu a slušne pripomenie, keď klient mešká. Pripravené na e‑faktúru 2027.</p>
     <div class="hero-cta"><a href="app.html#/onboarding" class="btn btn-primary btn-lg">Začať zadarmo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="app.html#/demo" class="link-login">Pozrieť živé demo</a></div>
     <div class="badge-card">
       <div class="bcard"><span class="ck"><svg width="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Peppol UBL export</b><span>formát pre e‑faktúru od 1. 1. 2027</span></div></div>
@@ -237,7 +43,7 @@
   </div>
   <div class="stage">
     <div class="device"><div class="screen">
-      <div class="scr-side"><div class="lg"><i></i>Faktum</div><span class="on">Prehľad</span><span>Faktúry</span><span>Klienti</span><span>Výdavky</span><span>Daňový radar</span><span>AI asistent</span></div>
+      <div class="scr-side"><div class="lg"><i></i>eFakturko</div><span class="on">Prehľad</span><span>Faktúry</span><span>Klienti</span><span>Výdavky</span><span>Daňový radar</span><span>AI asistent</span></div>
       <div class="scr-main">
         <div class="scr-kpis"><div>Tento mesiac<b>4 280 €</b></div><div>Čaká na úhradu<b>2 475 €</b></div><div>Po splatnosti<b style="color:#BE123C">1 180 €</b></div></div>
         <div class="scr-row" style="background:none;font-weight:700;color:var(--muted)"><span>Klient</span><span>Číslo</span><span>Suma</span><span>Stav</span></div>
@@ -259,16 +65,16 @@
 </div></div>
 
 <section id="funkcie"><div class="wrap">
-  <div class="sec-h"><span class="kick">Funkcie</span><h2 class="big">Čo <span class="hl">Faktum</span> umožňuje?</h2><p>Fakturácia, upomienky, výdavky a dane na jednom mieste. Umelá inteligencia robí rutinu, vy schvaľujete.</p></div>
+  <div class="sec-h"><span class="kick">Funkcie</span><h2 class="big">Čo <span class="hl">eFakturko</span> umožňuje?</h2><p>Fakturácia, upomienky, výdavky a dane na jednom mieste. Umelá inteligencia robí rutinu, vy schvaľujete.</p></div>
   <div class="feat">
     <div class="acc">
       <details open><summary>Faktúra z jednej vety</summary><p>Napíšte „Vyfakturuj Mlyn 6 hodín konzultácie po 45 €“ a AI pripraví hotovú faktúru. Pred odoslaním ju vždy skontrolujete.</p><ul><li>Klient doplnený z adresára alebo registra podľa IČO</li><li>Položky, DPH a splatnosť nastavené automaticky</li><li>QR kód PAY by square na každej faktúre</li></ul></details>
-      <details><summary>Upomienky bez trápnych telefonátov</summary><p>Faktum sleduje splatnosť a klientovi pošle pripomienku v deň 1, 7 a 14 po splatnosti. Tón textu sa stupňuje.</p><ul><li>Priateľská pripomienka, vecná upomienka, posledná výzva</li><li>Text napísaný AI na mieru klientovi</li></ul></details>
+      <details><summary>Upomienky bez trápnych telefonátov</summary><p>eFakturko sleduje splatnosť a klientovi pošle pripomienku v deň 1, 7 a 14 po splatnosti. Tón textu sa stupňuje.</p><ul><li>Priateľská pripomienka, vecná upomienka, posledná výzva</li><li>Text napísaný AI na mieru klientovi</li></ul></details>
       <details><summary>Výdavky a sken bločkov</summary><p>Odfoťte účtenku. AI vyčíta dodávateľa, sumu, DPH a zaradí výdavok do kategórie.</p><ul><li>Prehľad výdavkov podľa kategórií</li><li>Podklady pre daňové priznanie</li></ul></details>
       <details><summary>Rozhranie pre účtovníka</summary><p>Faktúry exportujete do CSV alebo ako e‑faktúry v XML. Účtovník dostane presne to, čo potrebuje.</p><ul><li>Export CSV a Peppol UBL XML</li><li>Prístup účtovníka v pláne Business</li></ul></details>
     </div>
     <div class="browser"><div class="browser-in">
-      <div class="bar"><i style="background:#F87171"></i><i style="background:#FBBF24"></i><i style="background:#34D399"></i><span class="url">app.faktum.sk</span></div>
+      <div class="bar"><i style="background:#F87171"></i><i style="background:#FBBF24"></i><i style="background:#34D399"></i><span class="url">app.efakturko.netlify.app</span></div>
       <div class="inv-prev">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:10px"><div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Faktúra</div><b style="font-size:24px;color:var(--ink)">20260142</b></div><div style="text-align:right"><span style="font-size:12px;color:var(--muted)">Odberateľ</span><br><b style="color:var(--ink)">Kaviareň Mlyn s.r.o.</b></div></div>
         <div class="row"><span>Brand identita – logo, farby</span><b>900,00 €</b></div>
@@ -291,7 +97,7 @@
 </div></section>
 
 <section style="padding-top:20px"><div class="wrap">
-  <div class="sec-h"><span class="kick">Pre koho</span><h2 class="big">Pre koho je <span class="hl">Faktum</span> určený?</h2></div>
+  <div class="sec-h"><span class="kick">Pre koho</span><h2 class="big">Pre koho je <span class="hl">eFakturko</span> určený?</h2></div>
   <div class="aud">
     <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0112 0v1"/></svg></span><h3>Živnostník</h3><p>Faktúry za pár sekúnd, prehľad o daniach a odvodoch počas roka a upozornenie, keď sa blížite k hranici DPH.</p></div>
     <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3"/></svg></span><h3>Malá firma</h3><p>Viac používateľov, viac firiem v jednom účte, opakované faktúry a e‑faktúra pre platiteľov DPH od roku 2027.</p></div>
@@ -299,13 +105,13 @@
   </div>
 </div></section>
 
-<section id="efaktura" style="padding-top:0"><div class="wrap"><div class="band">
-  <div><span class="kick" style="border-color:rgba(255,255,255,.5);color:#fff">Legislatíva</span><h2>Od 1. januára 2027 je e‑faktúra povinná pre platiteľov DPH</h2><p>Faktúry sa budú posielať v štruktúrovanom formáte cez sieť Peppol. Faktum už dnes exportuje faktúry vo formáte Peppol BIS Billing 3.0.</p></div>
+<!--block:band--><section id="efaktura" style="padding-top:0"><div class="wrap"><div class="band">
+  <div><span class="kick" style="border-color:rgba(255,255,255,.5);color:#fff">Legislatíva</span><h2>Od 1. januára 2027 je e‑faktúra povinná pre platiteľov DPH</h2><p>Faktúry sa budú posielať v štruktúrovanom formáte cez sieť Peppol. eFakturko už dnes exportuje faktúry vo formáte Peppol BIS Billing 3.0.</p></div>
   <div><div class="count"><div><b id="cd-d">--</b><span>dní</span></div><div><b id="cd-h">--</b><span>hodín</span></div><div><b id="cd-m">--</b><span>minút</span></div><div><b id="cd-s">--</b><span>sekúnd</span></div></div>
   <a href="app.html#/onboarding" class="btn btn-lg btn-block" style="margin-top:14px;background:#fff;color:var(--violet)">Pripraviť sa teraz</a></div>
-</div></div></section>
+</div></div></section><!--/block:band-->
 
-<div class="price-bg" id="cennik"><div class="wrap">
+<!--block:pricing--><div class="price-bg" id="cennik"><div class="wrap">
   <div class="sec-h" style="margin-bottom:30px"><span class="kick">Cenník</span><h2 class="big">Vyberte si <span class="hl">svoj plán</span></h2><p>✓ Štart zadarmo navždy &nbsp; ✓ Pro a Business 14 dní zadarmo &nbsp; ✓ Zrušíte kedykoľvek</p></div>
   <div class="ptoggle"><div><button class="on" data-cycle="m">Mesačne</button><button data-cycle="y">Ročne −20 %</button></div></div>
   <div class="plans">
@@ -320,10 +126,10 @@
       <a href="app.html#/onboarding?plan=business" class="btn btn-primary btn-lg btn-block">Zvoliť plán →</a></div>
   </div>
   <p class="note">Všetky ceny sú uvedené bez DPH.</p>
-</div></div>
+</div></div><!--/block:pricing-->
 
-<section id="partneri"><div class="wrap">
-  <div class="sec-h"><span class="kick">Pre účtovníkov a partnerov</span><h2 class="big">Odporúčajte Faktum a <span class="hl">zarábajte</span></h2><p>Doživotná provízia z každej platby klientov, ktorých privediete.</p></div>
+<!--block:partner--><section id="partneri"><div class="wrap">
+  <div class="sec-h"><span class="kick">Pre účtovníkov a partnerov</span><h2 class="big">Odporúčajte eFakturko a <span class="hl">zarábajte</span></h2><p>Doživotná provízia z každej platby klientov, ktorých privediete.</p></div>
   <div class="partner">
     <div class="calc"><b style="color:var(--ink)">Počet klientov na pláne Pro</b><div style="display:flex;justify-content:space-between;align-items:baseline;margin:8px 0"><b style="font-size:40px;color:var(--violet)" id="pc">20</b><span style="color:var(--muted)">klientov</span></div><input type="range" min="1" max="200" value="20" id="pr" aria-label="Počet klientov">
       <div class="out"><div style="font-size:13px;color:#C4B5FD">Vaša ročná provízia</div><b id="po">1 073 €</b><div style="font-size:13px;color:#C4B5FD;margin-top:4px" id="pt">Úroveň Partner · 30 %</div></div></div>
@@ -334,54 +140,31 @@
       <a href="app.html#/onboarding?partner=1" class="btn btn-primary btn-lg">Stať sa partnerom →</a>
     </div>
   </div>
-</div></section>
+</div></section><!--/block:partner-->
 
-<section id="faq" style="padding-top:0"><div class="wrap">
+<!--block:faq--><section id="faq" style="padding-top:0"><div class="wrap">
   <div class="sec-h"><span class="kick">Otázky</span><h2 class="big">Často kladené <span class="hl">otázky</span></h2></div>
   <div class="faq">
     <details open><summary>Spĺňajú faktúry zákonné náležitosti?</summary><p>Áno. Faktúry obsahujú náležitosti podľa § 74 zákona o DPH: údaje dodávateľa a odberateľa, IČO, DIČ, IČ DPH, dátum dodania, sadzby DPH a pri neplatiteľoch aj text o tom, že dodávateľ nie je platiteľ DPH.</p></details>
     <details><summary>Čo presne robí AI?</summary><p>AI navrhuje faktúry z vety, číta bločky, píše upomienky a odhaduje dane. Každý návrh vidíte pred uložením alebo odoslaním.</p></details>
-    <details><summary>Ako funguje e‑faktúra od roku 2027?</summary><p>Platitelia DPH budú posielať faktúry v štruktúrovanom formáte cez sieť Peppol. Faktum už teraz exportuje faktúry vo formáte Peppol BIS Billing 3.0.</p></details>
+    <details><summary>Ako funguje e‑faktúra od roku 2027?</summary><p>Platitelia DPH budú posielať faktúry v štruktúrovanom formáte cez sieť Peppol. eFakturko už teraz exportuje faktúry vo formáte Peppol BIS Billing 3.0.</p></details>
     <details><summary>Môžem kedykoľvek zmeniť alebo zrušiť plán?</summary><p>Áno, jedným klikom v nastaveniach. Faktúry si môžete kedykoľvek exportovať.</p></details>
-    <details><summary>Je Faktum vhodný aj pre s.r.o.?</summary><p>Áno. Plán Business podporuje viac používateľov, viac firiem v jednom účte, prístup pre účtovníka a API.</p></details>
+    <details><summary>Je eFakturko vhodný aj pre s.r.o.?</summary><p>Áno. Plán Business podporuje viac používateľov, viac firiem v jednom účte, prístup pre účtovníka a API.</p></details>
   </div>
-</div></section>
+</div></section><!--/block:faq-->
 
 <div class="wrap"><div class="final"><h2>Prestaňte naháňať platby.<br><span class="hl">Začnite fakturovať.</span></h2><p style="font-size:18px;margin:18px auto 30px;max-width:520px;color:#DDD6FE">Prvá faktúra je hotová za pár minút.</p><a href="app.html#/onboarding" class="btn btn-lg" style="background:#fff;color:var(--violet)">Vytvoriť účet zadarmo →</a></div></div>
 </main>
 
 <footer><div class="wrap">
   <div class="foot">
-    <div><a href="./" class="logo" style="color:#fff"><span class="logo-mark" style="background:#fff;color:var(--violet)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h11v4h-7v3h6v4h-6v5H7z"/></svg></span><span>Faktum</span></a><p style="margin-top:12px;max-width:300px">Fakturácia s AI pre živnostníkov a firmy na Slovensku.</p></div>
-    <div><h4>Produkt</h4><nav><a href="#funkcie">Funkcie</a><a href="#moduly">Moduly</a><a href="#cennik">Cenník</a><a href="#efaktura">e‑Faktúra 2027</a></nav></div>
-    <div><h4>Spolupráca</h4><nav><a href="#partneri">Pre účtovníkov</a><a href="app.html#/demo">Demo</a><a href="app.html#/admin">Admin</a></nav></div>
-    <div><h4>Účet</h4><nav><a href="app.html#/onboarding">Registrácia</a><a href="app.html#/login">Prihlásenie</a><a href="#faq">Otázky</a></nav></div>
+    <div><a href="./" class="logo" style="color:#fff"><span class="logo-mark" style="background:#fff;color:var(--violet)"><svg viewBox="0 0 24 24"><text x="12" y="17.6" text-anchor="middle" font-size="18" font-weight="800" font-family="Plus Jakarta Sans,Arial,sans-serif" fill="currentColor">e</text></svg></span><span>eFakturko</span></a><p style="margin-top:12px;max-width:300px">Fakturácia s AI pre živnostníkov a firmy na Slovensku.</p></div>
+    <div><h4>Produkt</h4><nav><a href="funkcie.html">Funkcie</a><a href="cennik.html">Cenník</a><a href="e-faktura-2027.html">e‑Faktúra 2027</a><a href="app.html#/demo">Živé demo</a></nav></div>
+    <div><h4>Spoločnosť</h4><nav><a href="partneri.html">Pre účtovníkov</a><a href="kontakt.html">Kontakt</a><a href="app.html#/onboarding">Registrácia</a></nav></div>
+    <div><h4>Právne informácie</h4><nav><a href="obchodne-podmienky.html">Obchodné podmienky</a><a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a></nav></div>
   </div>
-  <div class="foot-b"><span>© <span id="yr"></span> Faktum</span><span>Všetky ceny sú bez DPH</span></div>
+  <div class="foot-b"><span>© <span id="yr"></span> eFakturko</span><span>Všetky ceny sú uvedené bez DPH</span></div>
 </div></footer>
-
-<script>
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  const target=new Date('2027-01-01T00:00:00+01:00').getTime();
-  function tick(){let d=Math.max(0,target-Date.now());const D=Math.floor(d/864e5);d-=D*864e5;const H=Math.floor(d/36e5);d-=H*36e5;const M=Math.floor(d/6e4);d-=M*6e4;const S=Math.floor(d/1e3);const p=n=>String(n).padStart(2,'0');
-    document.getElementById('cd-d').textContent=D;document.getElementById('cd-h').textContent=p(H);document.getElementById('cd-m').textContent=p(M);document.getElementById('cd-s').textContent=p(S)}
-  tick();setInterval(tick,1000);
-  document.querySelectorAll('.ptoggle button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.ptoggle button').forEach(x=>x.classList.toggle('on',x===b));const c=b.dataset.cycle;document.querySelectorAll('.plans [data-m]').forEach(el=>{el.textContent=el.dataset[c]})});
-  const pr=document.getElementById('pr');
-  function calc(){const n=+pr.value,rate=n>=25?.4:.3;document.getElementById('pc').textContent=n;document.getElementById('po').textContent=Math.round(n*14.9*12*rate).toLocaleString('sk-SK')+' €';document.getElementById('pt').textContent=(n>=25?'Úroveň Partner Gold · 40 %':'Úroveň Partner · 30 %')}
-  pr.oninput=calc;calc();
-  const MODS=[
-    ['Fakturácia','Faktúra za pár sekúnd a QR platba na každej','Vystavte faktúru z jednej vety alebo klasicky vo formulári. Číslovanie, variabilný symbol a DPH sa nastavia samé.',['Faktúra z vety s AI','PAY by square QR','PDF a e‑faktúra (UBL XML)','Platiteľ aj neplatiteľ DPH'],['Nová faktúra','Kaviareň Mlyn s.r.o.','1 549,80 €','Odoslaná']],
-    ['Upomienky','Klienti platia, vy nemusíte volať','Faktum pošle pripomienku v deň 1, 7 a 14 po splatnosti. Každý stupeň má iný tón, text napíše AI.',['3 stupne upomienok','Automatické odoslanie','História komunikácie pri faktúre'],['Upomienka 2/3','Horská chata Tatry','1 180,00 €','Odoslaná']],
-    ['Opakované faktúry','Paušály sa vystavia samé','Mesačné služby, prenájmy alebo správa webu. Nastavíte raz, Faktum vystaví a odošle faktúru každé obdobie.',['Mesačne, štvrťročne alebo ročne','Automatické odoslanie e‑mailom','Pozastavenie jedným klikom'],['Opakovaná faktúra','Pekáreň u Žofie','350,00 €','Každý mesiac']],
-    ['Daňový radar','Viete, koľko vám zostane','Priebežný odhad dane z príjmov a odvodov, porovnanie paušálnych a skutočných výdavkov a sledovanie hranice DPH.',['Odhad dane a odvodov','Paušál vs. skutočné výdavky','Daňový kalendár s termínmi'],['Odkladajte si mesačne','Ukážkový odhad','784 €','na daň a odvody']],
-    ['AI asistent','Opýtajte sa čokoľvek o fakturácii','Asistent odpovedá na otázky o DPH, paušáloch a e‑faktúre a z vašich dát pripraví postrehy.',['Otázky o daniach a DPH','Postrehy z vašich faktúr','Vystavenie faktúry v chate'],['AI postreh','Hranica DPH','84 %','obratu za 12 mesiacov']],
-  ];
-  const mod=document.getElementById('mod');
-  function showMod(i){const m=MODS[i];mod.innerHTML=`<div><div class="eyebrow">${m[0]}</div><h3>${m[1]}</h3><p>${m[2]}</p><ul>${m[3].map(x=>`<li>${x}</li>`).join('')}</ul><a href="app.html#/onboarding" class="btn btn-primary">Vyskúšať →</a></div>
-    <div class="mod-art"><div class="blob"></div><div class="card"><div style="font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">${m[4][0]}</div><b style="display:block;font-size:20px;color:var(--ink);margin:6px 0 16px">${m[4][1]}</b><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:10px"><b style="font-size:30px;color:var(--violet)">${m[4][2]}</b><span class="pill p-sent" style="font-size:12px;padding:4px 10px">${m[4][3]}</span></div></div></div>`;
-    document.querySelectorAll('.mods button').forEach((b,k)=>b.classList.toggle('on',k===i))}
-  document.querySelectorAll('.mods button').forEach((b,k)=>b.onclick=()=>showMod(k));showMod(0);
-</script>
+<script src="site.js" defer></script>
 </body>
 </html>
