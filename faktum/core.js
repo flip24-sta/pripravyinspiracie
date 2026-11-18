@@ -62,7 +62,7 @@ const store = {
 const blank = () => ({
   v: 1, user: null, company: null, clients: [], invoices: [], expenses: [], recurring: [], notifications: [],
   counters: {}, usage: { month: ym(), invoices: 0, ai: 0 },
-  settings: { dueDays: 14, note: '', accent: '#0C1A16', remind: { d0: true, d7: true, d14: true }, push: false, digest: true, autoDunning: true },
+  settings: { dueDays: 14, note: '', accent: '#2E1065', remind: { d0: true, d7: true, d14: true }, push: false, digest: true, autoDunning: true },
   billing: { cycle: 'm', trialEnds: null, paidUntil: null, history: [], coupon: null },
   analytics: { events: {}, firstSeen: Date.now(), lastSeen: Date.now(), sessions: 0 },
   checklist: {},
