@@ -35,8 +35,9 @@ const plural = (n, one, few, many) => `${n} ${n === 1 ? one : n >= 2 && n <= 4 ?
 /* ---------------- plans & paywall ---------------- */
 const PLANS = {
   free: { id: 'free', name: 'Štart', price: 0, yprice: 0, invoices: 5, ai: 3, features: [] },
-  pro: { id: 'pro', name: 'Pro', price: 14.9, yprice: 11.9, invoices: Infinity, ai: 100, features: ['recurring', 'dunning', 'ubl', 'tax', 'nobrand'] },
-  business: { id: 'business', name: 'Business', price: 29.9, yprice: 23.9, invoices: Infinity, ai: Infinity, features: ['recurring', 'dunning', 'ubl', 'tax', 'nobrand', 'forecast', 'team', 'api'] },
+  pro: { id: 'pro', name: 'Pro', price: 14.7, yprice: 11.8, invoices: Infinity, ai: 100, features: ['recurring', 'dunning', 'ubl', 'tax', 'nobrand'] },
+  business: { id: 'business', name: 'Business', price: 47.7, yprice: 38.2, invoices: Infinity, ai: Infinity, features: ['recurring', 'dunning', 'ubl', 'tax', 'nobrand', 'forecast', 'team', 'api'] },
+  max: { id: 'max', name: 'Max', price: 104.7, yprice: 83.8, invoices: Infinity, ai: Infinity, features: ['recurring', 'dunning', 'ubl', 'tax', 'nobrand', 'forecast', 'team', 'api'] },
 };
 const FEATURES = {
   recurring: { name: 'Opakované faktúry', plan: 'pro', pitch: 'Paušály a mesačné služby sa vystavia a odošlú samé.' },

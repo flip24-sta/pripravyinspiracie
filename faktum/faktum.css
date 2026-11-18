@@ -108,6 +108,7 @@ img,svg{display:block;max-width:100%}
 .tag-plan.free{background:var(--paper-2);color:var(--muted)}
 .tag-plan.pro{background:var(--violet);color:#fff}
 .tag-plan.business{background:var(--ink);color:#fff}
+.tag-plan.max{background:linear-gradient(135deg,#C026D3,#7C3AED);color:#fff}
 
 /* ---------- Cards ---------- */
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-1)}

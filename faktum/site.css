@@ -278,3 +278,23 @@ body{background:#fff;color:var(--text)}
 
 .page-cennik .price-bg{padding-top:30px}
 .page-cennik .price-bg .sec-h .kick,.page-cennik .price-bg .sec-h h2{display:none}
+
+.plans.four{grid-template-columns:repeat(4,1fr);max-width:1240px;gap:16px}
+.plans.four .plan{padding:26px 22px}
+.plans.four .price{font-size:42px}
+.plans.four .plan h3{font-size:28px}
+.plans.four .plan ul{font-size:14px}
+@media (max-width:1180px){.plans.four{grid-template-columns:1fr 1fr}.plans.four .plan.hot{transform:none}}
+@media (max-width:640px){.plans.four{grid-template-columns:1fr}}
+.addons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.addon{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.addon h3{font-size:19px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.addon .ap{font-size:26px;font-weight:700;color:var(--violet)}
+.addon .ap small{font-size:14px;font-weight:500;color:var(--muted)}
+.addon p{font-size:14.5px;color:var(--text);line-height:1.55}
+.addon ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--text);margin-top:4px}
+.addon li:before{content:"✓ ";color:var(--violet);font-weight:800}
+.soon{font-size:11.5px;font-weight:700;background:#FEF3C7;color:#92400E;border-radius:99px;padding:3px 9px;white-space:nowrap}
+.avail{font-size:11.5px;font-weight:700;background:var(--mint-bg);color:#15803D;border-radius:99px;padding:3px 9px;white-space:nowrap}
+@media (max-width:1060px){.addons{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.addons{grid-template-columns:1fr}}

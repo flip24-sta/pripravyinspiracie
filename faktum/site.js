@@ -23,10 +23,10 @@
     const c = b.dataset.cycle; $$('.plans [data-m]').forEach((el) => { el.textContent = el.dataset[c]; });
   }));
 
-  // partner commission calculator (Pro 14.90 €/month; 30 %, 40 % from 25 clients)
+  // partner commission calculator (Pro 14.70 €/month; 30 %, 40 % from 25 clients)
   const pr = $('#pr');
   if (pr) {
-    const calc = () => { const n = +pr.value, rate = n >= 25 ? 0.4 : 0.3; $('#pc').textContent = n; $('#po').textContent = Math.round(n * 14.9 * 12 * rate).toLocaleString('sk-SK') + ' €'; $('#pt').textContent = (n >= 25 ? 'Úroveň Partner Gold · 40 %' : 'Úroveň Partner · 30 %'); };
+    const calc = () => { const n = +pr.value, rate = n >= 25 ? 0.4 : 0.3; $('#pc').textContent = n; $('#po').textContent = Math.round(n * 14.7 * 12 * rate).toLocaleString('sk-SK') + ' €'; $('#pt').textContent = (n >= 25 ? 'Úroveň Partner Gold · 40 %' : 'Úroveň Partner · 30 %'); };
     pr.oninput = calc; calc();
   }
 
