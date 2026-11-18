@@ -40,7 +40,7 @@ const PLANS = {
 };
 const FEATURES = {
   recurring: { name: 'Opakované faktúry', plan: 'pro', pitch: 'Paušály a mesačné služby sa vystavia a odošlú samé.' },
-  dunning: { name: 'Automatické upomienky', plan: 'pro', pitch: 'Klienti platia v priemere o 9 dní skôr.' },
+  dunning: { name: 'Automatické upomienky', plan: 'pro', pitch: 'Upomienky odídu samé v deň 1, 7 a 14 po splatnosti.' },
   ubl: { name: 'e‑Faktúra (Peppol UBL)', plan: 'pro', pitch: 'Od 1. 1. 2027 povinná pre platiteľov DPH.' },
   tax: { name: 'Daňový radar', plan: 'pro', pitch: 'Viete, koľko si odkladať na daň a odvody — každý mesiac.' },
   nobrand: { name: 'Faktúry bez loga Faktum', plan: 'pro', pitch: 'Vaša značka, nie naša.' },
@@ -217,7 +217,7 @@ const LOCAL = {
   },
   insights({ stats }) {
     const out = [];
-    if (stats.overdueSum > 0) out.push({ title: `${eur(stats.overdueSum, 0)} po splatnosti`, body: `${plural(stats.overdueCount, 'faktúra čaká', 'faktúry čakajú', 'faktúr čaká')} na úhradu. Zapnite automatické upomienky — v priemere skracujú omeškanie o 9 dní.`, kind: 'cash' });
+    if (stats.overdueSum > 0) out.push({ title: `${eur(stats.overdueSum, 0)} po splatnosti`, body: `${plural(stats.overdueCount, 'faktúra čaká', 'faktúry čakajú', 'faktúr čaká')} na úhradu. Zapnite automatické upomienky, aby ste ich nemuseli naháňať ručne.`, kind: 'cash' });
     if (stats.topClientShare > 0.4) out.push({ title: `Závislosť na jednom klientovi`, body: `${stats.topClient} tvorí ${Math.round(stats.topClientShare * 100)} % vašich tržieb. Pri strate klienta by príjem klesol na ${eur(stats.ytd * (1 - stats.topClientShare), 0)} ročne.`, kind: 'risk' });
     if (!stats.vatPayer && stats.vatThresholdPct > 0.5) out.push({ title: `${Math.round(stats.vatThresholdPct * 100)} % hranice pre DPH`, body: `Obrat za 12 mesiacov je ${eur(stats.turnover12, 0)} z 50 000 €. Pri súčasnom tempe ${stats.vatEta ? 'hranicu prekročíte okolo ' + stats.vatEta : 'sa k hranici blížite'}.`, kind: 'tax' });
     if (stats.avgPayDays > 3) out.push({ title: `Klienti platia v priemere o ${Math.round(stats.avgPayDays)} dní neskôr`, body: `Skráťte splatnosť na 7 dní pre nových klientov alebo pýtajte zálohu 30 % pri väčších zákazkách.`, kind: 'cash' });

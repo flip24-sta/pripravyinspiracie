@@ -171,8 +171,6 @@
   .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:30px}
   .foot nav{display:flex;gap:20px;flex-wrap:wrap}
   .foot a:hover{color:var(--ink)}
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
-  .reveal.in{opacity:1;transform:none}
   @media (max-width:980px){
     .nav-links{display:none}
     .stage-in,.band,.partner{grid-template-columns:1fr}
@@ -227,7 +225,7 @@
       <a href="app.html#/onboarding" class="btn btn-lime btn-lg">Vystaviť prvú faktúru zadarmo</a>
       <a href="app.html#/demo" class="btn btn-ghost btn-lg">Pozrieť živé demo</a>
     </div>
-    <div class="hero-note"><span>Bez platobnej karty</span><span>PAY by square QR</span><span>Údaje v EÚ</span><span>Zrušíte kedykoľvek</span></div>
+    <div class="hero-note"><span>Bez platobnej karty</span><span>PAY by square QR</span><span>Bez inštalácie</span><span>Zrušíte kedykoľvek</span></div>
 
     <div class="stage">
       <div class="stage-in">
@@ -258,9 +256,9 @@
 
     <div class="stats">
       <div><b>10 s</b><span>priemerný čas vystavenia faktúry</span></div>
-      <div><b>−63 %</b><span>menej dní po splatnosti s auto‑upomienkami</span></div>
+      <div><b>3 kroky</b><span>automatických upomienok po splatnosti</span></div>
       <div><b>2027</b><span>Peppol e‑faktúra už v cene</span></div>
-      <div><b>4,9★</b><span>hodnotenie od živnostníkov</span></div>
+      <div><b>0 €</b><span>na začiatok, bez platobnej karty</span></div>
     </div>
   </div>
 </div>
@@ -438,13 +436,14 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- HOW IT WORKS -->
 <section style="padding-top:0">
   <div class="wrap">
+    <div class="sec-h reveal"><div class="kicker">Ako to funguje</div><h2 class="big">Od registrácie po platbu <em>za pár minút.</em></h2></div>
     <div class="quotes">
-      <div class="quote reveal"><p>„Faktúry som robila v nedeľu večer. Teraz ich nadiktujem v električke.“</p><div class="who"><span class="av" style="background:#FFD7C9">LK</span><div><b>Lucia K.</b><div class="muted">grafička, SZČO · Bratislava</div></div></div></div>
-      <div class="quote reveal"><p>„Upomienky odchádzajú samé a klienti platia o týždeň skôr. Konečne nemusím byť ten zlý.“</p><div class="who"><span class="av" style="background:var(--lime)">MH</span><div><b>Martin H.</b><div class="muted">IT konzultant · Žilina</div></div></div></div>
-      <div class="quote reveal"><p>„Daňový radar mi v júni povedal, koľko si mám odkladať. Prvé daňové priznanie bez paniky.“</p><div class="who"><span class="av" style="background:#D7E4FF">ZB</span><div><b>Zuzana B.</b><div class="muted">kaderníčka · Košice</div></div></div></div>
+      <div class="quote reveal"><span class="chip plain" style="background:var(--lime);color:var(--ink)">Krok 1</span><p>Zadáte IČO a IBAN. Údaje firmy doplníme z registra.</p><div class="who muted">→ účet pripravený za 2 minúty</div></div>
+      <div class="quote reveal"><span class="chip plain" style="background:var(--lime);color:var(--ink)">Krok 2</span><p>Napíšete jednu vetu. AI pripraví faktúru s QR platbou.</p><div class="who muted">→ skontrolujete a odošlete</div></div>
+      <div class="quote reveal"><span class="chip plain" style="background:var(--lime);color:var(--ink)">Krok 3</span><p>Faktum sleduje splatnosť a slušne pripomenie, keď klient mešká.</p><div class="who muted">→ vy sa venujete práci</div></div>
     </div>
   </div>
 </section>
@@ -455,7 +454,7 @@
     <div class="sec-h reveal"><div class="kicker">Otázky</div><h2 class="big">Časté otázky</h2></div>
     <div class="faq">
       <details><summary>Spĺňajú faktúry zákonné náležitosti?</summary><p>Áno. Faktúry obsahujú všetky náležitosti podľa § 74 zákona o DPH aj pre neplatiteľov DPH — IČO, DIČ, IČ DPH, dátum dodania, sadzby DPH, a pri neplatiteľoch aj správny text o oslobodení.</p></details>
-      <details><summary>Čo presne robí AI a kam idú moje dáta?</summary><p>AI navrhuje faktúry, číta bločky, píše upomienky a odhaduje dane. Každý návrh vidíte pred uložením. Dáta sa nepoužívajú na trénovanie modelov a sú spracované v EÚ.</p></details>
+      <details><summary>Čo presne robí AI a kam idú moje dáta?</summary><p>AI navrhuje faktúry, číta bločky, píše upomienky a odhaduje dane. Každý návrh vidíte pred uložením. Údaje odoslané AI sa nepoužívajú na trénovanie modelov.</p></details>
       <details><summary>Ako funguje e‑faktúra od roku 2027?</summary><p>Platitelia DPH budú posielať faktúry v štruktúrovanom formáte cez sieť Peppol. Faktum už dnes exportuje UBL XML podľa Peppol BIS Billing 3.0 a pripájanie na prístupový bod pridáme pred spustením povinnosti.</p></details>
       <details><summary>Môžem kedykoľvek prejsť na vyšší alebo nižší plán?</summary><p>Áno, jedným klikom v nastaveniach. Pri prechode na vyšší plán sa doplatí len pomerná časť, pri zrušení vám zostane prístup do konca obdobia a faktúry si môžete exportovať.</p></details>
       <details><summary>Je Faktum vhodný aj pre s.r.o.?</summary><p>Áno — plán Business podporuje viac používateľov, viac firiem v jednom účte, prístup pre účtovníka a API.</p></details>
