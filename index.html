@@ -247,6 +247,7 @@
     display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
     gap:26px;
   }
+  #newGrid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;}
   .product-card{
     background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;
     display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;
@@ -274,6 +275,17 @@
     font-size:0.8rem;cursor:pointer;transition:background .2s;font-family:inherit;
   }
   .buy-btn:hover{background:var(--rose-hover);}
+  @media (max-width:640px){
+    .shop-grid,#newGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+    .product-card{border-radius:12px;}
+    .product-card .badge{top:5px;left:5px;font-size:0.55rem;padding:2px 6px;}
+    .product-card .count{bottom:4px;right:5px;font-size:0.55rem;padding:1px 5px;}
+    .product-card .info{padding:8px 7px 9px;gap:6px;}
+    .product-card h4{font-size:0.7rem;line-height:1.3;min-height:3.9em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .product-card .price-row{flex-direction:column;align-items:stretch;gap:6px;padding-top:0;}
+    .product-card .price{font-size:0.8rem;}
+    .product-card .buy-btn{padding:6px 0;font-size:0.7rem;}
+  }
 
   .more-note{
     text-align:center;color:var(--muted);font-size:0.85rem;margin-top:34px;
@@ -650,7 +662,6 @@
       <a href="#o-nas">O nás</a>
       <a href="#produkty">Produkty</a>
       <a href="#produkty" data-cat-link="Týždenné projekty">Týždenné projekty</a>
-    <a href="#akcia">Akciové balíčky</a>
       <a href="#recenzie">Recenzie</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
@@ -682,7 +693,7 @@
     <a href="#o-nas">O nás</a>
     <a href="#produkty">Produkty</a>
     <a href="#produkty" data-cat-link="Týždenné projekty">Týždenné projekty</a>
-    <a href="#akcia">Akciové balíčky</a>
+    <a href="#novinky">Najnovšie</a>
     <a href="#recenzie">Recenzie</a>
     <a href="#faq">FAQ</a>
     <a href="#kontakt">Kontakt</a>
@@ -711,126 +722,6 @@
       <div class="dot dot-2"></div>
       <div class="arch"><img src="assets/Logo.jpg" alt="Prípravy Inšpirácie s deťmi"></div>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Jednoduchý nákup</span>
-      <h2>Ako to funguje?</h2>
-      <p>Od výberu materiálu po hotové PDF v triede vás delia len tri kroky.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Vyberte si materiál</h3>
-        <p>Prezrite si produkty alebo výhodné balíky a nájdite presne to, čo vaša trieda potrebuje.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Napíšte nám</h3>
-        <p>Cez tlačidlo „Kúpiť" alebo „Mám záujem" nám pošlete objednávku e-mailom.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Materiál príde na e-mail</h3>
-        <p>Po platbe vám PDF pošleme rovno do schránky — stačí stiahnuť a vytlačiť.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="balicky">
-  <div class="wrap">
-    <div class="membership-intro">
-      <span class="membership-badge">Balíky pre MŠ</span>
-      <h2>Výhodné balíky</h2>
-      <p>Namiesto kupovania materiálov po jednom si vyberte celý balík — vždy s veľkou úsporou oproti bežnej cene.</p>
-    </div>
-    <div class="tier-rows">
-      <div class="tier-row">
-        <img class="tier-illustration" data-package="small" src="assets/balicky/small.jpg" alt="SMALL balík pre materské školy">
-        <div class="tier-content">
-          <div class="tier-name">Small</div>
-          <div class="tier-price"><span class="price-strike">111 €</span> 40 € <span>/ balík</span></div>
-          <p class="tier-desc">2 793 strán materiálov · ušetríte 71 €</p>
-          <ul class="tier-features">
-            <li>11 megasúborov</li>
-            <li>2 týždenné projekty</li>
-            <li>5 rozprávkových E-bookov</li>
-            <li>Pracovné listy na rozvoj slovnej zásoby</li>
-            <li>Plagáty a pravidlá do škôlky</li>
-          </ul>
-          <div class="tier-btn-row">
-            <button type="button" class="btn btn-primary tier-buy" data-package="small" data-cart-name="Small balík" data-cart-price="40,00 €" data-cart-img="assets/balicky/small.jpg">Kúpiť</button>
-            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" data-package="small" class="btn btn-ghost tier-cta">Mám záujem</a>
-          </div>
-        </div>
-      </div>
-      <div class="tier-row">
-        <img class="tier-illustration" data-package="medium" src="assets/balicky/medium.jpg" alt="MEDIUM balík pre materské školy">
-        <div class="tier-content">
-          <div class="tier-name">Medium</div>
-          <div class="tier-price"><span class="price-strike">211 €</span> 69 € <span>/ balík</span></div>
-          <p class="tier-desc">4 826 strán materiálov · ušetríte 142 €</p>
-          <ul class="tier-features">
-            <li>19 megasúborov</li>
-            <li>4 týždenné projekty</li>
-            <li>8 rozprávkových E-bookov</li>
-            <li>2 balíky ranných kruhov s prílohami</li>
-            <li>Diplomy na koniec školského roka</li>
-            <li>Pravidlá a bezpečnosť v MŠ</li>
-          </ul>
-          <div class="tier-btn-row">
-            <button type="button" class="btn btn-primary tier-buy" data-package="medium" data-cart-name="Medium balík" data-cart-price="69,00 €" data-cart-img="assets/balicky/medium.jpg">Kúpiť</button>
-            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" data-package="medium" class="btn btn-ghost tier-cta">Mám záujem</a>
-          </div>
-        </div>
-      </div>
-      <div class="tier-row featured">
-        <span class="tier-flag">Odporúčané</span>
-        <img class="tier-illustration" data-package="large" src="assets/balicky/large.jpg" alt="LARGE balík pre materské školy">
-        <div class="tier-content">
-          <div class="tier-name">Large</div>
-          <div class="tier-price"><span class="price-strike">350 €</span> 119 € <span>/ balík</span></div>
-          <p class="tier-desc">7 688 strán materiálov · ušetríte 231 €</p>
-          <ul class="tier-features">
-            <li>28 megasúborov</li>
-            <li>6 týždenných projektov</li>
-            <li>12 rozprávkových E-bookov</li>
-            <li>4 balíky ranných kruhov</li>
-            <li>150 hotových písomných príprav</li>
-            <li>Vianočné besiedky</li>
-          </ul>
-          <div class="tier-btn-row">
-            <button type="button" class="btn btn-primary tier-buy" data-package="large" data-cart-name="Large balík" data-cart-price="119,00 €" data-cart-img="assets/balicky/large.jpg">Kúpiť</button>
-            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" data-package="large" class="btn btn-ghost tier-cta">Mám záujem</a>
-          </div>
-        </div>
-      </div>
-      <div class="tier-row">
-        <img class="tier-illustration" data-package="premium" src="assets/balicky/premium.jpg" alt="PREMIUM balík pre materské školy">
-        <div class="tier-content">
-          <div class="tier-name">Premium</div>
-          <div class="tier-price"><span class="price-strike">460 €</span> 149 € <span>/ balík</span></div>
-          <p class="tier-desc">10 159 strán materiálov · ušetríte 311 €</p>
-          <ul class="tier-features">
-            <li>Všetkých 35 megasúborov</li>
-            <li>Všetkých 7 týždenných projektov</li>
-            <li>Všetkých 16 rozprávkových E-bookov</li>
-            <li>Všetky 4 balíky ranných kruhov</li>
-            <li>Kompletný balík písomných príprav</li>
-            <li>Vianočné besiedky + 20 diplomov</li>
-          </ul>
-          <div class="tier-btn-row">
-            <button type="button" class="btn btn-primary tier-buy" data-package="premium" data-cart-name="Premium balík" data-cart-price="149,00 €" data-cart-img="assets/balicky/premium.jpg">Kúpiť</button>
-            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" data-package="premium" class="btn btn-ghost tier-cta">Mám záujem</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="membership-note">Napíšte nám cez tlačidlo „Mám záujem" a pošleme vám presný zoznam materiálov v balíku, alebo si ho rovno pridajte do košíka tlačidlom „Kúpiť".</p>
   </div>
 </section>
 
@@ -865,6 +756,17 @@
   </div>
 </section>
 
+<section class="section" id="novinky">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Novinky</span>
+      <h2>Najnovšie</h2>
+      <p>Najnovšie materiály v našom e-shope.</p>
+    </div>
+    <div class="shop-grid" id="newGrid"></div>
+  </div>
+</section>
+
 <section class="section" id="produkty">
   <div class="wrap">
     <div class="section-head">
@@ -886,30 +788,29 @@
   </div>
 </section>
 
-<section class="section" id="zadarmo">
+<section class="section">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Bez platby</span>
-      <h2>Materiály zadarmo</h2>
-      <p>Pripravujeme pre vás bezplatné ukážkové materiály na vyskúšanie. Táto sekcia sa čoskoro naplní.</p>
+      <span class="eyebrow">Jednoduchý nákup</span>
+      <h2>Ako to funguje?</h2>
+      <p>Od výberu materiálu po hotové PDF v triede vás delia len tri kroky.</p>
     </div>
-    <div class="reviews-empty">
-      <p>Zatiaľ tu nemáme žiadne materiály zadarmo — pripravujeme ich pre vás. 🎁</p>
-      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Materi%C3%A1ly%20zadarmo">Dajte mi vedieť, keď budú dostupné</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="akcia">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Zľavy</span>
-      <h2>Akciové balíčky</h2>
-      <p>Pripravujeme pre vás zvýhodnené akciové ponuky materiálov. Táto sekcia sa čoskoro naplní.</p>
-    </div>
-    <div class="reviews-empty">
-      <p>Zatiaľ tu nemáme žiadne akciové balíčky — pripravujeme ich pre vás. 🏷️</p>
-      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Akciov%C3%A9%20bal%C3%AD%C4%8Dky">Dajte mi vedieť, keď budú dostupné</a>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Vyberte si materiál</h3>
+        <p>Prezrite si produkty alebo výhodné balíky a nájdite presne to, čo vaša trieda potrebuje.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Napíšte nám</h3>
+        <p>Cez tlačidlo „Kúpiť" alebo „Mám záujem" nám pošlete objednávku e-mailom.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Materiál príde na e-mail</h3>
+        <p>Po platbe vám PDF pošleme rovno do schránky — stačí stiahnuť a vytlačiť.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1052,6 +953,113 @@
         <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="section" id="akcia">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Zľavy</span>
+      <h2>Akciové balíčky</h2>
+      <p>Pripravujeme pre vás zvýhodnené akciové ponuky materiálov. Táto sekcia sa čoskoro naplní.</p>
+    </div>
+    <div class="reviews-empty">
+      <p>Zatiaľ tu nemáme žiadne akciové balíčky — pripravujeme ich pre vás. 🏷️</p>
+      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Akciov%C3%A9%20bal%C3%AD%C4%8Dky">Dajte mi vedieť, keď budú dostupné</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="balicky">
+  <div class="wrap">
+    <div class="membership-intro">
+      <span class="membership-badge">Balíky pre MŠ</span>
+      <h2>Výhodné balíky</h2>
+      <p>Namiesto kupovania materiálov po jednom si vyberte celý balík — vždy s veľkou úsporou oproti bežnej cene.</p>
+    </div>
+    <div class="tier-rows">
+      <div class="tier-row">
+        <img class="tier-illustration" data-package="small" src="assets/balicky/small.jpg" alt="SMALL balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Small</div>
+          <div class="tier-price"><span class="price-strike">111 €</span> 40 € <span>/ balík</span></div>
+          <p class="tier-desc">2 793 strán materiálov · ušetríte 71 €</p>
+          <ul class="tier-features">
+            <li>11 megasúborov</li>
+            <li>2 týždenné projekty</li>
+            <li>5 rozprávkových E-bookov</li>
+            <li>Pracovné listy na rozvoj slovnej zásoby</li>
+            <li>Plagáty a pravidlá do škôlky</li>
+          </ul>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="small" data-cart-name="Small balík" data-cart-price="40,00 €" data-cart-img="assets/balicky/small.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Small" data-package="small" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
+        </div>
+      </div>
+      <div class="tier-row">
+        <img class="tier-illustration" data-package="medium" src="assets/balicky/medium.jpg" alt="MEDIUM balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Medium</div>
+          <div class="tier-price"><span class="price-strike">211 €</span> 69 € <span>/ balík</span></div>
+          <p class="tier-desc">4 826 strán materiálov · ušetríte 142 €</p>
+          <ul class="tier-features">
+            <li>19 megasúborov</li>
+            <li>4 týždenné projekty</li>
+            <li>8 rozprávkových E-bookov</li>
+            <li>2 balíky ranných kruhov s prílohami</li>
+            <li>Diplomy na koniec školského roka</li>
+            <li>Pravidlá a bezpečnosť v MŠ</li>
+          </ul>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="medium" data-cart-name="Medium balík" data-cart-price="69,00 €" data-cart-img="assets/balicky/medium.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Medium" data-package="medium" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
+        </div>
+      </div>
+      <div class="tier-row featured">
+        <span class="tier-flag">Odporúčané</span>
+        <img class="tier-illustration" data-package="large" src="assets/balicky/large.jpg" alt="LARGE balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Large</div>
+          <div class="tier-price"><span class="price-strike">350 €</span> 119 € <span>/ balík</span></div>
+          <p class="tier-desc">7 688 strán materiálov · ušetríte 231 €</p>
+          <ul class="tier-features">
+            <li>28 megasúborov</li>
+            <li>6 týždenných projektov</li>
+            <li>12 rozprávkových E-bookov</li>
+            <li>4 balíky ranných kruhov</li>
+            <li>150 hotových písomných príprav</li>
+            <li>Vianočné besiedky</li>
+          </ul>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="large" data-cart-name="Large balík" data-cart-price="119,00 €" data-cart-img="assets/balicky/large.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Large" data-package="large" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
+        </div>
+      </div>
+      <div class="tier-row">
+        <img class="tier-illustration" data-package="premium" src="assets/balicky/premium.jpg" alt="PREMIUM balík pre materské školy">
+        <div class="tier-content">
+          <div class="tier-name">Premium</div>
+          <div class="tier-price"><span class="price-strike">460 €</span> 149 € <span>/ balík</span></div>
+          <p class="tier-desc">10 159 strán materiálov · ušetríte 311 €</p>
+          <ul class="tier-features">
+            <li>Všetkých 35 megasúborov</li>
+            <li>Všetkých 7 týždenných projektov</li>
+            <li>Všetkých 16 rozprávkových E-bookov</li>
+            <li>Všetky 4 balíky ranných kruhov</li>
+            <li>Kompletný balík písomných príprav</li>
+            <li>Vianočné besiedky + 20 diplomov</li>
+          </ul>
+          <div class="tier-btn-row">
+            <button type="button" class="btn btn-primary tier-buy" data-package="premium" data-cart-name="Premium balík" data-cart-price="149,00 €" data-cart-img="assets/balicky/premium.jpg">Kúpiť</button>
+            <a href="mailto:filiphacko2@gmail.com?subject=Z%C3%A1ujem%20o%20bal%C3%ADk%20-%20Premium" data-package="premium" class="btn btn-ghost tier-cta">Mám záujem</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="membership-note">Napíšte nám cez tlačidlo „Mám záujem" a pošleme vám presný zoznam materiálov v balíku, alebo si ho rovno pridajte do košíka tlačidlom „Kúpiť".</p>
   </div>
 </section>
 
@@ -1845,6 +1853,41 @@ Megasúbor JESEŇ ponúka množstvo pripravených aktivít, prostredníctvom kto
 ✨ Súbor je vhodný na jesenné tematické týždne, ranné kruhy, riadené činnosti, centrá aktivít aj samostatnú prácu detí.
 🟦 K megasúboru je možné dokúpiť aj 8 podrobných písomných príprav.
 ❤️ 102 strán jesennej inšpirácie – všetko pripravené na tlač a okamžité použitie v materskej škole.`},
+    {name:"Vianočné diplomy", badge:null, images:["vianocne-diplomy/01.webp","vianocne-diplomy/02.webp","vianocne-diplomy/03.webp","vianocne-diplomy/04.webp","vianocne-diplomy/05.webp"], alts:["Vianočný diplom pre dievčatko s najžiarivejším úsmevom","Vianočné diplomy – malá tanečná hviezdička, malý vedec, najväčší snílek, najusilovnejšia včielka","Vianočný diplom pre najväčšieho nezbedníka s dobrým srdiečkom","Vianočné diplomy – najmilší mojkáčik, dieťa s láskavým srdiečkom, dieťa s bystrou hlavičkou, dieťa, ktoré rozdáva dobrú náladu","Vianočné diplomy – najzvedavejší malý objaviteľ, malá princezná, malá milovníčka rozprávok, najšikovnejší pomocník pani učiteľky"], category:"Diplomy", price:"4,50 €", desc:"Vianočné diplomy pre deti s osobným ocenením a vianočným prianím – pre každé dieťa v triede.", fbText:`🎄❤️ Urobte radosť detičkám milým vianočným diplomom, ktorý ich dokonale vystihuje! 🎁✨
+
+🎅🏻 Diplom darovaný z lásky od pani učiteľky môže byť krásnym predvianočným prekvapením, ktoré detičkám vyčarí úsmev na tvári a zostane im ako milá spomienka na chvíle strávené v materskej škole. ❤️
+
+💬 Do komentára napíšte „DIPLOM”
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+🎁 SÚBOR OBSAHUJE 38 VIANOČNÝCH DIPLOMOV!
+🎄 Diplomy sú dostupné vo verzii pre dievčatko aj chlapčeka.
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+🌟 AKÉ OCENENIA V SÚBORE NÁJDETE?
+
+❤️ Dieťatku s láskavým srdiečkom
+😊 Dieťatku s najžiarivejším úsmevom
+🔎 Najzvedavejšiemu objaviteľovi
+🧠 Dieťatku s bystrou hlavičkou
+🔬 Malému vedcovi
+💃 Tanečnej hviezdičke
+🎤 Malému spevákovi
+🎨 Malému umelcovi
+😂 Triednemu zabávačovi
+😇 Nezbedníkovi s dobrým srdiečkom
+✨ Najväčšiemu snílkovi
+💡 Malému vynálezcovi
+🧸 Najmilšiemu mojkáčikovi
+🏰 Malému staviteľovi
+👑 Malej princeznej
+😜 Malému šibalovi
+🐝 Najusilovnejšej včeličke
+🌈 Dieťatku, ktoré rozdáva dobrú náladu
+🤝 Najšikovnejšiemu pomocníkovi pani učiteľky
+📚 Milovníkovi rozprávok`},
     {name:"Diplom – Koniec školského roka", badge:null, images:[184], category:"Diplomy", desc:"Diplom pre deti na záver školského roka."},
     {name:"Deň detí – Deti sveta", badge:"157 strán", images:["new/158","new/159","new/160","new/161","new/162"], category:"Megasúbory", desc:"Oslava Dňa detí a spoznávanie detí z celého sveta.", fbText:`🎈🌍 DEŇ DETÍ – DETI SVETA – 156 strán 🎈🌍
 
@@ -2427,7 +2470,78 @@ Edukačná E-kniha pre pani učiteľky aj pre rodičov 🌟
 13. Staráme sa o vtáčiky
 14. Tučniak, ktorý sa nebál zimy
 15. Medvedí zimný spánok`},
-    {name:"Zimný balík – Písomné prípravy", badge:"60 KS", images:[65], category:"Písomné prípravy", desc:"Písomné prípravy na zimné mesiace december až február."},
+    {name:"Zimný balík – Písomné prípravy", badge:"60 KS", images:["zimny-balik/01.webp","zimny-balik/02.jpg","zimny-balik/03.jpg","zimny-balik/04.webp"], alts:["Zimný balík – 60 písomných príprav pre MŠ","Obrázkový megasúbor Zima – zdarma k balíku","30 zimných pohybových hier – zdarma k balíku","Pán Perníček a vianočné pečenie – zdarma k balíku"], category:"Písomné prípravy", price:"14,00 €", desc:"Písomné prípravy na zimné mesiace december až február.", fbText:`🎁 K balíku až 3x megasúbor zdarma ⬇️
+❄️ ZIMNÝ BALÍK – 60 PÍSOMNÝCH PRÍPRAV
+
+Kompletné zimné aktivity pre MŠ – HAČPV, ZC, VA, PV
+
+🎁 K balíčku dostanete ZDARMA:
+
+* obrazkovy megasubor ZIMA (80str) ❄️
+
+* 30 zimných ilustrovaných pohybových hier 🩵
+
+* Pán perníček a vianočné pečenie (106str) 🎄🎅🏻
+
+❓Hľadáš hotové, kvalitné a hravé zimné prípravy, ktoré ti ušetria čas a pritom nadchnú deti?
+
+🩵Tento ZIMNÝ BALÍK je ideálny pre pani učiteľky, ktoré chcú mať všetko prehľadne spracované, originálne a okamžite použiteľné.
+
+⸻
+
+❄️ Čo zimný balík obsahuje?
+
+Až 60 písomných príprav na celé zimné obdobie – od decembra až po fašiangy.
+
+Každá príprava obsahuje jasné ciele, metodické kroky, hry, rozhovory, aktivity, pomôcky aj priame formulácie učiteľa.
+
+⸻
+
+🎨 Témy zahrnuté v balíku:
+
+⭐ Vianoce
+
+• tradičné i moderné aktivity
+
+• tvorivé dielne, zimné rituály, príbehy a hry
+
+• atmosféra radosti, priateľstva a spolupatričnosti
+
+❄️ Zima
+
+• zimná príroda, obliekanie, zmeny počasia
+
+• rozvoj poznania aj pohybu hravou formou
+
+⛸ Zimné športy
+
+• sánkovanie, lyžovanie, korčuľovanie
+
+• pohybové hry + zábavné zimné výzvy
+
+🧊 Sneh a ľad
+
+• jednoduché experimenty
+
+• zábavné objavovanie neživej prírody
+
+🦌 Zvieratká v zime
+
+• ako prežívajú zimu, stopy v snehu, starostlivosť o zvieratá
+
+• hravé úlohy, príbehy a polhodinové aktivity
+
+🎭 Fašiangy
+
+• masky, tradície, sprievody, rytmické hry
+
+• veselé komunitné aktivity pre deti
+
+📖 Rozprávky
+
+• tematické zimné príbehy
+
+• k nim otázky, rozhovory, dramatizácie a mini hry`},
     {name:"30 zimných pohybových hier", badge:"30 hier", images:["new/90","new/91"], category:"Pohybové hry", desc:"30 pohybových hier na zimné obdobie do interiéru aj exteriéru.", fbText:`💙❄️ ZIMNÉ POHYBOVÉ HRY PRE MŠ A ŠKD ⛄🔥
 
 ✨ 30 aktivít • 51 strán ✨
@@ -2848,6 +2962,8 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
 
   // Produkty zobrazené ako prvé, v tomto poradí. Ostatné nasledujú v poradí z poľa products.
   const FEATURED_ORDER = [
+    "Zimný balík – Písomné prípravy",
+    "Vianočné diplomy",
     "Čarovné zimné okná – 10 zimných a vianočných motívov na okná",
     "Časové vzťahy – Týždenný projekt",
     "Telo, zmysly a zdravie – Týždenný projekt",
@@ -2869,6 +2985,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
   products.sort((a, b) => featuredRank(a) - featuredRank(b));
 
   const shopGrid = document.getElementById('shopGrid');
+  const newGrid = document.getElementById('newGrid');
   products.forEach((p, idx) => {
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -2892,6 +3009,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
       </div>
     `;
     shopGrid.appendChild(card);
+    if (idx < 5) newGrid.appendChild(card.cloneNode(true));
   });
 
   const filterBar = document.getElementById('filterBar');
@@ -3013,12 +3131,12 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     renderProductModal();
   }
 
-  shopGrid.addEventListener('click', e => {
+  [shopGrid, newGrid].forEach(grid => grid.addEventListener('click', e => {
     const buyBtn = e.target.closest('button.buy-btn[data-buy-idx]');
     if (buyBtn) { openProductModal(parseInt(buyBtn.dataset.buyIdx, 10)); return; }
     const card = e.target.closest('.product-card');
     if (card) openProductModal(parseInt(card.dataset.idx, 10));
-  });
+  }));
   pmThumbs.addEventListener('click', e => {
     const t = e.target.closest('img[data-i]');
     if (t) { pmPos = parseInt(t.dataset.i, 10); renderProductModal(); }
