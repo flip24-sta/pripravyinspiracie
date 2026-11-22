@@ -12,6 +12,11 @@ function priceForCategory(category) {
   return 700;
 }
 
+// Per-product overrides (key = 'product-' + name). Keep in sync with price:"…" in index.html.
+const PRODUCT_PRICES_CENTS = {
+  'product-Vianočné diplomy': 450,
+};
+
 const BALIK_PRICES_CENTS = {
   'balik-small': 4000,
   'balik-medium': 6900,
@@ -46,7 +51,7 @@ exports.handler = async (event) => {
   }
 
   const line_items = items.map((it) => {
-    const unitAmount = BALIK_PRICES_CENTS[it.key] || priceForCategory(it.category);
+    const unitAmount = BALIK_PRICES_CENTS[it.key] || PRODUCT_PRICES_CENTS[it.key] || priceForCategory(it.category);
     const qty = Math.max(1, parseInt(it.qty, 10) || 1);
     return {
       price_data: {
