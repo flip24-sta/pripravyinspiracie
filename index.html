@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/">
 <title>Prípravy Inšpirácie — Plány a materiály pre MŠ a ZŠ</title>
+<meta name="description" content="Prehľadné plány, týždenné projekty, rozprávky a vzdelávacie materiály pre materské a základné školy na okamžité stiahnutie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,134 +22,291 @@
     --terracotta:#894E44;
     --blush:#F6E4D6;
     --gold:#F3DDAE;
+    --gold-pale:#FCF3E1;
     --border:#F1E2D5;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-padding-top:90px;}
   body{
     font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    font-weight:400;
-    line-height:1.7;
+    color:var(--ink);background:var(--bg);font-weight:400;line-height:1.7;
   }
-  h1,h2,h3,h4,.script{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;}
+  h1,h2,h3,h4{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
+  [hidden]{display:none !important;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 
-  /* SOCIAL ICONS */
-  .social{display:flex;gap:10px;align-items:center;}
-  .social a{
-    width:34px;height:34px;border-radius:50%;background:var(--blush);
-    display:flex;align-items:center;justify-content:center;color:var(--ink);
-    transition:all .2s;flex-shrink:0;
-  }
-  .social a:hover{background:var(--rose);color:#fff;transform:translateY(-2px);}
-  .social svg{width:16px;height:16px;fill:currentColor;}
-
-  /* NAV */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(255,248,240,0.9);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--border);
-  }
-  nav.wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-top:16px;padding-bottom:16px;gap:16px;
-  }
-  .brand{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:700;white-space:nowrap;color:inherit;text-decoration:none;}
-  .brand .heart{color:var(--rose);}
-  .brand-avatar{
-    width:38px;height:38px;border-radius:50%;object-fit:cover;
-    border:2px solid var(--rose-light);flex-shrink:0;
-  }
-  .navlinks{display:flex;gap:16px;font-size:0.9rem;letter-spacing:.01em;font-weight:600;}
-  .navlinks a{position:relative;padding-bottom:4px;transition:color .2s;white-space:nowrap;}
-  .navlinks a:hover{color:var(--rose);}
-  .nav-right{display:flex;align-items:center;gap:16px;}
-  /* keep every menu item on one line: drop the header social icons first, then fall back to the hamburger menu */
-  @media (max-width:1180px){
-    .nav-right .social{display:none;}
-  }
-  @media (max-width:1100px){
-    nav.wrap .navlinks{display:none;}
-    nav.wrap .menu-btn{display:flex;align-items:center;justify-content:center;}
-  }
-  .menu-btn{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:4px;}
-  .menu-btn svg{width:26px;height:26px;}
-  .mobile-nav{display:none;flex-direction:column;background:var(--bg);border-top:1px solid var(--border);}
-  .mobile-nav a{padding:14px 24px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);}
-  .mobile-nav a:hover{color:var(--rose);}
-  .mobile-nav.open{display:flex;padding:16px;gap:4px;}
-  .mobile-nav-cta{
-    background:var(--rose);color:#fff !important;text-align:center;border-radius:999px;
-    border-bottom:none !important;margin-top:10px;padding:14px !important;
-  }
-
-  /* HERO */
-  .hero{
-    padding:90px 0 70px;
-  }
-  .hero .wrap{
-    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;
-  }
+  /* SHARED */
   .eyebrow{
-    display:inline-block;font-size:0.78rem;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--terracotta);margin-bottom:18px;font-weight:700;
+    display:inline-block;font-size:0.74rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rose);margin-bottom:10px;font-weight:700;
   }
-  .hero h1{
-    font-weight:800;
-    font-size:3.6rem;
-    line-height:1.05;
-    color:var(--terracotta);
-    margin-bottom:22px;
-    text-wrap:balance;
+  .hl{position:relative;white-space:nowrap;}
+  .hl::after{
+    content:"";position:absolute;left:0;right:0;bottom:-0.18em;height:0.32em;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 Q 30 2 60 7 T 118 5' fill='none' stroke='%23E8C77E' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
   }
-  .hero p.lead{
-    font-size:1.08rem;color:var(--muted);max-width:480px;margin-bottom:26px;
-  }
-  .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
-  .hero-badge{
-    background:var(--surface);border:1px solid var(--border);color:var(--terracotta);
-    font-size:0.8rem;font-weight:600;padding:7px 16px;border-radius:30px;
-  }
-  .btnrow{display:flex;gap:16px;flex-wrap:wrap;}
   .btn{
-    display:inline-block;padding:12px 30px;border-radius:999px;font-size:1rem;
-    font-weight:600;letter-spacing:.01em;transition:all .25s;border:none;font-family:inherit;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;border-radius:999px;
+    font-size:0.98rem;font-weight:600;letter-spacing:.01em;transition:all .25s;border:none;font-family:inherit;cursor:pointer;
   }
-  .btn-primary{background:var(--rose);color:#fff;box-shadow:0 12px 24px -8px rgba(227,154,141,.5);}
+  .btn-primary{background:var(--rose);color:#fff;box-shadow:0 6px 0 -1px var(--rose-light),0 14px 26px -10px rgba(227,154,141,.6);}
   .btn-primary:hover{background:var(--rose-hover);transform:translateY(-2px);}
   .btn-ghost{border:1px solid var(--rose);color:var(--terracotta);background:var(--rose-pale);}
   .btn-ghost:hover{background:#fff;transform:translateY(-2px);}
-
-  .hero-visual{
-    position:relative;
-    display:flex;justify-content:center;
-  }
-  .hero-visual .arch{
-    width:100%;max-width:380px;
-    border-radius:220px 220px 24px 24px;
-    overflow:hidden;
-    background:var(--blush);
-    box-shadow:0 30px 60px -20px rgba(137,78,68,.3);
-  }
-  .hero-visual .arch img{width:100%;height:100%;object-fit:cover;}
-  .dot{position:absolute;border-radius:50%;z-index:-1;}
-  .dot-1{width:120px;height:120px;background:var(--gold);top:-30px;right:10px;opacity:.7;}
-  .dot-2{width:70px;height:70px;background:var(--rose-light);bottom:20px;left:0;opacity:.7;}
-
-  /* SECTION HEADS */
-  .section{padding:80px 0;}
-  .section-head{text-align:center;max-width:640px;margin:0 auto 50px;}
+  .btn-dashed{border:2px dashed var(--rose);color:var(--terracotta);background:#fff;}
+  .btn-dashed:hover{background:var(--rose-pale);}
+  .section{padding:84px 0;position:relative;}
+  .section-alt{background:var(--rose-pale);}
+  .section-head{text-align:center;max-width:660px;margin:0 auto 50px;}
   .section-head .eyebrow{display:block;}
-  .section-head h2{
-    font-size:2.1rem;font-weight:700;margin-bottom:14px;color:var(--terracotta);
-  }
+  .section-head h2{font-size:2.3rem;font-weight:600;color:var(--terracotta);margin-bottom:14px;line-height:1.2;}
   .section-head p{color:var(--muted);font-size:0.98rem;}
+  .row-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px;}
+  .row-head h2{font-size:2.2rem;font-weight:600;color:var(--terracotta);line-height:1.2;}
+  .link-arrow{color:var(--terracotta);font-weight:600;font-size:0.95rem;white-space:nowrap;}
+  .link-arrow:hover{color:var(--rose);}
+  .more-row{text-align:center;margin-top:40px;}
+  .btn-lg{padding:17px 44px;font-size:1.12rem;}
+  @media (max-width:640px){.btn-lg{width:100%;padding:15px 20px;font-size:1rem;}}
+  .deco{position:absolute;border-radius:50%;pointer-events:none;}
+  .deco-sq{border-radius:3px;}
+  .social{display:flex;gap:10px;align-items:center;}
+  .social a{
+    width:38px;height:38px;border-radius:50%;background:var(--rose-pale);color:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;transition:background .2s;
+  }
+  .social a:hover{background:var(--rose-light);}
+  .social svg{width:17px;height:17px;fill:currentColor;}
 
+  /* HEADER */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .nav{display:flex;align-items:center;gap:22px;height:78px;}
+  .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .brand img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--rose-light);}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;font-family:'Bricolage Grotesque',sans-serif;}
+  .brand-text b{font-size:1.15rem;font-weight:700;color:var(--ink);}
+  .brand-text span{font-size:1.15rem;font-weight:600;color:var(--rose);}
+  .navlinks{display:flex;align-items:center;gap:4px;margin-left:8px;}
+  .navlinks > a, .nav-drop > button{
+    font-size:0.92rem;font-weight:500;color:var(--ink);padding:8px 11px;border-radius:999px;background:none;border:none;
+    font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;
+  }
+  .navlinks > a:hover, .nav-drop > button:hover, .navlinks > a.active{color:var(--rose);}
+  .nav-drop{position:relative;}
+  .nav-drop svg{width:14px;height:14px;}
+  .nav-menu{
+    position:absolute;top:100%;left:0;min-width:250px;background:#fff;border:1px solid var(--border);border-radius:18px;
+    padding:10px;box-shadow:0 24px 50px -24px rgba(137,78,68,.35);display:none;flex-direction:column;
+  }
+  .nav-drop:hover .nav-menu, .nav-drop:focus-within .nav-menu{display:flex;}
+  .nav-menu a{padding:8px 14px;border-radius:12px;font-size:0.9rem;}
+  .nav-menu a:hover{background:var(--rose-pale);color:var(--terracotta);}
+  .nav-menu a.all{margin-top:6px;border-top:1px solid var(--border);border-radius:0 0 12px 12px;color:var(--rose);font-weight:600;}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:12px;}
+  .nav-search{
+    display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 14px;width:210px;
+  }
+  .nav-search svg{width:16px;height:16px;color:var(--muted);flex-shrink:0;}
+  .nav-search input{border:none;outline:none;font-family:inherit;font-size:0.88rem;width:100%;background:none;color:var(--ink);}
+  .cart-pill{
+    display:flex;align-items:center;gap:8px;background:var(--terracotta);color:#fff;border:none;border-radius:999px;
+    padding:10px 16px;font-family:inherit;font-weight:700;font-size:0.88rem;cursor:pointer;position:relative;white-space:nowrap;
+  }
+  .cart-pill:hover{background:#74413a;}
+  .cart-pill svg{width:18px;height:18px;}
+  .cart-count{
+    position:absolute;top:-6px;right:-6px;background:var(--rose);color:#fff;font-size:0.68rem;font-weight:700;
+    min-width:19px;height:19px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #fff;
+  }
+  .cart-count.zero{display:none;}
+  .menu-btn{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;color:var(--ink);align-items:center;justify-content:center;}
+  .menu-btn svg{width:20px;height:20px;}
+  .mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;border-top:1px solid var(--border);background:#fff;}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{padding:12px 4px;border-bottom:1px solid var(--border);font-weight:500;}
+  .mobile-nav form{margin:12px 0 4px;}
+  .mobile-nav .nav-search{width:100%;}
+  .mobile-nav .mobile-cta{background:var(--rose);color:#fff;text-align:center;border-radius:999px;border:none;margin-top:14px;font-weight:600;}
+
+  /* HERO */
+  .hero{padding:70px 0 80px;position:relative;overflow:hidden;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
+  .hero h1{font-size:3.7rem;font-weight:600;line-height:1.05;color:var(--terracotta);margin-bottom:22px;text-wrap:balance;}
+  .hero .lead{font-size:1.06rem;color:var(--muted);max-width:520px;margin-bottom:30px;}
+  .hero-badges{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;}
+  .hero-badge{display:flex;align-items:center;gap:10px;font-size:0.86rem;font-weight:600;color:var(--ink);}
+  .hero-badge i{
+    width:36px;height:36px;border-radius:50%;background:var(--rose-pale);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:1rem;
+  }
+  .hero-visual{position:relative;display:flex;justify-content:center;padding:20px;}
+  .hero-ring{
+    width:min(440px,100%);aspect-ratio:1;border-radius:50%;border:3px dashed var(--rose);padding:14px;position:relative;
+  }
+  .hero-ring > img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--blush);box-shadow:0 30px 60px -24px rgba(137,78,68,.35);}
+  .hero-tag{
+    position:absolute;top:8%;right:-4%;background:var(--gold-pale);color:var(--terracotta);font-weight:700;font-size:0.85rem;
+    padding:7px 16px;border-radius:999px;transform:rotate(6deg);box-shadow:0 10px 20px -12px rgba(137,78,68,.4);border:1px solid var(--gold);
+  }
+  .hero-mini{
+    position:absolute;bottom:2%;left:-6%;width:38%;aspect-ratio:1;border-radius:50%;background:#fff;padding:8px;
+    box-shadow:0 20px 40px -20px rgba(137,78,68,.4);
+  }
+  .hero-mini img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+
+  /* CATEGORIES */
+  .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 40px;max-width:1060px;margin:0 auto;}
+  .cat{display:flex;flex-direction:column;align-items:center;text-align:center;width:170px;transition:transform .25s;}
+  .cat:nth-child(odd){margin-top:26px;}
+  .cat:hover{transform:translateY(-6px);}
+  .cat-img{
+    width:150px;height:150px;border-radius:50%;padding:7px;background:#fff;border:2px dashed var(--rose-light);margin-bottom:12px;
+    box-shadow:0 18px 36px -22px rgba(137,78,68,.45);
+  }
+  .cat:nth-child(3n+2) .cat-img{width:130px;height:130px;border-color:var(--gold);}
+  .cat:nth-child(4n) .cat-img{width:162px;height:162px;}
+  .cat-img img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+  .cat b{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.25;}
+  .cat small{color:var(--muted);font-size:0.78rem;}
+
+  /* PRODUCT CARDS */
+  .p-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
+  .p-grid.five{grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;}
+  .p-card{
+    background:#fff;border:1px solid var(--border);border-radius:22px;padding:8px;display:flex;flex-direction:column;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .p-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(137,78,68,.4);}
+  .p-thumb{position:relative;display:block;aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--blush);}
+  .p-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+  .p-card:hover .p-thumb img{transform:scale(1.05);}
+  .p-new{
+    position:absolute;top:10px;left:10px;background:var(--gold);color:var(--terracotta);font-size:0.7rem;font-weight:700;
+    padding:3px 11px;border-radius:999px;z-index:1;
+  }
+  .p-body{padding:12px 10px 8px;display:flex;flex-direction:column;flex:1;gap:4px;}
+  .p-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:1rem;line-height:1.3;color:var(--ink);}
+  .p-name:hover{color:var(--terracotta);}
+  .p-meta{font-size:0.76rem;color:var(--muted);}
+  .p-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;}
+  .p-price{font-weight:700;font-size:1.02rem;color:var(--ink);}
+  .p-cart{
+    width:42px;height:42px;border-radius:50%;border:none;background:var(--rose);color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 -1px var(--rose-light);transition:background .2s,transform .2s;flex-shrink:0;
+  }
+  .p-cart:hover{background:var(--rose-hover);transform:translateY(-2px);}
+  .p-cart svg{width:18px;height:18px;}
+  .p-cart.added{background:var(--terracotta);}
+
+  /* ABOUT */
+  .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;}
+  .about-photo{position:relative;padding:20px;}
+  .about-photo img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;border-radius:26px;border:10px solid #fff;transform:rotate(-3deg);box-shadow:0 30px 60px -30px rgba(137,78,68,.45);background:#fff;
+  }
+  .about-text h2{font-size:2.2rem;font-weight:600;color:var(--terracotta);margin-bottom:18px;line-height:1.2;}
+  .about-text p{color:#5f5450;margin-bottom:16px;}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0;}
+  .pillar{background:#fff;border-radius:18px;padding:16px;border:1px solid var(--border);}
+  .pillar strong{display:block;font-weight:700;margin-bottom:4px;font-size:0.92rem;color:var(--terracotta);}
+  .pillar span{font-size:0.84rem;color:var(--muted);line-height:1.5;display:block;}
+  .about-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+
+  /* CARDS (akcia / kontakt / social) */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px;}
+  .soft-card{border-radius:28px;padding:36px;position:relative;overflow:hidden;}
+  .soft-card h3{font-size:1.75rem;font-weight:600;color:var(--terracotta);margin-bottom:10px;line-height:1.2;}
+  .soft-card p{color:#5f5450;margin-bottom:22px;max-width:440px;}
+  .soft-card.c-gold{background:var(--gold-pale);}
+  .soft-card.c-rose{background:var(--rose-pale);}
+  .soft-card.c-blush{background:var(--blush);}
+  .social-card{display:flex;align-items:center;gap:18px;padding:26px 28px;border-radius:24px;transition:transform .25s;}
+  .social-card:hover{transform:translateY(-4px);}
+  .social-card .ico{width:58px;height:58px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--terracotta);}
+  .social-card .ico svg{width:24px;height:24px;fill:currentColor;}
+  .social-card small{display:block;font-size:0.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);font-weight:700;}
+  .social-card b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;font-weight:600;color:var(--terracotta);line-height:1.2;}
+  .social-card span{font-size:0.85rem;color:#6d615c;}
+  .social-card .arrow{margin-left:auto;color:var(--rose);font-size:1.3rem;}
+
+  /* SHOP PAGE */
+  .page-head{padding:50px 0 10px;}
+  .page-head h1{font-size:3rem;font-weight:600;color:var(--terracotta);line-height:1.1;}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 14px;}
+  .pill{
+    border:1px solid var(--border);background:#fff;color:var(--ink);font-family:inherit;font-size:0.86rem;font-weight:500;
+    padding:8px 16px;border-radius:999px;cursor:pointer;transition:all .2s;
+  }
+  .pill:hover{border-color:var(--rose);}
+  .pill.active{background:var(--rose);color:#fff;border-color:var(--rose);}
+  .pills.small .pill{font-size:0.8rem;padding:6px 14px;}
+  .pills.small .pill.active{background:var(--terracotta);border-color:var(--terracotta);}
+  .shop-tools{display:flex;align-items:center;gap:14px;margin:10px 0 14px;flex-wrap:wrap;}
+  .shop-search{
+    display:flex;align-items:center;gap:8px;border:1px solid var(--rose-light);background:#fff;border-radius:999px;padding:10px 18px;flex:0 1 360px;
+  }
+  .shop-search svg{width:17px;height:17px;color:var(--muted);flex-shrink:0;}
+  .shop-search input{border:none;outline:none;font-family:inherit;font-size:0.9rem;width:100%;background:none;}
+  .shop-sort{
+    margin-left:auto;border:1px solid var(--border);background:#fff;border-radius:999px;padding:10px 16px;font-family:inherit;font-size:0.88rem;color:var(--ink);cursor:pointer;
+  }
+  .shop-count{color:var(--muted);font-size:0.85rem;margin-bottom:20px;}
+  .shop-empty{text-align:center;color:var(--muted);padding:60px 20px;background:#fff;border-radius:22px;border:1px dashed var(--rose-light);}
+  .shop-note{color:var(--muted);font-size:0.82rem;text-align:center;margin-top:34px;}
+
+  /* PRODUCT PAGE */
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:0.9rem;margin:30px 0 22px;}
+  .back-link:hover{color:var(--terracotta);}
+  .pd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:50px;align-items:start;padding-bottom:40px;}
+  .pd-main{position:relative;background:#fff;border:1px solid var(--border);border-radius:26px;padding:10px;}
+  .pd-main img{width:100%;aspect-ratio:1;object-fit:contain;border-radius:18px;background:var(--blush);}
+  .pd-nav{
+    position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.92);
+    color:var(--terracotta);font-size:1.5rem;cursor:pointer;box-shadow:0 8px 18px -10px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;
+  }
+  .pd-prev{left:20px;} .pd-next{right:20px;}
+  .pd-thumbs{display:flex;gap:10px;margin-top:14px;overflow-x:auto;padding-bottom:6px;}
+  .pd-thumbs img{width:70px;height:70px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid transparent;opacity:.7;flex-shrink:0;background:var(--blush);}
+  .pd-thumbs img.active{border-color:var(--rose);opacity:1;}
+  .pd-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .pd-tag{background:var(--rose-pale);color:var(--terracotta);font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:999px;}
+  .pd h1{font-size:2.6rem;font-weight:600;color:var(--terracotta);line-height:1.12;margin-bottom:10px;}
+  .pd-short{color:var(--muted);margin-bottom:18px;}
+  .pd-meta{display:flex;align-items:center;gap:8px;color:#6d615c;font-size:0.9rem;margin-bottom:20px;}
+  .pd-buy{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--rose-pale);border-radius:22px;padding:20px 24px;margin-bottom:26px;
+  }
+  .pd-price{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:700;color:var(--ink);line-height:1;}
+  .pd-buy small{display:block;color:var(--muted);font-size:0.78rem;margin-top:6px;}
+  .pd-desc{white-space:pre-wrap;font-size:0.93rem;line-height:1.75;color:#4a4038;}
+  .pd-note{margin-top:20px;font-size:0.82rem;color:var(--muted);}
+
+  /* TOAST */
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:var(--terracotta);color:#fff;padding:12px 18px;border-radius:999px;
+    font-size:0.9rem;font-weight:600;box-shadow:0 18px 40px -16px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:all .3s;z-index:300;
+    display:flex;align-items:center;gap:12px;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto;}
+  .toast button{background:#fff;color:var(--terracotta);border:none;border-radius:999px;padding:5px 12px;font-family:inherit;font-weight:700;cursor:pointer;font-size:0.82rem;}
+
+  /* FOOTER */
+  footer{background:var(--rose-pale);margin-top:0;padding:70px 0 0;position:relative;}
+  footer::before{
+    content:"";position:absolute;left:0;right:0;top:-40px;height:41px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40 C 360 0 1080 0 1440 40 Z' fill='%23FEF1EE'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+  }
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;}
+  .footer-brand p{color:var(--rose);font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;font-weight:500;margin:14px 0 16px;}
+  .footer-brand .social a{background:#fff;}
+  .footer-col h4{font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:14px;}
+  .footer-col a{display:block;color:#6d615c;font-size:0.9rem;padding:3px 0;}
+  .footer-col a:hover{color:var(--rose);}
+  .footer-bottom{border-top:1px solid rgba(137,78,68,.12);padding:18px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.8rem;color:var(--muted);}
+
+  /* REUSED: steps, reviews, balíky, cart, checkout, faq */
   /* HOW IT WORKS */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:980px;margin:0 auto;}
   .step{text-align:center;}
@@ -175,144 +334,6 @@
     border-radius:20px;padding:44px 24px;max-width:560px;margin:0 auto;
   }
   .reviews-empty p{color:var(--terracotta);font-size:1rem;margin-bottom:18px;font-weight:600;}
-
-  /* ABOUT */
-  .about{background:var(--surface);}
-  .about .wrap{
-    display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:center;
-  }
-  .about-card{
-    background:var(--bg);border-radius:24px;padding:10px;
-  }
-  .about-card img{border-radius:18px;}
-  .about-text h2{font-size:2rem;font-weight:500;margin-bottom:18px;}
-  .about-text p{color:var(--muted);margin-bottom:16px;}
-  .about-social{display:flex;align-items:center;gap:14px;margin:20px 0 8px;}
-  .about-social span{font-size:0.85rem;color:var(--muted);}
-  .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:28px;}
-  .pillar{border-left:2px solid var(--rose-light);padding-left:14px;}
-  .pillar strong{display:block;font-weight:500;margin-bottom:4px;}
-  .pillar span{font-size:0.88rem;color:var(--muted);}
-
-  /* SEARCH BAR */
-  .search-bar{
-    display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);
-    border-radius:16px;padding:12px 18px;max-width:520px;margin:0 auto 24px;
-  }
-  .search-bar svg{width:18px;height:18px;color:var(--muted);flex-shrink:0;}
-  .search-bar input{
-    border:none;outline:none;background:transparent;font-family:inherit;font-size:0.95rem;
-    color:var(--ink);width:100%;
-  }
-  .search-bar input::placeholder{color:var(--muted);}
-
-  /* FILTER BAR */
-  .filter-bar{
-    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:16px;
-  }
-  .filter-bar:last-of-type{margin-bottom:40px;}
-  .filter-pill{
-    background:#fff;border:1px solid var(--border);color:var(--muted);
-    padding:9px 20px;border-radius:30px;font-size:0.85rem;font-family:inherit;
-    cursor:pointer;transition:all .2s;letter-spacing:.01em;white-space:nowrap;flex-shrink:0;
-  }
-  .filter-pill:hover{border-color:var(--rose-light);color:var(--ink);}
-  .filter-pill{font-weight:600;}
-  .filter-pill.active{background:var(--rose);border-color:var(--rose);color:#fff;}
-  .filter-pill-baliky{background:var(--rose-pale);border-color:var(--rose);color:var(--terracotta);display:inline-block;}
-  .filter-count{text-align:center;color:var(--muted);font-size:0.82rem;margin-bottom:24px;}
-  .product-card.hidden{display:none;}
-  .filter-toggle{
-    display:none;width:100%;max-width:520px;margin:0 auto 16px;padding:12px 18px;
-    background:#fff;border:1px solid var(--border);border-radius:16px;font-family:inherit;
-    font-weight:600;font-size:0.9rem;color:var(--ink);cursor:pointer;
-    align-items:center;justify-content:center;gap:8px;
-  }
-  .filter-toggle span{transition:transform .2s;}
-  .filter-toggle.open span{transform:rotate(180deg);}
-
-  @media (max-width:640px){
-    .filter-bar{
-      flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
-      padding-bottom:6px;-webkit-overflow-scrolling:touch;
-    }
-    .filter-bar::-webkit-scrollbar{display:none;}
-    .filter-toggle{display:flex;}
-    .filter-bar-extra{display:none;}
-    .filter-bar-extra.open{display:flex;}
-  }
-
-  /* SHOP GRID */
-  .shop-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:26px;
-  }
-  #newGrid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;}
-  .product-card{
-    background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;
-    display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;
-  }
-  .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(46,38,34,.3);}
-  .product-card .thumb{
-    aspect-ratio:3/4;overflow:hidden;cursor:pointer;position:relative;background:var(--blush);
-  }
-  .product-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
-  .product-card:hover .thumb img{transform:scale(1.06);}
-  .product-card .badge{
-    position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:var(--rose);
-    font-size:0.68rem;padding:4px 10px;border-radius:20px;font-weight:500;letter-spacing:.02em;
-  }
-  .product-card .count{
-    position:absolute;bottom:8px;right:10px;background:rgba(46,38,34,.55);
-    color:#fff;font-size:0.68rem;padding:2px 8px;border-radius:20px;
-  }
-  .product-card .info{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
-  .product-card h4{font-size:0.95rem;font-weight:500;line-height:1.35;min-height:2.6em;}
-  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;}
-  .price{font-weight:600;color:var(--ink);font-size:1.05rem;}
-  .buy-btn{
-    background:var(--rose);color:#fff;border:none;border-radius:30px;padding:9px 18px;
-    font-size:0.8rem;cursor:pointer;transition:background .2s;font-family:inherit;
-  }
-  .buy-btn:hover{background:var(--rose-hover);}
-  @media (max-width:640px){
-    .shop-grid,#newGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
-    .product-card{border-radius:12px;}
-    .product-card .badge{top:5px;left:5px;font-size:0.55rem;padding:2px 6px;}
-    .product-card .count{bottom:4px;right:5px;font-size:0.55rem;padding:1px 5px;}
-    .product-card .info{padding:8px 7px 9px;gap:6px;}
-    .product-card h4{font-size:0.7rem;line-height:1.3;min-height:3.9em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-    .product-card .price-row{flex-direction:column;align-items:stretch;gap:6px;padding-top:0;}
-    .product-card .price{font-size:0.8rem;}
-    .product-card .buy-btn{padding:6px 0;font-size:0.7rem;}
-  }
-
-  .more-note{
-    text-align:center;color:var(--muted);font-size:0.85rem;margin-top:34px;
-  }
-
-  /* LIGHTBOX */
-  .lightbox{
-    position:fixed;inset:0;background:rgba(20,16,14,.92);
-    display:none;align-items:center;justify-content:center;z-index:200;
-    padding:30px;flex-direction:column;
-  }
-  .lightbox.open{display:flex;}
-  .lightbox img{max-height:78vh;max-width:90vw;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
-  .lightbox .lb-close{
-    position:absolute;top:22px;right:30px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;
-  }
-  .lightbox .lb-nav{
-    position:absolute;top:50%;transform:translateY(-50%);
-    color:#fff;font-size:2.4rem;cursor:pointer;padding:10px 18px;user-select:none;opacity:.75;
-    transition:opacity .2s;
-  }
-  .lightbox .lb-nav:hover{opacity:1;}
-  .lb-prev{left:10px;}
-  .lb-next{right:10px;}
-  .lb-caption{color:#eee;font-size:0.9rem;margin-top:14px;letter-spacing:.02em;text-align:center;}
-  .lb-desc{color:#bbb;font-size:0.85rem;margin-top:6px;text-align:center;max-width:520px;line-height:1.5;}
-  .lb-buy{margin-top:16px;}
 
   /* MEMBERSHIP */
   .membership-intro{text-align:center;max-width:640px;margin:0 auto 44px;}
@@ -379,81 +400,6 @@
     text-decoration:line-through;color:var(--muted);font-weight:400;font-size:1.1rem;
     margin-right:8px;display:inline-block;
   }
-
-  /* PRODUCT DETAIL MODAL */
-  .product-modal{
-    position:fixed;inset:0;background:rgba(36,31,29,.72);z-index:260;
-    display:none;align-items:center;justify-content:center;padding:20px;
-  }
-  .product-modal.open{display:flex;}
-  .product-modal-inner{
-    background:var(--bg);border-radius:24px;max-width:1080px;width:100%;max-height:90vh;
-    overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative;
-  }
-  .product-modal-close{
-    position:absolute;top:16px;right:20px;font-size:1.9rem;cursor:pointer;color:var(--muted);
-    line-height:1;z-index:2;background:#fff;width:36px;height:36px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .product-modal-close:hover{color:var(--ink);}
-  .product-modal-gallery{padding:28px;}
-  .product-modal-main{
-    border-radius:18px;overflow:hidden;aspect-ratio:3/4;background:var(--blush);
-    box-shadow:0 20px 40px -20px rgba(137,78,68,.35);position:relative;
-  }
-  .product-modal-main img{width:100%;height:100%;object-fit:cover;}
-  .product-modal-navbtn{
-    position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;
-    background:rgba(255,255,255,.9);color:var(--terracotta);display:flex;align-items:center;justify-content:center;
-    cursor:pointer;font-size:1.3rem;user-select:none;
-  }
-  .product-modal-prev{left:12px;}
-  .product-modal-next{right:12px;}
-  .product-modal-thumbs{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
-  .product-modal-thumbs img{
-    width:56px;height:56px;object-fit:cover;border-radius:10px;cursor:pointer;
-    border:2px solid transparent;opacity:.7;transition:all .15s;
-  }
-  .product-modal-thumbs img:hover{opacity:1;}
-  .product-modal-thumbs img.active{border-color:var(--rose);opacity:1;}
-  .product-modal-info{padding:32px 32px 32px 0;display:flex;flex-direction:column;}
-  .product-modal-eyebrow{
-    font-size:0.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);
-    font-weight:700;margin-bottom:10px;
-  }
-  .product-modal-title{font-size:1.7rem;font-weight:800;color:var(--terracotta);margin-bottom:14px;text-wrap:balance;}
-  .product-modal-lead{color:var(--muted);font-size:0.96rem;margin-bottom:18px;}
-  .product-modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
-  .product-modal-tag{
-    background:var(--rose-pale);color:var(--terracotta);border:1px solid var(--rose-light);
-    font-size:0.78rem;font-weight:600;padding:6px 14px;border-radius:20px;
-  }
-  .product-modal-price-row{
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
-    background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 20px;margin-bottom:14px;
-  }
-  .product-modal-price-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;}
-  .product-modal-price{font-size:1.6rem;font-weight:800;color:var(--ink);}
-  .product-modal-note{
-    display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.82rem;margin-bottom:22px;
-  }
-  .product-modal-desc{margin-bottom:20px;max-height:none;}
-  .product-modal-desc.plain-desc{font-size:0.9rem;}
-
-  /* CART BUTTON */
-  .cart-btn{
-    position:relative;display:flex;align-items:center;justify-content:center;
-    width:40px;height:40px;border-radius:50%;background:var(--rose-pale);color:var(--terracotta);
-    border:1px solid var(--rose-light);cursor:pointer;flex-shrink:0;
-  }
-  .cart-btn:hover{background:var(--rose-light);}
-  .cart-btn svg{width:19px;height:19px;}
-  .cart-count{
-    position:absolute;top:-6px;right:-6px;background:var(--rose);color:#fff;font-size:0.68rem;
-    font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    padding:0 4px;
-  }
-  .cart-count.zero{display:none;}
 
   /* CART & CHECKOUT MODAL */
   .cart-modal{
@@ -534,10 +480,6 @@
     .checkout-hero{padding:36px 24px 28px;}
     .cart-body{padding:28px 20px;}
   }
-  @media (max-width:760px){
-    .product-modal-inner{grid-template-columns:1fr;}
-    .product-modal-info{padding:0 24px 28px;}
-  }
   .tier-card{
     background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px 32px;
     display:flex;flex-direction:column;position:relative;
@@ -583,36 +525,28 @@
   .faq-item[open] summary::after{transform:rotate(45deg);}
   .faq-item p{color:var(--muted);font-size:0.92rem;padding-bottom:20px;margin-top:-6px;}
 
-  /* CONTACT */
-  .contact{background:var(--ink);color:#fff;border-radius:28px;margin:0 auto;padding:60px 40px;text-align:center;}
-  .contact h2{font-size:2.2rem;margin-bottom:14px;font-weight:800;color:#fff;}
-  .contact p{color:#cfc4bd;margin-bottom:24px;}
-  .contact .btn-primary{background:var(--rose);}
-  .contact .social{justify-content:center;margin-top:26px;}
-  .contact .social a{background:rgba(255,255,255,.12);color:#fff;}
-  .contact .social a:hover{background:var(--rose);}
-
-  footer{
-    text-align:center;padding:40px 20px;color:var(--muted);font-size:0.82rem;
+  /* RESPONSIVE */
+  @media (max-width:1120px){
+    .nav-search{display:none;}
+    .p-grid.five{grid-template-columns:repeat(3,minmax(0,1fr));}
   }
-
-  @media (max-width:860px){
-    .hero .wrap{grid-template-columns:1fr;}
-    .hero-visual{order:-1;}
-    .hero h1{font-size:2.6rem;}
-    .hero-text{text-align:center;}
-    .hero-badges{justify-content:center;}
-    .btnrow{justify-content:center;}
-    .about .wrap{grid-template-columns:1fr;text-align:center;}
-    .about-card{margin:0 auto;}
-    .about-social{justify-content:center;}
-    .pillars{grid-template-columns:1fr;}
-    .pillar{border-left:none;border-top:2px solid var(--rose-light);padding-left:0;padding-top:14px;}
+  @media (max-width:960px){
     .navlinks{display:none;}
-    .menu-btn{display:flex;align-items:center;justify-content:center;}
-    .nav-right .social{display:none;}
-    .brand{font-size:1.05rem;}
-    .membership-grid{grid-template-columns:1fr;}
+    .menu-btn{display:flex;}
+    .hero .wrap, .about .wrap, .pd{grid-template-columns:minmax(0,1fr);}
+    .hero{padding:40px 0 60px;}
+    .hero-text{text-align:center;}
+    .hero .lead{margin-left:auto;margin-right:auto;}
+    .hero-badges{justify-content:center;}
+    .hero h1{font-size:2.7rem;}
+    .hero-visual{max-width:420px;margin:0 auto;}
+    .about-text{text-align:center;}
+    .about-actions{justify-content:center;}
+    .about-photo{max-width:380px;margin:0 auto;}
+    .p-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+    .duo{grid-template-columns:1fr;}
+    .trio{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
     .tier-row{grid-template-columns:1fr;text-align:center;}
     .tier-illustration{aspect-ratio:4/3;max-width:280px;margin:0 auto;}
     .tier-features{align-items:center;}
@@ -620,179 +554,163 @@
     .tier-features li::before{position:static;margin-right:8px;}
     .steps{grid-template-columns:1fr;gap:36px;}
   }
-  @media (min-width:861px) and (max-width:1080px){
-    .membership-grid-4{grid-template-columns:1fr 1fr;}
+  @media (max-width:640px){
+    .wrap{padding:0 16px;}
+    .nav{height:66px;gap:10px;}
+    .brand img{width:40px;height:40px;}
+    .brand-text b, .brand-text span{font-size:1rem;}
+    .cart-pill{padding:9px 12px;}
+    .cart-pill .cart-total{display:none;}
+    .section{padding:60px 0;}
+    .section-head h2, .row-head h2, .about-text h2{font-size:1.8rem;}
+    .row-head{flex-direction:column;align-items:flex-start;gap:6px;}
+    .hero h1{font-size:2.2rem;}
+    .hero-badges{gap:12px;flex-direction:column;align-items:center;}
+    .cat-grid{gap:18px 10px;}
+    .cat{width:30%;}
+    .cat:nth-child(odd){margin-top:0;}
+    .cat-img, .cat:nth-child(3n+2) .cat-img, .cat:nth-child(4n) .cat-img{width:88px;height:88px;padding:4px;}
+    .cat b{font-size:0.85rem;}
+    .p-grid, .p-grid.five{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+    .p-card{border-radius:14px;padding:4px;}
+    .p-thumb{border-radius:11px;}
+    .p-new{top:5px;left:5px;font-size:0.55rem;padding:1px 7px;}
+    .p-body{padding:7px 4px 4px;}
+    .p-name{font-size:0.72rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .p-meta{display:none;}
+    .p-foot{flex-direction:column;align-items:stretch;gap:6px;padding-top:6px;}
+    .p-price{font-size:0.8rem;}
+    .p-cart{width:100%;height:30px;border-radius:999px;}
+    .p-cart svg{width:15px;height:15px;}
+    .pillars{grid-template-columns:1fr;}
+    .soft-card{padding:28px 22px;}
+    .page-head h1{font-size:2.2rem;}
+    .shop-sort{margin-left:0;}
+    .shop-search{flex:1 1 100%;}
+    .pills{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;}
+    .pill{flex-shrink:0;}
+    .pd h1{font-size:2rem;}
+    .pd-buy{flex-direction:column;align-items:stretch;text-align:center;}
+    .footer-grid{grid-template-columns:1fr;gap:26px;}
   }
-
-  /* FOOTER */
-  footer{border-top:1px solid var(--border);padding:28px 0;}
-  .footer-wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;color:var(--muted);font-size:0.85rem;}
-  .footer-legal{font-size:0.78rem;margin-top:4px;opacity:.8;}
-  .footer-links{display:flex;flex-wrap:wrap;gap:18px;font-weight:600;}
-  .footer-links a:hover{color:var(--rose);}
-
-  /* LEGAL PAGES */
-  .legal-page{padding:60px 0 100px;}
-  .legal-page .eyebrow{color:var(--rose);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:.08em;}
-  .legal-page h1{font-size:2.4rem;margin:10px 0 6px;color:var(--terracotta);}
-  .legal-subtitle{color:var(--muted);font-weight:600;margin-bottom:34px;font-size:0.95rem;}
-  .legal-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:44px 40px;max-width:820px;}
-  .legal-card h2{color:var(--terracotta);font-size:1.2rem;border-left:4px solid var(--rose);padding-left:14px;margin:34px 0 12px;}
-  .legal-card h2:first-of-type{margin-top:0;}
-  .legal-card p{margin:0 0 14px;font-size:0.95rem;line-height:1.7;}
-  .legal-card ul{margin:0 0 14px;padding-left:22px;}
-  .legal-card li{margin-bottom:6px;font-size:0.95rem;}
-  .legal-card a{color:var(--terracotta);font-weight:700;text-decoration:underline;}
-  .legal-note{background:var(--rose-pale);border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px;font-size:0.85rem;font-style:italic;color:var(--terracotta);margin:16px 0;}
-  .legal-strong{font-weight:700;}
-  .legal-meta{margin-top:44px;font-size:0.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;}
-  @media (max-width:640px){.legal-card{padding:32px 22px;}}
 </style>
 </head>
 <body>
 
 <header id="top">
-  <nav class="wrap">
-    <a class="brand" href="#top">
-      <img class="brand-avatar" src="assets/Logo.jpg" alt="Prípravy Inšpirácie">
-      <span>Prípravy</span><span class="heart">♥</span><span>Inšpirácie</span>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img src="assets/Logo.jpg" alt="Prípravy Inšpirácie">
+      <span class="brand-text"><b>Prípravy</b><span>Inšpirácie</span></span>
     </a>
-    <div class="navlinks">
-      <a href="#balicky">Balíky</a>
-      <a href="#o-nas">O nás</a>
-      <a href="#produkty">Produkty</a>
-      <a href="#produkty" data-cat-link="Týždenné projekty">Týždenné projekty</a>
-      <a href="#recenzie">Recenzie</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-    <div class="nav-right">
-      <div class="social">
-        <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
-        </a>
+    <nav class="navlinks" aria-label="Hlavné menu">
+      <a href="/" data-nav="home">Domov</a>
+      <div class="nav-drop">
+        <button type="button" aria-haspopup="true">E-shop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="nav-menu" id="navCatMenu"></div>
       </div>
-      <button type="button" class="cart-btn" id="cartBtn" aria-label="Košík">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
+      <a href="/eshop?kategoria=T%C3%BD%C5%BEdenn%C3%A9%20projekty">Týždenné projekty</a>
+      <a href="/#balicky">Balíky</a>
+      <a href="/#ako-to-funguje">Ako to funguje</a>
+      <a href="/#o-nas">O nás</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <form class="nav-search" action="/eshop" method="get" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" name="hladat" placeholder="Hľadať materiál…" aria-label="Hľadať materiál">
+      </form>
+      <button type="button" class="cart-pill" id="cartBtn" aria-label="Košík">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-total" id="cartTotal">0,00 €</span>
+        <span class="cart-count zero" id="cartCount">0</span>
       </button>
       <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
-  </nav>
+  </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="#top">Domov</a>
-    <a href="#balicky">Balíky</a>
-    <a href="#o-nas">O nás</a>
-    <a href="#produkty">Produkty</a>
-    <a href="#produkty" data-cat-link="Týždenné projekty">Týždenné projekty</a>
-    <a href="#novinky">Najnovšie</a>
-    <a href="#recenzie">Recenzie</a>
-    <a href="#faq">FAQ</a>
-    <a href="#kontakt">Kontakt</a>
-    <a href="#produkty" class="mobile-nav-cta">E-shop</a>
+    <form class="nav-search" action="/eshop" method="get" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" name="hladat" placeholder="Hľadať materiál…" aria-label="Hľadať materiál">
+    </form>
+    <a href="/">Domov</a>
+    <a href="/eshop">E-shop</a>
+    <a href="/eshop?kategoria=T%C3%BD%C5%BEdenn%C3%A9%20projekty">Týždenné projekty</a>
+    <a href="/#novinky">Najnovšie</a>
+    <a href="/#balicky">Balíky</a>
+    <a href="/#ako-to-funguje">Ako to funguje</a>
+    <a href="/#o-nas">O nás</a>
+    <a href="/#recenzie">Recenzie</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#kontakt">Kontakt</a>
+    <a href="/eshop" class="mobile-cta">Prejsť do e-shopu</a>
   </div>
 </header>
 
+<!-- ============ DOMOV ============ -->
+<main id="viewHome">
+
 <section class="hero">
+  <span class="deco" style="width:10px;height:10px;background:var(--rose-light);top:60px;left:4%;"></span>
+  <span class="deco" style="width:12px;height:12px;background:var(--gold);bottom:90px;left:12%;"></span>
+  <span class="deco deco-sq" style="width:12px;height:12px;background:var(--rose-light);top:110px;right:6%;"></span>
   <div class="wrap">
     <div class="hero-text">
       <span class="eyebrow">Materiály pre materské a základné školy</span>
-      <h1>Prípravy Inšpirácie</h1>
+      <h1>Prípravy <span class="hl">Inšpirácie</span></h1>
       <p class="lead">Tvoríme prehľadné mesačné plány a vzdelávacie materiály pre materské a základné školy — pripravené na použitie, plné nápadov a ušetreného času pre učiteľov, ktorí chcú tráviť viac času s deťmi a menej pri príprave.</p>
-      <div class="hero-badges">
-        <span class="hero-badge">📄 Materiály na okamžité stiahnutie</span>
-        <span class="hero-badge">💌 Doručenie e-mailom</span>
-        <span class="hero-badge">🏫 Vhodné pre MŠ a ZŠ</span>
-      </div>
       <div class="btnrow">
-        <a href="#produkty" class="btn btn-primary">Pozrieť produkty</a>
-        <a href="#kontakt" class="btn btn-ghost">Napísať nám</a>
+        <a href="/eshop" class="btn btn-primary">Preskúmať materiály →</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><i>📄</i>Materiály na okamžité stiahnutie</span>
+        <span class="hero-badge"><i>💌</i>Doručenie e-mailom</span>
+        <span class="hero-badge"><i>🏫</i>Vhodné pre MŠ a ZŠ</span>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="dot dot-1"></div>
-      <div class="dot dot-2"></div>
-      <div class="arch"><img src="assets/Logo.jpg" alt="Prípravy Inšpirácie s deťmi"></div>
+      <div class="hero-ring">
+        <img src="assets/Logo.jpg" alt="Prípravy Inšpirácie – pani učiteľka s deťmi">
+        <span class="hero-tag">pre MŠ a ZŠ</span>
+        <div class="hero-mini"><img id="heroMini" src="assets/Titulka.jpg" alt="Najnovší materiál"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="about" id="o-nas">
+<section class="section section-alt" id="kategorie">
+  <span class="deco" style="width:10px;height:10px;background:var(--rose);top:70px;left:5%;opacity:.5;"></span>
+  <span class="deco deco-sq" style="width:12px;height:12px;background:var(--gold);top:140px;right:7%;"></span>
+  <span class="deco" style="width:12px;height:12px;background:var(--gold);bottom:80px;left:10%;"></span>
   <div class="wrap">
-    <div class="about-card"><img src="assets/Titulka.jpg" alt="Prípravy Inšpirácie logo"></div>
-    <div class="about-text">
-      <span class="eyebrow">O nás</span>
-      <h2>Vitajte na našej oficiálnej webstránke</h2>
-      <p>Ponúkame kreatívne materiály, vzdelávacie aktivity a kompletné prípravy pre učiteľov materských a základných škôl. Zameriavame sa na aktuálne témy, ktoré pomáhajú zjednodušiť tvorbu vyučovacích hodín.</p>
-      <p>Nájdete nás aj na sociálnych sieťach — sledujte nás na Facebooku, Instagrame a TikToku.</p>
-      <div class="about-social">
-        <span>Sledujte nás:</span>
-        <div class="social">
-          <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="pillars">
-        <div class="pillar"><strong>Aktuálne témy</strong><span>Prípravy sú prispôsobené aktuálnemu dianiu a sezónnym témam.</span></div>
-        <div class="pillar"><strong>Kreatívne aktivity</strong><span>Nápady na tvorenie a učenie hrou pre deti MŠ a ZŠ.</span></div>
-        <div class="pillar"><strong>Vzdelávacie materiály</strong><span>Dostupná pomoc pre pedagógov pri plánovaní.</span></div>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">Kategórie</span>
+      <h2>Vyberte si <span class="hl">kategóriu</span></h2>
     </div>
+    <div class="cat-grid" id="catGrid"></div>
   </div>
 </section>
 
 <section class="section" id="novinky">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Novinky</span>
-      <h2>Najnovšie</h2>
-      <p>Najnovšie materiály v našom e-shope.</p>
+    <div class="row-head">
+      <div>
+        <span class="eyebrow">Práve pridané</span>
+        <h2><span class="hl">Najnovšie</span></h2>
+      </div>
     </div>
-    <div class="shop-grid" id="newGrid"></div>
+    <div class="p-grid five" id="newGrid"></div>
+    <div class="more-row"><a class="btn btn-primary btn-lg" href="/eshop">Zobraziť všetky materiály →</a></div>
   </div>
 </section>
 
-<section class="section" id="produkty">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">E-shop</span>
-      <h2>Naše produkty</h2>
-      <p>Každý produkt nižšie je samostatný materiál pripravený na stiahnutie. Kliknutím na náhľad si pozriete ukážkové strany.</p>
-    </div>
-
-    <div class="search-bar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="productSearch" placeholder="Vyhľadať materiál...">
-    </div>
-    <div class="filter-bar" id="filterBar"></div>
-    <button type="button" class="filter-toggle" id="filterToggle">Zobraziť filtre <span>⌄</span></button>
-    <div class="filter-bar filter-bar-extra" id="seasonBar"></div>
-    <p class="filter-count" id="filterCount"></p>
-    <div class="shop-grid" id="shopGrid"></div>
-    <p class="more-note">Cena produktov: 7,00 € (Megasúbory: 5,00 €, Písomné prípravy: 14,00 €) · Kliknutím na tlačidlo „Kúpiť" nás kontaktujete e-mailom ohľadom objednávky.</p>
-  </div>
-</section>
-
-<section class="section">
+<section class="section section-alt" id="ako-to-funguje">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Jednoduchý nákup</span>
-      <h2>Ako to funguje?</h2>
+      <h2>Ako to <span class="hl">funguje?</span></h2>
       <p>Od výberu materiálu po hotové PDF v triede vás delia len tri kroky.</p>
     </div>
     <div class="steps">
@@ -810,6 +728,36 @@
         <div class="step-num">3</div>
         <h3>Materiál príde na e-mail</h3>
         <p>Po platbe vám PDF pošleme rovno do schránky — stačí stiahnuť a vytlačiť.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="o-nas">
+  <span class="deco" style="width:10px;height:10px;background:var(--rose-light);top:80px;left:6%;"></span>
+  <div class="wrap">
+    <div class="about-photo"><img src="assets/Titulka.jpg" alt="Prípravy Inšpirácie logo"></div>
+    <div class="about-text">
+      <span class="eyebrow">O nás</span>
+      <h2>Vitajte na našej <span class="hl">oficiálnej</span> webstránke</h2>
+      <p>Ponúkame kreatívne materiály, vzdelávacie aktivity a kompletné prípravy pre učiteľov materských a základných škôl. Zameriavame sa na aktuálne témy, ktoré pomáhajú zjednodušiť tvorbu vyučovacích hodín.</p>
+      <p>Nájdete nás aj na sociálnych sieťach — sledujte nás na Facebooku, Instagrame a TikToku.</p>
+      <div class="pillars">
+        <div class="pillar"><strong>Aktuálne témy</strong><span>Prípravy sú prispôsobené aktuálnemu dianiu a sezónnym témam.</span></div>
+        <div class="pillar"><strong>Kreatívne aktivity</strong><span>Nápady na tvorenie a učenie hrou pre deti MŠ a ZŠ.</span></div>
+        <div class="pillar"><strong>Vzdelávacie materiály</strong><span>Dostupná pomoc pre pedagógov pri plánovaní.</span></div>
+      </div>
+      <div class="about-actions">
+        <a class="btn btn-dashed" href="/#kontakt">Napíšte nám →</a>
+        <div class="social"><a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
+        </a></div>
       </div>
     </div>
   </div>
@@ -937,40 +885,7 @@
   </div>
 </section>
 
-<section class="section" id="kontakt">
-  <div class="contact wrap">
-    <h2>Poďme spolupracovať</h2>
-    <p>Máte otázku k produktom alebo záujem o spoluprácu? Napíšte nám.</p>
-    <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com">Napísať e-mail</a>
-    <div class="social">
-      <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="akcia">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Zľavy</span>
-      <h2>Akciové balíčky</h2>
-      <p>Pripravujeme pre vás zvýhodnené akciové ponuky materiálov. Táto sekcia sa čoskoro naplní.</p>
-    </div>
-    <div class="reviews-empty">
-      <p>Zatiaľ tu nemáme žiadne akciové balíčky — pripravujeme ich pre vás. 🏷️</p>
-      <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Akciov%C3%A9%20bal%C3%AD%C4%8Dky">Dajte mi vedieť, keď budú dostupné</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="balicky">
+<section class="section section-alt" id="balicky">
   <div class="wrap">
     <div class="membership-intro">
       <span class="membership-badge">Balíky pre MŠ</span>
@@ -1063,47 +978,136 @@
   </div>
 </section>
 
-<footer>
-  <div class="wrap footer-wrap">
-    <div>
-      <p>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</p>
-      <p class="footer-legal">KH Educational Products, IČO: 55 687 008</p>
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="duo">
+      <div class="soft-card c-rose">
+        <span class="eyebrow">Kontakt</span>
+        <h3>Poďme spolupracovať</h3>
+        <p>Máte otázku k produktom alebo záujem o spoluprácu? Napíšte nám.</p>
+        <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com">Napísať e-mail</a>
+      </div>
+      <div class="soft-card c-gold" id="akcia">
+        <span class="eyebrow">Zľavy</span>
+        <h3>Akciové balíčky</h3>
+        <p>Pripravujeme pre vás zvýhodnené akciové ponuky materiálov. Zatiaľ tu nemáme žiadne akciové balíčky — pripravujeme ich pre vás. 🏷️</p>
+        <a class="btn btn-primary" href="mailto:filiphacko2@gmail.com?subject=Akciov%C3%A9%20bal%C3%AD%C4%8Dky">Dajte mi vedieť, keď budú dostupné</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="/obchodne-podmienky">Obchodné podmienky</a>
-      <a href="/reklamacny-poriadok">Reklamačný poriadok</a>
-      <a href="/ochrana-osobnych-udajov">Ochrana osobných údajov</a>
+    <div class="trio">
+      <a class="social-card c-rose soft-card" href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg></span>
+        <span><small>Sledujte nás</small><b>Facebook</b><span>Novinky a inšpirácia</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="social-card c-blush soft-card" href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></span>
+        <span><small>Sledujte nás</small><b>Instagram</b><span>Ukážky materiálov</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="social-card c-gold soft-card" href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg></span>
+        <span><small>Sledujte nás</small><b>TikTok</b><span>Videá z tvorby</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ E-SHOP ============ -->
+<main id="viewShop" hidden>
+  <div class="wrap">
+    <div class="page-head">
+      <span class="eyebrow">E-shop</span>
+      <h1 id="shopTitle">Všetky materiály</h1>
+    </div>
+    <div class="pills" id="shopCats"></div>
+    <div class="pills small" id="shopSeasons"></div>
+    <div class="shop-tools">
+      <label class="shop-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="shopSearch" placeholder="Hľadať materiál…" aria-label="Hľadať materiál">
+      </label>
+      <select class="shop-sort" id="shopSort" aria-label="Zoradiť">
+        <option value="odporucane">Odporúčané</option>
+        <option value="najlacnejsie">Od najlacnejších</option>
+        <option value="najdrahsie">Od najdrahších</option>
+        <option value="nazov">Podľa názvu</option>
+      </select>
+    </div>
+    <p class="shop-count" id="shopCount"></p>
+    <div class="p-grid" id="shopGrid"></div>
+    <p class="shop-note">Všetky materiály sú digitálne PDF súbory — po zaplatení vám prídu na e-mail. Hľadáte viac materiálov naraz? Pozrite si <a href="/#balicky" style="color:var(--terracotta);font-weight:700;">výhodné balíky</a>.</p>
+  </div>
+  <div style="height:90px"></div>
+</main>
+
+<!-- ============ PRODUKT ============ -->
+<main id="viewProduct" hidden>
+  <div class="wrap">
+    <a class="back-link" href="/eshop">← Späť do e-shopu</a>
+    <div id="pdRoot"></div>
+    <section class="section" style="padding-top:30px;" id="pdRelatedWrap">
+      <div class="row-head">
+        <div><span class="eyebrow">Ďalšie materiály</span><h2>Mohlo by sa vám <span class="hl">páčiť</span></h2></div>
+        <a class="link-arrow" id="pdRelatedLink" href="/eshop">Celá kategória →</a>
+      </div>
+      <div class="p-grid" id="pdRelated"></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <img src="assets/Logo.jpg" alt="Prípravy Inšpirácie">
+          <span class="brand-text"><b>Prípravy</b><span>Inšpirácie</span></span>
+        </a>
+        <p>Plány a materiály pre MŠ a ZŠ.</p>
+        <div class="social"><a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.23 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.23 22 17.08 22 12.06Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.5.5.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.28 2 12 2Zm0 1.8c-2.67 0-2.99.01-4.04.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.28 8.53 4.27 8.85 4.27 12s.01 3.47.06 4.51c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.04.06-1.36.06-4.51s-.01-3.47-.06-4.51c-.04-.87-.18-1.34-.3-1.65a2.76 2.76 0 0 0-.66-1.02 2.76 2.76 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.99 3.81 14.67 3.8 12 3.8Zm0 3.06a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28Zm0 1.8a3.34 3.34 0 1 0 0 6.68 3.34 3.34 0 0 0 0-6.68Zm5.35-1.99a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.28 0 .55.04.8.12V9.5a6 6 0 0 0-.8-.05A6 6 0 0 0 4.7 15.5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V8.6c1.16.85 2.6 1.35 4.1 1.35V6.75c-1.9 0-3.5-1.32-3.9-3.1-.08-.35-.13-.72-.13-1.1V2h-.17Z"/></svg>
+        </a></div>
+      </div>
+      <div class="footer-col">
+        <h4>Nakupovanie</h4>
+        <a href="/eshop">E-shop</a>
+        <a href="/#novinky">Najnovšie</a>
+        <a href="/#balicky">Výhodné balíky</a>
+        <a href="/#akcia">Akciové balíčky</a>
+        <a href="/#ako-to-funguje">Ako to funguje</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informácie</h4>
+        <a href="/#o-nas">O nás</a>
+        <a href="/#faq">Najčastejšie otázky</a>
+        <a href="/obchodne-podmienky">Obchodné podmienky</a>
+        <a href="/reklamacny-poriadok">Reklamačný poriadok</a>
+        <a href="/ochrana-osobnych-udajov">Ochrana osobných údajov</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="mailto:filiphacko2@gmail.com">Napíšte nám</a>
+        <a href="https://www.facebook.com/profile.php?id=61550956140198" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/pripravyinspiracie/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@pripravyinspiracie" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Prípravy Inšpirácie. Všetky práva vyhradené.</span>
+      <span>KH Educational Products, IČO: 55 687 008</span>
     </div>
   </div>
 </footer>
-
-<div class="product-modal" id="productModal">
-  <div class="product-modal-inner">
-    <span class="product-modal-close" id="productModalClose">&times;</span>
-    <div class="product-modal-gallery">
-      <div class="product-modal-main">
-        <img id="pmImg" src="" alt="" onload="this.style.objectFit=this.naturalWidth>this.naturalHeight?'contain':''" onerror="if(!this.src.endsWith('assets/Titulka.jpg'))this.src='assets/Titulka.jpg'">
-        <span class="product-modal-navbtn product-modal-prev" id="pmPrev">&#8249;</span>
-        <span class="product-modal-navbtn product-modal-next" id="pmNext">&#8250;</span>
-      </div>
-      <div class="product-modal-thumbs" id="pmThumbs"></div>
-    </div>
-    <div class="product-modal-info">
-      <span class="product-modal-eyebrow">Digitálny PDF súbor</span>
-      <h2 class="product-modal-title" id="pmTitle"></h2>
-      <div class="plain-desc product-modal-desc" id="pmMore"></div>
-      <div class="product-modal-tags" id="pmTags"></div>
-      <div class="product-modal-price-row">
-        <div>
-          <div class="product-modal-price-label">Cena</div>
-          <div class="product-modal-price" id="pmPrice"></div>
-        </div>
-        <button type="button" class="btn btn-primary" id="pmBuy">Kúpiť</button>
-      </div>
-      <p class="product-modal-note">💌 PDF materiál vám po objednávke príde na e-mail. Nejde o tlačený produkt.</p>
-    </div>
-  </div>
-</div>
 
 <div class="balicky-modal" id="balickyModal">
   <div class="balicky-modal-inner">
@@ -1121,6 +1125,8 @@
     <div id="cartModalContent"></div>
   </div>
 </div>
+
+<div class="toast" id="toast"><span id="toastText">Pridané do košíka</span><button type="button" id="toastCart">Košík</button></div>
 
 <script>
   const products = [
@@ -3036,173 +3042,42 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
   };
   products.sort((a, b) => featuredRank(a) - featuredRank(b));
 
-  const shopGrid = document.getElementById('shopGrid');
-  const newGrid = document.getElementById('newGrid');
-  products.forEach((p, idx) => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.dataset.category = p.category;
-    card.dataset.season = inferSeason(p.name);
-    card.dataset.idx = idx;
-    const badgeHtml = p.badge ? `<span class="badge">${p.badge}</span>` : '';
-    const countHtml = p.images.length > 1 ? `<span class="count">1 / ${p.images.length}</span>` : '';
-    card.innerHTML = `
-      <div class="thumb" data-idx="${idx}">
-        ${badgeHtml}
-        <img loading="lazy" src="${productImg(p.images[0])}" onerror="this.onerror=null;this.src='assets/Titulka.jpg'" alt="${productAlt(p, 0).replace(/"/g,'&quot;')}">
-        ${countHtml}
-      </div>
-      <div class="info">
-        <h4>${p.name}</h4>
-        <div class="price-row">
-          <span class="price">${getPrice(p)}</span>
-          <button type="button" class="buy-btn" data-buy-idx="${idx}">Kúpiť</button>
+  // ===== Pomocné funkcie =====
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function slugify(s){
+    return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  }
+  const usedSlugs = {};
+  products.forEach(p => {
+    let s = slugify(p.name), n = 2;
+    while (usedSlugs[s]) s = slugify(p.name) + '-' + (n++);
+    usedSlugs[s] = true;
+    p.slug = s;
+  });
+  // Koľko najnovších produktov ukázať na úvode (a označiť štítkom „Novinka“)
+  const NEW_COUNT = 5;
+  const productUrl = p => '/produkt/' + p.slug;
+  const presentCategories = CATEGORY_ORDER.filter(c => products.some(p => p.category === c));
+  const SEASON_ORDER = ["Jeseň","Zima","Jar","Leto","Vianoce","Celoročné"];
+  const CART_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>';
+
+  function cardHtml(p){
+    const isNew = products.indexOf(p) < NEW_COUNT;
+    return `<article class="p-card">
+      <a class="p-thumb" href="${productUrl(p)}">
+        ${isNew ? '<span class="p-new">Novinka</span>' : ''}
+        <img loading="lazy" src="${productImg(p.images[0])}" onerror="this.onerror=null;this.src='assets/Titulka.jpg'" alt="${esc(productAlt(p, 0))}">
+      </a>
+      <div class="p-body">
+        <a class="p-name" href="${productUrl(p)}">${esc(p.name)}</a>
+        ${p.badge ? `<span class="p-meta">${esc(p.badge)}</span>` : ''}
+        <div class="p-foot">
+          <span class="p-price">${getPrice(p)}</span>
+          <button type="button" class="p-cart" data-add="${p.slug}" aria-label="Pridať do košíka: ${esc(p.name)}">${CART_ICON}</button>
         </div>
       </div>
-    `;
-    shopGrid.appendChild(card);
-    if (idx < 5) newGrid.appendChild(card.cloneNode(true));
-  });
-
-  const filterBar = document.getElementById('filterBar');
-  const seasonBar = document.getElementById('seasonBar');
-  const filterCount = document.getElementById('filterCount');
-  const cards = Array.from(shopGrid.children);
-  const presentCategories = CATEGORY_ORDER.filter(c => products.some(p => p.category === c));
-  const categories = ["Všetky", ...presentCategories];
-  const SEASON_ORDER = ["Jeseň","Zima","Jar","Leto","Vianoce","Celoročné"];
-  const presentSeasons = SEASON_ORDER.filter(s => cards.some(c => c.dataset.season === s));
-  const seasons = ["Všetky obdobia", ...presentSeasons];
-  let activeCat = "Všetky";
-  let activeSeason = "Všetky obdobia";
-  let searchTerm = "";
-
-  const catCounts = { "Všetky": cards.length };
-  presentCategories.forEach(c => { catCounts[c] = cards.filter(card => card.dataset.category === c).length; });
-
-  function applyFilter(){
-    let visible = 0;
-    cards.forEach(card => {
-      const showCat = activeCat === "Všetky" || card.dataset.category === activeCat;
-      const showSeason = activeSeason === "Všetky obdobia" || card.dataset.season === activeSeason;
-      const name = (card.querySelector('h4')?.textContent || '').toLowerCase();
-      const showSearch = !searchTerm || name.includes(searchTerm);
-      const show = showCat && showSeason && showSearch;
-      card.classList.toggle('hidden', !show);
-      if (show) visible++;
-    });
-    filterCount.textContent = `Zobrazených ${visible} z ${cards.length} produktov`;
-    filterBar.querySelectorAll('.filter-pill').forEach(pill => {
-      pill.classList.toggle('active', pill.dataset.cat === activeCat);
-    });
-    seasonBar.querySelectorAll('.filter-pill').forEach(pill => {
-      pill.classList.toggle('active', pill.dataset.season === activeSeason);
-    });
+    </article>`;
   }
-
-  const productSearch = document.getElementById('productSearch');
-  productSearch.addEventListener('input', () => {
-    searchTerm = productSearch.value.trim().toLowerCase();
-    applyFilter();
-  });
-
-  const filterToggle = document.getElementById('filterToggle');
-  filterToggle.addEventListener('click', () => {
-    const isOpen = seasonBar.classList.toggle('open');
-    filterToggle.classList.toggle('open', isOpen);
-    filterToggle.firstChild.textContent = isOpen ? 'Skryť filtre ' : 'Zobraziť filtre ';
-  });
-
-  categories.forEach(cat => {
-    const pill = document.createElement('button');
-    pill.type = 'button';
-    pill.className = 'filter-pill' + (cat === 'Všetky' ? ' active' : '');
-    pill.dataset.cat = cat;
-    pill.textContent = `${cat} (${catCounts[cat]})`;
-    pill.addEventListener('click', () => { activeCat = cat; applyFilter(); });
-    filterBar.appendChild(pill);
-  });
-  const balikyPill = document.createElement('a');
-  balikyPill.href = '#balicky';
-  balikyPill.className = 'filter-pill filter-pill-baliky';
-  balikyPill.textContent = 'Výhodné balíčky';
-  filterBar.appendChild(balikyPill);
-  const akciaPill = document.createElement('a');
-  akciaPill.href = '#akcia';
-  akciaPill.className = 'filter-pill filter-pill-baliky';
-  akciaPill.textContent = 'Akciové balíčky';
-  filterBar.appendChild(akciaPill);
-  seasons.forEach(season => {
-    const pill = document.createElement('button');
-    pill.type = 'button';
-    pill.className = 'filter-pill' + (season === 'Všetky obdobia' ? ' active' : '');
-    pill.dataset.season = season;
-    pill.textContent = season;
-    pill.addEventListener('click', () => { activeSeason = season; applyFilter(); });
-    seasonBar.appendChild(pill);
-  });
-  applyFilter();
-  document.querySelectorAll('a[data-cat-link]').forEach(a => a.addEventListener('click', () => { activeCat = a.dataset.catLink; applyFilter(); }));
-
-  // PRODUCT DETAIL MODAL
-  const productModal = document.getElementById('productModal');
-  const pmImg = document.getElementById('pmImg');
-  const pmTitle = document.getElementById('pmTitle');
-  const pmTags = document.getElementById('pmTags');
-  const pmPrice = document.getElementById('pmPrice');
-  const pmBuy = document.getElementById('pmBuy');
-  const pmThumbs = document.getElementById('pmThumbs');
-  const pmMore = document.getElementById('pmMore');
-  let pmProduct = null;
-  let pmPos = 0;
-
-  function openProductModal(idx){
-    pmProduct = products[idx];
-    pmPos = 0;
-    renderProductModal();
-    productModal.classList.add('open');
-  }
-  function renderProductModal(){
-    const imgNum = pmProduct.images[pmPos];
-    pmImg.src = productImg(imgNum);
-    pmImg.alt = productAlt(pmProduct, pmPos);
-    pmTitle.textContent = pmProduct.name;
-    pmPrice.textContent = getPrice(pmProduct);
-    const tags = [pmProduct.category, inferSeason(pmProduct.name), ...(pmProduct.tags || [])].filter((v,i,a)=>v && a.indexOf(v)===i);
-    pmTags.innerHTML = tags.map(t => `<span class="product-modal-tag">${t}</span>`).join('');
-    pmThumbs.innerHTML = pmProduct.images.map((imgN,i) =>
-      `<img src="${productImg(imgN)}" data-i="${i}" class="${i===pmPos?'active':''}" alt="${productAlt(pmProduct, i).replace(/"/g,'&quot;')}">`
-    ).join('');
-    pmMore.textContent = pmProduct.fbText || pmProduct.desc || '';
-  }
-  function closeProductModal(){ productModal.classList.remove('open'); }
-  function pmNav(delta){
-    if (!pmProduct) return;
-    const len = pmProduct.images.length;
-    pmPos = (pmPos + delta + len) % len;
-    renderProductModal();
-  }
-
-  [shopGrid, newGrid].forEach(grid => grid.addEventListener('click', e => {
-    const buyBtn = e.target.closest('button.buy-btn[data-buy-idx]');
-    if (buyBtn) { openProductModal(parseInt(buyBtn.dataset.buyIdx, 10)); return; }
-    const card = e.target.closest('.product-card');
-    if (card) openProductModal(parseInt(card.dataset.idx, 10));
-  }));
-  pmThumbs.addEventListener('click', e => {
-    const t = e.target.closest('img[data-i]');
-    if (t) { pmPos = parseInt(t.dataset.i, 10); renderProductModal(); }
-  });
-  document.getElementById('pmPrev').addEventListener('click', () => pmNav(-1));
-  document.getElementById('pmNext').addEventListener('click', () => pmNav(1));
-  document.getElementById('productModalClose').addEventListener('click', closeProductModal);
-  productModal.addEventListener('click', e => { if (e.target === productModal) closeProductModal(); });
-  document.addEventListener('keydown', e => {
-    if (!productModal.classList.contains('open')) return;
-    if (e.key === 'Escape') closeProductModal();
-    if (e.key === 'ArrowLeft') pmNav(-1);
-    if (e.key === 'ArrowRight') pmNav(1);
-  });
 
   // BALÍKY DETAIL MODAL
   const balickyDetails = {
@@ -3482,16 +3357,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
   const balickyModalImg = document.getElementById('balickyModalImg');
   const balickyModalText = document.getElementById('balickyModalText');
 
-  function openBalickyModal(key, product){
-    if (product) {
-      balickyModalImg.src = productImg(product.images[0]);
-      const esc = product.fbText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      const mailBody = encodeURIComponent(`Dobrý deň,\n\nmám záujem o produkt "${product.name}" za ${getPrice(product)}.\n\nĎakujem.`);
-      const mailHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Objednávka: ' + product.name)}&body=${mailBody}`;
-      balickyModalText.innerHTML = `<div class="plain-desc">${esc}</div><a href="${mailHref}" class="btn btn-primary tier-modal-cta">Kúpiť za ${getPrice(product)}</a>`;
-      balickyModal.classList.add('open');
-      return;
-    }
+  function openBalickyModal(key){
     const data = balickyDetails[key];
     if (!data) return;
     balickyModalImg.src = data.img;
@@ -3514,7 +3380,6 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && balickyModal.classList.contains('open')) closeBalickyModal();
   });
-
   // CART & CHECKOUT
   const CART_KEY = 'pi_cart_v1';
   function loadCart(){ try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch(e){ return []; } }
@@ -3532,6 +3397,7 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     const count = cartCount();
     el.textContent = count;
     el.classList.toggle('zero', count === 0);
+    document.getElementById('cartTotal').textContent = formatPrice(cartTotal());
   }
   function addToCart(item){
     const existing = cart.find(it => it.key === item.key);
@@ -3733,20 +3599,6 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
   cartModal.addEventListener('click', e => { if (e.target === cartModal) closeCart(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && cartModal.classList.contains('open')) closeCart(); });
 
-  pmBuy.addEventListener('click', () => {
-    if (!pmProduct) return;
-    addToCart({
-      key: 'product-' + pmProduct.name,
-      name: pmProduct.name,
-      price: getPrice(pmProduct),
-      category: pmProduct.category,
-      img: productImg(pmProduct.images[0])
-    });
-    checkoutView = 'cart';
-    closeProductModal();
-    openCart();
-  });
-
   document.querySelectorAll('.tier-buy').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
@@ -3885,6 +3737,183 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
     window.history.replaceState({}, '', window.location.pathname);
   })();
 
+  // ===== Pridanie produktu do košíka =====
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function addProductToCart(p){
+    addToCart({
+      key: 'product-' + p.name,
+      name: p.name,
+      price: getPrice(p),
+      category: p.category,
+      img: productImg(p.images[0])
+    });
+    document.getElementById('toastText').textContent = `„${p.name}“ je v košíku`;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+  document.getElementById('toastCart').addEventListener('click', () => { toast.classList.remove('show'); checkoutView = 'cart'; openCart(); });
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-add]');
+    if (!btn) return;
+    const p = products.find(x => x.slug === btn.dataset.add);
+    if (!p) return;
+    e.preventDefault();
+    addProductToCart(p);
+    btn.classList.add('added');
+    setTimeout(() => btn.classList.remove('added'), 900);
+  });
+
+  // ===== Menu: kategórie v rozbaľovacom zozname =====
+  document.getElementById('navCatMenu').innerHTML =
+    presentCategories.map(c => `<a href="/eshop?kategoria=${encodeURIComponent(c)}">${esc(c)}</a>`).join('') +
+    `<a class="all" href="/eshop">Zobraziť všetky materiály →</a>`;
+
+  // ===== Stránky =====
+  const path = location.pathname.replace(/\/+$/, '') || '/';
+  const views = { home: document.getElementById('viewHome'), shop: document.getElementById('viewShop'), product: document.getElementById('viewProduct') };
+  function showView(name){
+    Object.entries(views).forEach(([k, el]) => { el.hidden = k !== name; });
+  }
+
+  if (path === '/eshop') { showView('shop'); renderShop(); }
+  else if (path.startsWith('/produkt/')) { showView('product'); renderProduct(decodeURIComponent(path.slice('/produkt/'.length))); }
+  else { showView('home'); renderHome(); }
+
+  function renderHome(){
+    document.getElementById('newGrid').innerHTML = products.slice(0, NEW_COUNT).map(cardHtml).join('');
+    const mini = document.getElementById('heroMini');
+    mini.src = productImg(products[0].images[0]);
+    mini.alt = productAlt(products[0], 0);
+    document.getElementById('catGrid').innerHTML = presentCategories.map(c => {
+      const list = products.filter(p => p.category === c);
+      const n = list.length;
+      const word = n === 1 ? 'materiál' : (n >= 2 && n <= 4 ? 'materiály' : 'materiálov');
+      return `<a class="cat" href="/eshop?kategoria=${encodeURIComponent(c)}">
+        <span class="cat-img"><img loading="lazy" src="${productImg(list[0].images[0])}" alt=""></span>
+        <b>${esc(c)}</b><small>${n} ${word}</small>
+      </a>`;
+    }).join('') + `<a class="cat" href="/#balicky">
+        <span class="cat-img"><img loading="lazy" src="assets/balicky/premium.jpg" alt=""></span>
+        <b>Výhodné balíky</b><small>4 balíky</small>
+      </a>`;
+  }
+
+  function renderShop(){
+    const params = new URLSearchParams(location.search);
+    let activeCat = presentCategories.includes(params.get('kategoria')) ? params.get('kategoria') : 'Všetko';
+    let activeSeason = SEASON_ORDER.includes(params.get('obdobie')) ? params.get('obdobie') : 'Všetky obdobia';
+    let term = (params.get('hladat') || '').trim();
+    let sort = params.get('zoradit') || 'odporucane';
+    const searchEl = document.getElementById('shopSearch');
+    const sortEl = document.getElementById('shopSort');
+    searchEl.value = term;
+    if ([...sortEl.options].some(o => o.value === sort)) sortEl.value = sort; else sort = 'odporucane';
+
+    const presentSeasons = SEASON_ORDER.filter(s => products.some(p => inferSeason(p.name) === s));
+    const catsEl = document.getElementById('shopCats');
+    const seasonsEl = document.getElementById('shopSeasons');
+    catsEl.innerHTML = ['Všetko', ...presentCategories].map(c => `<button type="button" class="pill" data-cat="${esc(c)}">${esc(c)}</button>`).join('')
+      + `<a class="pill" href="/#balicky">Výhodné balíky</a>`;
+    seasonsEl.innerHTML = ['Všetky obdobia', ...presentSeasons].map(s => `<button type="button" class="pill" data-season="${esc(s)}">${esc(s)}</button>`).join('');
+
+    function syncUrl(){
+      const q = new URLSearchParams();
+      if (activeCat !== 'Všetko') q.set('kategoria', activeCat);
+      if (activeSeason !== 'Všetky obdobia') q.set('obdobie', activeSeason);
+      if (term) q.set('hladat', term);
+      if (sort !== 'odporucane') q.set('zoradit', sort);
+      history.replaceState(null, '', '/eshop' + (q.toString() ? '?' + q : ''));
+    }
+    function render(){
+      const t = term.toLowerCase();
+      let list = products.filter(p =>
+        (activeCat === 'Všetko' || p.category === activeCat) &&
+        (activeSeason === 'Všetky obdobia' || inferSeason(p.name) === activeSeason) &&
+        (!t || p.name.toLowerCase().includes(t))
+      );
+      if (sort === 'najlacnejsie') list = list.slice().sort((a,b) => parsePrice(getPrice(a)) - parsePrice(getPrice(b)));
+      if (sort === 'najdrahsie') list = list.slice().sort((a,b) => parsePrice(getPrice(b)) - parsePrice(getPrice(a)));
+      if (sort === 'nazov') list = list.slice().sort((a,b) => a.name.localeCompare(b.name, 'sk'));
+      document.getElementById('shopTitle').textContent = activeCat === 'Všetko' ? 'Všetky materiály' : activeCat;
+      document.title = (activeCat === 'Všetko' ? 'E-shop' : activeCat) + ' — Prípravy Inšpirácie';
+      document.getElementById('shopGrid').innerHTML = list.map(cardHtml).join('');
+      document.getElementById('shopCount').textContent = `Zobrazených ${list.length} z ${products.length} materiálov`;
+      if (!list.length) document.getElementById('shopGrid').innerHTML = '<div class="shop-empty" style="grid-column:1/-1">Nenašli sme žiadny materiál. Skúste iné hľadanie alebo kategóriu.</div>';
+      catsEl.querySelectorAll('[data-cat]').forEach(b => b.classList.toggle('active', b.dataset.cat === activeCat));
+      seasonsEl.querySelectorAll('[data-season]').forEach(b => b.classList.toggle('active', b.dataset.season === activeSeason));
+      syncUrl();
+    }
+    catsEl.addEventListener('click', e => { const b = e.target.closest('[data-cat]'); if (b) { activeCat = b.dataset.cat; render(); } });
+    seasonsEl.addEventListener('click', e => { const b = e.target.closest('[data-season]'); if (b) { activeSeason = b.dataset.season; render(); } });
+    searchEl.addEventListener('input', () => { term = searchEl.value.trim(); render(); });
+    sortEl.addEventListener('change', () => { sort = sortEl.value; render(); });
+    render();
+  }
+
+  function renderProduct(slug){
+    const root = document.getElementById('pdRoot');
+    const p = products.find(x => x.slug === slug);
+    if (!p) {
+      root.innerHTML = `<div class="shop-empty" style="margin-bottom:40px">Tento materiál sme nenašli. <br><br><a class="btn btn-primary" href="/eshop">Prejsť do e-shopu</a></div>`;
+      document.getElementById('pdRelatedWrap').hidden = true;
+      return;
+    }
+    document.title = p.name + ' — Prípravy Inšpirácie';
+    const season = inferSeason(p.name);
+    const long = p.fbText || '';
+    root.innerHTML = `<div class="pd">
+      <div>
+        <div class="pd-main">
+          <img id="pdImg" src="${productImg(p.images[0])}" alt="${esc(productAlt(p, 0))}" onerror="this.onerror=null;this.src='assets/Titulka.jpg'">
+          ${p.images.length > 1 ? '<button type="button" class="pd-nav pd-prev" id="pdPrev" aria-label="Predchádzajúci obrázok">‹</button><button type="button" class="pd-nav pd-next" id="pdNext" aria-label="Ďalší obrázok">›</button>' : ''}
+        </div>
+        ${p.images.length > 1 ? `<div class="pd-thumbs" id="pdThumbs">${p.images.map((im, i) => `<img src="${productImg(im)}" data-i="${i}" class="${i === 0 ? 'active' : ''}" alt="${esc(productAlt(p, i))}">`).join('')}</div>` : ''}
+      </div>
+      <div>
+        <div class="pd-tags">
+          <a class="pd-tag" href="/eshop?kategoria=${encodeURIComponent(p.category)}">${esc(p.category)}</a>
+          <a class="pd-tag" href="/eshop?obdobie=${encodeURIComponent(season)}">${esc(season)}</a>
+        </div>
+        <h1>${esc(p.name)}</h1>
+        ${long && p.desc ? `<p class="pd-short">${esc(p.desc)}</p>` : ''}
+        <div class="pd-meta">📄 Digitálny PDF súbor${p.badge ? ' · ' + esc(p.badge) : ''}</div>
+        <div class="pd-buy">
+          <div><div class="pd-price">${getPrice(p)}</div><small>Digitálny produkt · PDF príde na e-mail po zaplatení</small></div>
+          <button type="button" class="btn btn-primary" data-add="${p.slug}">${CART_ICON.replace('<svg', '<svg width="18" height="18"')} Do košíka</button>
+        </div>
+        <div class="pd-desc">${esc(long || p.desc || '')}</div>
+        <p class="pd-note">💌 PDF materiál vám po objednávke príde na e-mail. Nejde o tlačený produkt.</p>
+      </div>
+    </div>`;
+    if (p.images.length > 1) {
+      let pos = 0;
+      const img = document.getElementById('pdImg');
+      const thumbs = document.getElementById('pdThumbs');
+      const show = i => {
+        pos = (i + p.images.length) % p.images.length;
+        img.src = productImg(p.images[pos]);
+        img.alt = productAlt(p, pos);
+        thumbs.querySelectorAll('img').forEach((t, k) => t.classList.toggle('active', k === pos));
+        thumbs.children[pos].scrollIntoView({block:'nearest', inline:'nearest'});
+      };
+      document.getElementById('pdPrev').addEventListener('click', () => show(pos - 1));
+      document.getElementById('pdNext').addEventListener('click', () => show(pos + 1));
+      thumbs.addEventListener('click', e => { const t = e.target.closest('img[data-i]'); if (t) show(+t.dataset.i); });
+      document.addEventListener('keydown', e => {
+        if (document.querySelector('.cart-modal.open, .balicky-modal.open')) return;
+        if (e.key === 'ArrowLeft') show(pos - 1);
+        if (e.key === 'ArrowRight') show(pos + 1);
+      });
+    }
+    let related = products.filter(x => x !== p && x.category === p.category);
+    if (related.length < 4) related = related.concat(products.filter(x => x !== p && !related.includes(x))).slice(0, 4);
+    document.getElementById('pdRelated').innerHTML = related.slice(0, 4).map(cardHtml).join('');
+    document.getElementById('pdRelatedLink').href = '/eshop?kategoria=' + encodeURIComponent(p.category);
+  }
+
+  // ===== Mobilné menu =====
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   menuBtn.addEventListener('click', () => {
