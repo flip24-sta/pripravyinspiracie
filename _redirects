@@ -1,3 +1,5 @@
 /obchodne-podmienky      /obchodne-podmienky.html      200
 /reklamacny-poriadok     /reklamacny-poriadok.html     200
 /ochrana-osobnych-udajov /ochrana-osobnych-udajov.html 200
+/eshop                   /index.html                   200
+/produkt/*               /index.html                   200
