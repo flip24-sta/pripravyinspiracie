@@ -7,6 +7,40 @@ const { fulfillmentLinks } = require('./fulfillment-links');
 const FROM_EMAIL = 'Prípravy Inšpirácie <onboarding@resend.dev>';
 const OWNER_EMAIL = 'filiphacko2@gmail.com';
 
+const esc = (v) => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+function customerEmailHtml({ items, orderNo, total }) {
+  const rows = items
+    .map((p) => `
+      <tr>
+        <td style="padding:14px 0;border-bottom:1px solid #F1E2D5;">
+          <div style="font-weight:700;color:#241F1D;font-size:15px;">${esc(p.name)}${p.qty > 1 ? ` (${p.qty}×)` : ''}</div>
+          ${p.link
+            ? `<a href="${esc(p.link)}" style="display:inline-block;margin-top:8px;background:#E39A8D;color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;">Stiahnuť materiál (PDF)</a>`
+            : `<div style="margin-top:6px;color:#894E44;font-size:14px;">Tento materiál vám pošleme samostatným e-mailom čo najskôr.</div>`}
+        </td>
+      </tr>`)
+    .join('');
+  return `
+  <div style="background:#FFF8F0;padding:28px 12px;font-family:Arial,Helvetica,sans-serif;">
+    <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #F1E2D5;">
+      <div style="background:#FEF1EE;padding:28px 28px 22px;text-align:center;">
+        <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#E39A8D;font-weight:700;">Prípravy Inšpirácie</div>
+        <h1 style="margin:10px 0 6px;font-size:24px;color:#894E44;">Ďakujeme za objednávku!</h1>
+        <div style="color:#9C8983;font-size:14px;">Platba bola úspešne prijatá.${orderNo ? ` Číslo objednávky: <strong style="color:#241F1D;">${esc(orderNo)}</strong>` : ''}</div>
+      </div>
+      <div style="padding:8px 28px 24px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">${rows}</table>
+        ${total ? `<div style="text-align:right;margin-top:14px;font-size:16px;color:#241F1D;">Spolu zaplatené: <strong>${esc(total)}</strong></div>` : ''}
+        <p style="color:#5f5450;font-size:14px;line-height:1.6;margin:22px 0 0;">Materiály sú vo formáte PDF. Po kliknutí na tlačidlo sa súbor otvorí na Google Disku, kde si ho stiahnete ikonou šípky (Stiahnuť). Súbory sú veľké, sťahovanie môže chvíľu trvať.</p>
+        <p style="color:#5f5450;font-size:14px;line-height:1.6;">Materiály sú určené na opakovanú tlač pre vlastnú triedu, školu alebo domácnosť. Ich ďalšie šírenie alebo predaj nie je povolený.</p>
+        <p style="color:#5f5450;font-size:14px;line-height:1.6;">Ak by sa vám niečo nedarilo otvoriť, stačí odpovedať na tento e-mail alebo napísať na <a href="mailto:${OWNER_EMAIL}" style="color:#894E44;">${OWNER_EMAIL}</a>.</p>
+      </div>
+      <div style="background:#FEF1EE;padding:16px;text-align:center;color:#9C8983;font-size:12px;">Prípravy Inšpirácie · www.pripravyinspiracie.info</div>
+    </div>
+  </div>`;
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
@@ -59,25 +93,18 @@ exports.handler = async (event) => {
 
   if (resendApiKey && customerEmail) {
     const resend = new Resend(resendApiKey);
-    const itemsHtml = withLinks
-      .map((p) =>
-        p.link
-          ? `<li><strong>${p.name}</strong> (${p.qty}×) — <a href="${p.link}">Stiahnuť materiál</a></li>`
-          : `<li><strong>${p.name}</strong> (${p.qty}×) — materiál vám pošleme e-mailom do 24–48 hodín.</li>`
-      )
-      .join('');
+    const orderNo = String(session.id || '').slice(-8).toUpperCase();
+    const total = typeof session.amount_total === 'number'
+      ? (session.amount_total / 100).toLocaleString('sk-SK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'
+      : '';
 
     try {
       await resend.emails.send({
         from: FROM_EMAIL,
         to: customerEmail,
-        subject: 'Vaša objednávka — Prípravy Inšpirácie',
-        html: `
-          <p>Ďakujeme za vašu objednávku! Platba bola úspešne prijatá.</p>
-          <ul>${itemsHtml}</ul>
-          <p>Materiály sú vo formáte PDF, určené na opakované vytlačenie pre vlastnú triedu, školu alebo domácnosť.</p>
-          <p>V prípade akéhokoľvek problému nás kontaktujte na ${OWNER_EMAIL}.</p>
-        `,
+        replyTo: OWNER_EMAIL,
+        subject: `Potvrdenie objednávky ${orderNo} — Prípravy Inšpirácie`,
+        html: customerEmailHtml({ items: withLinks, orderNo, total }),
       });
     } catch (err) {
       // Email failure shouldn't fail the webhook — Stripe would otherwise retry the whole event.

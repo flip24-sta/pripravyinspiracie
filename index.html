@@ -674,7 +674,6 @@
       <div class="hero-ring">
         <img src="assets/Logo.jpg" alt="Prípravy Inšpirácie – pani učiteľka s deťmi">
         <span class="hero-tag">pre MŠ a ZŠ</span>
-        <div class="hero-mini"><img id="heroMini" src="assets/Titulka.jpg" alt="Najnovší materiál"></div>
       </div>
     </div>
   </div>
@@ -3783,9 +3782,6 @@ Kompletný súbor materiálov na privítanie detí v škôlke a ich prvé dni.
 
   function renderHome(){
     document.getElementById('newGrid').innerHTML = products.slice(0, NEW_COUNT).map(cardHtml).join('');
-    const mini = document.getElementById('heroMini');
-    mini.src = productImg(products[0].images[0]);
-    mini.alt = productAlt(products[0], 0);
     document.getElementById('catGrid').innerHTML = presentCategories.map(c => {
       const list = products.filter(p => p.category === c);
       const n = list.length;
