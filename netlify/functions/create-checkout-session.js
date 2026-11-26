@@ -15,6 +15,7 @@ function priceForCategory(category) {
 // Per-product overrides (key = 'product-' + name). Keep in sync with price:"…" in index.html.
 const PRODUCT_PRICES_CENTS = {
   'product-Vianočné diplomy': 450,
+  'product-Rozprávkový adventný kalendár – 24 rozprávok a 48 aktivít': 900,
 };
 
 const BALIK_PRICES_CENTS = {
